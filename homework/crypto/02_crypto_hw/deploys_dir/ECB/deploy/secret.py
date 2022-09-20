@@ -1,0 +1,1 @@
+flag = "AAA{This is a test for AES ECB Orcale}"
