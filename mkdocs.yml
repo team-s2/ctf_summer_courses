@@ -1,0 +1,93 @@
+site_name: CTF101-Labs-2023
+site_url: https://team-s2.github.io/summer_course_2023/
+repo_name: team-s2/summer_course_2023
+repo_url: https://github.com/team-s2/summer_course_2023/
+edit_uri: tree/master/docs
+copyright: Copyright &copy; 2023 ZJU AAA
+
+nav:
+  - 首页: index.md
+  # - 导论部分:
+  #   - lab 0: tmp.md
+  # - misc 专题:
+  #   - misc lab 1: tmp.md
+  #   - misc lab 2: tmp.md
+  # - reverse 专题:
+  #   - reverse lab 1: tmp.md
+  #   - reverse lab 2: tmp.md
+  # - pwn 专题:
+  #   - pwn lab 1: tmp.md
+  #   - pwn lab 2: tmp.md
+  # - web 专题:
+  #   - web lab 1: tmp.md
+  #   - web lab 2: tmp.md
+  # - crypto 专题:
+  #   - crypto lab 1: tmp.md
+  #   - crypto lab 2: tmp.md
+
+theme:
+  name: 'material'
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+  favicon: images/icon.png
+  features:
+    - content.code.annotate
+    - content.action.edit
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
+  font:
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - heti:
+      extra_skipped_class:
+        - arithmatex
+
+extra_javascript:
+  - js/katex.js
+
+markdown_extensions:
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - meta
+  - def_list
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - admonition
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.magiclink
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
