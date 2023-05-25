@@ -1,6 +1,7 @@
 # Lab 0：基础知识及技能
 
-本课程的 Lab 0 由两部分组成：
+本课程的 Lab 0 由两部分组成:
+
 - [Prerequisite](#prerequisite) 部分以及
 - 五选一（[Misc](#misc), [Reverse](#reverse), [Pwn](#pwn), [Web](#web), [Crypto](#crypto)）部分
 
@@ -23,6 +24,7 @@ lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课�
 具备 Linux 后，请学习 [Shell 基础及 CLI 工具推荐](https://www.bilibili.com/video/BV1T84y1w7wB/?buvid=XXCDCB2CD2264848FD0349B8DBACAEB9320D2&is_story_h5=false&mid=WzWmS1nhZSRqjd9a01kvhg%3D%3D&p=1&plat_id=116&share_from=ugc&share_medium=android&share_plat=android&share_session_id=d2193410-fd39-4e7e-8e17-391a010f2135&share_source=WEIXIN&share_tag=s_i&timestamp=1685001407&unique_k=hzfr9kC&up_id=171431343&vd_source=995f906328423129cde6072a4503f4fe) 课程，并在实验报告中给出***任意4个*** shell 命令的用法介绍以及在 Linux 环境下的实操截图
 
 hint: 
+
 - Linux 环境的准备可以参考[去年的课程内容](https://github.com/team-s2/ctf_summer_courses/blob/main/homework/trivial/01_linux_hw.pdf)
 
 
@@ -61,6 +63,7 @@ print("now your string:", data_new)
 2. 请通过 python 编程解决 [calculator](https://zjusec.com/challenges/27) 这道编程题，在实验报告中给出成功解决的截图以及正确的 flag
 
 hint: 
+
 - 如果不知道从哪开始可以查看我们提供的[部分代码]，已经完成了题目的连接以及数据的接收
 - `eval` 函数可以用于计算
 
@@ -71,6 +74,7 @@ hint:
 请访问网址 http://pumpk1n.com/lab0.html 这个神奇的页面藏着一个 flag，请尝试找到它，并在实验报告中记录你的过程
 
 hint:
+
 - 浏览器中的开发者工具
 
 ## Pwn
@@ -81,8 +85,6 @@ hint:
 2. 附件中的 [bug_program.elf](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/bug_program.elf) 是 Linux 平台上编译的可执行 ELF 程序，请在 Linux 环境下执行该程序，并在与其交互的过程中触发找到的漏洞，这些漏洞可以使得程序崩溃么？
 3. 请修复 bug_program.c 中发现的漏洞，将新的代码命名为 no_program.c 并提交
 
-hint:
-- 乱拳打死老师傅
 
 ## Reverse
 参考难度：★★★☆
@@ -98,6 +100,7 @@ hint:
 3. 可执行文件中隐藏的秘密（即格式为 `AAA{...}` 的字符串）是？你是如何获得它的？
 
 hint:
+
 - 需要简单了解 [ELF 可执行文件的格式、加载、链接
 执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
 
