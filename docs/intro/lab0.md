@@ -64,7 +64,7 @@ print("now your string:", data_new)
 
 hint: 
 
-- 如果不知道从哪开始可以查看我们提供的[部分代码]，已经完成了题目的连接以及数据的接收
+- 如果不知道从哪开始可以查看我们提供的[部分代码](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/client.py)，已经完成了题目的连接以及数据的接收
 - `eval` 函数可以用于计算
 
 ## Web
