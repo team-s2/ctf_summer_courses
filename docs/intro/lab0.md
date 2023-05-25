@@ -13,7 +13,9 @@ lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课�
 
 ## Prerequisite
 
-### Challange-1: Linux 环境的搭建与简单使用
+### Challange 1
+
+**Linux 环境的搭建与简单使用**
 
 参考难度：★
 
@@ -28,7 +30,9 @@ hint:
 - Linux 环境的准备可以参考[去年的课程内容](https://github.com/team-s2/ctf_summer_courses/blob/main/homework/trivial/01_linux_hw.pdf)
 
 
-### Challenge-2: 基础的 python 编程
+### Challenge 2
+
+**基础的 python 编程**
 
 参考难度：★
 
