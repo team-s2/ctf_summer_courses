@@ -7,6 +7,8 @@ copyright: Copyright &copy; 2023 ZJU AAA
 
 nav:
   - 首页: index.md
+  - 工具部分:
+    - "相关工具的介绍和使用": intro/tools.md
   - 导论部分:
     - "Lab 0: 基础知识及技能": intro/lab0.md
   # - misc 专题:
