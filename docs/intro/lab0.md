@@ -2,6 +2,20 @@
 
 具体内容稍后发布 :)
 
+
+## Reverse
+参考难度：★★★☆
+
+可恶，为什么这个可执行文件无法运行，其中究竟隐藏着什么秘密！（该秘密为一串有意义的字符串，格式为 `AAA{...}`）：
+
+![题目附件](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/rev_challenge)
+
+你需要在实验报告中回答以下几个问题：
+
+1. 可执行文件的入口点地址（Entry Point Address）是多少？
+2. 可执行文件无法运行的原因是什么？通过什么方法可以让它正常运行？
+3. 可执行文件中隐藏的秘密（即格式为 `AAA{...}` 的字符串）是？你是如何获得它的？
+
 ## Misc
 ### Challenge 1
 参考难度：★
