@@ -5,7 +5,7 @@
 - [Prerequisite](#prerequisite) 部分以及
 - 五选一（[Misc](#misc), [Reverse](#reverse), [Pwn](#pwn), [Web](#web), [Crypto](#crypto)）部分
 
-> 鼓励多选，探索自己感兴趣的方向
+> 鼓励多选，探索自己感兴趣的方向！
 
 完成的报告请命名为 `lab0_姓名_学号.pdf` 并以邮件附件的形式提交到 team-aaa@zju.edu.cn ；并于邮件中提供个人的联系方式～
 
@@ -70,6 +70,20 @@ hint:
 
 - 如果不知道从哪开始可以查看我们提供的[部分代码](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/client.py)，已经完成了题目的连接以及数据的接收
 - `eval` 函数可以用于计算
+
+
+### Challenge 3 (选做)
+
+二进制相关的课题方向（Pwn 以及 Reverse）都需要 x86 汇编的知识，如果对该两方向有兴趣的话，可选完成这 [asm tour 汇编题目](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/asm_tour_1.asm)，在实验报告中给出你的解题过程
+
+> 如果完全没有接触过汇编语言，也无需担心，可以学习 hint 提到的资料。对指令、寄存器、调用规定等知识做个基本了解
+
+hint:
+
+- 小白老师的[汇编课程资料](http://cc.zju.edu.cn/bhh/)
+- [x86的汇编笔记](https://note.tonycrane.cc/cs/pl/asm/)
+
+
 
 ## Web
 
