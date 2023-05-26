@@ -3,13 +3,13 @@
 本课程的 Lab 0 由两部分组成:
 
 - [Prerequisite](#prerequisite) 部分以及
-- 五选一（[Misc](#misc), [Reverse](#reverse), [Pwn](#pwn), [Web](#web), [Crypto](#crypto)）部分
+- [Misc](#misc), [Reverse](#reverse), [Pwn](#pwn), [Web](#web), [Crypto](#crypto) 部分**五选一**
 
 > 鼓励多选，探索自己感兴趣的方向！
 
-完成的报告请命名为 `lab0_姓名_学号.pdf` 并以邮件附件的形式提交到 team-aaa@zju.edu.cn ；并于邮件中提供个人的联系方式～
+完成的报告请命名为 `lab0_姓名_学号.pdf` 并以邮件附件的形式提交到 <team-aaa@zju.edu.cn>；并于邮件中提供个人的联系方式～
 
-lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课程交流群进行讨论，QQ 群号 704639399
+lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课程交流群进行讨论，QQ 群号 704639399。
 
 ## Prerequisite
 
@@ -21,9 +21,9 @@ lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课�
 
 后续课程的许多内容都将在 Linux 操作系统的平台上完成，为了方便，本次课程提供了 [ubuntu 虚拟机](http://10.214.160.32:8088/ubuntu101.ova) 供下载（其中用户名为 ctfer，密码为 aaa），虚拟机中预装了课程中将要用到的各类工具及环境。
 
-> 当然，如果你已经拥有了熟悉的 Linux 环境，请放心大胆使用
+> 当然，如果你已经拥有了熟悉的 Linux 环境，请放心大胆使用。
 
-具备 Linux 后，请学习 [Shell 基础及 CLI 工具推荐](https://www.bilibili.com/video/BV1T84y1w7wB/?buvid=XXCDCB2CD2264848FD0349B8DBACAEB9320D2&is_story_h5=false&mid=WzWmS1nhZSRqjd9a01kvhg%3D%3D&p=1&plat_id=116&share_from=ugc&share_medium=android&share_plat=android&share_session_id=d2193410-fd39-4e7e-8e17-391a010f2135&share_source=WEIXIN&share_tag=s_i&timestamp=1685001407&unique_k=hzfr9kC&up_id=171431343&vd_source=995f906328423129cde6072a4503f4fe) 课程，并在实验报告中给出***任意4个*** shell 命令的用法介绍以及在 Linux 环境下的实操截图
+具备 Linux 后，请观看 [Shell 基础及 CLI 工具推荐 - 2023 春夏计算机学院朋辈辅学](https://www.bilibili.com/video/BV1T84y1w7wB/) 课程视频，并在实验报告中给出***任意4个*** shell 命令的用法介绍以及在 Linux 环境下的实操截图。
 
 hint: 
 
@@ -36,13 +36,14 @@ hint:
 
 参考难度：★
 
-后续的课程中不乏通过编程来
+后续的课程中不乏通过编程来：
+
 1. 节省人力成本
 2. 解决特定问题
 
 掌握脚本语言 python 会让这些事半功倍。请完成如下任务，并在实验报告中给出你的代码：
 
-> 当然，即使你没有学习过 python 也无需慌张；你可以通过如[菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)和各类慕课进行简单的学习。你无需成为一个 python master，基本的代码阅读能力以及编程能力足以使你通过此课
+> 当然，即使你没有学习过 python 也无需慌张；你可以通过如[菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)和各类慕课进行简单的学习。你无需成为一个 python master，基本的代码阅读能力以及编程能力足以使你通过此课。
 
 1. 请阅读和执行如下 python 程序，在实验报告中并解释其功能:
 ```py
@@ -64,19 +65,20 @@ for d in data:
 print("now your string:", data_new)
 ```
 
-2. 请通过 python 编程解决 [calculator](https://zjusec.com/challenges/27) 这道编程题，在实验报告中给出成功解决的截图以及正确的 flag
+2. 请通过 python 编程解决[校巴](https://zjusec.com)上 [calculator](https://zjusec.com/challenges/27) 这道编程题（需要内网访问），在实验报告中给出完整代码、成功解决的截图以及正确的 flag
 
 hint: 
 
 - 如果不知道从哪开始可以查看我们提供的[部分代码](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/client.py)，已经完成了题目的连接以及数据的接收
+    - 或者推荐自学使用 [pwntools](https://docs.pwntools.com/en/latest/) 这个 CTF 中非常常用的 python 包进行交互
 - `eval` 函数可以用于计算
 
 
-### Challenge 3 (选做)
+### Challenge 3（选做）
 
-二进制相关的课题方向（Pwn 以及 Reverse）都需要 x86 汇编的知识，如果对该两方向有兴趣的话，可选完成这 [asm tour 汇编题目](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/asm_tour_1.asm)，在实验报告中给出你的解题过程
+二进制相关的课题方向（Pwn 以及 Reverse）都需要 x86 汇编的知识，如果对该两方向有兴趣的话，可选完成这个 [asm tour 汇编题目](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/asm_tour_1.asm)，在实验报告中给出你的解题过程。
 
-> 如果完全没有接触过汇编语言，也无需担心，可以学习 hint 提到的资料。对指令、寄存器、调用规定等知识做个基本了解
+> 如果完全没有接触过汇编语言，也无需担心，可以学习 hint 提到的资料。对指令、寄存器、调用规定等知识做个基本了解。
 
 hint:
 
@@ -89,7 +91,7 @@ hint:
 
 参考难度：★★
 
-请访问网址 http://pumpk1n.com/lab0.html 这个神奇的页面藏着一个 flag，请尝试找到它，并在实验报告中记录你的过程
+请访问网址 http://pumpk1n.com/lab0.html 这个神奇的页面藏着一个 flag，请尝试找到它，并在实验报告中记录你的过程。
 
 hint:
 
@@ -105,7 +107,7 @@ hint:
 
 
 ## Reverse
-参考难度：★★★☆
+参考难度：★★★
 
 可恶，为什么这个可执行文件无法运行，其中究竟隐藏着什么秘密！（该秘密为一串有意义的字符串，格式为 `AAA{...}`）：
 
@@ -119,8 +121,7 @@ hint:
 
 hint:
 
-- 需要简单了解 [ELF 可执行文件的格式、加载、链接
-执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
+- 需要简单了解 [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
 
 ## Misc
 ### Challenge 1
@@ -155,7 +156,6 @@ hint：
 - 如果你找不到第二部分，请仔细查看**文件内容**
 
 
-
 ## Crypto
 
 ### 题目相关背景知识
@@ -166,16 +166,18 @@ AES是一种对称加密机制，比RSA这样的非对称加密快许多。下�
 对于字符串形式的明文，首先需要把其表示为一个 4x4 的字节矩阵（对，就是线性代数里那个矩阵），对应题目代码中的 `bytes2matrix` 和 `bytes2matrix`。然后进行如下所示的加密流程：
 
 1. 密钥扩展
+
     从128位的密钥中，派生出11个单独的128位“轮密钥”：每个轮密钥用于一个 AddRoundKey 步骤。
 
 2. 初始密钥加
+
     AddRoundKey - 第一个轮密钥的字节与状态的字节进行异或运算。
 
 3. 加密轮次 - 这个阶段被循环执行10次，包括9个主轮次和一个“最终轮次”
-   a) SubBytes - 根据查找表（“S-box”）替换状态的每个字节为不同的字节。
-   b) ShiftRows - 状态矩阵的最后三行进行转置——向左或向右移动一列或两列或三列。
-   c) MixColumns - 对状态的列进行矩阵乘法运算，将每列的四个字节组合在一起。这在最终轮次中被跳过。
-   d) AddRoundKey - 当前轮密钥的字节与状态的字节进行异或运算。
+    1. SubBytes - 根据查找表（“S-box”）替换状态的每个字节为不同的字节。
+    2. ShiftRows - 状态矩阵的最后三行进行转置——向左或向右移动一列或两列或三列。
+    3. MixColumns - 对状态的列进行矩阵乘法运算，将每列的四个字节组合在一起。这在最终轮次中被跳过。
+    4. AddRoundKey - 当前轮密钥的字节与状态的字节进行异或运算。
 
 ![](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/AES.png)
 
