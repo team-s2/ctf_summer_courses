@@ -91,7 +91,7 @@ hint:
 
 参考难度：★★
 
-请访问网址 http://pumpk1n.com/lab0.html 这个神奇的页面藏着一个 flag，请尝试找到它，并在实验报告中记录你的过程。
+请访问网址 http://pumpk1n.com/lab0.php 这个神奇的页面藏着一个 flag，请尝试找到它，并在实验报告中记录你的过程。
 
 hint:
 
