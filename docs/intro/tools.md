@@ -16,6 +16,13 @@
 
 > 备注：预装的 IDA 是需要联网使用的免费试用版，如果安装其他渠道下载到的破解版，请注意避免中文路径问题。
 
+### 解决 SSL 版本过高导致的 server not avaliable
+
+由于高版本 ubuntu 使用的是 SSL3+ 的版本，在 IDA 与远端 server 使用时可能会出问题，如果你遇到了 `cloud server not avaliable` 的问题，其关键原因是 SSL3+ 拿掉了 `SSL_get_peer_certificate` 这个方法，[见链接](https://github.com/nodegit/nodegit/issues/1967#issuecomment-1429957927)（又是不向前兼容的设计）
+
+为了修复，我们可以将旧版本 SSL1.1 替换目前环境的 SSL3+，请下载[修复附件](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/fixf5.zip)，解压缩后在目标目录执行 `fix.sh` 脚本（可能需要 `sudo` 权限），完成后再次测试 IDA 应该就可以正常通过 cloud server 进行 F5 了
+
+
 ## ghidra
 
 - 官网：https://ghidra-sre.org/
