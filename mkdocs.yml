@@ -11,6 +11,7 @@ nav:
     - "相关工具的介绍和使用": intro/tools.md
   - 导论部分:
     - "Lab 0: 基础知识及技能": intro/lab0.md
+    - "misc Lab 1: 编解码及 OSINT": intro/misc-lab1.md
   # - misc 专题:
   #   - misc lab 1: tmp.md
   #   - misc lab 2: tmp.md
@@ -61,11 +62,13 @@ plugins:
         - arithmatex
 
 extra_javascript:
+  - https://cdn.tonycrane.cc/utils/katex.min.js
   - js/katex.js
 
 extra_css:
-  - css/custom.css
+  - https://cdn.tonycrane.cc/utils/katex.min.css
   - https://fonts.googleapis.com/css?family=Roboto:500,500i,600,600i&display=fallback
+  - css/custom.css
 
 markdown_extensions:
   - toc:
