@@ -126,6 +126,7 @@ hint:
 hint:
 
 - 需要简单了解 [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
+- 如果碰到了 `GLIBC_2.34 not found` 的报错，请下载此版本的题目附件，[链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/rev_challenge.old)
 
 ## Misc
 ### Challenge 1
