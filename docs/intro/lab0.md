@@ -21,7 +21,7 @@ lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课�
 
 后续课程的许多内容都将在 Linux 操作系统的平台上完成，为了方便，本次课程提供了 ubuntu 虚拟机供下载
 
-> 下载[链接1](http://10.214.160.32:8088/ubuntu101.ova) [链接2](http://10.12.77.74:8088/ubuntu101.ova) （其中用户名为 ctfer，密码为 aaa）
+> 下载[链接](https://pan.baidu.com/s/1lg4JZoYJwKj6ImuKdtv_Nw?pwd=AAAA)（其中用户名为 ctfer，密码为 aaa）
 
 虚拟机中预装了课程中将要用到的各类工具及环境。
 

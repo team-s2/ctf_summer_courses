@@ -2,7 +2,7 @@
 
 我们在发布的虚拟机
 
-> 下载[链接1](http://10.214.160.32:8088/ubuntu101.ova) [链接2](http://10.12.77.74:8088/ubuntu101.ova) （其中用户名为 ctfer，密码为 aaa）
+> 下载[链接](https://pan.baidu.com/s/1lg4JZoYJwKj6ImuKdtv_Nw?pwd=AAAA)（其中用户名为 ctfer，密码为 aaa）
 
 中预装了一些课程中可能会使用到的工具，这里将对其进行展开介绍。同学们也可以根据自身需要，在熟悉的平台中使用这些工具。
 
