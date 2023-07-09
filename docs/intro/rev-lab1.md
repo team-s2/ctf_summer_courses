@@ -5,9 +5,9 @@
 - [Task 1: 课堂例题++](#task-1)（70 分）
     - 课上练习题复现 (40分)
     - 修改后的练习题 (30分)
-- [Task 2: 伪随机？](task-2) (30分)
+- [Task 2: 伪随机？](#task-2)（30分）
 
-## Task 1 (70 points)
+## Task 1
 
 ### Part 1 (40 points)
 
@@ -29,7 +29,7 @@
 1. 程序中加密函数用到的的**密钥**是什么，你是如何找到它的（10 points）
 2. 给出你解答的 flag 内容及 Writeup（20 points）
 
-## Task 2 (30 points)
+## Task 2
 
 [题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/rev-lab1/pseudo.tar.gz)
 
