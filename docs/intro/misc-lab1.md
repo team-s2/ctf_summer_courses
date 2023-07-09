@@ -1,4 +1,4 @@
-# misc 基础 Lab 1：编解码及 OSINT
+# Misc Lab 1：编解码及 OSINT
 
 本节 Lab 由以下两部分组成：
 
