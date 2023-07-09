@@ -16,7 +16,7 @@ nav:
     - "rev lab 1: Baby Reverse": intro/rev-lab1.md
     - "pwn lab 1: Code Injection": intro/pwn-lab1.md
   # - misc 专题:
-  #   - misc lab 1: tmp.md
+  #   - "misc lab 2: 图片、音频隐写": misc/lab2.md
   #   - misc lab 2: tmp.md
   # - reverse 专题:
   #   - reverse lab 1: tmp.md
