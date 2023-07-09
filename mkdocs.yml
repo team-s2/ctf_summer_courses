@@ -13,6 +13,7 @@ nav:
     - "general lab 0: 基础知识及技能": intro/lab0.md
     - "web lab 1: 常见漏洞": intro/web-lab1.md
     - "misc lab 1: 编解码及 OSINT": intro/misc-lab1.md
+    - "pwn lab 1: Code Injection": intro/pwn-lab1.md
   # - misc 专题:
   #   - misc lab 1: tmp.md
   #   - misc lab 2: tmp.md
