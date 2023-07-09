@@ -7,9 +7,9 @@
     - [Challenge 2: miaomiaomiao](#challenge-2)
     - [Challenge 3: easy LSB](#challenge-3)
 - 选做部分，分数见下，整体多出 100 分的为 bonus
-    - [Challenge 4: Palette Stego](#challenge-5)（20 分）
-    - [Challenge 5: Spectrogram](#challenge-6)（30 分）
-    - [Challenge 6: Huffman Tree](#challenge-4)（50 分）
+    - [Challenge 4: Palette Stego](#challenge-4-palette-stego)（20 分）
+    - [Challenge 5: Spectrogram](#challenge-5-spectrogram)（30 分）
+    - [Challenge 6: Huffman Stego](#challenge-6-huffman-stego)（50 分）
 
 （最终的分数分配可能会根据大家的提交情况有所调整）
 
@@ -108,7 +108,7 @@
 - 搜索并简单阅读 librosa 这个库的文档
 - 如果你被脚本中嵌套的矩阵处理搞糊涂了，不妨自己用另一个音频文件跑一下 generate.py，你可以在中途输出任何你想要了解的中间结果
 
-## Challenge 6: Huffman Tree
+## Challenge 6: Huffman Stego
 ### Background
 
 我们课上讲到了 JPEG 文件会使用 Huffman 编码，以及是一种称为“范式 Huffman 编码”的变形版。关于 Huffman 编码有关的数据存储在了 DHT 块中，其具体格式需要你来自行查阅资料了解。
