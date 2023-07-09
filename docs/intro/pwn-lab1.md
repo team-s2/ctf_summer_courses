@@ -1,4 +1,4 @@
-# pwn lab 1: 认识 PWN 题: Code Injection
+# Pwn Lab 1: Code Injection
 
 本节 Lab 由以下两部分组成：
 
