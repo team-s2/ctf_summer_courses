@@ -1,4 +1,4 @@
-# Misc Lab 1：编解码及 OSINT
+# Crypto Lab 1：逆元、RSA和离散对数
 
 ## Task 1
 基础作业：完成对gcd以及inverse的求解算法，编程语言不限，但只能使用标准库。
