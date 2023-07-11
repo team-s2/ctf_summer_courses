@@ -8,7 +8,7 @@
 
 - 质因数不够大而容易被分解，则在 
  上求逆很简单：[CCPC 2019 Final - K. Mr. Panda and Kakin](https://codeforces.com/gym/102055/problem/K)；
-- 群的阶不含大质因子时，离散对数易被求得：[2019 HDU Multi-University Training Contest 5 - 9. discrete logarithm problem](https://acm.hdu.edu.cn/showproblem.php?pid=6632)；
+- 群的阶不含大质因子时，离散对数易被求得：[2019 HDU Multi-University Training Contest 5 - 9. discrete logarithm problem](https://vjudge.net/problem/HDU-6632)；
 - 也是类似的光滑离散对数：[BabyDLP - ZJUCTF2022](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/crypto-lab1/babyDLP.py)
 
 
