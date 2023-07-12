@@ -1,4 +1,4 @@
-# Misc 基础 Lab 2：图片、音频隐写
+# Misc 专题 Lab 2：图片、音频隐写
 
 本节 Lab 由以下两部分组成：
 
@@ -50,9 +50,9 @@
 
 这是一道 LSB 隐写的题目，但和 lab 0 的方式有那么一点不一样，相信你一定也可以轻松解出 flag。
 
-![](lab2/chal.png)
+![](misc-lab2/chal.png)
 
-- 题目附件：[chal.png](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/misc/lab2/easy_lsb/chal.png)
+- 题目附件：[chal.png](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/easy_lsb/chal.png)
 
 请完成题目，拿到 flag，并在实验报告中写出你的解题思路和具体过程。
 
@@ -68,9 +68,9 @@
 ### Challenge
 下图就是题目，它使用 EZStego 隐写隐藏了 flag：
 
-![](lab2/palette.png)
+![](misc-lab2/palette.png)
 
-- 题目附件：[chal.png](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/misc/lab2/palette/chal.png)
+- 题目附件：[chal.png](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/palette/chal.png)
 
 请学习 PLTE chunk 的格式、EZStego 隐写的原理和具体步骤，完成题目，拿到 flag，并在实验报告中写出你的解题思路和具体过程（包括解题代码）。
 
@@ -91,9 +91,9 @@
 ### Challenge
 这道题目是一个音频隐写的题目，我通过一个 python 程序将一小段歌曲转换为了频谱动图，相信你一定可以从这张动图中就复原出原曲的大致样子。
 
-![flag.gif](lab2/flag.gif)
+![flag.gif](misc-lab2/flag.gif)
 
-- 题目附件：[flag.gif](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/misc/lab2/fourier/flag.gif)、[generate.py](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/misc/lab2/fourier/generate.py)
+- 题目附件：[flag.gif](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/fourier/flag.gif)、[generate.py](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/fourier/generate.py)
 
 请参考生成频谱图的代码，尝试恢复原音频。你需要回答出这首歌曲是什么，并将你的解题思路和具体过程写在实验报告中，将你恢复出的音频和使用的脚本通过压缩包的形式同时上传。
 
@@ -128,9 +128,9 @@
 
 这里有 48 张 512x512 的灰度图，里面藏了 flag，请找出来：
 
-![](lab2/huffman_intro.png)
+![](misc-lab2/huffman_intro.png)
 
-- 题目附件：[chal.zip](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/misc/lab2/huffman/chal.zip)
+- 题目附件：[chal.zip](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/huffman/chal.zip)
 
 以上是在真实的 CTF 比赛中你可能会看到的全部题目描述，这也是一道相当不简单的题目。但这里我继续将大部分做法简要地告诉你来降低一些难度：
 

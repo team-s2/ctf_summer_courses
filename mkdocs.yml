@@ -16,9 +16,8 @@ nav:
     - "rev lab 1: Baby Reverse": intro/rev-lab1.md
     - "pwn lab 1: Code Injection": intro/pwn-lab1.md
     - "crypto lab 1: 逆元、RSA和离散对数": intro/crypto-lab1.md
-  # - misc 专题:
-  #   - "misc lab 2: 图片、音频隐写": misc/lab2.md
-  #   - misc lab 2: tmp.md
+  - 专题部分:
+    - "misc lab 2: 图片、音频隐写": topic/misc-lab2.md
   # - reverse 专题:
   #   - reverse lab 1: tmp.md
   #   - reverse lab 2: tmp.md
