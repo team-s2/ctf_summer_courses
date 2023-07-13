@@ -18,18 +18,8 @@ nav:
     - "crypto lab 1: 逆元、RSA和离散对数": intro/crypto-lab1.md
   - 专题部分:
     - "misc lab 2: 图片、音频隐写": topic/misc-lab2.md
-  # - reverse 专题:
-  #   - reverse lab 1: tmp.md
-  #   - reverse lab 2: tmp.md
-  # - pwn 专题:
-  #   - pwn lab 1: tmp.md
-  #   - pwn lab 2: tmp.md
-  # - web 专题:
-  #   - web lab 1: tmp.md
-  #   - web lab 2: tmp.md
-  # - crypto 专题:
-  #   - crypto lab 1: tmp.md
-  #   - crypto lab 2: tmp.md
+    - "rev lab 2: CrackMe & Malware": topic/rev-lab2.md
+    
 
 theme:
   name: 'material'
