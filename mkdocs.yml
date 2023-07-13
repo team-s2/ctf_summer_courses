@@ -19,6 +19,7 @@ nav:
   - 专题部分:
     - "misc lab 2: 图片、音频隐写": topic/misc-lab2.md
     - "rev lab 2: CrackMe & Malware": topic/rev-lab2.md
+    - "web lab 2: PHP/SQL Basics && SQLi Techs": topic/web-lab2.md
     
 
 theme:
