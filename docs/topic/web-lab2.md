@@ -1,3 +1,4 @@
+# web lab 2: PHP/SQL Basics && SQLi Techs
 ## 实验任务
 ### 1(**20%**):[BUUCTF SQL注入-2](https://buuoj.cn/challenges#[%E7%AC%AC%E4%B8%80%E7%AB%A0%20web%E5%85%A5%E9%97%A8]SQL%E6%B3%A8%E5%85%A5-2)
 + 任务目的：初步了解sqlmap的工作原理与使用方法、常见命令行参数选项；
@@ -7,7 +8,7 @@
     + 将substr函数中用逗号隔开的参数改写成from...for...形式（参见课件）；
     + 将含有逗号的LIMIT子句改写成LIMIT ... OFFSET ...形式（参见课件）；
     + 【可选】保持原关键字形式不变：
-        + 例如应用该脚本后`liMiT 2,1`变为`liMiT 1 offset 2`而非`LIMIT 1 offset 2`。
+        + 例如应用该脚本后`liMiT 2,1`变为`liMiT 1 offset 2`而非`LIMIT 1 offset 2`。  
 
 ### 2(**30%**):校巴 [日哭school bus](https://zjusec.com/challenges/44)    
 + 考点：布尔盲注、后渗透；    
