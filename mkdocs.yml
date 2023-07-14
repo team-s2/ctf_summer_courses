@@ -20,7 +20,7 @@ nav:
     - "misc lab 2: 图片、音频隐写": topic/misc-lab2.md
     - "misc lab 3: 流量、内存取证": topic/misc-lab3.md
     - "rev lab 2: CrackMe & Malware": topic/rev-lab2.md
-    - "rev lab3: 迷宫问题": topic/rev-lab3.md
+    - "rev lab 3: 迷宫问题": topic/rev-lab3.md
     - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
     - "web lab 2: PHP/SQL Basics": topic/web-lab2.md
     - "pwn lab 2: BOF and ROP": topic/pwn-lab2.md
