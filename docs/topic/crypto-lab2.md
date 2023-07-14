@@ -1,4 +1,4 @@
-# crypto lab 2
+# Crypto Lab 2: AES, RSA & LWE
 
 这次作业略多，但基本上都是课上讲过的例题的实现，这里的作业分数分配后续可能会改动（捞人），**基础部分做完就能满分，拓展部分可以加分（最多本次课加满）**。
 
@@ -20,25 +20,25 @@
 
 #### Mission 1 (10 points)
 
-完成CryptoHack中Symmetric Ciphers - How AES works - Bringing It All Together这一题，题目已放在压缩包内，flag格式为crypto{xxx}，可以不在CryptoHack上提交（上课都讲过一遍了，Copy一遍都行，主要是理解AES的整体结构）
+完成 CryptoHack 中 Symmetric Ciphers - How AES works - Bringing It All Together 这一题，题目已放在压缩包内，flag 格式为 crypto{xxx}，可以不在 CryptoHack 上提交（上课都讲过一遍了，Copy 一遍都行，主要是理解 AES 的整体结构）。
 
 #### Mission 2 (20 + 20 points)
 
-完成课上例题ECB Oracle和CBC Byte Flip，题目部署在ZJUCTF平台
+完成课上例题 ECB Oracle 和 CBC Byte Flip，题目部署在ZJUCTF平台。
 
 #### Mission 3 (30 points)
 
-完成课上例题Padding Oracle，部署在ZJUCTF平台上，这道题目难度也有一些，本题分值为30分
+完成课上例题 Padding Oracle，部署在 ZJUCTF 平台上，这道题目难度也有一些，本题分值为30分。
 
 ### Extend Task
 
 #### Mission 1 (10 + 10 points)
 
-完成Hackergame 2022题目**不可加密的异世界**的改进版本（原版可关注[Hackergame官方github](https://github.com/USTC-Hackergame)，改进版在压缩包内），体会不同分组模式各自存在的安全性问题，本题难度低于Beatboxer，但第一小问有trick（Misc回顾），可以先选择游玩此题ヾ(•ω•`)o，本题也部署在了ZJUCTF平台
+完成 Hackergame 2022 题目**不可加密的异世界**的改进版本（原版可关注[Hackergame官方GitHub](https://github.com/USTC-Hackergame)，改进版在压缩包内），体会不同分组模式各自存在的安全性问题，本题难度低于 Beatboxer，但第一小问有 trick（misc回顾），可以先选择游玩此题ヾ(•ω•`)o，本题也部署在了 ZJUCTF 平台。
 
 #### Mission 2 (40 points)
 
-在CryptoHack上完成Symmetric Ciphers - Linear Cryptanalysis - Beatboxer这道题，体会一下完全线性sbox在AES加密中会导致的巨大安全问题，是一道适合入门线性分析的前置问题，没有想象中那么难
+在CryptoHack上完成Symmetric Ciphers - Linear Cryptanalysis - Beatboxer这道题，体会一下完全线性sbox在AES加密中会导致的巨大安全问题，是一道适合入门线性分析的前置问题，没有想象中那么难。
 
 ## RSA Challenge
 
@@ -46,13 +46,13 @@
 
 #### Mission 1 (20 points)
 
-完成[校巴](https://zjusec.com)上的Republican Signature Agency这道题，学习RSA选择明/密文攻击，地址为10.214.160.13:12505
+完成[校巴](https://zjusec.com)上的Republican Signature Agency这道题，学习RSA选择明/密文攻击，地址为10.214.160.13:12505。
 
 ### Extend Task
 
 #### Mission 1 (35 points)
 
-来道简单的Coppersmith攻击练练手，题目名是Crush On Proust，附件在压缩包内，在校巴上也放了一份，题目不算太难，但对数学要求较高
+来道简单的Coppersmith攻击练练手，题目名是Crush On Proust，附件在压缩包内，在校巴上也放了一份，题目不算太难，但对数学要求较高。
 
 ## LWE Challenge
 
@@ -60,4 +60,4 @@
 
 #### Mission 1 (20 points)
 
-来点CryptoHack，CryptoHack - Post Quantum - Learning With Errors - Noise Cheap，本题难度和基础题类似（如果听了LWE相关的），所以也比较推荐来看看
+来点CryptoHack，CryptoHack - Post Quantum - Learning With Errors - Noise Cheap，本题难度和基础题类似（如果听了LWE相关的），所以也比较推荐来看看。
