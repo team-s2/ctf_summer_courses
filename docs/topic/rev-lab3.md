@@ -6,6 +6,8 @@
 
 ## はちみ (100 points)
 
+[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab3/attachment.tar.gz)
+
 はちみを舐めると～ 蜂巢里有好多蜂蜜，完成题目并提交：
 
 1. flag 内容及 Writeup (100 points)
