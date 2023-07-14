@@ -14,12 +14,11 @@
     + 【可选】保持原关键字形式不变
         + 例如应用该脚本后 `liMiT 2,1` 变为 `liMiT 1 offset 2` 而非 `LIMIT 1 offset 2`
 
-### Task 2
-（20%）完成校巴题目：[日哭school bus](https://zjusec.com/challenges/44)
+### Task 2（已更新）  
+（20%）完成校巴题目：[delete injection](https://zjusec.com/challenges/6)
 
-+ 考点：布尔盲注、后渗透
-+ 不一定拿到flag，拿到admin密码即可
-+ 打出flag可以得到bonus**10分**
++ 考点/提示：内联注释WAF绕过、报错注入  
++ 其实有了考点应该是相对好做的？  
 
 ### Task 3
 
