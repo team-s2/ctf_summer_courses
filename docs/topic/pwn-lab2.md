@@ -19,7 +19,7 @@
 - 打印结果标注栈帧编号，如下图有输出额外的 `frame #XXX` 信息
 - 打印结果标注栈帧中的内容，如下图中额外输出的 `(LOCAL)` 表示临时变量、`(FRAME POINTER)` 表示存储的帧指针、`(RET ADDR)` 表示存储的返回地址
 
-![example](pwn-images/parse_example.png)
+![example](pwn-images/parse_example_update.png)
 
 其中给定的栈数据命名细节是 `X_Y.bin`，其中 `X` 是当前帧完成布置后的 `rsp` 值，`Y` 是当前帧完成布置后的 `rbp` 的值，数据文件即是从 `X` 处对应的地址开始转储的
 
