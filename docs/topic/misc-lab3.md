@@ -27,7 +27,7 @@
 
 完成课上讲的 UDP (DNS) 流量分析例题，即 dnscat 协议的手动解析。
 
-- 题目附件：[dns.pcap](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab3/dns.pcap)
+- 题目附件：[dnscap.pcap](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab3/dnscap.pcap)
 - 参考 dnscat 协议文档：[GitHub:iagox86/dnscat2](https://github.com/iagox86/dnscat2/blob/master/doc/protocol.md)
 
 请完成题目，拿到 flag，并在实验报告中写出你的解题思路和具体过程。
