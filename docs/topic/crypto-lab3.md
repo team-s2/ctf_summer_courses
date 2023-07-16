@@ -18,7 +18,7 @@
 为了避免在这种设定下大家相互卷或者都跑去做 Lab 2，做出以下设定：
 
 * 达到 300pts 一定是本专题 100 分(Basic Task)
-* 达到 800pts 一定是 +100 分(Bonus/Extend Task，与 Lab 2 的 Bonus 形成互相溢出的关系，Lab 2 做到 200 分或本专题做到 800pts 则 Crypto 专题满分，但继续多做不再加分)
+* 达到 800pts 一定是 +100 分(Bonus/Extend Task，与 Lab 2 的 Bonus 形成互相溢出的关系，Lab 2 做到 200 分或本专题做到 800pts 则 Crypto 专题满分，但继续多做不再加分；如果以前对 **Crypto 专题**的分数有其他模糊的设定，以此处设定为准)
 
 虽然不加分了但是还是鼓励完成更多的题目，比如 AK CryptoHack 啥的。
 
