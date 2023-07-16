@@ -9,7 +9,7 @@
 * [CryptoHack 上所有的椭圆曲线内容](https://cryptohack.org/challenges/ecc/)
 * [CryptoHack 上数学部分的 Roll your Own](https://cryptohack.org/challenges/maths)
 
-所做题目要求提供思路与源码，除 BACKGROUND 和 STARTER 的部分会进行查重（这不意味这前两部分可以抄袭，亦为考虑对明显雷同者做处罚）QAQ
+所做题目要求提供思路与源码，除 BACKGROUND 和 STARTER 的部分会进行查重（这不意味这前两部分可以抄袭，亦会考虑对明显雷同者做处罚）QAQ
 
 另外请遵守 CryptoHack 的规则，即对于 Starter 分区与小于等于 10pts 的题目**以外的任何题目**，请**不要**在公网上公开分享直接的思路、脚本等内容。
 
