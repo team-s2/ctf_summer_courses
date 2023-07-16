@@ -25,6 +25,7 @@ nav:
     - "crypto lab 3: ECC & Paillier": topic/crypto-lab3.md
     - "web lab 2: PHP/SQL Basics": topic/web-lab2.md
     - "pwn lab 2: BOF and ROP": topic/pwn-lab2.md
+    - "pwn lab 3: More ROP plz": topic/pwn-lab3.md
 
 theme:
   name: 'material'
