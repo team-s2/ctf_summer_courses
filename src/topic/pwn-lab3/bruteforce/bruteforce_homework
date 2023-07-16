@@ -1,0 +1,35 @@
+// gcc -o bruteforce_example -z execstack -fno-stack-protector -m32 bruteforce_example.c
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+#ifndef BUF_SIZE
+#define BUF_SIZE 32
+#endif
+
+int bof(char *str)
+{
+    char buffer[BUF_SIZE];
+
+    /* The following statement has a buffer overflow problem */
+    strcpy(buffer, str);       
+
+    return 1;
+}
+
+int main(int argc, char **argv)
+{
+    char str[4096];
+    FILE *badfile;
+
+     /* Change the size of the dummy array to randomize the parameters
+       for this lab. Need to use the array at least once */
+    char dummy[BUF_SIZE];  memset(dummy, 0, BUF_SIZE);
+
+    badfile = fopen("badfile", "r");
+    fread(str, sizeof(char), 4096, badfile);
+    bof(str);
+    printf("Returned Properly\n");
+    return 1;
+}
