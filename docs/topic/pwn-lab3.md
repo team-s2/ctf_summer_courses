@@ -12,7 +12,7 @@
 
 ## Challenge 1
 
-相比于课堂下发的 `bruteforce_example`，这里的 `bruteforce_homework` 稍微修改了一下栈缓冲区的大小，详见[附件]((https://github.com/team-s2/summer_course_2023/tree/master/src/topic/pwn-lab3/bruteforce))
+相比于课堂下发的 `bruteforce_example`，这里的 `bruteforce_homework` 稍微修改了一下栈缓冲区的大小，详见[附件](https://github.com/team-s2/summer_course_2023/tree/master/src/topic/pwn-lab3/bruteforce)
 
 请通过编写正确的 exploit 生成带有 shellcode 的 `badfile`，类似课堂上的演示去本地循环的爆破 32 位下的栈随机，请在报告中给出最后爆破成功拿到 shell 的截图
 
