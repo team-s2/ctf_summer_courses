@@ -42,6 +42,7 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.top
+    - navigation.footer
     - navigation.sections
   font:
     code: JetBrains Mono
