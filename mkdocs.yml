@@ -27,6 +27,8 @@ nav:
     - "web lab 3: PHP unserialization": topic/web-lab3.md
     - "pwn lab 2: BOF and ROP": topic/pwn-lab2.md
     - "pwn lab 3: More ROP plz": topic/pwn-lab3.md
+  - 反馈部分:
+    - "misc lab 1 批改反馈": feedback/misc-lab1.md
 
 theme:
   name: 'material'
