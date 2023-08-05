@@ -34,7 +34,9 @@
 在 `ropbasic` 的基础上，增加了 SECCOMP 保护，就成了 `ropbasic-harden`。请完成对其的漏洞分析以及利用
 
 - [题目附件](https://github.com/team-s2/summer_course_2023/tree/master/src/topic/pwn-lab3/ropbasic-harden)
-- 题目部署在公网 IP: `116.62.247.145`, Port: `11023`
+- 题目部署在校网 IP: `10.214.160.22`, Port: `50003`
+
+> hint: 注意做 orw 的时候，不是去调用 libc 函数里的 open/read/write 哦，而是要想办法 ROP 做具体系统调用哦
 
 ## Bonus
 
