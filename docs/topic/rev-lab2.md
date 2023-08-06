@@ -9,12 +9,12 @@
 
 ## Task 1
 
-### Part 1 (50 points)
+### Part 1 (60 points)
 
 课上我们讲解了如何把 010 Editor 变为 Freeware，并和大家一起分析了校验序列号的核心函数 `sub_14036E740` 中 0x9C 这个分支的情况, 附件 `keygen.py`（[下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab2/keygen.py)）为对应的 python 注册机代码。请回顾课上讲解的内容，参考给出的注册机代码，尝试编写 0xAC 分支的注册机（不限编程语言），并提交 Writeup，要求包含：
 
-1. 分析 010 Editor 的流程及 patch 的过程和原理 （5 points）
-2. 如何定位到校验序列号的核心函数以及我们期望这个函数返回什么 （5 points）
+1. 分析 010 Editor 的流程及 patch 的过程和原理 （10 points）
+2. 如何定位到校验序列号的核心函数以及我们期望这个函数返回什么 （10 points）
 3. 分析校验序列号算法的流程，阐述输入的 Name 与 Password 是如何被校验的 （20 points）
 4. 你最终编写的 0xAC 分支注册机代码以及在 010 Editor 中成功注册的截图 （20 points）
 
@@ -25,7 +25,7 @@
 
 ![success](rev-images/register_success.png)
 
-### Part 2 (30 points)
+### Part 2 (50 points)
 
 [题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab2/Evil_Panda.zip)
 
