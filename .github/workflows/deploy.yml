@@ -1,20 +1,56 @@
-name: deploy
+name: Deploy to Pages
 
 on:
   push:
-    branches:
-      - master 
+    branches: ["master", "2023"]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - run: pip install mkdocs-material mkdocs-heti-plugin
-      - run: mkdocs gh-deploy --force
+      - name: Checkout 2023 version docs
+        uses: actions/checkout@v4
+        with:
+          ref: "2023"
+      - name: Install old dependencies
+        run: pip install mkdocs==1.5.0 mkdocs-material-extensions==1.1 mkdocs-material==9.1.21 mkdocs-heti-plugin==0.1.5
+      - name: Build 2023 version docs
+        run: |
+          mkdir -p /tmp/2023
+          mkdocs build --site-dir /tmp/2023
+      - name: Checkout latest version docs
+        uses: actions/checkout@v4
+      - name: Install new dependencies
+        run: |
+          pip uninstall -y mkdocs mkdocs-material mkdocs-material-extensions mkdocs-heti-plugin
+          pip install mkdocs-material mkdocs-heti-plugin
+      - name: Build latest version docs
+        run: |
+          mkdocs build --site-dir site
+          mkdir site/2023
+          mv /tmp/2023/* site/2023
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './site'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
