@@ -135,13 +135,15 @@ hint:
 
 - 浏览器中的开发者工具
 
-## 【TODO】Pwn
+## Pwn
 
 参考难度：★★
 
-1. 请阅读附件中的 C 代码 [bug_program.c](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/bug_program.c)，尝试找到代码中所有的***BUG***，并在实验报告中给出描述
-2. 附件中的 [bug_program.elf](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/bug_program.elf) 是 Linux 平台上编译的可执行 ELF 程序，请在 Linux 环境下执行该程序，并在与其交互的过程中触发找到的漏洞，这些漏洞可以使得程序崩溃么？
+1. 请阅读附件中的 C 代码 [program.c](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/program.c)，尝试找到代码中所有的***BUG***，并在实验报告中给出描述
+2. 附件中的 [program.elf](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/program.elf) 是上述源代码 Linux 平台上编译的可执行 ELF 程序，请在 Linux 环境下执行该程序，并在与其交互的过程中触发找到的漏洞，这些漏洞可以使得程序崩溃么？
 3. 请修复 bug_program.c 中发现的漏洞，将新的代码命名为 no_program.c 并提交
+4. (可选) 参考网上[资料](https://www.cnblogs.com/zhuyp1015/p/3901191.html)，学习 valgrind 使用，并使用其去验证 2 过程中的漏洞触发，提交过程截图
+5. (可选) 通过如[该资料](https://seedsecuritylabs.org/Labs_16.04/Networking/Heartbleed/)，学习了接 CVE-2014-0160 HeartBleed
 
 
 ## 【TODO】Reverse
