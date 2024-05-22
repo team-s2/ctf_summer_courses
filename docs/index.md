@@ -25,3 +25,10 @@
 ## 课程交流群
 
 关于选课、Lab 0 等任何与本次短学期课程有关的问题，都可以加 QQ 群 704994583 交流。
+
+## 历年归档
+
+- [`2022`](https://github.com/team-s2/ctf_summer_courses/tree/2022)：无在线网站，内容见 [ctf_summer_courses `2022` 分支](https://github.com/team-s2/ctf_summer_courses/tree/2022)
+- [`2023`](https://github.com/team-s2/ctf_summer_courses/tree/2023)：<https://courses.zjusec.com/2023/>
+
+PS：本网站可能有一些能通过链接访问但没有公开在导航栏的 Lab 文档，这些 Lab 大部分是还未修改的 2023 年版本，后续还会有很大更改，请不要在实验发布前自行偷跑。
