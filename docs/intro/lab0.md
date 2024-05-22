@@ -1,5 +1,7 @@
 # Lab 0：基础知识及技能
 
+!!! warning "本实验尚未完成修改"
+
 本课程的 Lab 0 由两部分组成:
 
 - [Prerequisite](#prerequisite) 部分以及
@@ -7,9 +9,16 @@
 
 > 鼓励多选，探索自己感兴趣的方向！
 
-完成的报告请命名为 `lab0_姓名_学号.pdf` 与**6月11日中午12点前**，以邮件附件的形式提交到 <team-aaa@zju.edu.cn>；并于邮件中提供个人的联系方式～
+完成的报告请命名为 `lab0_姓名_学号.pdf`，以邮件附件的形式提交到 <team-aaa@zju.edu.cn>；并于邮件中提供个人的联系方式～
 
-lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课程交流群进行讨论，QQ 群号 704639399。
+!!! warning "前排提示"
+    本课程与其他大家一直在上的学校课程有很大不同。CTF 是一个非常灵活多变又非常注重实践的比赛，所以我们会更偏向于引导大家独立探索、自主学习，而非将所有需要的知识统统灌输给大家。
+
+    因此本 Lab 0 乃至后续的所有实验中都会有很多需要同学们自己去上网查资料，自己学习一些新知识的地方。而且在做 Lab 遇到问题时也需要大家先自行排查问题原因，搜索解决方案。如果你真的解决不了想在群里提问或者私戳助教，也请先阅读[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)两篇文章。
+
+    如果你实在受不了自学这种方式，只想要通过接受我们的输出来学习 CTF，或者你只想以最低成本拿下短学期学分，那么这门课或许并不适合你，你应当考虑放弃选修本课程。
+
+Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的问题都欢迎加入课程交流群进行讨论，QQ 群号 704994583。
 
 ## Prerequisite
 
@@ -17,21 +26,47 @@ lab过程中遇到的问题或者任何与课程相关的问题欢迎加入课�
 
 **Linux 环境的搭建与简单使用**
 
-参考难度：★
+参考难度：★★
 
-后续课程的许多内容都将在 Linux 操作系统的平台上完成，为了方便，本次课程提供了 ubuntu 虚拟机供下载
+后续课程的许多内容都需要 Linux 环境支持，本 challenge 需要大家提前准备好一个自己习惯的 Linux 环境，并熟悉基本的 shell 命令。
 
-> 下载[链接](https://pan.baidu.com/s/1lg4JZoYJwKj6ImuKdtv_Nw?pwd=AAAA)（其中用户名为 ctfer，密码为 aaa）
+???+ note "环境推荐"
+    === "Windows"
+        推荐使用 WSL，相关安装教程请自行上网搜索。
 
-虚拟机中预装了课程中将要用到的各类工具及环境。
+        也可以使用 VMWare Workstation 或者 VirtualBox 等虚拟机软件安装 Linux 系统。
+
+    === "macOS"
+        如果你非常熟悉 macOS 环境且你的 mac 是 intel 处理器的话，大部分情况下你也可以直接使用你的 macOS 环境。
+
+        也可以使用 Parallels Desktop / VMWare Fusion 等虚拟机软件安装 Linux 系统。
+
+        如果你的 mac 是 M 系列 Apple Silicon 处理器的话，也就是说你的电脑是 arm 架构，那么你就需要一个 x86 Linux 的环境了。最方便的方法是使用 docker（关于 docker 安装见[官网](https://docs.docker.com/desktop/install/mac-install/)）。macOS 下的 docker 可以通过 qemu 来模拟运行不同架构的容器，比如运行一个 x86_64 架构的 ubuntu:latest 容器你可以运行：
+
+        ```bash
+        docker run -it -d --platform linux/amd64 --name ubuntu_amd64 ubuntu:latest
+        # -d 后台运行，--platform 指定目标架构，--name 指定容器名 ubuntu:latest 指定镜像
+        docker exec -it ubuntu_amd64 /bin/bash
+        # 进入容器的 bash 终端
+        ```
+
+        更多关于 docker 的使用方法，比如目录挂载、网络配置等可以自行上网学习。
+
+    === "Linux"
+        显然，你已经有了（
+
+    关于 Linux 发行版，我们推荐 Ubuntu 22.04 LTS / Ubuntu 24.04 LTS / Kali Linux 2024.1 等。
 
 > 当然，如果你已经拥有了熟悉的 Linux 环境，请放心大胆使用。
 
-具备 Linux 后，请观看 [Shell 基础及 CLI 工具推荐 - 2023 春夏计算机学院朋辈辅学](https://www.bilibili.com/video/BV1T84y1w7wB/) 课程视频，并在实验报告中给出***任意4个*** shell 命令的用法介绍以及在 Linux 环境下的实操截图。
+具备 Linux 环境后，请观看并学习[「实用技能拾遗」朋辈辅学课程](https://slides.tonycrane.cc/PracticalSkillsTutorial/)中的 lec1 即「Shell 基础及 CLI 工具推荐」课程学习 Linux 基础知识，并完成以下任务：
 
-hint: 
+- 在本机中通过 ssh 远程连接到你的 Linux 环境（使用 Linux 宿主机可跳过本任务）；
+- 在实验报告中给出**任意 4 个** shell 命令的用法介绍以及在 Linux 环境下的实操截图；
+- 完成 [SadServers](https://sadservers.com/) 上的题目 ["Saint John": what is writing to this log file?](https://sadservers.com/scenario/saint-john) 给出解答以及通过截图。
 
-- Linux 环境的准备可以参考[去年的课程内容](https://github.com/team-s2/ctf_summer_courses/blob/main/homework/trivial/01_linux_hw.pdf)
+!!! tip "Hint"
+    - Linux 环境的准备可以参考[前年的课程作业](https://github.com/team-s2/ctf_summer_courses/blob/2022/homework/trivial/01_linux_hw.pdf)
 
 
 ### Challenge 2
@@ -40,58 +75,57 @@ hint:
 
 参考难度：★
 
-后续的课程中不乏通过编程来：
-
-1. 节省人力成本
-2. 解决特定问题
-
-掌握脚本语言 python 会让这些事半功倍。请完成如下任务，并在实验报告中给出你的代码：
+后续的课程中不乏通过编程来节省人力成本解决特定问题。掌握脚本语言 python 会让这些事半功倍。
 
 > 当然，即使你没有学习过 python 也无需慌张；你可以通过如[菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)和各类慕课进行简单的学习。你无需成为一个 python master，基本的代码阅读能力以及编程能力足以使你通过此课。
 
+???+ note "关于 python 环境安装的建议"
+    建议使用 python 3.12.x 版本。
+    
+    如果你确定你的 Linux 环境只用来完成本次课程，你可以直接通过 apt 来安装 python。
+
+    否则推荐直接安装 [miniconda](https://docs.anaconda.com/free/miniconda/) / [mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html) / [anaconda](https://www.anaconda.com/download/success) 等工具进行 python 环境的安装、管理和切换。
+
+请完成如下任务，并在实验报告中给出你的代码：
+
 1. 请阅读和执行如下 python 程序，在实验报告中并解释其功能:
-```py
-#!/usr/bin/python3
+    ```py
+    #!/usr/bin/python3
 
-data = input("give me your string: ")
-print("length of string:", len(data))
+    data = input("give me your string: ")
+    print("length of string:", len(data))
 
-data_old = data
-data_new = ""
-for d in data:
-    if d in 'abcdefghijklmnopqrstuvwxyz':
-        data_new += chr(ord(d) - 32)
-    elif d in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
-        data_new += chr(ord(d) + 32)
-    else:
-        data_new += d
+    data_old = data
+    data_new = ""
+    for d in data:
+        if d in 'abcdefghijklmnopqrstuvwxyz':
+            data_new += chr(ord(d) - 32)
+        elif d in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+            data_new += chr(ord(d) + 32)
+        else:
+            data_new += d
 
-print("now your string:", data_new)
-```
+    print("now your string:", data_new)
+    ```
+2. 请通过 python 编程解决[校巴](https://zjusec.com)上 [calculator](https://zjusec.com/challenges/27) 这道编程题（需要内网访问），在实验报告中给出完整代码、成功解决的截图以及正确的 flag。
 
-2. 请通过 python 编程解决[校巴](https://zjusec.com)上 [calculator](https://zjusec.com/challenges/27) 这道编程题（需要内网访问），在实验报告中给出完整代码、成功解决的截图以及正确的 flag
-
-hint: 
-
-- 如果不知道从哪开始可以查看我们提供的[部分代码](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/client.py)，已经完成了题目的连接以及数据的接收
-    - 或者推荐自学使用 [pwntools](https://docs.pwntools.com/en/latest/) 这个 CTF 中非常常用的 python 包进行交互
-- `eval` 函数可以用于计算
+!!! tip "Hint"
+    - 如果不知道从哪开始可以查看我们提供的[部分代码](https://github.com/team-s2/ctf_summer_courses/blob/master/src/intro/lab0/client.py)，已经完成了题目的连接以及数据的接收（直接使用 socket 进行连接）
+        - 或者推荐自学使用 [pwntools](https://docs.pwntools.com/en/latest/) 这个 CTF 中非常常用的 python 包进行更方便的交互
+    - `eval` 函数可以用于计算
 
 
 ### Challenge 3（选做）
 
-二进制相关的课题方向（Pwn 以及 Reverse）都需要 x86 汇编的知识，如果对该两方向有兴趣的话，可选完成这个 [asm tour 汇编题目](https://github.com/team-s2/summer_course_2023/blob/master/src/intro/lab0/asm_tour_1.asm)，在实验报告中给出你的解题过程。
+二进制相关的课题方向（Pwn 以及 Reverse）都需要 x86 汇编的知识，如果对该两方向有兴趣的话，可选完成这个 [asm tour 汇编题目](https://github.com/team-s2/ctf_summer_courses/blob/master/src/intro/lab0/asm_tour_1.asm)，在实验报告中给出你的解题过程。
 
 > 如果完全没有接触过汇编语言，也无需担心，可以学习 hint 提到的资料。对指令、寄存器、调用规定等知识做个基本了解。
 
-hint:
+!!! tip "Hint"
+    - 小白老师的[汇编课程资料](http://cc.zju.edu.cn/bhh/)
+    - [TonyCrane 的 8086 的汇编笔记](https://note.tonycrane.cc/cs/pl/asm/)
 
-- 小白老师的[汇编课程资料](http://cc.zju.edu.cn/bhh/)
-- [x86的汇编笔记](https://note.tonycrane.cc/cs/pl/asm/)
-
-
-
-## Web
+## 【TODO】Web
 
 参考难度：★★
 
@@ -101,7 +135,7 @@ hint:
 
 - 浏览器中的开发者工具
 
-## Pwn
+## 【TODO】Pwn
 
 参考难度：★★
 
@@ -110,7 +144,7 @@ hint:
 3. 请修复 bug_program.c 中发现的漏洞，将新的代码命名为 no_program.c 并提交
 
 
-## Reverse
+## 【TODO】Reverse
 参考难度：★★★
 
 可恶，为什么这个可执行文件无法运行，其中究竟隐藏着什么秘密！（该秘密为一串有意义的字符串，格式为 `AAA{...}`）：
@@ -128,7 +162,7 @@ hint:
 - 需要简单了解 [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
 - 如果碰到了 `GLIBC_2.34 not found` 的报错，请下载此版本的题目附件，[链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/rev_challenge.old)
 
-## Misc
+## 【TODO】Misc
 ### Challenge 1
 参考难度：★
 
@@ -161,7 +195,7 @@ hint：
 - 如果你找不到第二部分，请仔细查看**文件内容**
 
 
-## Crypto
+## 【TODO】Crypto
 
 ### 题目相关背景知识
 AES是一种对称加密机制，比RSA这样的非对称加密快许多。由于本题只涉及 `AddRoundKey` 和 `Substitution Bytes` 内容，所以只对实验相关部分进行简要说明，而 AES 的完整细节可以[在这里](https://ctf-wiki.org/crypto/blockcipher/aes/)阅读学习。
