@@ -139,8 +139,8 @@ hint:
 
 参考难度：★★
 
-1. 请阅读附件中的 C 代码 [program.c](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/program.c)，尝试找到代码中所有的***BUG***，并在实验报告中给出描述
-2. 附件中的 [program.elf](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/program.elf) 是上述源代码 Linux 平台上编译的可执行 ELF 程序，请在 Linux 环境下执行该程序，并在与其交互的过程中触发找到的漏洞，这些漏洞可以使得程序崩溃么？
+1. 请阅读附件中的 C 代码 [program.c](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/program.c)，尝试找到代码中所有的***BUG***，并在实验报告中给出描述
+2. 附件中的 [program.elf](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/program.elf) 是上述源代码 Linux 平台上编译的可执行 ELF 程序，请在 Linux 环境下执行该程序，并在与其交互的过程中触发找到的漏洞，这些漏洞可以使得程序崩溃么？
 3. 请修复 `program.c` 中发现的漏洞，将新的代码命名为 `nobug_program.c` 并提交
 4. (可选) 参考网上[资料](https://www.cnblogs.com/zhuyp1015/p/3901191.html)，学习 valgrind 使用，并使用其去验证 2 过程中的漏洞触发，提交过程截图
 
@@ -149,7 +149,7 @@ hint:
 
 参考难度：★★
 
-[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/crackme)
+[题目下载链接](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/crackme)
 
 1. 尝试通过反汇编/反编译工具逆向该可执行 ELF 程序，并成果获得 `Access Granted` 的提示。请在报告中给出逆向步骤，
 2. (可选) 思考逆向该 crackme 的过程中，有无什么可能的取巧、自动的方式
