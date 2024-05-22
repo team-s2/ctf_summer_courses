@@ -3,7 +3,7 @@ site_url: https://courses.zjusec.com/
 repo_name: ctf_summer_courses
 repo_url: https://github.com/team-s2/ctf_summer_courses/
 edit_uri: tree/master/docs
-copyright: Copyright &copy; 2023 ZJU AAA
+copyright: Copyright &copy; 2023-2024 ZJU AAA
 
 nav:
   - 首页: index.md
