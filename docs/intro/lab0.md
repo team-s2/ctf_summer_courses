@@ -143,26 +143,18 @@ hint:
 2. 附件中的 [program.elf](https://github.com/team-s2/summer_course_2023/raw/master/src/intro/lab0/program.elf) 是上述源代码 Linux 平台上编译的可执行 ELF 程序，请在 Linux 环境下执行该程序，并在与其交互的过程中触发找到的漏洞，这些漏洞可以使得程序崩溃么？
 3. 请修复 bug_program.c 中发现的漏洞，将新的代码命名为 no_program.c 并提交
 4. (可选) 参考网上[资料](https://www.cnblogs.com/zhuyp1015/p/3901191.html)，学习 valgrind 使用，并使用其去验证 2 过程中的漏洞触发，提交过程截图
-5. (可选) 通过如[该资料](https://seedsecuritylabs.org/Labs_16.04/Networking/Heartbleed/)，学习了接 CVE-2014-0160 HeartBleed
 
 
-## 【TODO】Reverse
-参考难度：★★★
+## Reverse
 
-可恶，为什么这个可执行文件无法运行，其中究竟隐藏着什么秘密！（该秘密为一串有意义的字符串，格式为 `AAA{...}`）：
+参考难度：★★
 
-[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/rev_challenge)
+[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/crackme)
 
-你需要在实验报告中回答以下几个问题：
-
-1. 可执行文件的入口点地址（Entry Point Address）是多少？
-2. 可执行文件无法运行的原因是什么？通过什么方法可以让它正常运行？
-3. 可执行文件中隐藏的秘密（即格式为 `AAA{...}` 的字符串）是？你是如何获得它的？
-
-hint:
-
-- 需要简单了解 [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
-- 如果碰到了 `GLIBC_2.34 not found` 的报错，请下载此版本的题目附件，[链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/rev_challenge.old)
+1. 尝试通过反汇编/反编译工具逆向该可执行 ELF 程序，并成果获得 `Access Granted` 的提示。请在报告中给出逆向步骤，
+2. (可选) 思考逆向该 crackme 的过程中，有无什么可能的取巧、自动的方式
+3. (注意) 对逆向方向感兴趣的同学请了解如下基础知识
+    - [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
 
 ## 【TODO】Misc
 ### Challenge 1
