@@ -18,6 +18,11 @@
 
     如果你实在受不了自学这种方式，只想要通过接受我们的输出来学习 CTF，或者你只想以最低成本拿下短学期学分，那么这门课或许并不适合你，你应当考虑放弃选修本课程。
 
+!!! note "关于网络环境"
+    本课程的实验材料以及文档都通过 GitHub 仓库进行发布，所以请确保你可以正常访问 GitHub。
+
+    如果你无法正常访问 GitHub，请考虑学习使用代理，这也是在 CTF 乃至计算机领域学习中必不可少的技能之一。
+
 Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的问题都欢迎加入课程交流群进行讨论，QQ 群号 704994583。
 
 ## Prerequisite
@@ -131,18 +136,17 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 
 请访问网址 http://pumpk1n.com/lab0.php 这个神奇的页面藏着一个 flag，请尝试找到它，并在实验报告中记录你的过程。
 
-hint:
-
-- 浏览器中的开发者工具
+!!! tip "Hint"
+    - 浏览器中的开发者工具
 
 ## Pwn
 
 参考难度：★★
 
-1. 请阅读附件中的 C 代码 [program.c](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/program.c)，尝试找到代码中所有的***BUG***，并在实验报告中给出描述
+1. 请阅读附件中的 C 代码 [program.c](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/program.c)，尝试找到代码中所有的***BUG***，并在实验报告中给出描述；
 2. 附件中的 [program.elf](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/program.elf) 是上述源代码 Linux 平台上编译的可执行 ELF 程序，请在 Linux 环境下执行该程序，并在与其交互的过程中触发找到的漏洞，这些漏洞可以使得程序崩溃么？
-3. 请修复 `program.c` 中发现的漏洞，将新的代码命名为 `nobug_program.c` 并提交
-4. (可选) 参考网上[资料](https://www.cnblogs.com/zhuyp1015/p/3901191.html)，学习 valgrind 使用，并使用其去验证 2 过程中的漏洞触发，提交过程截图
+3. 请修复 `program.c` 中发现的漏洞，将新的代码命名为 `nobug_program.c` 并提交；
+4. （可选）参考网上[资料](https://www.cnblogs.com/zhuyp1015/p/3901191.html)，学习 valgrind 使用，并使用其去验证 2 过程中的漏洞触发，提交过程截图。
 
 
 ## Reverse
@@ -151,9 +155,9 @@ hint:
 
 [题目下载链接](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/crackme)
 
-1. 尝试通过反汇编/反编译工具逆向该可执行 ELF 程序，并成果获得 `Access Granted` 的提示。请在报告中给出逆向步骤，
-2. (可选) 思考逆向该 crackme 的过程中，有无什么可能的取巧、自动的方式
-3. (注意) 对逆向方向感兴趣的同学请了解如下基础知识
+1. 尝试通过反汇编/反编译工具逆向该可执行 ELF 程序，并成功通过输入获得 `Access Granted` 的提示。请在报告中给出逆向步骤；
+2. （可选）思考逆向该 crackme 的过程中，有无什么可能的取巧、自动的方式；
+3. （注意）对逆向方向感兴趣的同学请了解如下基础知识：
     - [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
 
 ## Misc
@@ -211,12 +215,11 @@ AddRoundKey 步骤很简单：它将当前状态(4x4 的字节矩阵)与当前�
 ### Challenge
 参考难度：★★
 
-[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/task.py)
+[题目下载链接](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/task.py)
 
 上题是对AES的简单抽象，其中需要你补全的 `add_round_key` 和 `sub_bytes` 代码符合AES的 `AddRoundKey` 和 `SubBytes` 的标准实现，请你阅读上述背景或查阅相关文档，实现这两个函数。如果实现正确会输出格式为 `AAA{...}` 的 flag。
 
 请在实验报告中给出你的解题过程，包括你最终得到的 flag 内容。
 
-hint:
-
-- 一共就不超过 10 行代码，大概不需要 hint；如果真的需要，请搜索一下 AES 相关文档和代码实现。
+!!! tip "Hint"
+    - 一共就不超过 10 行代码，大概不需要 hint；如果真的需要，请搜索一下 AES 相关文档和代码实现。
