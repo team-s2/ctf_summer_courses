@@ -37,7 +37,7 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
         也可以使用 VMWare Workstation 或者 VirtualBox 等虚拟机软件安装 Linux 系统。
 
     === "macOS"
-        如果你非常熟悉 macOS 环境且你的 mac 是 intel 处理器的话，大部分情况下你也可以直接使用你的 macOS 环境。
+        如果你非常熟悉 macOS 环境且你的 mac 是 intel 处理器的话，大部分情况下你也可以直接使用你的 macOS 环境。（当然完成 reverse / pwn 的题目大概率还是需要 Linux 环境）
 
         也可以使用 Parallels Desktop / VMWare Fusion 等虚拟机软件安装 Linux 系统。
 
@@ -156,38 +156,37 @@ hint:
 3. (注意) 对逆向方向感兴趣的同学请了解如下基础知识
     - [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
 
-## 【TODO】Misc
+## Misc
 ### Challenge 1
+
 参考难度：★
 
 这里有一串被编码过的神秘的字符串，请找出有意义的原字符串（格式为 `AAA{...}`）：
 
 ```text
-8Q%uH7oV9C7o!2f7oD*@8Oc$J2Gu:s:JO2T78HTV8PrVj9/]^B:0'e_6SgJh7n,=8;)V$M:Gkm:92eJR8Oc-;;`$6b:Gk[5=]\L#7mT%14Ztqk
+8Q%uH7oV9C7o!2f7oD*B9M/>U2Gu:s:JP%n6W>j@8PrYk9/]^B:0'e_6SgJh7n-*Q5rM>=:Gkm:7oN)U:I/,P;`$6b:Gk[5=]%gm7mT%14Ztqk
 ```
 
 请在实验报告中给出你具体的解密**过程**。
 
-hint:
-
-- 你可能会需要 [CyberChef](https://cyberchef.org/)（~~而且这里有一个功能可以秒杀这个题目~~）
-- 你可能需要了解一些关于 **Base 系列**编码的特征
+!!! tip "Hint"
+    - 你可能会需要 [CyberChef](https://lab.tonycrane.cc/CyberChef/)（~~而且这里有一个功能可以秒杀这个题目~~）
+    - 你可能需要了解一些关于 **Base 系列**编码的特征
 
 ### Challenge 2
+
 参考难度：★★★
 
 下面这张图是 AAA 的 logo。真的……只是一个 logo 吗？其实这张图片中隐藏了一个 flag（格式 `AAA{...}`），请你找出来。
 
-![](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/intro/lab0/misc_challenge2.png)
+![](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/misc_challenge2.png)
 
 请在实验报告中给出你的解题过程，包括你最终得到的 flag 内容。
 
-hint：
-
-- flag 被分为了两个部分
-- 如果你找不到第一部分，~~仔细观察图片~~，这使用了一种最基础的图片隐写技术 LSB 隐写，请自行搜索学习如何破解
-- 如果你找不到第二部分，请仔细查看**文件内容**
-
+!!! tip "Hint"
+    - flag 被分为了两个部分
+    - 如果你找不到第一部分，~~仔细观察图片~~，这使用了一种最基础的图片隐写技术 LSB 隐写，请自行搜索学习如何破解
+    - 如果你找不到第二部分，请仔细查看**文件内容**
 
 ## 【TODO】Crypto
 
