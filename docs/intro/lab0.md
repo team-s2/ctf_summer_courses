@@ -192,34 +192,71 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
     - 如果你找不到第一部分，~~仔细观察图片~~，这使用了一种最基础的图片隐写技术 LSB 隐写，请自行搜索学习如何破解
     - 如果你找不到第二部分，请仔细查看**文件内容**
 
-## 【TODO】Crypto
+## Crypto
 
-### 题目相关背景知识
-AES是一种对称加密机制，比RSA这样的非对称加密快许多。由于本题只涉及 `AddRoundKey` 和 `Substitution Bytes` 内容，所以只对实验相关部分进行简要说明，而 AES 的完整细节可以[在这里](https://ctf-wiki.org/crypto/blockcipher/aes/)阅读学习。
+### Challenge Ⅰ
 
-#### bytes2matrix
-由于 AES 的加密过程中的状态用一个 4x4 的字节矩阵，所以对于字符串形式的明文，首先需要把其表示为一个 4x4 的字节矩阵（对，就是线性代数里那个矩阵），对应题目代码中的 `bytes2matrix`，然后进行后续加密流程。
-
-该部分的代码已经给出，不需要你补全，上述文字只是辅助理解。
-
-#### AddRoundKey
-AddRoundKey 步骤很简单：它将当前状态(4x4 的字节矩阵)与当前轮密钥(4x4 的字节矩阵)进行异或运算。
-
-异或需要用到的轮密钥已经给出，对应题目代码中的 `round_key`，你只需要 `add_round_key` 中的补全异或算法即可。（不超过三行❗️）
-
-#### SubBytes
-将状态矩阵的每个字节替换为预设 16x16 查找表中的不同字节。查找表称为“Substitution box”或简称“S-box”，或许你可能会对为什么加密过程中需要 substitution 感到疑惑，没关系目前不需要理解相关内容。如果一句话概括原因，是为了使得AES的输入输出之间具有高的“非线性性”。
-
-值得注意的是，substitution 的算法在加密和解密过程中并没有不同，只是使用的 S-box 变成了原 S-box 的逆而已。为了使得题目看起来短一些，我删除了加密过程中使用的 S-box，只给出了加密的 S-box 的逆，对应题目代码中的 `inv_s_box`。你只需要补全 `sub_bytes` 函数即可。（同样不超过三行❗️）
-
-### Challenge
 参考难度：★★
 
-[题目下载链接](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/task.py)
+真宵：成步堂君，刚刚狩魔冥检察官给你的纸条上写了什么啊？
 
-上题是对AES的简单抽象，其中需要你补全的 `add_round_key` 和 `sub_bytes` 代码符合AES的 `AddRoundKey` 和 `SubBytes` 的标准实现，请你阅读上述背景或查阅相关文档，实现这两个函数。如果实现正确会输出格式为 `AAA{...}` 的 flag。
+成步堂：好像是糸锯警官在追踪一个美国嫌犯时抢过来的，不过上面只画了些奇怪的符号……
 
-请在实验报告中给出你的解题过程，包括你最终得到的 flag 内容。
+![crypto_challenge1](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/crypto_challenge1.png)
+
+真宵：这是什么东西呀？
+
+成步堂：我也不是很清楚……
+
+矢张（突然出现）：这个感觉和英国大侦探福尔摩斯破过的某起案件很像啊……
+
+成步堂：矢张！你怎么突然冒出来了……对了，你说的案件是？
+
+矢张：哦我想起来了，叫“跳舞的小人”。那个案件也出现了非常奇怪的符号。
+
+真宵：跳舞的小人？
+
+成步堂：我好像也有点印象，不如我们就试试看破解这张纸条吧。
+
+成步堂：我记得破解暗号的关键是……字母出现的频率。
+
+真宵：字母出现的频率？
+
+成步堂：比如理论上字母 E 出现的概率是最高的，然后 T 和 A 之类的字符出现的概率也很高。
+
+真宵：哇成步堂君好厉害。
+
+矢张：当然，还有个最重要的东西。
+
+真宵：哎？是什么？
+
+矢张：就是……英语词典啦！
+
+成步堂：好吧，事不宜迟，我们一起来破解暗号吧。
+
+要求：破解纸条上的信息，给出最后的破解结果，对于本问题，可以不用写破解的过程，毕竟福尔摩斯曾经说过，“将中间的推理步骤统统去掉，能够达到惊人的效果”，不过还是很希望能够看到同学们是如何逐步破解问题，得到最后的结果的，这也是密码学题目，或者说 CTF 题目的真正乐趣所在。
+
+!!! note "Book Time"
+    It is not really difficult to construct a series of inferences, each dependent upon its predecessor and each simple in itself. If, after doing so, one simply knocks out all the central inferences and presents one’s audience with the starting-point and the conclusion, one may produce a startling, though possibly a meretricious, effect.
 
 !!! tip "Hint"
-    - 一共就不超过 10 行代码，大概不需要 hint；如果真的需要，请搜索一下 AES 相关文档和代码实现。
+    - 不妨读一下**福尔摩斯探案集《跳舞的小人》**，说不定对你有帮助呢？
+    - 现如今计算机如此发达，有许多基于词频分析或者字母频率分析的软件或者网站帮助你~~一键秒杀~~解决问题，不如去广阔的互联网之海里搜寻一下吧！
+    - 如果嫌自己一个个看符号太麻烦，不如写一些脚本帮助自己进行自动化读取吧！比如 python 的 PIL 库或者 OpenCV 库（推荐对 python 较为熟悉的同学使用）
+
+### Challenge Ⅱ
+
+参考难度：★
+
+现如今的加密算法多数都是基于数学运算实现的，而 RSA 算法作为经久不衰的加密算法，其数学原理非常简单，不过破解的难度却非常大，网上关于 RSA 的资料非常多，请自行查阅资料，了解各个参数的意义，并编写代码（不限制语言）解出明文 c 对应的密文 m 的结果。
+
+```python
+p = 0x848cc7edca3d2feef44961881e358cbe924df5bc0f1e7178089ad6dc23fa1eec7b0f1a8c6932b870dd53faf35b22f35c8a7a0d130f69e53a91d0330c0af2c5ab
+q = 0xa0ac7bcd3b1e826fdbd1ee907e592c163dea4a1a94eb03fd4d3ce58c2362100ec20d96ad858f1a21e8c38e1978d27cd3ab833ee344d8618065c003d8ffd0b1cb
+n = p * q
+e = 0x10001
+m = int(input()) # the message before encryption
+c = pow(m, e, n)
+assert c = 0x3740b09e8f4aeafbbbfc0461f571a7882e41bbe716100d1388a72d182d9a0d9684b88f3ffa10f053062ade607920b07ffe7a4425dd489e80e9df615a6c7b0d1a3071e0006da53a25026a26b3b80a0b40220a9f981a84696d75a9fcf1b287209d80be912fbfc406f75ba89e2cb08e8f550b697ce7edad4644ee5c6e33ea04f21b
+```
+
