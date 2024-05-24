@@ -257,6 +257,19 @@ n = p * q
 e = 0x10001
 m = int(input()) # the message before encryption
 c = pow(m, e, n)
-assert c = 0x3740b09e8f4aeafbbbfc0461f571a7882e41bbe716100d1388a72d182d9a0d9684b88f3ffa10f053062ade607920b07ffe7a4425dd489e80e9df615a6c7b0d1a3071e0006da53a25026a26b3b80a0b40220a9f981a84696d75a9fcf1b287209d80be912fbfc406f75ba89e2cb08e8f550b697ce7edad4644ee5c6e33ea04f21b
+assert c == 0x39f68bd43d1433e4fcbbe8fc0063661c97639324d63e67dedb6f4ed4501268571f128858b2f97ee7ce0407f24320a922787adf4d0233514934bbd7e81e4b4d07b423949c85ae3cc172ea5bcded917b5f67f18c2c6cd1b2dd98d7db941697ececdfc90507893579081f7e3d5ddeb9145a715abc20c4a938d32131013966bea539
 ```
 
+其中 m 是一个具有意义的字符串，你可以安装 python 的 pycryptodome 库并进行如下操作
+
+```python
+from Crypto.Util.number import long_to_bytes
+
+print(long_to_bytes(m))
+```
+
+如果不想安装此库，也可以直接使用 python 的内置方法实现 int 转 bytes
+
+```python
+print(int.to_bytes(m, (m.bit_length() + 7) // 8, 'big'))
+```
