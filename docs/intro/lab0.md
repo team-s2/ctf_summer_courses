@@ -66,9 +66,10 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 
 具备 Linux 环境后，请观看并学习[「实用技能拾遗」朋辈辅学课程](https://slides.tonycrane.cc/PracticalSkillsTutorial/)中的 lec1 即「Shell 基础及 CLI 工具推荐」课程学习 Linux 基础知识，并完成以下任务：
 
-- 在本机中通过 ssh 远程连接到你的 Linux 环境（使用 Linux 宿主机可跳过本任务）；
 - 在实验报告中给出**任意 4 个** shell 命令的用法介绍以及在 Linux 环境下的实操截图；
-- 完成 [SadServers](https://sadservers.com/) 上的题目 ["Saint John": what is writing to this log file?](https://sadservers.com/scenario/saint-john) 给出解答以及通过截图。
+- 以下两个任选其一完成：
+    - 在本机中通过 ssh 远程连接到你的 Linux 环境（使用 Linux 宿主机可跳过本任务）；
+    - 完成 [SadServers](https://sadservers.com/) 上的题目 ["Saint John": what is writing to this log file?](https://sadservers.com/scenario/saint-john) 给出解答以及通过截图。
 
 !!! tip "Hint"
     - Linux 环境的准备可以参考[前年的课程作业](https://github.com/team-s2/ctf_summer_courses/blob/2022/homework/trivial/01_linux_hw.pdf)
@@ -194,9 +195,9 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 
 ## Crypto
 
-### Challenge Ⅰ
+### Challenge 1
 
-参考难度：★★
+参考难度：★★★
 
 真宵：成步堂君，刚刚狩魔冥检察官给你的纸条上写了什么啊？
 
@@ -244,7 +245,7 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
     - 现如今计算机如此发达，有许多基于词频分析或者字母频率分析的软件或者网站帮助你 ~~一键秒杀~~ 解决问题，不如去广阔的互联网之海里搜寻一下吧！
     - 如果嫌自己一个个看符号太麻烦，不如写一些脚本帮助自己进行自动化读取吧！比如 python 的 PIL 库或者 OpenCV 库（推荐对 python 较为熟悉的同学使用）
 
-### Challenge Ⅱ
+### Challenge 2
 
 参考难度：★
 
