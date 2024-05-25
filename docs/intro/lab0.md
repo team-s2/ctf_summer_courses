@@ -143,50 +143,50 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 哦对了，这有一些小众宝藏插件/工具需要安装，你可以把它塞进Chrome或者桌面:
 
 - 插件：
-  - [Hackbar](https://chrome.google.com/webstore/detail/ginpbkfigcoaokgflihfhhmglmbchinc)
-  - [Cookie-Editor](https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
-  - [SwitchOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif)
+    - [Hackbar](https://chrome.google.com/webstore/detail/ginpbkfigcoaokgflihfhhmglmbchinc)
+    - [Cookie-Editor](https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm)
+    - [SwitchOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif)
 - 工具：
-  - BurpSuite, 社区版就够用
-  - PHP Study
-  - sqlmap, 可选
+    - BurpSuite, 社区版就够用
+    - PHP Study
+    - sqlmap, 可选
 
 1. PHP入门
 PHP是一门古早的服务器端脚本语言，以其易于上手而闻名，也因此保卫了无数安全人员的饭碗。而如今PHP虽然正逐渐入土，但仍有外贸等领域的网站还在大量使用，CTF竞赛中也仍有大量PHP的题目。
 PHP简单入门：你可以通过[PHP教程 - runoob](https://www.runoob.com/php/php-tutorial.html)学习基础的语法，只需要看懂即可。
 PHP环境：请记住Web题很依赖在本地搭建环境复现，这样一来你就可以魔改源码并观察具体发生了什么。简单起见，可以使用[PHP Study](https://m.xp.cn/)
 
-1. MySQL入门
+2. MySQL入门
 几乎所有的网站都需要数据库储存各种信息，而MySQL便是其中的佼佼者。
 PostgreSQL, MySQL与SQLite等不同数据库之间语法都是高度相似的，因此大家可以触类旁通。
 MySQL语法学习：你可以通过[MySQL教程 - runoob](https://www.runoob.com/mysql/mysql-tutorial.html)学习基础的语法，**能看懂即可，但最好会写一些简单的语句**。
 
-1. JavaScript入门
+3. JavaScript入门
 统治前端的语言，近几年也逐渐开始在后端崭露头角。
 豆知识：JS是10天搓出来的，所以……
 ![Thanks for inventing JavaScript](../images/thx_for_inv_js.png)
 同样的，我们希望你能自学一部分内容。编程语言之间是互通的，相信大家能快速上手。
 不过，JavaScript奇妙的“原型(prototype)”系统可能需要特别加以学习哦。
 
-1. 学习用的思考题
+4. 学习用的思考题
 Web题以多变著称，常有稀奇古怪的花活。因此，最好广泛涉猎，博采众长。
 也许从以下的思考题出发能带你快速了解互联网各层的运作逻辑 & 基本概念，也能为你在本课程乃至日后专业课的学习带来莫大的帮助。
 毕竟大部分这个领域的术语也许都有点故弄玄虚，实际的概念并没有那么复杂。
 以下问题建议每个都粗略的了解一点，感兴趣的可以深挖：
-   - 经典互联网大厂面试题：在浏览器中输入网址到最后看到网页，这个过程中发生了什么？
-     可以了解以下的概念，拼凑出你的答案：
-     - TCP/IP与四层协议模型
-     - DNS
-     - HTTP与HTTPS
-     - SSL层与TLS协议
-     - 页面渲染
-     - Cookie与Session
-   - 打开浏览器的开发者工具，访问百度并查看网络请求。尝试回答：这里的每一个header分别是什么含义？例如，`Connection: Keep-Alive`是什么意思？
-   - 一个著名的用了都说好的下载器`IDM`可以加速你的网络下载速度，是什么原理？又是如何实现的？
-     - 提示：如果网站不支持断点续传就没法加速了
-   - SQL注入攻击是什么？为什么现在此类攻击几乎销声匿迹？尝试搜索资料，了解各种ORM框架是如何保护数据库的。
-   - 前端不涉及业务逻辑代码却仍可能有安全问题？！了解XSS攻击，并对比SQL注入攻击，找出共同点。
-   - 侧信道攻击是什么？有哪些系统、数据库函数可以被“Timing侧信道”利用？
+    - 经典互联网大厂面试题：在浏览器中输入网址到最后看到网页，这个过程中发生了什么？
+      可以了解以下的概念，拼凑出你的答案：
+        - TCP/IP与四层协议模型
+        - DNS
+        - HTTP与HTTPS
+        - SSL层与TLS协议
+        - 页面渲染
+        - Cookie与Session
+    - 打开浏览器的开发者工具，访问百度并查看网络请求。尝试回答：这里的每一个header分别是什么含义？例如，`Connection: Keep-Alive`是什么意思？
+    - 一个著名的用了都说好的下载器`IDM`可以加速你的网络下载速度，是什么原理？又是如何实现的？
+        - 提示：如果网站不支持断点续传就没法加速了
+    - SQL注入攻击是什么？为什么现在此类攻击几乎销声匿迹？尝试搜索资料，了解各种ORM框架是如何保护数据库的。
+    - 前端不涉及业务逻辑代码却仍可能有安全问题？！了解XSS攻击，并对比SQL注入攻击，找出共同点。
+    - 侧信道攻击是什么？有哪些系统、数据库函数可以被“Timing侧信道”利用？
 
 ### Challenge 1
 
