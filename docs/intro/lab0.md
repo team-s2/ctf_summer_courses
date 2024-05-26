@@ -12,11 +12,18 @@
 完成的报告请命名为 `lab0_姓名_学号.pdf`，以邮件附件的形式提交到 <team-aaa@zju.edu.cn>；并于邮件中提供个人的联系方式～
 
 !!! warning "前排提示"
-    本课程与其他大家一直在上的学校课程有很大不同。CTF 是一个非常灵活多变又非常注重实践的比赛，所以我们会更偏向于引导大家独立探索、自主学习，而非将所有需要的知识统统灌输给大家。
+    本课程与其他大家一直在上的学校课程有很大不同。CTF 是一个非常灵活多变又非常**注重实践**的比赛，所以我们会更偏向于引导大家独立探索、自主学习，而非将所有需要的知识统统灌输给大家。
 
     因此本 Lab 0 乃至后续的所有实验中都会有很多需要同学们自己去上网查资料，自己学习一些新知识的地方。而且在做 Lab 遇到问题时也需要大家先自行排查问题原因，搜索解决方案。如果你真的解决不了想在群里提问或者私戳助教，也请先阅读[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)两篇文章。
 
-    如果你实在受不了自学这种方式，只想要通过接受我们的输出来学习 CTF，或者你只想以最低成本拿下短学期学分，那么这门课或许并不适合你，你应当考虑放弃选修本课程。
+    如果你实在受不了自学这种方式，只想要通过接受我们在课堂上的输出来学习 CTF，抑或你只想以最低成本拿下短学期学分，那么这门课或许并不适合你，你应当考虑放弃选修本课程。而反之，如果你对此有所觉悟，就可以享受本课程的高自由度：我们希望课程的基调是“轻快”的。
+
+    请相信自己！老师主动参与指导的自学计划，比起那些冒充授课型实则让学生被迫自学的课程，效果要好得多。
+
+!!! note "关于 Lab 0 "
+    并不是所有的知识都适合在课堂以**口述**的方式呈现。包括Lab0在内的各阅读资料与作业是对授课内容的**有效补充**。
+
+    你可以将 Lab 0 视为“新手礼包”，感受“CTF 之禅”。尽管草草地应付一通理论上也不会太阻碍后续追赶上进度，但聪明的你一定明白怎样最大化学习中付出与收获的性价比。
 
 !!! note "关于网络环境"
     本课程的实验材料以及文档都通过 GitHub 仓库进行发布，所以请确保你可以正常访问 GitHub。
@@ -88,13 +95,14 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 ???+ note "关于 python 环境安装的建议"
     建议使用 python 3.12.x 版本。
     
-    如果你确定你的 Linux 环境只用来完成本次课程，你可以直接通过 apt 来安装 python。
+    如果你确定你的 Linux 环境只用来完成本次课程，你可以直接通过 `apt` 来安装 python。
 
     否则推荐直接安装 [miniconda](https://docs.anaconda.com/free/miniconda/) / [mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html) / [anaconda](https://www.anaconda.com/download/success) 等工具进行 python 环境的安装、管理和切换。
 
 请完成如下任务，并在实验报告中给出你的代码：
 
 1. 请阅读和执行如下 python 程序，在实验报告中并解释其功能:
+
     ```py
     #!/usr/bin/python3
 
@@ -113,13 +121,13 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 
     print("now your string:", data_new)
     ```
+
 2. 请通过 python 编程解决[校巴](https://zjusec.com)上 [calculator](https://zjusec.com/challenges/27) 这道编程题（需要内网访问），在实验报告中给出完整代码、成功解决的截图以及正确的 flag。
 
 !!! tip "Hint"
     - 如果不知道从哪开始可以查看我们提供的[部分代码](https://github.com/team-s2/ctf_summer_courses/blob/master/src/intro/lab0/client.py)，已经完成了题目的连接以及数据的接收（直接使用 socket 进行连接）
         - 或者推荐自学使用 [pwntools](https://docs.pwntools.com/en/latest/) 这个 CTF 中非常常用的 python 包进行更方便的交互
     - `eval` 函数可以用于计算
-
 
 ### Challenge 3（选做）
 
@@ -134,13 +142,14 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 ## Web
 
 如果你很喜欢收集没用的“豆知识”，那么Web就需要你这样的人才。
-豆知识：“豆知识”的词义具体是什么是一个豆知识。
+
+豆知识：“豆知识”的词义也是一个豆知识。
 
 ### 前置科技
 
 在网络的语境下，我们自然地有了客户端/服务端，或称为前端/后端的划分。这种架构使得开发和维护更加模块化和高效。当然，也产生了不同的语言、框架为其服务。例如前端的JavaScript，后端的Java, PHP等。
 
-哦对了，这有一些小众宝藏插件/工具需要安装，你可以把它塞进Chrome或者桌面:
+哦对了，这有一些~~小众宝藏~~插件/工具需要安装，你可以把它塞进Chrome或者桌面:
 
 - 插件：
     - [Hackbar](https://chrome.google.com/webstore/detail/ginpbkfigcoaokgflihfhhmglmbchinc)
@@ -151,42 +160,55 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
     - PHP Study
     - sqlmap, 可选
 
-1. PHP入门
-PHP是一门古早的服务器端脚本语言，以其易于上手而闻名，也因此保卫了无数安全人员的饭碗。而如今PHP虽然正逐渐入土，但仍有外贸等领域的网站还在大量使用，CTF竞赛中也仍有大量PHP的题目。
-PHP简单入门：你可以通过[PHP教程 - runoob](https://www.runoob.com/php/php-tutorial.html)学习基础的语法，只需要看懂即可。
-PHP环境：请记住Web题很依赖在本地搭建环境复现，这样一来你就可以魔改源码并观察具体发生了什么。简单起见，可以使用[PHP Study](https://m.xp.cn/)
+1. PHP 入门
 
-2. MySQL入门
-几乎所有的网站都需要数据库储存各种信息，而MySQL便是其中的佼佼者。
-PostgreSQL, MySQL与SQLite等不同数据库之间语法都是高度相似的，因此大家可以触类旁通。
-MySQL语法学习：你可以通过[MySQL教程 - runoob](https://www.runoob.com/mysql/mysql-tutorial.html)学习基础的语法，**能看懂即可，但最好会写一些简单的语句**。
+    PHP 是一门古早的服务器端脚本语言，以其易于上手而闻名，也因此保卫了无数安全人员的饭碗。而如今PHP虽然正逐渐入土，但仍有外贸等领域的网站还在大量使用，CTF竞赛中也仍有大量PHP的题目。
 
-3. JavaScript入门
-统治前端的语言，近几年也逐渐开始在后端崭露头角。
-豆知识：JS是10天搓出来的，所以……
-![Thanks for inventing JavaScript](../images/thx_for_inv_js.png)
-同样的，我们希望你能自学一部分内容。编程语言之间是互通的，相信大家能快速上手。
-不过，JavaScript奇妙的“原型(prototype)”系统可能需要特别加以学习哦。
+    PHP 简单入门：你可以通过[PHP教程 - runoob](https://www.runoob.com/php/php-tutorial.html)学习基础的语法，只需要看懂即可。
+
+    PHP环境：请记住Web题很依赖在本地搭建环境复现，这样一来你就可以魔改源码并观察具体发生了什么。简单起见，可以使用[PHP Study](https://m.xp.cn/)
+
+2. MySQL 入门
+
+    几乎所有的网站都需要数据库储存各种信息，而MySQL便是其中的佼佼者。
+
+    PostgreSQL, MySQL 与 SQLite 等不同数据库之间语法都是高度相似的，因此大家可以触类旁通。
+
+    MySQL语法学习：你可以通过[MySQL教程 - runoob](https://www.runoob.com/mysql/mysql-tutorial.html)学习基础的语法，**能看懂即可，但最好会写一些简单的语句**。
+
+3. JavaScript 入门
+
+    统治前端的语言，近几年也逐渐开始在后端崭露头角。
+
+    豆知识：JS 是10天搓出来的，所以……
+    ![Thanks for inventing JavaScript](../images/thx_for_inv_js.png)
+
+    同样的，我们希望你能自学一部分内容。编程语言之间是互通的，相信大家能快速上手。
+    不过，JavaScript 奇妙的**“原型(prototype)”**系统可能需要特别加以学习哦。
 
 4. 学习用的思考题
-Web题以多变著称，常有稀奇古怪的花活。因此，最好广泛涉猎，博采众长。
-也许从以下的思考题出发能带你快速了解互联网各层的运作逻辑 & 基本概念，也能为你在本课程乃至日后专业课的学习带来莫大的帮助。
-毕竟大部分这个领域的术语也许都有点故弄玄虚，实际的概念并没有那么复杂。
-以下问题建议每个都粗略的了解一点，感兴趣的可以深挖：
-    - 经典互联网大厂面试题：在浏览器中输入网址到最后看到网页，这个过程中发生了什么？
-      可以了解以下的概念，拼凑出你的答案：
-        - TCP/IP与四层协议模型
-        - DNS
-        - HTTP与HTTPS
-        - SSL层与TLS协议
-        - 页面渲染
-        - Cookie与Session
-    - 打开浏览器的开发者工具，访问百度并查看网络请求。尝试回答：这里的每一个header分别是什么含义？例如，`Connection: Keep-Alive`是什么意思？
-    - 一个著名的用了都说好的下载器`IDM`可以加速你的网络下载速度，是什么原理？又是如何实现的？
-        - 提示：如果网站不支持断点续传就没法加速了
-    - SQL注入攻击是什么？为什么现在此类攻击几乎销声匿迹？尝试搜索资料，了解各种ORM框架是如何保护数据库的。
-    - 前端不涉及业务逻辑代码却仍可能有安全问题？！了解XSS攻击，并对比SQL注入攻击，找出共同点。
-    - 侧信道攻击是什么？有哪些系统、数据库函数可以被“Timing侧信道”利用？
+
+    Web题以多变著称，常有稀奇古怪的花活。因此，最好广泛涉猎，博采众长。
+
+    也许从以下的思考题出发能带你快速了解互联网各层的运作逻辑 & 基本概念，也能为你在本课程乃至日后专业课的学习带来莫大的帮助。
+    毕竟大部分这个领域的术语也许都有点故弄玄虚，实际的概念并没有那么复杂。
+
+    以下问题建议每个都粗略的了解一点，感兴趣的可以深挖：
+        - 经典互联网大厂面试题：在浏览器中输入网址到最后看到网页，这个过程中发生了什么？
+        可以了解以下的概念，拼凑出你的答案：
+            - TCP/IP与四层协议模型
+            - DNS
+            - HTTP 与 HTTPS
+            - SSL 层
+            - TLS 协议
+            - 页面渲染：HTML, CSS, JS
+            - Cookie与Session
+        - 打开浏览器的开发者工具，访问百度并查看网络请求。尝试回答：这里的每一个header分别是什么含义？例如，`Connection: Keep-Alive`是什么意思？
+        - 一个著名的用了都说好的下载器`IDM`可以加速你的网络下载速度，是什么原理？又是如何实现的？
+            - 提示：如果网站不支持断点续传就没法加速了
+        - SQL注入攻击是什么？为什么现在此类攻击几乎销声匿迹？尝试搜索资料，了解各种ORM框架是如何保护数据库的。
+        - 前端不涉及业务逻辑代码却仍可能有安全问题？！了解XSS攻击，并对比SQL注入攻击，找出共同点。
+        - 侧信道攻击是什么？有哪些系统、数据库函数可以被“Timing侧信道”利用？
 
 ### Challenge 1
 
@@ -229,6 +251,11 @@ Web题以多变著称，常有稀奇古怪的花活。因此，最好广泛涉�
     - [ELF 可执行文件的格式、加载、链接执行](https://ctf-wiki.org/executable/elf/structure/basic-info/)
 
 ## Misc
+
+Miscellaneous, 其中的知识点与技能可在CTF竞赛的各类题目中活用，称之为基石也不为过。
+
+学习Misc就能掌握许多泛CS的技能，对日后快人一步、高人一等地完成各类课内课外的任务大有裨益。
+
 ### Challenge 1
 
 参考难度：★
@@ -328,7 +355,7 @@ c = pow(m, e, n)
 assert c == 0x39f68bd43d1433e4fcbbe8fc0063661c97639324d63e67dedb6f4ed4501268571f128858b2f97ee7ce0407f24320a922787adf4d0233514934bbd7e81e4b4d07b423949c85ae3cc172ea5bcded917b5f67f18c2c6cd1b2dd98d7db941697ececdfc90507893579081f7e3d5ddeb9145a715abc20c4a938d32131013966bea539
 ```
 
-其中 m 是一个具有意义的字符串，你可以安装 python 的 pycryptodome 库并进行如下操作
+其中 m 是一个具有意义的字符串，你可以安装 python 的 pycryptodome 库并进行如下操作：
 
 ```python
 from Crypto.Util.number import long_to_bytes
@@ -336,7 +363,7 @@ from Crypto.Util.number import long_to_bytes
 print(long_to_bytes(m))
 ```
 
-如果不想安装此库，也可以直接使用 python 的内置方法实现 int 转 bytes
+如果不想安装此库，也可以直接使用 python 的内置方法实现 int 转 bytes:
 
 ```python
 print(int.to_bytes(m, (m.bit_length() + 7) // 8, 'big'))
