@@ -278,7 +278,7 @@ Miscellaneous, 其中的知识点与技能可在CTF竞赛的各类题目中活�
 
 下面这张图是 AAA 的 logo。真的……只是一个 logo 吗？其实这张图片中隐藏了一个 flag（格式 `AAA{...}`），请你找出来。
 
-![](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/misc_challenge2.png)
+![](../images/misc_challenge2.png)
 
 请在实验报告中给出你的解题过程，包括你最终得到的 flag 内容。
 
@@ -297,7 +297,7 @@ Miscellaneous, 其中的知识点与技能可在CTF竞赛的各类题目中活�
 
 成步堂：好像是糸锯警官在追踪一个美国嫌犯时抢过来的，不过上面只画了些奇怪的符号……
 
-![crypto_challenge1](https://github.com/team-s2/ctf_summer_courses/raw/master/src/intro/lab0/crypto_challenge1.png)
+![crypto_challenge1](../images/crypto_challenge1.png)
 
 真宵：这是什么东西呀？
 
