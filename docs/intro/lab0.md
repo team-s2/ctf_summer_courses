@@ -1,7 +1,5 @@
 # Lab 0：基础知识及技能
 
-!!! warning "本实验尚未完成修改"
-
 本课程的 Lab 0 由两部分组成:
 
 - [Prerequisite](#prerequisite) 部分以及
@@ -20,7 +18,7 @@
 
     请相信自己！老师主动参与指导的自学计划，比起那些冒充授课型实则让学生被迫自学的课程，效果要好得多。
 
-!!! note "关于 Lab 0 "
+!!! note "关于 Lab 0"
     并不是所有的知识都适合在课堂以**口述**的方式呈现。包括Lab0在内的各阅读资料与作业是对授课内容的**有效补充**。
 
     你可以将 Lab 0 视为“新手礼包”，感受“CTF 之禅”。尽管草草地应付一通理论上也不会太阻碍后续追赶上进度，但聪明的你一定明白怎样最大化学习中付出与收获的性价比。
@@ -34,7 +32,7 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 
 ## Prerequisite
 
-### Challange 1
+### Challenge 1
 
 **Linux 环境的搭建与简单使用**
 
@@ -49,11 +47,9 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
         也可以使用 VMWare Workstation 或者 VirtualBox 等虚拟机软件安装 Linux 系统。
 
     === "macOS"
-        如果你非常熟悉 macOS 环境且你的 mac 是 intel 处理器的话，大部分情况下你也可以直接使用你的 macOS 环境。（当然完成 reverse / pwn 的题目大概率还是需要 Linux 环境）
+        如果你非常熟悉 macOS 环境且你的 Mac 是 intel 处理器的话，大部分情况下也可以直接从 macOS 环境上手（但完成 reverse / pwn 的题目大概率还是需要 Linux 环境）。也可以使用 Parallels Desktop / VMWare Fusion 等虚拟机软件安装 Linux 系统。
 
-        也可以使用 Parallels Desktop / VMWare Fusion 等虚拟机软件安装 Linux 系统。
-
-        如果你的 mac 是 M 系列 Apple Silicon 处理器的话，也就是说你的电脑是 arm 架构，那么你就需要一个 x86 Linux 的环境了。最方便的方法是使用 docker（关于 docker 安装见[官网](https://docs.docker.com/desktop/install/mac-install/)）。macOS 下的 docker 可以通过 qemu 来模拟运行不同架构的容器，比如运行一个 x86_64 架构的 ubuntu:latest 容器你可以运行：
+        如果你的 Mac 是 M 系列处理器的话，也即是 arm64 架构。在大部分情况下这应当是没有问题的，但总有些时候你会需要一个 x86 Linux 的环境。最方便的方法是使用 Docker（关于 Docker 安装见[官网](https://docs.docker.com/desktop/install/mac-install/)）。macOS 下的 Docker 可以通过 qemu 来模拟运行不同架构的容器，比如运行一个 x86_64 架构的 ubuntu:latest 容器你可以运行：
 
         ```bash
         docker run -it -d --platform linux/amd64 --name ubuntu_amd64 ubuntu:latest
@@ -62,12 +58,12 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
         # 进入容器的 bash 终端
         ```
 
-        更多关于 docker 的使用方法，比如目录挂载、网络配置等可以自行上网学习。
+        更多关于 Docker 的使用方法，比如其他参数、目录挂载、网络配置等可以自行上网学习。若有不知如何描述的问题，也可以在群里提问，我们有使用 M1 芯片经验丰富的助教可以帮助（。
 
     === "Linux"
         显然，你已经有了（
 
-    关于 Linux 发行版，我们推荐 Ubuntu 22.04 LTS / Ubuntu 24.04 LTS / Kali Linux 2024.1 等。
+    关于 Linux 发行版，我们推荐 Debian 12 / Ubuntu 24.04 LTS / Kali Linux 2024.1 等。
 
 > 当然，如果你已经拥有了熟悉的 Linux 环境，请放心大胆使用。
 
@@ -84,26 +80,26 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
 
 ### Challenge 2
 
-**基础的 python 编程**
+**基础的 Python 编程**
 
 参考难度：★
 
-后续的课程中不乏通过编程来节省人力成本解决特定问题。掌握脚本语言 python 会让这些事半功倍。
+后续的课程中不乏通过编程来节省人力成本解决特定问题。掌握脚本语言 Python 会让这些事半功倍。
 
-> 当然，即使你没有学习过 python 也无需慌张；你可以通过如[菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)和各类慕课进行简单的学习。你无需成为一个 python master，基本的代码阅读能力以及编程能力足以使你通过此课。
+> 当然，即使你没有学习过 Python 也无需慌张；你可以通过如[菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)和各类慕课进行简单的学习。你无需成为一个 Python master，基本的代码阅读能力以及编程能力足以使你通过此课。
 
-???+ note "关于 python 环境安装的建议"
-    建议使用 python 3.12.x 版本。
-    
-    如果你确定你的 Linux 环境只用来完成本次课程，你可以直接通过 `apt` 来安装 python。
+???+ note "关于 Python 环境安装的建议"
+    建议使用 Python 3.12.x 版本。
 
-    否则推荐直接安装 [miniconda](https://docs.anaconda.com/free/miniconda/) / [mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html) / [anaconda](https://www.anaconda.com/download/success) 等工具进行 python 环境的安装、管理和切换。
+    如果你确定你的 Linux 环境只用来完成本次课程，你可以直接通过 `apt` 来安装 Python。
+
+    否则推荐直接安装 [miniconda](https://docs.anaconda.com/free/miniconda/) / [mamba](https://mamba.readthedocs.io/en/latest/installation/mamba-installation.html) / [anaconda](https://www.anaconda.com/download/success) 等工具进行 Python 环境的安装、管理和切换。
 
 请完成如下任务，并在实验报告中给出你的代码：
 
-1. 请阅读和执行如下 python 程序，在实验报告中并解释其功能:
+1. 请阅读和执行如下 Python 程序，在实验报告中并解释其功能:
 
-    ```py
+    ```python
     #!/usr/bin/python3
 
     data = input("give me your string: ")
@@ -122,11 +118,11 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
     print("now your string:", data_new)
     ```
 
-2. 请通过 python 编程解决[校巴](https://zjusec.com)上 [calculator](https://zjusec.com/challenges/27) 这道编程题（需要内网访问），在实验报告中给出完整代码、成功解决的截图以及正确的 flag。
+2. 请通过 Python 编程解决[校巴](https://zjusec.com)上 [calculator](https://zjusec.com/challenges/27) 这道编程题（需要内网访问），在实验报告中给出完整代码、成功解决的截图以及正确的 flag。
 
 !!! tip "Hint"
     - 如果不知道从哪开始可以查看我们提供的[部分代码](https://github.com/team-s2/ctf_summer_courses/blob/master/src/intro/lab0/client.py)，已经完成了题目的连接以及数据的接收（直接使用 socket 进行连接）
-        - 或者推荐自学使用 [pwntools](https://docs.pwntools.com/en/latest/) 这个 CTF 中非常常用的 python 包进行更方便的交互
+        - 或者推荐自学使用 [pwntools](https://docs.pwntools.com/en/latest/) 这个 CTF 中非常常用的 Python 包进行更方便的交互
     - `eval` 函数可以用于计算
 
 ### Challenge 3（选做）
@@ -157,7 +153,7 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
     - [SwitchOmega](https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif)
 - 工具：
     - BurpSuite, 社区版就够用
-    - PHP Study
+    - PHPStudy
     - sqlmap, 可选
 
 1. PHP 入门
@@ -210,6 +206,8 @@ Lab 过程中遇到的无法解决的问题或者其他任何与课程相关的�
     - SQL注入攻击是什么？为什么现在此类攻击几乎销声匿迹？尝试搜索资料，了解各种ORM框架是如何保护数据库的。
     - 前端不涉及业务逻辑代码却仍可能有安全问题？！了解XSS攻击，并对比SQL注入攻击，找出共同点。
     - 侧信道攻击是什么？有哪些系统、数据库函数可以被“Timing侧信道”利用？
+
+    可以用于参考/快速入门的资源：[「实用技能拾遗」朋辈辅学课程](https://slides.tonycrane.cc/PracticalSkillsTutorial/)中的 lec6 即「网络/网站基础知识概述」课程。
 
 ### Challenge 1
 
@@ -339,7 +337,7 @@ Miscellaneous, 其中的知识点与技能可在CTF竞赛的各类题目中活�
 !!! tip "Hint"
     - 不妨读一下**福尔摩斯探案集《跳舞的小人》**，说不定对你有帮助呢？
     - 现如今计算机如此发达，有许多基于词频分析或者字母频率分析的软件或者网站帮助你 ~~一键秒杀~~ 解决问题，不如去广阔的互联网之海里搜寻一下吧！
-    - 如果嫌自己一个个看符号太麻烦，不如写一些脚本帮助自己进行自动化读取吧！比如 python 的 PIL 库或者 OpenCV 库（推荐对 python 较为熟悉的同学使用）
+    - 如果嫌自己一个个看符号太麻烦，不如写一些脚本帮助自己进行自动化读取吧！比如 Python 的 PIL 库或者 OpenCV 库（推荐对 Python 较为熟悉的同学使用）
 
 ### Challenge 2
 
@@ -357,7 +355,7 @@ c = pow(m, e, n)
 assert c == 0x39f68bd43d1433e4fcbbe8fc0063661c97639324d63e67dedb6f4ed4501268571f128858b2f97ee7ce0407f24320a922787adf4d0233514934bbd7e81e4b4d07b423949c85ae3cc172ea5bcded917b5f67f18c2c6cd1b2dd98d7db941697ececdfc90507893579081f7e3d5ddeb9145a715abc20c4a938d32131013966bea539
 ```
 
-其中 m 是一个具有意义的字符串，你可以安装 python 的 pycryptodome 库并进行如下操作：
+其中 m 是一个具有意义的字符串，你可以安装 Python 的 pycryptodome 库并进行如下操作：
 
 ```python
 from Crypto.Util.number import long_to_bytes
@@ -365,7 +363,7 @@ from Crypto.Util.number import long_to_bytes
 print(long_to_bytes(m))
 ```
 
-如果不想安装此库，也可以直接使用 python 的内置方法实现 int 转 bytes:
+如果不想安装此库，也可以直接使用 Python 的内置方法实现 int 转 bytes:
 
 ```python
 print(int.to_bytes(m, (m.bit_length() + 7) // 8, 'big'))
