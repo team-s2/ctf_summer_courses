@@ -21,14 +21,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.x
       - name: Checkout 2023 version docs
         uses: actions/checkout@v4
         with:
           ref: "2023"
-      - name: Install old dependencies
+      - name: Install dependencies for 2023 version
         run: pip install mkdocs==1.5.0 mkdocs-material-extensions==1.1 mkdocs-material==9.1.21 mkdocs-heti-plugin==0.1.5
       - name: Build 2023 version docs
         run: |
@@ -36,15 +36,18 @@ jobs:
           mkdocs build --site-dir /tmp/2023
       - name: Checkout latest version docs
         uses: actions/checkout@v4
-      - name: Install new dependencies
+      - name: Install dependencies for current version
         run: |
           pip uninstall -y mkdocs mkdocs-material mkdocs-material-extensions mkdocs-heti-plugin
           pip install mkdocs-material mkdocs-heti-plugin
-      - name: Build latest version docs
+          npm install -g reveal-md
+      - name: Build current version docs
         run: |
           mkdocs build --site-dir site
-          mkdir site/2023
+          mkdir -p site/2023 site/slides
           mv /tmp/2023/* site/2023
+          slides/build build
+          [ -d slides/dist ] && mv slides/dist/* site/slides || true
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

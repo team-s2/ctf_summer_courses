@@ -3,6 +3,7 @@
 文档在 <https://courses.zjusec.com/>。
 
 - docs: 课程布置的实验/作业文档
+- slides: 部分课程的在线幻灯片
 - src: 实验内容附件
 
 ## 历史版本
