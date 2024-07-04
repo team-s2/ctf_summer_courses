@@ -44,3 +44,6 @@ h6:before {
 .md-typeset h3 {
     font-weight: 500;
 }
+body {
+  text-spacing-trim: space-all;
+}
