@@ -30,6 +30,10 @@ nav:
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md
   #   - "misc lab 2/3 批改反馈": feedback/misc-lab23.md
+  - 在线课件:
+    - "课件索引": slides/index.md
+    - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
+    - "🔗 misc lec 1: 简介/编解码/OSINT": https://courses.zjusec.com/slides/misc-lec1/
 
 theme:
   name: 'material'
