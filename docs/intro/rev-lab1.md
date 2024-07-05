@@ -18,13 +18,13 @@
 
 ## Task 2 (35%)
 
-请完成课程赛题网站上的 `[lab1] reverse chall1`;
+请完成[课程赛题网站](https://ctf.zjusec.com/games/3/challenges)上的 `[lab1] reverse chall1`;
 
 请于提交的报告中呈现逆向解题过程与结果
 
 ## Task 3 (35%)
 
-请完成课程赛题网站上的 `[lab1] reverse chall2`;
+请完成[课程赛题网站](https://ctf.zjusec.com/games/3/challenges)上的 `[lab1] reverse chall2`;
 
 请于提交的报告中呈现逆向解题过程与结果
 
