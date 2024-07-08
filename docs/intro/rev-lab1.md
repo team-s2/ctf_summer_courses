@@ -2,10 +2,10 @@
 
 本节 Lab 由以下几个部分组成：
 
-- [Task 1: 尝试编译汇编](#task-1)
-- [Task 2: 简单的逆向题1](#task-2)
-- [Task 3: 简单的逆向题2](#task-3)
-- [Bonus](#bonus)
+- [Task 1: 尝试编译汇编](#task-1-30)
+- [Task 2: 简单的逆向题1](#task-2-35)
+- [Task 3: 简单的逆向题2](#task-3-35)
+- [Bonus](#bonus-15)
 
 ## Task 1 (30%)
 

@@ -2,11 +2,11 @@
 
 本节 Lab 由以下部分组成：
 
-- [Task 1: nocrash 赛题](#task-1)
-- [Task 2: login_me 赛题](#task-2)
-- [Task 3: inject_me 赛题](#task-3)
-- [Task 4: sbofsc 赛题](#task-4)
-- [Bonus](#bonus)
+- [Task 1: nocrash 赛题](#task-1-10)
+- [Task 2: login_me 赛题](#task-2-30)
+- [Task 3: inject_me 赛题](#task-3-30)
+- [Task 4: sbofsc 赛题](#task-4-30)
+- [Bonus](#bonus-15)
 
 ## Task 1 (10%)
 
