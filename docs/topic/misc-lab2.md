@@ -1,25 +1,29 @@
 # Misc Lab 2：图片、音频隐写
 
-本节 Lab 由以下两部分组成：
+本节 Lab 分为必做和选做部分：
 
-- 基础部分，必做（每题 20 分，共 60 分）
-    - [Challenge 1: songmingti](#challenge-1)
-    - [Challenge 2: miaomiaomiao](#challenge-2)
-    - [Challenge 3: easy LSB](#challenge-3)
-- 选做部分，分数见下，整体多出 100 分的为 bonus
-    - [Challenge 4: Palette Stego](#challenge-4-palette-stego)（20 分）
-    - [Challenge 5: Spectrogram](#challenge-5-spectrogram)（30 分）
-    - [Challenge 6: Huffman Stego](#challenge-6-huffman-stego)（50 分）
+- 必做部分（每题 10 分，共 30 分）
+    - [Challenge 1: songmingti](#challenge-1-10)
+    - [Challenge 2: miaomiaomiao](#challenge-2-10)
+    - [Challenge 3: easy LSB](#challenge-3-10)
+- 选做部分，自由选择，最多计 85 分：
+    - [Challenge A: Palette Stego](#challenge-a-palette-stego-25)（25 分）
+    - [Challenge B: Spectrogram](#challenge-b-spectrogram-30)（30 分）
+    - [Challenge C: RURU](#challenge-c-ruru-30)（30 分）
+    - [Challenge D: Power Trajectory Diagram](#challenge-d-power-trajectory-diagram-30)（30 分）
+    - [Challenge E: pysandbox](#challenge-e-pysandbox-30)（30 分）
+    - [Challenge F: PPC](#challenge-f-ppc-30)（30 分）
 
 （最终的分数分配可能会根据大家的提交情况有所调整）
 
-具体实验报告需要写的内容会在下面具体题目里面描述。对于题目有任何问题都可以在群里/私戳 TonyCrane 提问。
+具体实验报告需要写的内容会在下面具体题目里面描述。对于题目有任何问题都可以在群里/私戳 45gfg9 提问。
 
-本次 lab 的 ddl 在发布两周以后即 7 月 26 日晚 23:59，请注意安排时间。
+本次 lab 的 ddl 在发布两周以后即 7 月 23 日晚 23:59，请注意安排时间。
 
-本次 lab 的安排是 60 分简单、基础的图片隐写题目。选做部分是一些在真实 CTF 比赛中完全可能出现的难度的题目，但在给了 hint 之后难度应该已经大大减小。鉴于本次实验可能难度过高，下一节关于取证的 lab 难度则都会比较简单。以及在做题过程中遇到任何问题，都请及时联系我，对于共性问题我会考虑继续放出 hint。
+本次 lab 的安排是 30 分简单的图片隐写题目。选做部分是一些在真实 CTF 比赛中完全可能出现的难度的题目，但在给了 hint 之后难度应该已经大大减小。在做题过程中遇到任何问题，都请及时联系，对于共性问题会考虑继续放出 hint。私聊提问时请务必说明你目前的进度及已经尝试的方法等。
 
 ### Background
+
 我们上课讲了很多种图片隐写的方式，总结起来，遇到简单图片隐写的题目，主要有以下尝试步骤一把梭：
 
 - 使用 exiftool 检查图片元信息，看看有没有看起来会有用的信息
@@ -34,112 +38,187 @@
 
 相信有了这些步骤，基础部分的三道题都是砍瓜切菜了。
 
-## Challenge 1
+## Challenge 1 (10%)
 
 第一道题目是校巴上的 songmingti，链接：[zjusec.com/challenges/28](https://zjusec.com/challenges/28)。
 
-请完成题目，提交 flag 成功，并在实验报告中写出你的解题思路和具体过程。
+请完成题目，在校巴提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
-## Challenge 2
+## Challenge 2 (10%)
 
 第二道题目是校巴上的 miaomiaomiao，链接：[zjusec.com/challenges/29](https://zjusec.com/challenges/29)。
 
-请完成题目，提交 flag 成功，并在实验报告中写出你的解题思路和具体过程。
+请完成题目，在校巴提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
-## Challenge 3
+## Challenge 3 (10%)
 
-这是一道 LSB 隐写的题目，但和 lab 0 的方式有那么一点不一样，相信你一定也可以轻松解出 flag。
+- `[lab2] Easy LSB` 题目位于[比赛平台](https://ctf.zjusec.com/games/3/challenges)上
 
-![](misc-lab2/chal.png)
+这是一道 LSB 隐写的题目（完全是吗？），但和 lab 0 的方式有那么一点不一样，相信你一定也可以轻松解出 flag。
 
-- 题目附件：[chal.png](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/easy_lsb/chal.png)
+![](misc-lab2/easy_lsb.png)
 
-请完成题目，拿到 flag，并在实验报告中写出你的解题思路和具体过程。
+可以在比赛平台上获取附件。
 
-## Challenge 4: Palette Stego
+请完成题目，在比赛平台提交 flag，并在实验报告中写出你的解题思路和具体过程。
+
+## Challenge A: Palette Stego (25%)
+
+- `[lab2] Palette Stego` 题目位于[比赛平台](https://ctf.zjusec.com/games/3/challenges)上
+
 ### Background
 
 我们课上讲了 PNG 格式有四个标准 chunk：IHDR、PLTE、IDAT、IEND，并且详细讲了其中三个，只有 PLTE 没有具体介绍。
 
 实际上这个块的用途是，PNG 有一种颜色模式是调色板模式，这种情况下会使用 PLTE 块存储调色板，具体格式请大家自行了解，然后在 IDAT 中将记录的像素值从原来的每个像素三个字节 RGB 改为一个字节调色板索引。更详细的内容请大家自行搜索相关文章、博客了解。（如果懒得搜的话我这里提供一个标准：[Portable Network Graphics (PNG) Specification (Third Edition)](https://www.w3.org/TR/png-3/)）
 
-我们课上提到过的一个名字——EZStego 隐写。这是一个针对 GIF 或者使用调色板模式的 PNG 的一种隐写方式。类似 JPEG，它利用人眼对于亮度更敏感的特性，将调色板的颜色按照亮度排序，这样相邻的两个颜色在使用时交换索引视觉差别也不大，用这个方式就可以进行隐写。你可以搜索 “EZStego 隐写” 关键词了解更详细的隐写方法（注意不是 zsteg，那是一个命令行工具）。
+EZStego 隐写是一个针对 GIF 或者使用调色板模式的 PNG 的一种隐写方式。类似 JPEG，它利用人眼对于亮度更敏感的特性，将调色板的颜色按照亮度排序，这样相邻的两个颜色在使用时交换索引视觉差别也不大，用这个方式就可以进行隐写。你可以搜索 “EZStego 隐写” 关键词了解更详细的隐写方法（注意不是 zsteg，那是一个命令行工具）。
 
 ### Challenge
+
 下图就是题目，它使用 EZStego 隐写隐藏了 flag：
 
 ![](misc-lab2/palette.png)
 
-- 题目附件：[chal.png](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/palette/chal.png)
+可以在比赛平台上获取附件。
 
-请学习 PLTE chunk 的格式、EZStego 隐写的原理和具体步骤，完成题目，拿到 flag，并在实验报告中写出你的解题思路和具体过程（包括解题代码）。
+请学习 PLTE chunk 的格式、EZStego 隐写的原理和具体步骤。你需要：
+
+- 完成题目，在比赛平台提交 flag，并在实验报告中写出你的解题思路和具体过程 (15%)
+- 给出你的解题代码 (10%)
+
+也就是说，你需要自己编写代码来解出这道题目。使用隐写工具解题只能得到 15% 分数。
 
 如果无法解出题目，也请将你的尝试写在报告中（你已经学到的相关知识也可以写进去），我们会根据你的进度给部分分。
 
 ### Hint
 
-以下是一些针对使用 python 处理这道题时可能会有用的 hint：
+以下是一些针对使用 Python 处理这道题时可能会有用的 hint：
 
 - 题目图片的 mode 已经不是 "RGB" 了，而是 "P"
-- 你可以通过 `img = Image.open(...)` 正常打开题目图片
+- 你可以通过 `#!py img = Image.open(...)` 打开题目图片
 - 调色板内容可以通过 `img.palette` 访问（具体结构请自行探索）
 - 我针对像素的处理是一行一行进行的
     - 需要注意 PIL 中图片结构是先列后行，即 (x, y) 表示第 x 列第 y 行
     - 处理时注意循环顺序
 
-## Challenge 5: Spectrogram
+## Challenge B: Spectrogram (30%)
+
 ### Challenge
-这道题目是一个音频隐写的题目，我通过一个 python 程序将一小段歌曲转换为了频谱动图，相信你一定可以从这张动图中就复原出原曲的大致样子。
 
-![flag.gif](misc-lab2/flag.gif)
+这道题目是一个音频隐写的题目，我通过一个 Python 程序将两段歌曲转换为了频谱动图，相信你一定可以从动图中就复原出原曲的大致样子。
 
-- 题目附件：[flag.gif](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/fourier/flag.gif)、[generate.py](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/fourier/generate.py)
+![flag-1.gif](misc-lab2/flag-1.gif)
+![flag-2.gif](misc-lab2/flag-2.gif)
 
-请参考生成频谱图的代码，尝试恢复原音频。你需要回答出这首歌曲是什么，并将你的解题思路和具体过程写在实验报告中，将你恢复出的音频和使用的脚本通过压缩包的形式同时上传。
+可以在比赛平台上获取附件。
+
+请参考生成频谱图的代码，尝试恢复原音频。你需要回答出至少一首歌曲的歌名，并将你的解题思路和具体过程写在实验报告中，将你恢复出的两段音频和编写的脚本通过压缩包的形式同时上传。
 
 如果无法完整完成复原，也请将你的尝试写在报告中，我们会根据完成情况给部分分。
 
 ### Hint
 
-这道题目其实考点更偏向于 python 的使用（笑），你可能需要：
+这道题目其实考点更偏向于 Python 的使用（笑），你可能需要：
 
-- 掌握 numpy 矩阵数据的处理方式
+- 掌握 NumPy 矩阵数据的处理方式
     - 不熟悉的话建议配合文档/教程通过实践来学习
 - 搜索并简单阅读 librosa 这个库的文档
 - 如果你被脚本中嵌套的矩阵处理搞糊涂了，不妨自己用另一个音频文件跑一下 generate.py，你可以在中途输出任何你想要了解的中间结果
 
-## Challenge 6: Huffman Stego
-### Background
-
-我们课上讲到了 JPEG 文件会使用 Huffman 编码，以及是一种称为“范式 Huffman 编码”的变形版。关于 Huffman 编码有关的数据存储在了 DHT 块中，其具体格式需要你来自行查阅资料了解。
-
-- [JPEG 中的范式哈夫曼编码](https://zhuanlan.zhihu.com/p/72044095)
-- [JPEG算法解密（四）](https://www.thecodeway.com/?p=522)
-
-在 JPEG 编解码的过程中会使用到计算出来的 Huffman 编码，这些编码与 DHT 块有关。而在实际解码的过程中，即使有编码没有被使用到，也不会认为出错了。所以出题人可以在 Huffman 编码树上插入实际没有用的编码，从而隐藏信息。
-
-为了解决这样的题目，显然你需要一个你可以方便操控的 JPEG 解码器，并简单理解其解码逻辑，这里推荐一些文章/代码供大家参考：
-
-- [Understanding and Decoding a JPEG Image using Python](https://yasoob.me/posts/understanding-and-writing-jpeg-decoder-in-python/)
-    - 对应代码：[yasoob/Baseline-JPEG-Decoder](https://github.com/yasoob/Baseline-JPEG-Decoder)
-- [https://github.com/yohhoy/picojdec](https://github.com/yohhoy/picojdec)
+## Challenge C: RURU (30%)
 
 ### Challenge
 
-这里有 48 张 512x512 的灰度图，里面藏了 flag，请找出来：
+我们在上课讲了 ZIP 伪加密的原理，即将本地文件记录和中央目录记录中的 flags 域的加密位设为 1，这样可以“欺骗”解压软件让它认为这个压缩包是加密的，而实际上内容并没有加密。
 
-![](misc-lab2/huffman_intro.png)
+RURU 是 ZJUCTF 2023 的一道题目。请完成题目，在比赛平台上提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
-- 题目附件：[chal.zip](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/misc-lab2/huffman/chal.zip)
+如果无法解出题目，也请将你的尝试写在报告中，我们会根据你的进度给部分分。
 
-以上是在真实的 CTF 比赛中你可能会看到的全部题目描述，这也是一道相当不简单的题目。但这里我继续将大部分做法简要地告诉你来降低一些难度：
+## Challenge D: Power Trajectory Diagram (30%)
 
-- 针对每张图片：
-    - 自己写一个/修改前面的 JPEG 解码器，记录 DHT 块中包含的编码，以及在 scan 的过程中实际使用到的编码
-    - 对比两者的差异，你会发现 DHT 块中没有被使用到的编码
-    - 每个图片都有一个字节的编码没有被使用到，将其提取出来
-- 寻找那个字节本身或者其对应的范式 Huffman 编码的规律，配合 flag 开头为 `AAA{`，猜测得到冗余编码的使用方式，从而得到 flag
+- `[lab2] Power Trajectory Diagram` 题目位于[比赛平台](https://ctf.zjusec.com/games/3/challenges)上
 
-请根据上述思路完成解题，拿到 flag，并在实验报告中写出你的解题思路和具体过程（包括解题代码）。
+### Challenge
 
-如果无法解出题目，也请将你的尝试写在报告中（你已经学到的相关知识也可以写进去），我们会根据你的进度给部分分。
+这是 CISCN 2024 的一道题目。某个黑客在攻击一台物理设备时，记录了该设备的功率变化。你需要通过这些数据还原出黑客成功攻击设备时的 flag。
+
+请完成题目，在比赛平台上提交 flag，并在实验报告中写出你的解题思路和具体过程。
+
+如果无法解出题目，也请将你的尝试写在报告中，我们会根据你的进度给部分分。
+
+### Hint
+
+你可能需要：
+
+- 学习用 Python 进行数据的可视化
+    - 通常使用 matplotlib 库：`#!py from matplotlib import pyplot as plt`
+    - 你可以通过 `plt.plot(...)` 来绘制折线图
+    - 图片太多？试试用 `plt.savefig(...)` 保存图片之后一起查看
+
+## Challenge E: pysandbox (30%)
+
+### Challenge
+
+pysandbox 是校巴上的一系列 Python 沙箱逃逸题目，共 16 道。本题需要你完成：
+
+- [pysandbox6](https://zjusec.com/challenges/69) (15%)
+- [pysandbox10](https://zjusec.com/challenges/70) (15%)
+
+请完成题目，在校巴提交 flag，并在实验报告中写出你的解题思路和具体过程。
+
+### Hint
+
+虽然题目给的 Python 环境较老（Python 2.7），但大体上的逃逸思路是通用的。你可能需要了解的东西：
+
+- Python 的一些特性，比如 `eval`、`exec`、`__import__` 等
+- Python 的一些“魔法方法”的使用
+
+同时，虽然校巴只要求 pysandbox6 和 pysandbox10，但你可以尝试从 pysandbox1 开始做起，这样会逐步了解 Python 沙箱的限制和逃逸方法。
+
+可以阅读的资料：[Python 沙箱逃逸 - GZTime's Blog](https://blog.gzti.me/posts/2021/83a30666/?highlight=沙箱)
+
+## Challenge F: PPC (30%)
+
+### Challenge
+
+良好的编程能力是一名安全工程师必备的技能之一，在真实 CTF 比赛中也可能出现 PPC 类题目。本题需要你完成以下两部分：
+
+#### maze1
+
+- 校巴上的 [maze1](https://www.zjusec.com/challenges/99)
+
+请完成题目，在校巴提交 flag，并在实验报告中写出你的解题思路和具体过程。
+
+#### Quine
+
+Quine 是一个自描述程序，即输出自己的源代码。这是一个经典的编程题目。
+
+本题要求你用 C 或 C++ 编写一个 Quine 程序，并在实验报告中写出你的思路（如果有的话），在压缩包中提交你的源代码。
+
+
+一个真实的 Quine 程序一定不涉及任何形式的文件读写，即不可以读取自己的源代码。也就是说，下面的行为是不允许的：
+
+```c
+int main(void) {
+  FILE *p = fopen(__FILE__, "r");
+  char c;
+  while ((c = fgetc(p)) != EOF) {
+      putchar(c);
+  }
+  fclose(p);
+}
+```
+
+### Hint
+
+在 Linux 上，你可以使用以下命令来检测你的 Quine 的正确性。假设你的 Quine 程序保存在 `quine.c` 中：
+
+```bash
+gcc -o quine quine.c
+./quine > quine2.c
+diff quine.c quine2.c
+```
+
+最后一行的 `diff` 应当不反馈任何内容，即两个文件完全相同。
