@@ -1,4 +1,4 @@
-# Rev Lab 1: Binary 及 Rev 基础
+# Rev Lab 1：Binary 及 Rev 基础
 
 本节 Lab 由以下几个部分组成：
 
