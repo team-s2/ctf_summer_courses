@@ -320,7 +320,7 @@ contract Bank {
 ```
 
 - withdraw 时先转钱再更新 balances
-- 赚钱的时候会进入到目标合约的 fallback 函数，可以再次调用 withdraw
+- 转钱的时候会进入到目标合约的 fallback 函数，可以再次调用 withdraw
 - 再次调用时 require 检查的仍然是老的 balances
 - 这样可以把钱取空
 
@@ -395,7 +395,7 @@ Read more: [note.tonycrane.cc/ctf/blockchain/eth](https://note.tonycrane.cc/ctf/
     - Challenge B: Ethernaut（15 分）
     - Challenge C: Re-entrancy（20 分）
     - Challenge D: hard gambler（35 分）
-    - Challenge E: safe nft（35 分）
+    - Challenge E: Safe NFT（35 分）
 
 <!--s-->
 <!-- .slide: data-background="misc-lec3/ending.png" -->
