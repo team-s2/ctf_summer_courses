@@ -48,5 +48,5 @@ def convert_to_gif(src, dst):
 
 
 if __name__ == '__main__':
-    convert_to_gif('flag-1.mp3', 'flag-1.gif')  # sample rate is 44100 Hz
-    convert_to_gif('flag-2.mp3', 'flag-2.gif')  # sample rate is 44100 Hz
+    convert_to_gif('flag-1.mp3', 'flag-1.gif')  # sample rate is 22050 Hz
+    convert_to_gif('flag-2.mp3', 'flag-2.gif')  # sample rate is 22050 Hz
