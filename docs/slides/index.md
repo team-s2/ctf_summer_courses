@@ -8,3 +8,4 @@
 - [lec 0：课程导论](https://courses.zjusec.com/slides/lec0/)
 - [misc lec 1：简介 / 编解码 / OSINT](https://courses.zjusec.com/slides/misc-lec1/)
 - [misc lec 2：文件 / 图像隐写](https://courses.zjusec.com/slides/misc-lec2/)
+- [rev lab 2: 动态调试 / 异架构逆向](https://courses.zjusec.com/slides/rev-lec2/)

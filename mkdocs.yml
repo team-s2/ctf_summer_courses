@@ -19,7 +19,7 @@ nav:
   - 专题部分:
     - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
   #   - "misc lab 3: 流量、内存取证": topic/misc-lab3.md
-  #   - "rev lab 2: CrackMe & Malware": topic/rev-lab2.md
+    - "rev lab 2: 动态调试 / 异架构逆向": topic/rev-lab2.md
   #   - "rev lab 3: 迷宫问题": topic/rev-lab3.md
   #   - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
   #   - "crypto lab 3: ECC & Paillier": topic/crypto-lab3.md
@@ -35,6 +35,7 @@ nav:
     - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
     - "🔗 misc lec 1: 简介/编解码/OSINT": https://courses.zjusec.com/slides/misc-lec1/
     - "🔗 misc lec 2: 文件/图像隐写": https://courses.zjusec.com/slides/misc-lec2/
+    - "🔗 rev lec 2: 动态调试 / 异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
 
 theme:
   name: 'material'
