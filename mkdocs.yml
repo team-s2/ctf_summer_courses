@@ -21,7 +21,7 @@ nav:
   #   - "misc lab 3: 流量、内存取证": topic/misc-lab3.md
     - "rev lab 2: 动态调试 / 异架构逆向": topic/rev-lab2.md
   #   - "rev lab 3: 迷宫问题": topic/rev-lab3.md
-  #   - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
+    - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
   #   - "crypto lab 3: ECC & Paillier": topic/crypto-lab3.md
     - "web lab 2: 注入漏洞基础": topic/web-lab2.md
   #   - "web lab 3: PHP unserialization": topic/web-lab3.md
