@@ -7,9 +7,9 @@
     - [strip](#challenge-2-strip-25)
     - [exchange](#challenge-3-exchange-25)
 - 选做部分，自由选择，最多计 45 分：
-    - [ZJU dorm](#zju-dorm-30)
-    - [apk1.67](#apk1.67-40)
-    - [minus10](#minus10-45)
+    - [ZJU dorm](#challenge-a-zju-dorm-30)
+    - [apk1.67](#challenge-b-apk167-40)
+    - [minus10](#challenge-c-minus10-45)
 
 本次 lab 的 ddl 在发布两周以后即 7 月 24 日晚 23:59，请注意安排时间。在做题过程中遇到任何问题，都请及时联系，对于共性问题会考虑继续放出 hint。私聊提问时请务必说明你目前的进度及已经尝试的方法等。
 
