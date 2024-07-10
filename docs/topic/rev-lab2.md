@@ -1,98 +1,69 @@
-# Rev Lab 2: CrackMe & Malware
+# Rev Lab 2: 动态调试 / 异架构逆向
 
-本节 Lab 由以下两部分组成，整体超出100分的部分将作为 bonus：
+本节 Lab 分为必做和选做部分：
 
-- [Task 1: 课堂例题++](#task-1)（110分）
-    - CrackMe 部分 (60分)
-    - Malware 部分 (50分)
-- [Task 2: 简单的勒索软件](#task-2)（40分）
+- 必做部分：课堂例题复现 (70%)
+    - [static-1](#challenge-1-static-1-20)
+    - [strip](#challenge-2-strip-25)
+    - [exchange](#challenge-3-exchange-25)
+- 选做部分，自由选择，最多计 45 分：
+    - [ZJU dorm](#zju-dorm-30)
+    - [apk1.67](#apk1.67-40)
+    - [minus10](#minus10-45)
 
-## Task 1
+本次 lab 的 ddl 在发布两周以后即 7 月 24 日晚 23:59，请注意安排时间。在做题过程中遇到任何问题，都请及时联系，对于共性问题会考虑继续放出 hint。私聊提问时请务必说明你目前的进度及已经尝试的方法等。
 
-### Part 1 (60 points)
+### Challenge
 
-课上我们讲解了如何把 010 Editor 变为 Freeware，并和大家一起分析了校验序列号的核心函数 `sub_14036E740` 中 0x9C 这个分支的情况, 附件 `keygen.py`（[下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab2/keygen.py)）为对应的 python 注册机代码。请回顾课上讲解的内容，参考给出的注册机代码，尝试编写 0xAC 分支的注册机（不限编程语言），并提交 Writeup，要求包含：
+我们本节课主要还是以许多例子讲了逆向的基本过程和一些工具的使用，同时介绍了一些进阶的逆向内容，如动态调试、x86_64 之外的架构逆向及其他语言的逆向。
 
-1. 分析 010 Editor 的流程及 patch 的过程和原理 （10 points）
-2. 如何定位到校验序列号的核心函数以及我们期望这个函数返回什么 （10 points）
-3. 分析校验序列号算法的流程，阐述输入的 Name 与 Password 是如何被校验的 （20 points）
-4. 你最终编写的 0xAC 分支注册机代码以及在 010 Editor 中成功注册的截图 （20 points）
+这一部分主要考验你对课堂内容的掌握，以及对逆向工具的熟练使用。
 
-**Tips**：
+## Challenge 1: static-1 (20%)
 
-1. 编写注册机的思路并不同于解 CTF 题目，答案并不是唯一的，你只需要找到满足条件的一种输入即可
-2. 0x9C 分支的情况注册成功后 010 Editor 运行截图如下：
+一个简单的静态链接程序，我们在课上展示了如何使用 IDA 分析其结构。
 
-![success](rev-images/register_success.png)
+- 这个程序采用的加密方式是什么？这种加密方式的特点是什么？有什么缺点？(10%)
+- 请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果。(10%)
 
-### Part 2 (50 points)
+## Challenge 2: strip (25%)
 
-[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab2/Evil_Panda.zip)
+也是较为简单的静态链接，不过我们使用了 `strip` 命令来去除符号表。
 
-课上我们分析了使用 Go 语言编写的低配版“熊猫烧香”，请回顾课上讲解的内容，回答以下问题：
+- 这个程序采用的加密方式是什么？这种加密方式的特点是什么？有什么缺点？(10%)
+- 请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果。(15%)
 
-1. 在程序启动后，它使用了什么方法来隐藏自己？ (10 points)
-2. 该软件是如何实现持久化的？（10 points）
-3. 程序对哪些目标文件有恶意行为，分别做了什么操作？（15 points）
-4. 如果我的系统不幸被该软件感染，应该如何恢复？请编写一个恢复程序，对编程语言不做要求 （15 points）
+## Challenge 3: exchange (25%)
 
-**Tips**:
+我们在课上展示了当遇到不认识的函数时，通过 `ldd` 和 `strace` 来分析程序的依赖和行为。这个程序使用 OpenSSL 库来进行一些密码学操作。你需要了解 X25519 密钥交换算法，以及 OpenSSL 的使用。
 
-1. 为了减少大家在逆向过程中的工作量，这里给出部分程序源码：
+请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果。如果无法解出题目，也请将你的尝试写在报告中（你已经学到的相关知识也可以写进去），我们会根据你的进度给部分分。
 
-```go
-func walkDisk(root string) error {
-    homeDir, err := os.UserHomeDir()
-    checkError(err)
-    skipPath := homeDir + `\AppData\Local\Microsoft\Windows`
-    
-    // Try to be nice XD
-    if root == `C:` {
-        root = homeDir
-    }
-    stack := []string{root}
+## Challenge A: ZJU dorm (30%)
 
-    for len(stack) > 0 {
-        dir := stack[len(stack) - 1]
-        stack = stack[:len(stack) - 1]
+我们在课上提到，非 C 系编译型语言可能并不遵循 `__libc_start_main` 的规范。请你尝试分析这个 Golang 编写的程序。
 
-        entries, err := os.ReadDir(dir)
-        if err != nil {
-            continue
-        }
+请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果。如果无法解出题目，也请将你的尝试写在报告中（你已经学到的相关知识也可以写进去），我们会根据你的进度给部分分。
 
-        for _, entry := range entries {
-            if entry.IsDir() {
-                subDir := dir + `\` + entry.Name()
-                if strings.HasPrefix(subDir, skipPath) {
-                    continue
-                }
-                stack = append(stack, subDir)
-            } else {
-                path := dir + `\` + entry.Name()
-                if err := infectSignleFile(path); err != nil {
-                    continue
-                }
-            }
-        }
-    }
+## Challenge B: apk1.67 (40%)
 
-    return nil
-}
-```
+Android 逆向基本是关于 Java 逆向的。我们在课上展示了用 Bytecode Viewer 来反编译 APK。当然，也可以使用 Jadx。
 
-2. 我们在课上讲解了 Go 语言在 1.17 版本后更新了调用约定（Calling Convention），通过编写简单的示例程序并使用编译选项 `-gcflags "-N -l"` 关闭优化即可在 IDA 中观察函数的参数及返回值是通过哪些寄存器传递的。在分析时，也不要忘记结合动态调试，同时确保调试环境在虚拟机中。
-
-## Task 2
-
-[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab2/baby_ransomware.zip)
-
-非常友好的一个程序，甚至感觉不到丝毫威胁，完成该题目并提交：
-
-1. flag 内容及 Writeup (40 points)
+请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果。如果无法解出题目，也请将你的尝试写在报告中（你已经学到的相关知识也可以写进去），我们会根据你的进度给部分分。
 
 ### Hint
 
-1. 该题目的年代较为久远，如果无法运行（如提示缺少 dll）也无需担心，静态分析就足以解出这道题目
-2. 你可能需要了解一下什么是壳，这个程序用到了什么壳进行保护，以及是否有对应的脱壳工具
-3. 也许需要一点巧思，了解一下 Windows 可执行程序文件格式（PE 格式）中有没有**特殊**的部分
+这道题也需要你有一定的 misc 知识。这个 APK 不能被解压，这是为什么呢？
+
+## Challenge C: minus10 (45%)
+
+我们上课提到，逆向不仅仅是 x86_64 的逆向，还有其他架构的逆向。这个题目是一个 MSP430 的逆向题目。鉴于我们仍然对其他架构的逆向知识了解不多，你可以尝试按下面的步骤逐步回答问题。
+
+- 请用 IDA 或 Ghidra 成功加载所给出的 firmware.hex，展示你得到的结果。MSP430 是大端还是小端？(10%)
+- 请展示这个程序判断 flag 是否正确的逻辑。(10%)
+- 请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果。(15%)
+- `minus10.sr` 文件中隐藏着什么信息？我们在课上提到其他文件都是从这个文件中提取出来的，你可以尝试做到这一点吗？(10%)
+
+### Hint
+
+MSP430 的指令集较为简单，因此即使 IDA 无法直接将其反编译为 C 代码，你也可以通过观察汇编代码来理解程序的逻辑。一个程序判断 flag 是否正确的逻辑都是相通的。
