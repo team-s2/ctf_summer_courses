@@ -32,11 +32,11 @@ revealOptions:
 
 ## 流量取证基础
 
-- 网络流量（-> 回顾 web 专题一）
+- 网络流量（-> 回顾 web 基础）
     - 应用层（HTTP/FTP/...）-> 表示层 -> 会话层（SSL/TLS/...）
     - -> 传输层（TCP/UDP）-> 网络层（IP/ICMP/...）
     - -> 数据链路层 -> 物理层
-- 最终传输的仍然是我们一直在讲的二进制数据
+- 最终传输的仍然是二进制数据
     - 捕获这些数据，就可以分析得到正在进行的通信内容
 - 流量取证一般就是拿到这些数据包（cap、pcap、pcapng 格式）进行分析
     - 如有损坏的话修复数据包（少见，pcapfix 可以修复）
@@ -57,7 +57,9 @@ revealOptions:
 - [scapy](https://scapy.net/)：Python 库，也可以用来分析流量包
 
 
-<img style="float: right; margin-right: 20px; margin-top: 30px;" width="60%" src="misc-lec3/meme.png">
+<div style="text-align: center; margin-top: 20px; margin-bottom: 0px">
+<img src="misc-lec3/meme.png" width="60%" style="margin: 0 auto;">
+</div>
 
 <!--v-->
 <!-- .slide: data-background="misc-lec3/background.png" -->
@@ -186,6 +188,11 @@ revealOptions:
         - 私钥是随机生成的 256 位数（32 字节）
         - 公钥由私钥经过 ECDSA 算法计算而来，是一个 64 字节的数
         - 地址由公钥经过 Keccak-256 哈希后取前 20 字节得到
+
+<div style="text-align: center; margin-top: 20px; margin-bottom: 0px">
+<img src="misc-lec3/nopubkey.png" width="50%" style="margin: 0 auto;">
+</div>
+
 - 合约账户（Contract Account）
     - 由 EOA 通过交易创建的账户，其中包含合约代码
     - 合约可以存储、拥有以太币
@@ -268,6 +275,8 @@ revealOptions:
 
 https://note.tonycrane.cc/ctf/blockchain/eth/solidity/
 
+官方文档：https://docs.soliditylang.org/en/latest/index.html
+
 - 以太坊官方的编写智能合约的语言
 - IDE：https://remix.ethereum.org/
 - 通过 contract 关键字声明一个合约
@@ -348,8 +357,8 @@ contract Bank {
 - 一般会过滤掉大部分 geth rpc 接口
     - 防止其他队伍扒链蹭车/重放
     - 白名单示例可见 [chainflag/solidctf](https://github.com/chainflag/solidctf/blob/main/fogeth/proxy/eth-jsonrpc-access.js) 中的白名单，一般就是这些
-    - geth 手动操作很复杂（只能发 raw），remix 无法连接
-- 通过 [web3.py](https://pypi.org/project/web3/) 进行交互
+    - geth 手动操作很复杂（只能发 raw），remix/metamask 可能会无法连接
+- 可以/推荐通过 [web3.py](https://pypi.org/project/web3/) 进行交互
     - 通过 eth.contract 和 abi 与 addr/bytecode 创建合约对象
     - 通过 contract.functions.f().build_transaction() 构建交易
     - 通过 eth.account.sign_transaction(txn, privateKey) 签名
@@ -375,7 +384,7 @@ Read more: [note.tonycrane.cc/ctf/blockchain/eth](https://note.tonycrane.cc/ctf/
 - 交互、测试环境：geth、Remix、MetaMask、web3.js、web3.py 等
 - 常见合约漏洞：整型溢出、重入、伪随机、薅羊毛、非预期的远程调用……
 - 入门做题平台：
-    - [ethernaut](https://ethernaut.openzeppelin.com/)、[Security Innovation](https://blockchain-ctf.securityinnovation.com/)
+    - [ethernaut](https://ethernaut.openzeppelin.com/)
     - 校巴上的几道 Blockchain 题建议有一定基础了解之后再做
 
 
