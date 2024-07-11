@@ -232,3 +232,31 @@ html.print-pdf .reveal pre code {
 .katex {
   font-size: 1em;
 }
+
+.reveal-viewport.reveal-scroll .slide-background {
+  width: var(--slide-width) !important;
+  height: var(--slide-height) !important;
+}
+
+.reveal-viewport.reveal-scroll .slides {
+  border: none;
+}
+
+.reveal-viewport.reveal-scroll .scroll-page-content {
+  width: var(--slide-width) !important;
+  height: var(--slide-height) !important;
+  top: 50% !important;
+  left: 50% !important;
+  opacity: 1 !important;
+  transform: scale(var(--slide-scale)) translate(-50%, -50%) !important;
+  transform-style: flat !important;
+  transform-origin: 0 0 !important;
+  border: 1.5px #ddd solid;
+  border-radius: 7px;
+}
+
+.reveal-viewport.reveal-scroll .scroll-page section {
+  top: unset !important;
+  left: unset !important;
+  transform: none !important;
+}
