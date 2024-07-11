@@ -25,7 +25,7 @@ nav:
   #   - "crypto lab 3: ECC & Paillier": topic/crypto-lab3.md
     - "web lab 2: 注入漏洞基础": topic/web-lab2.md
   #   - "web lab 3: PHP unserialization": topic/web-lab3.md
-  #   - "pwn lab 2: BOF and ROP": topic/pwn-lab2.md
+    - "pwn lab 2: ROP与格式化字符串漏洞": topic/pwn-lab2.md
   #   - "pwn lab 3: More ROP plz": topic/pwn-lab3.md
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md
