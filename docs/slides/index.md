@@ -10,3 +10,4 @@
 - [misc lec 2：文件 / 图像隐写](https://courses.zjusec.com/slides/misc-lec2/)
 - [misc lec 3：流量取证 / 区块链基础](https://courses.zjusec.com/slides/misc-lec3/)
 - [rev lec 2：动态调试 / 异架构逆向](https://courses.zjusec.com/slides/rev-lec2/)
+- [rev lec 3: 异架构逆向拓展/游戏逆向](https://courses.zjusec.com/slides/rev-lec3/)
