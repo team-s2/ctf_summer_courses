@@ -73,11 +73,11 @@
 
 ## 提交材料
 
-- 实验报告（<span class="heti-skip">学号-姓名-web专题二.pdf</span>）
+- 实验报告（<span class="heti-skip">学号-姓名-web-lab3.pdf</span>）
     - 得到的 flag
     - 详细步骤（足够使得老师确信你是独立完成的即可，可以含有少量图片/截图加以佐证）
     - （可选但强烈推荐）校巴题目完成的截图（含右上角已登录的用户名）
-- 必要的代码、附件（<span class="heti-skip">学号-姓名-web专题二.zip</span>）
+- 必要的代码、附件（<span class="heti-skip">学号-姓名-web-lab3-attachment.zip</span>）
 
 放心，不会抠格式名字之类的细节，做出来最要紧。只要做出题目且步骤齐全就会给满分。做不出来也没关系，只要在作业中呈现完整的思考过程也会给分。
 
