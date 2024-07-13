@@ -54,7 +54,7 @@
   
     如果你在没有任何 hint 释出前完成，将获得全部 bonus 分数。
 
-    每有一个 bonus 释出，您将损失 5% 的 bonus 分数。
+    每有一个 hint 释出，您将损失 5% 的 bonus 分数。
 
     全部 hints 释出后，您将不会获得 bonus 加分。
 
