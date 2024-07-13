@@ -1,23 +1,82 @@
-# Web Lab 3: PHP unserialization
+# Web Lab 3：PHP 反序列化、综合应用
 
-## Task 1 (30 pts)
+## 实验任务
 
-Finish the challenge Baby Hash in SchoolBus (https://zjusec.com/challenges/88)
+### Task 1: 热身 (20%)
 
-## Task 2 (20 pts)
+用**任何语言**编写脚本，在本机上寻找更多如下字符串：
 
-Finish the challenge Child Hash in SchoolBus (https://zjusec.com/challenges/89)
+- 经过 PHP 的md5函数运算后 16 进制表示下以 `0e` 开头（可用于弱比较）
+- 经过 PHP 的md5函数运算后以 `'or` 开头
 
-## Task 3 (10 pts)
+（可选，如果你真的很闲或者你是高性能计算高手）额外给出你电脑处理器在 CPU-Z 排行榜上的分数、运行耗时、找到的字符串数量。综合考虑后，优秀的结果最高可获取 5% 的 Bonus.
 
-Finish the challenge Grownup Hash in SchoolBus (https://zjusec.com/challenges/90)
+### Task 2: 反序列化 (30%)
 
-## Task 4 (40 pts)
+在 BUUCTF 上完成题目：**网鼎杯 2020 青龙组 AreUSerialz** .
+请对 PHP 的版本问题多加注意。
+你需要提交：
 
-reproduce CVE-2018-18753, analysis trace, exploitable payload.
+- 代码与 payload
+- 必要配置步骤（如有）
+- 包含使用工具（BurpSuite 或你的 Python IDE 等）界面和 flag 的截图
 
-## What to submit
+以上部分将组成一个完整的 Write-up 证明你完成了该题。
 
-For task 1-3, your writeup.
+### Task 3: 综合应用 (50%)
 
-For task 4, your analysis trace, payload, etc.
+本任务要求你完成校巴上的两道题目：
+
+1. [日哭School-bus](https://zjusec.com/challenges/44) (30%)
+    - 考察点：SQL 注入、任意文件读取。
+    - 可公开的情报：你也许可以寻找一些 MySQL 中的敏感函数进行利用。自己动手写一些可复用的脚本能让你在当前与未来的解题过程中获得更好的体验。
+    - 有如下计分 checkpoints:
+        - 成功以管理员账号登录：视为本题完成度 50% 以上
+        - 成功解出该题：视为本题完成度 90% 以上
+        - 成功解出该题并获得下一题的入口：视为完美完成本题
+
+2. [上了那个writeup](https://zjusec.com/challenges/45) (20%)
+    - 考察点：代码审计、文件类型校验绕过……
+    - 可公开的情报：**理论上来说，完成上一题是本题的前置条件。**你可能需要进一步了解 Nginx 的配置、工作流程。请多多使用 BurpSuite.
+    - 大体上，本题需要3次“绕过”。因此有如下计分 checkpoints:
+        - 获取源码：视为本题完成度 20% 以上
+        - 每多绕过一步：本题完成度 +25%
+
+非预期的解法将获得额外奖励。比如 yyy 当时使用了非常规手段所以不小心两题一起做了……
+一个合格的web手应当尽力在网络上搜寻信息，绝不重复造轮子。
+
+### Bonus (+15%)
+
+二选一：
+
+- Task 3 中的题目也许有一定难度，因此 yyy 预留了3个 hints 择机放出（见后文）...
+    如果你在没有任何 hint 释出前完成，将获得全部 bonus 分数。
+    每有一个 bonus 释出，您将损失 5% 的 bonus 分数。
+    全部 hints 释出后，您将不会获得 bonus 加分。
+
+    请注意得分是针对**每份提交**计算的，以最高得分计。一言以蔽之，并不需要担心新的提交会降低你的分数。
+
+- 或者：你可以搭建一个你自己的博客（真正可用、实用的），可以使用任何框架、技术栈。并且：
+    - 写一篇博文简短地描述你的收获与建议(+10%)；
+    - 或是写一篇关于其他语言中反序列化漏洞的博文(+15%)；
+    - 或是写一篇关于 JavaScript 原型链污染漏洞的博文(+15%)。
+
+## Hints
+
+1. (2024/07/17 释出)
+2. (2024/07/20 释出)
+3. (2024/07/24 释出)
+
+## 提交材料
+
+- 实验报告（<span class="heti-skip">学号-姓名-web专题二.pdf</span>）
+    - 得到的 flag
+    - 详细步骤（足够使得老师确信你是独立完成的即可，可以含有少量图片/截图加以佐证）
+    - （可选但强烈推荐）校巴题目完成的截图（含右上角已登录的用户名）
+- 必要的代码、附件（<span class="heti-skip">学号-姓名-web专题二.zip</span>）
+
+放心，不会抠格式名字之类的细节，做出来最要紧。只要做出题目且步骤齐全就会给满分。做不出来也没关系，只要在作业中呈现完整的思考过程也会给分。
+
+**禁止抄袭！**
+
+> 我们这个查重这个算法确实啊，召回率高证据足范围广啊，pdf也能查还不怕图片，逮起来确实爽。

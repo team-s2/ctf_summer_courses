@@ -24,7 +24,7 @@ nav:
     - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
     - "crypto lab 3: 离散对数": topic/crypto-lab3.md
     - "web lab 2: 注入漏洞基础": topic/web-lab2.md
-  #   - "web lab 3: PHP unserialization": topic/web-lab3.md
+    - "web lab 3: PHP 反序列化、综合应用": topic/web-lab3.md
     - "pwn lab 2: ROP与格式化字符串漏洞": topic/pwn-lab2.md
   #   - "pwn lab 3: More ROP plz": topic/pwn-lab3.md
   # - 反馈部分:
