@@ -1,267 +1,55 @@
-# Rev Lab 3: 迷宫问题
+# Rev Lab 3：异架构逆向拓展/游戏逆向
 
-逆向分析的过程虽然是较为枯燥甚至是让人头大的，但从一团乱麻毫无头绪到“复行数十步，豁然开朗”这一过程又何尝不让人神往。希望大家在本课程的逆向部分都能有所收获，体会到拆解程序的乐趣。
+本节 Lab 分为以下部分：
 
-本节 Lab 是逆向专题的最后一次作业，内容较为轻松，希望大家玩得愉快。
+- 必做部分，共 100 分
+  - [chicken](#challenge-1-chicken-50)
+  - [wasm](#challenge-2-wasm-50)
+- 拓展部分，共 30 分，但总分最多加到 115 分
+  - [游戏逆向探索](#bonus-30)
 
-## はちみ (100 points)
+本次 lab 的 ddl 在发布两周以后即 7 月 29 日晚 23:59，请注意安排时间。在做题过程中遇到任何问题，都请及时联系，对于共性问题会考虑继续放出 hint。私聊提问时请务必说明你目前的进度及已经尝试的方法等
 
-[题目下载链接](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab3/attachment.tar.gz)
+## Background: 动态调试进阶
 
-はちみを舐めると～ 蜂巢里有好多蜂蜜，完成题目并提交：
+### gdb script & frida
 
-1. flag 内容及 Writeup (100 points)
+在动态调试时，有时会进行多次重复的断点操作，并进行数据的获取，如果进行手动动态调试，费时费力，因此，我们需要一些自动化的动态调试工具帮助我们进行调试
 
-## Reference
+gdb script 是 gdb 内置的帮助代码调试的脚本语言，逆向时可以通过编写 gdb script 帮助我们进行自动化动态调试
 
-课上给大家演示了如何用 gdb script 与 frida 解迷宫类题目，这里附上代码：
+而我们更多使用的则是 gdb 的 python 接口，因为我们对 python 较为熟悉，而且可以调用一些 python 包协助我们进行调试，所以我们完全可以通过编写 python 脚本，来进行 gdb 的辅助调试，具体方法就是在 gdb 中输入`source debug.py`，而 python 脚本中具体的 gdb 相关调试方法可以参考网络资料，其中用的最多的就是`gdb.execute("xxx")`，意为执行某个 gdb 操作
 
-### gdb script
+此外，frida 作为一个较为著名的 hook 工具，也可以用来进行自动化程序动态调试。frida 多被用于 Android 逆向，不过在大部分平台上都可以进行调试。同样，python 也可以通过下载 frida 相关包调用 frida 进行动态调试。由于 frida 在网上有非常多的资料，这里就不进行详细介绍，有兴趣的可以自行查阅
 
-[gdb_script.py](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab3/gdb_script.py)
+### wasm 动态调试
 
-```python
-#!/usr/bin/env python3
-import re
+课上主要讲了 wasm 静态调试的具体方法，即通过 IDA 或者 ghidra 的 wasm plugin 进行逆向，或者使用 JEB 进行逆向，但是，上述的工具可能无法实现较便捷的动态调试。然而，目前大部分的浏览器都能进行 wasm 的动态调试，有些浏览器的动态调试支持也非常人性化
 
-GRID_SIZE = 4
-HEIGHT = 9
-WIDTH = 9
-MAZE_SIZE = HEIGHT * WIDTH
+以 Chrome 为例，F12 后可以在“源代码”一栏中找到 wasm 的 IR 形式，该处同样可以进行动态调试，找到关键汇编代码后进行断点，然后触发 wasm，然后就可以进行单步调试等操作，此时你也可以看到“作用域”一栏中有诸如 stack, \$var 等变量以及它们的值，这能帮助调试者更好地进行调试，而对于 wasm 的 memory，可以在作用域的模块部分找到，在调试过程中，也可以通过控制台取出 wasm 的变量以及内存空间的值，具体调试就交由同学们自己尝试
 
-# initialize
-gdb.execute("file level2")
-gdb.execute("set confirm off")
-gdb.execute("set pagination off") # set height unlimited (--batch)
-gdb.execute("starti")
-gdb.execute("pie b 0x156B") # first function malloc
-gdb.execute("pie b 0x1BED") # first function memset
+## Challenge 1: ichicken (60%)
 
-commands = "continue\n"
-commands += "ni\n"
-commands += "p $rax\n"
-commands += "continue\n"
-commands += "x/%dbx $1" % (MAZE_SIZE * GRID_SIZE)
+课上我们讲述了 Esolang 和其背后 VM 逆向的具体方法，本次作业需要你仔细研究 ichicken 这道题，尝试进行逆向，接着通过调试，完成以下工作：
 
-data = []
-for cmd in commands.split('\n'):
-    if cmd.startswith("x/"):
-        r = gdb.execute(cmd, to_string=True)
-        for item in re.findall(r"(0x[0-9a-f]{2})[\t\n]", r):
-            data.append(int(item, 16))
-    else:
-        gdb.execute(cmd)
+- 列举出可执行文件里的 VM 的所有操作，简要描述每个操作都做了什么 (20%)
+- 编写调试代码或脚本，方便后续逆向，也可以直接在题目给出的可执行文件上进行动态调试或者通过 gdb script 或者 frida 进行动态调试 (20%)
+- 对题目给出的 esolang 文件进行调试和逆向分析，找出 esolang 文件的 flag 验证逻辑 (10%)
+- 请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果 (10%)
 
-ascii_maze = [['+' for _ in range(WIDTH * 4 + 1)] for _ in range(HEIGHT * 2 + 1)]
-for i in range(HEIGHT):
-    for j in range(WIDTH):
-        idx = (i * WIDTH + j) * GRID_SIZE
-        grid = data[idx: idx + 4]
-        ascii_maze[i * 2 + 1][j * 4 + 1:(j + 1) * 4] = [' '] * 3
-        
-        # up wall
-        if grid[0] == 0:
-            ascii_maze[i * 2][j * 4 + 1:(j + 1) * 4] = ['-'] * 3
-        else:
-            ascii_maze[i * 2][j * 4 + 1:(j + 1) * 4] = [' '] * 3
-        
-        # down wall
-        if grid[1] == 0:
-            ascii_maze[(i + 1) * 2][j * 4 + 1:(j + 1) * 4] = ['-'] * 3
-        else:
-            ascii_maze[(i + 1) * 2][j * 4 + 1:(j + 1) * 4] = [' '] * 3
-            
-        # left wall
-        if grid[2] == 0:
-            ascii_maze[i * 2 + 1][j * 4] = '|'
-        else:
-            ascii_maze[i * 2 + 1][j * 4] = ' '
-        
-        # right wall
-        if grid[3] == 0:
-            ascii_maze[i * 2 + 1][(j + 1) * 4] = '|'
-        else:
-            ascii_maze[i * 2 + 1][(j + 1) * 4] = ' '
+## Challenge 2: wasm (40%)
 
-print(' Map '.center(WIDTH * 4 + 1, '='), end='\n\n')
-for line in ascii_maze:
-    print(''.join(line))
+课上我们介绍了 wasm，并简要介绍了 wasm 的逆向方法，在上面也进一步讲解了 wasm 的动态调试方法，本次作业需要你尝试逆向一个在线小游戏，操纵主角进行移动，最终或者正确 flag，你需要完成以下工作：
 
-# depth first search
-path = []
-stack = [(0, 0)]
-steps = ['w', 's', 'a', 'd']
-dires = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-record = [[0 for _ in range(WIDTH)] for _ in range(HEIGHT)]
-while(len(stack) > 0):
-    cur = stack.pop()
-    if cur == (HEIGHT - 1, WIDTH - 1):
-        break
-    record[cur[0]][cur[1]] = 1 # visited
-    
-    all_visited = True
-    for i in range(4):
-        idx = (cur[0] * WIDTH + cur[1]) * GRID_SIZE
-        nx = cur[0] + dires[i][0]
-        ny = cur[1] + dires[i][1]
-        if data[idx + i] == 1 and record[nx][ny] == 0:
-            all_visited = False
-            path.append(steps[i])
-            stack.append(cur)
-            stack.append((nx, ny))
-            break
-    
-    if all_visited:
-        path.pop()
-    
-print("\nPath:", ''.join(path))
-```
+- 找出这个程序的具体加密逻辑，并分析应该如何进行解密 (20%)
+- 请完成题目，在比赛平台提交 flag，并在实验报告中写出你的逆向解题过程和结果 (20%)
 
-### frida
+## Bonus: 游戏逆向探索 (30%)
 
-使用命令 `pip install frida-tools` 安装依赖，执行 `sudo sysctl kernel.yama.ptrace_scope=0` 允许对 non-child 进程 ptrace：
+课上演示了许多不同游戏引擎或者不同游戏机平台上的游戏的逆向方法，请同学们在作业中自己动手尝试游戏的逆向，你可以：
 
-[frida_script.py](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab3/frida_script.py)
+- 复现课上讲过的题目或者游戏
+- 尝试逆向课上并未详细演示但是发布在学在浙大课件中的游戏和题目
+- 自己寻找自己感兴趣的游戏，进行逆向尝试
 
-```python
-#!/usr/bin/env python
-
-import frida
-import sys
-
-# Spawn and attach to process
-pid = frida.spawn('./level2')
-session = frida.attach(pid)
-
-# Create and load the instrumentation script
-script = session.create_script(open('./frida_hook_script.js', 'r').read())
-
-def solve_maze(data):
-    GRID_SIZE = 4
-    HEIGHT = 9
-    WIDTH = 9
-    
-    ascii_maze = [['+' for _ in range(WIDTH * 4 + 1)] for _ in range(HEIGHT * 2 + 1)]
-    for i in range(HEIGHT):
-        for j in range(WIDTH):
-            idx = (i * WIDTH + j) * GRID_SIZE
-            grid = data[idx: idx + 4]
-            ascii_maze[i * 2 + 1][j * 4 + 1:(j + 1) * 4] = [' '] * 3
-            
-            # up wall
-            if grid[0] == 0:
-                ascii_maze[i * 2][j * 4 + 1:(j + 1) * 4] = ['-'] * 3
-            else:
-                ascii_maze[i * 2][j * 4 + 1:(j + 1) * 4] = [' '] * 3
-            
-            # down wall
-            if grid[1] == 0:
-                ascii_maze[(i + 1) * 2][j * 4 + 1:(j + 1) * 4] = ['-'] * 3
-            else:
-                ascii_maze[(i + 1) * 2][j * 4 + 1:(j + 1) * 4] = [' '] * 3
-                
-            # left wall
-            if grid[2] == 0:
-                ascii_maze[i * 2 + 1][j * 4] = '|'
-            else:
-                ascii_maze[i * 2 + 1][j * 4] = ' '
-            
-            # right wall
-            if grid[3] == 0:
-                ascii_maze[i * 2 + 1][(j + 1) * 4] = '|'
-            else:
-                ascii_maze[i * 2 + 1][(j + 1) * 4] = ' '
-
-    print(' Map '.center(WIDTH * 4 + 1, '='), end='\n\n')
-    for line in ascii_maze:
-        print(''.join(line))
-
-    # depth first search
-    path = []
-    stack = [(0, 0)]
-    steps = ['w', 's', 'a', 'd']
-    dires = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-    record = [[0 for _ in range(WIDTH)] for _ in range(HEIGHT)]
-    while(len(stack) > 0):
-        cur = stack.pop()
-        if cur == (HEIGHT - 1, WIDTH - 1):
-            break
-        record[cur[0]][cur[1]] = 1 # visited
-        
-        all_visited = True
-        for i in range(4):
-            idx = (cur[0] * WIDTH + cur[1]) * GRID_SIZE
-            nx = cur[0] + dires[i][0]
-            ny = cur[1] + dires[i][1]
-            if data[idx + i] == 1 and record[nx][ny] == 0:
-                all_visited = False
-                path.append(steps[i])
-                stack.append(cur)
-                stack.append((nx, ny))
-                break
-        
-        if all_visited:
-            path.pop()
-    
-    print("\nPath:", ''.join(path))
-
-def on_message(message, data):
-    if data != None:
-        data = bytearray(data)
-        solve_maze(data)
-
-if __name__ == '__main__':
-    try:
-        script.on('message', on_message)
-        script.load()
-        frida.resume(pid)
-        sys.stdin.read()
-    except KeyboardInterrupt:
-        print('[+] Frida script exit by user')
-        frida.kill(pid)
-        sys.exit(0)
-    except Exception as e:
-        print('[-] Error', e)
-        frida.kill(pid)
-        sys.exit(1)
-```
-
-[frida_hook_script.js](https://raw.githubusercontent.com/team-s2/summer_course_2023/master/src/topic/rev-lab3/frida_hook_script.js)
-
-```javascript
-console.log('Frida script has been loaded successfully.');
-
-const MAZE_SIZE = 9 * 9;
-const GRID_SIZE = 4;
-
-var malloc_cnt = 0;
-var puts_cnt = 0;
-var map_address;
-
-Interceptor.attach(Module.findExportByName(null, 'malloc'), {
-    // When entering malloc, print its argument as an integer to the console.
-    onEnter: function (args) {
-        // console.log("malloc(" + args[0].toInt32() + ")");
-    },
-
-    // When returning from malloc, print the return value (pointer) as a hexadecimal string.
-    onLeave: function (retval) {
-		if (malloc_cnt == 0) {
-            map_address = '0x' + retval.toString(16);
-			console.log("\nMap address -> " + map_address);
-		}
-		malloc_cnt += 1;
-    }
-});
-
-Interceptor.attach(Module.findExportByName(null, 'puts'), {
-    // When entering malloc, print its argument as an integer to the console.
-    onEnter: function (args) {
-        if (puts_cnt == 0) {
-            // console.log(ptr(map_address).toString(16));
-            send(map_address, ptr(map_address).readByteArray(MAZE_SIZE * GRID_SIZE));
-        }
-        puts_cnt += 1;
-    }
-});
-```
+本部分 bonus 不要求完全复现或逆向整个游戏，只要你肯尝试，不论有多少进展，都请写在你的实验报告中，本部分会视尝试的深度或者难度或者工作量进行给分，但只要有尝试，就能获取相应的 bonus 分数，该部分主要还是激发同学们自行探索的积极性和对逆向工程的兴趣，所以也不鼓励恶性竞争或内卷，量力而行即可，今后的路还很长，不必拘泥于一时的得失
