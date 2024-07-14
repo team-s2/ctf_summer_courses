@@ -3,7 +3,7 @@
 本节 Lab 分为以下部分：
 
 - 必做部分，共 100 分
-  - [chicken](#challenge-1-ichicken-60)
+  - [ichicken](#challenge-1-ichicken-60)
   - [wasm](#challenge-2-wasm-40)
 - 拓展部分，共 30 分，但总分最多加到 115 分
   - [游戏逆向探索](#bonus-30)
