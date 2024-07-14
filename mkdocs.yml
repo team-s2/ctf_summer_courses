@@ -26,7 +26,7 @@ nav:
     - "web lab 2: 注入漏洞基础": topic/web-lab2.md
     - "web lab 3: PHP 反序列化、综合应用": topic/web-lab3.md
     - "pwn lab 2: ROP与格式化字符串漏洞": topic/pwn-lab2.md
-  #   - "pwn lab 3: More ROP plz": topic/pwn-lab3.md
+    - "pwn lab 3: More ROP plz": topic/pwn-lab3.md
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md
   #   - "misc lab 2/3 批改反馈": feedback/misc-lab23.md
