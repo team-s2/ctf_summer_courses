@@ -20,12 +20,12 @@ nav:
     - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
     - "misc lab 3: 取证与区块链基础": topic/misc-lab3.md
     - "rev lab 2: 动态调试 / 异架构逆向": topic/rev-lab2.md
-    - "rev lab 3: 异架构逆向拓展 / 游戏逆向": topic/rev-lab3.md
+    - "rev lab 3: 异架构拓展 / 游戏逆向": topic/rev-lab3.md
     - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
     - "crypto lab 3: 离散对数": topic/crypto-lab3.md
     - "web lab 2: 注入漏洞基础": topic/web-lab2.md
-    - "web lab 3: PHP 反序列化、综合应用": topic/web-lab3.md
-    - "pwn lab 2: ROP与格式化字符串漏洞": topic/pwn-lab2.md
+    - "web lab 3: 反序列化 / 综合应用": topic/web-lab3.md
+    - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
     - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md
@@ -37,7 +37,7 @@ nav:
     - "🔗 misc lec 2: 文件/图像隐写": https://courses.zjusec.com/slides/misc-lec2/
     - "🔗 misc lec 3: 取证/区块链基础": https://courses.zjusec.com/slides/misc-lec3/
     - "🔗 rev lec 2: 动态调试/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
-    - "🔗 rev lec 3: 异架构逆向拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
+    - "🔗 rev lec 3: 异架构拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
     - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
 
 theme:
