@@ -61,7 +61,7 @@ jobs:
       - name: Install dependencies (2024)
         run: |
           cd docs-2024
-          pip install mkdocs-material==9.5.0 mkdocs-heti-plugin==0.2.0  # 示例版本
+          pip install mkdocs-material==9.1.21 mkdocs-heti-plugin==0.1.5  # 示例版本
       - name: Build 2024 docs
         run: |
           cd docs-2024
