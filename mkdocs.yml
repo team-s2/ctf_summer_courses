@@ -1,9 +1,9 @@
-site_name: CTF101-Labs-2024
+site_name: CTF101-Labs-2025
 site_url: https://courses.zjusec.com/
 repo_name: ctf_summer_courses
 repo_url: https://github.com/team-s2/ctf_summer_courses/
 edit_uri: tree/master/docs
-copyright: Copyright &copy; 2023-2024 ZJU AAA
+copyright: Copyright &copy; 2024-2025 ZJU AAA
 
 nav:
   - 首页: index.md
@@ -11,36 +11,36 @@ nav:
   #   - "相关工具的介绍和使用": intro/tools.md
   - 导论部分:
     - "general lab 0: 基础知识及技能": intro/lab0.md
-    - "web lab 1: 计算机网络基础": intro/web-lab1.md
-    - "misc lab 1: 编解码及 OSINT": intro/misc-lab1.md
-    - "rev lab 1: Binary 及 Rev 基础": intro/rev-lab1.md
-    - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
-    - "crypto lab 1: 数学基础和古典密码": intro/crypto-lab1.md
+    # - "web lab 1: 计算机网络基础": intro/web-lab1.md
+    # - "misc lab 1: 编解码及 OSINT": intro/misc-lab1.md
+    # - "rev lab 1: Binary 及 Rev 基础": intro/rev-lab1.md
+    # - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
+    # - "crypto lab 1: 数学基础和古典密码": intro/crypto-lab1.md
   - 专题部分:
-    - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
-    - "misc lab 3: 取证与区块链基础": topic/misc-lab3.md
-    - "rev lab 2: 动态调试 / 异架构逆向": topic/rev-lab2.md
-    - "rev lab 3: 异架构拓展 / 游戏逆向": topic/rev-lab3.md
-    - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
-    - "crypto lab 3: 离散对数": topic/crypto-lab3.md
-    - "web lab 2: 注入漏洞基础": topic/web-lab2.md
-    - "web lab 3: 反序列化 / 综合应用": topic/web-lab3.md
-    - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
-    - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
+    # - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
+    # - "misc lab 3: 取证与区块链基础": topic/misc-lab3.md
+    # - "rev lab 2: 动态调试 / 异架构逆向": topic/rev-lab2.md
+    # - "rev lab 3: 异架构拓展 / 游戏逆向": topic/rev-lab3.md
+    # - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
+    # - "crypto lab 3: 离散对数": topic/crypto-lab3.md
+    # - "web lab 2: 注入漏洞基础": topic/web-lab2.md
+    # - "web lab 3: 反序列化 / 综合应用": topic/web-lab3.md
+    # - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
+    # - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md
   #   - "misc lab 2/3 批改反馈": feedback/misc-lab23.md
   - 在线课件:
     - "课件索引": slides/index.md
-    - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
-    - "🔗 misc lec 1: 简介/编解码/OSINT": https://courses.zjusec.com/slides/misc-lec1/
-    - "🔗 misc lec 2: 文件/图像隐写": https://courses.zjusec.com/slides/misc-lec2/
-    - "🔗 misc lec 3: 取证/区块链基础": https://courses.zjusec.com/slides/misc-lec3/
-    - "🔗 rev lec 2: 动态调试/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
-    - "🔗 rev lec 3: 异架构拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
-    - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
-  - 附加材料:
-    - "连接校内网做题指南": extra/proxy.md
+    # - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
+    # - "🔗 misc lec 1: 简介/编解码/OSINT": https://courses.zjusec.com/slides/misc-lec1/
+    # - "🔗 misc lec 2: 文件/图像隐写": https://courses.zjusec.com/slides/misc-lec2/
+    # - "🔗 misc lec 3: 取证/区块链基础": https://courses.zjusec.com/slides/misc-lec3/
+    # - "🔗 rev lec 2: 动态调试/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
+    # - "🔗 rev lec 3: 异架构拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
+    # - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
+  # - 附加材料:
+    # - "连接校内网做题指南": extra/proxy.md
 
 theme:
   name: 'material'
