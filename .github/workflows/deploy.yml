@@ -25,55 +25,74 @@ jobs:
         with:
           python-version: 3.x
 
-      # 构建 master 分支（最新内容）
-      - name: Checkout master branch
-        uses: actions/checkout@v4
-        with:
-          ref: "master"
-      - name: Install dependencies (master)
-        run: pip install mkdocs-material mkdocs-heti-plugin
-      - name: Build master docs
-        run: |
-          mkdocs build --site-dir site
-          # 预留其他资源（如图片）的复制操作
-
-      # 构建 2023 分支
-      - name: Checkout 2023 branch
+      # 1) Build 2023-version docs
+      - name: Checkout 2023 version docs
         uses: actions/checkout@v4
         with:
           ref: "2023"
-          path: "docs-2023"  # 指定独立目录避免覆盖
-      - name: Install dependencies (2023)
-        run: |
-          cd docs-2023
-          pip install mkdocs==1.5.0 mkdocs-material-extensions==1.1 mkdocs-material==9.1.21 mkdocs-heti-plugin==0.1.5
-      - name: Build 2023 docs
-        run: |
-          cd docs-2023
-          mkdocs build --site-dir ../site/2023
 
-      # 构建 2024 分支
-      - name: Checkout 2024 branch
+      - name: Install dependencies for 2023 version
+        run: |
+          pip install mkdocs==1.5.0 \
+                      mkdocs-material-extensions==1.1 \
+                      mkdocs-material==9.1.21 \
+                      mkdocs-heti-plugin==0.1.5
+
+      - name: Build 2023 version docs
+        run: |
+          mkdir -p /tmp/2023
+          mkdocs build --site-dir /tmp/2023
+
+      # 2) Build 2024-version docs
+      - name: Checkout 2024 version docs
         uses: actions/checkout@v4
         with:
           ref: "2024"
-          path: "docs-2024"
-      - name: Install dependencies (2024)
-        run: |
-          cd docs-2024
-          pip install mkdocs mkdocs-material mkdocs-material-extensions mkdocs-heti-plugin
-      - name: Build 2024 docs
-        run: |
-          cd docs-2024
-          mkdocs build --site-dir ../site/2024
 
-      # 合并所有内容并部署
+      - name: Install dependencies for 2024 version
+        run: |
+          pip uninstall -y mkdocs mkdocs-material \
+                          mkdocs-material-extensions mkdocs-heti-plugin
+          pip install mkdocs \
+                      mkdocs-material-extensions\
+                      mkdocs-material \
+                      mkdocs-heti-plugin
+
+      - name: Build 2024 version docs
+        run: |
+          mkdir -p /tmp/2024
+          mkdocs build --site-dir /tmp/2024
+
+      # 3) Build current master (latest) docs
+      - name: Checkout latest (master) version docs
+        uses: actions/checkout@v4
+
+      - name: Install dependencies for current version
+        run: |
+          pip uninstall -y mkdocs mkdocs-material \
+                          mkdocs-material-extensions mkdocs-heti-plugin
+          pip install mkdocs-material mkdocs-heti-plugin
+          npm install -g reveal-md
+
+      - name: Build current version docs
+        run: |
+          mkdocs build --site-dir site
+          # copy versioned outputs into the final site
+          mkdir -p site/2023 site/2024 site/slides
+          mv /tmp/2023/* site/2023
+          mv /tmp/2024/* site/2024
+          # build/move slides
+          slides/build build
+          [ -d slides/dist ] && mv slides/dist/* site/slides || true
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site
+          path: './site'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
