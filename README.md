@@ -1,4 +1,4 @@
-# 2024 CTF 短学期课程开源内容🚩
+# 2025 CTF 短学期课程开源内容🚩
 
 文档在 <https://courses.zjusec.com/>。
 
@@ -10,3 +10,4 @@
 
 - [`2022`](https://github.com/team-s2/ctf_summer_courses/tree/2022)：无在线网站，内容见 [`2022` 分支](https://github.com/team-s2/ctf_summer_courses/tree/2022)
 - [`2023`](https://github.com/team-s2/ctf_summer_courses/tree/2023)：<https://courses.zjusec.com/2023/>
+- [`2024`](https://github.com/team-s2/ctf_summer_courses/tree/2024)：<https://courses.zjusec.com/2024/>
