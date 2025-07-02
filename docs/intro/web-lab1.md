@@ -7,8 +7,9 @@
 - 使用 `nslookup` 命令，用校内DNS服务器查询`www.zju.edu.cn`的IP地址。给出完整的命令和查询结果。
 - 使用 `nslookup` 命令，用公网DNS服务器查询`www.zju.edu.cn`的IP地址。给出完整的命令和查询结果。
 - 分别直接访问用校内DNS和校外DNS查询到的IP地址，能否访问成功？访问结果有何区别？这些地址是服务器的真实地址吗？试分析造成这种现象的原因。
+    - 提示：可以对比用域名和用IP访问的HTTP请求包区别，理解问题出在哪一层
 
-## Task 2: HTTP (35%)
+## Task 2: HTTP原理应用 (35%)
 
 请同学们准备 [BurpSuite](https://portswigger.net/burp/communitydownload)（社区版即可）。BurpSuite 能够帮助我们进行抓包分析，或是拦截即将要发送的包并进行修改再发送。
 
