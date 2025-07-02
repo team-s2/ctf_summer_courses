@@ -22,7 +22,7 @@
     - 大致指出页面加载的流程
     - 找到返回关键信息的接口和参数
     - 可供参考：[Intercept HTTP traffic with Burp Proxy](https://portswigger.net/burp/documentation/desktop/getting-started/intercepting-http-traffic)
-- 学会使用 Python 中的 `requests` 等库发送请求，通过自定义 Cookie 等方式尝试从学校网站抓取自己的本学期成绩
+- 学会使用 Python 中的 `requests` 等库发送请求，通过自定义 Cookie 等方式尝试从学校网站抓取自己的本学期成绩。
     - 如果需要轮询，请注意访问频率控制，不要对服务器造成过大压力
     - 可以使用生成式 AI 帮助自己学习编码
     - **你需要提交相关代码**
