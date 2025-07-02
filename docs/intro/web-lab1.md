@@ -19,7 +19,7 @@
 
 任务：
 
-- 使用 BurpSuite和浏览器的开发者工具分析[学在浙大](https://courses.zju.edu.cn/)的成绩查询页面。
+- 使用 BurpSuite和浏览器的开发者工具分析[本科教学信息服务管理平台](https://zdbk.zju.edu.cn/)的成绩查询页面。
     - 大致指出页面加载的流程
     - 找到返回关键信息的接口和参数
     - 可供参考：[Intercept HTTP traffic with Burp Proxy](https://portswigger.net/burp/documentation/desktop/getting-started/intercepting-http-traffic)
