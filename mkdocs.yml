@@ -12,7 +12,7 @@ nav:
   - 导论部分:
     - "general lab 0: 基础知识及技能": intro/lab0.md
     - "web lab 1: 计算机网络基础": intro/web-lab1.md
-    # - "misc lab 1: 编解码及 OSINT": intro/misc-lab1.md
+    # - "misc lab 1: 编解码及流量取证": intro/misc-lab1.md
     # - "rev lab 1: Binary 及 Rev 基础": intro/rev-lab1.md
     # - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
     # - "crypto lab 1: 数学基础和古典密码": intro/crypto-lab1.md
@@ -33,7 +33,7 @@ nav:
   - 在线课件:
     - "课件索引": slides/index.md
     # - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
-    # - "🔗 misc lec 1: 简介/编解码/OSINT": https://courses.zjusec.com/slides/misc-lec1/
+    - "🔗 misc lec 1: 简介/编解码/流量取证": https://courses.zjusec.com/slides/misc-lec1/
     # - "🔗 misc lec 2: 文件/图像隐写": https://courses.zjusec.com/slides/misc-lec2/
     # - "🔗 misc lec 3: 取证/区块链基础": https://courses.zjusec.com/slides/misc-lec3/
     # - "🔗 rev lec 2: 动态调试/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
