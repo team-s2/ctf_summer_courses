@@ -11,7 +11,7 @@ nav:
     # - "相关工具的介绍和使用": intro/tools.md
   - 导论部分:
     - "general lab 0: 基础知识及技能": intro/lab0.md
-    # - "web lab 1: 计算机网络基础": intro/web-lab1.md
+    - "web lab 1: 计算机网络基础": intro/web-lab1.md
     # - "misc lab 1: 编解码及 OSINT": intro/misc-lab1.md
     # - "rev lab 1: Binary 及 Rev 基础": intro/rev-lab1.md
     # - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
