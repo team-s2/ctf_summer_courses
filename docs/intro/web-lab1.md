@@ -31,18 +31,17 @@
 
 课上我们学习了前端服务器优先解析Content-Length，后端服务器优先解析Transfer-Encoding造成的HTTP请求走私漏洞。这种走私漏洞通常简称为CL.TE型。
 
-Burpsuite 的开发公司PortSwigger 提供了一个CL.TE型的HTTP请求走私漏洞的[Lab](https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te)
+Burpsuite 的开发公司PortSwigger 提供了一个CL.TE型的HTTP请求走私漏洞的[Lab](https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te)。
 
 任务：
 
 - 简述HTTP请求走私漏洞的原理。
-- 利用这个Lab中的CL.TE型漏洞。
-    - 利用Lab中Blog的Comment功能，展示如何利用HTTP请求走私构造一个恶意数据包，将下一个(受害者的)请求的请求头内容发送到帖子的评论区。**给出你构造的数据包和成功后的截图**
+- 利用Lab中Blog的Comment功能，展示如何利用HTTP请求走私构造一个恶意数据包，将下一个受害者的HTTP请求内容(部分即可)发送到帖子的评论区。**给出你构造的数据包和成功后的截图**。
     - 你可能需要将HTTP2转换为HTTP1.1，见[Lab页面](https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te)的Tip
     - 提示：[Lab页面](https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te)有官方提供的答案和社区录制的视频，可以参考
 
 ## Bonus: 漏洞报告阅读 (+15%)
 
-- 阅读课上提到的Steam支付漏洞的[漏洞报告](https://hackerone.com/reports/1295844)
-    - 用自己的语言简述漏洞的成因。
-    - 简述绕过服务器校验的原理。
+- 阅读课上提到的Steam支付漏洞的[漏洞报告](https://hackerone.com/reports/1295844)。
+    - 用自己的语言简述漏洞的成因
+    - 简述绕过服务器校验的原理
