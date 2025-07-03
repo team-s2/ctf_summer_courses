@@ -1,4 +1,4 @@
-# Misc Lab 1：编解码及 OSINT
+# Misc Lab 1：编解码及流量取证
 
 本节 Lab 由以下四部分组成：
 
@@ -144,7 +144,7 @@ ZJUCTF2023 的 "NATO26" 的题面是一串如下的乱码：
 ## Bonus Challenge
 
 
-完成校巴上的题目 crac_zju_wlan，链接：[zjusec.com/challenges/105](zjusec.com/challenges/105)。
+完成校巴上的题目 crack_zju_wlan，链接：[zjusec.com/challenges/105](https://zjusec.com/challenges/105)。
 
 虽然我们课上并没有详细讲解 WiFi 协议密码的破解，但其实只要一个我们课上提到的工具就可以搞定，请尝试完成这道题目。
 
