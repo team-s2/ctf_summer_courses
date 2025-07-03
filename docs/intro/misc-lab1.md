@@ -1,11 +1,13 @@
 # Misc Lab 1：编解码及 OSINT
 
-本节 Lab 由以下两部分组成：
+本节 Lab 由以下四部分组成：
 
 - [Task 1: 乱码情形探究](#task-1)（二选一完成，40 分，多做无 bonus）
-- 两道题目二选一完成（60 分，多做有 bonus，最多加 15 分）
-    - [Challenge 1: GB 系列编码研究实战](#challenge-1)
-    - [Challenge 2: OSINT 图片信息搜集实战](#challenge-2)
+- 两道题目需要全部完成
+    - [Challenge 1: GB 系列编码](#challenge-1)
+    - [Challenge 2: 流量取证](#challenge-2)
+- [bonus challenge: crack_zju_wlan](#bonus-challenge)
+- [suggestion bonus](#suggestion-bonus)
 
 lab 分数分配与 bonus 政策以最终为准。
 
@@ -115,7 +117,7 @@ ZJUCTF2023 的 "NATO26" 的题面是一串如下的乱码：
 - Task 1.2
     - 完成 ZJUCTF2023 的 NATO26，写出你的解题思路，并提交 flag 进行验证（40 分）
 
-## Challenge 1 GB 系列编码
+## Challenge 1
 
 ### Background
 
@@ -131,7 +133,7 @@ ZJUCTF2023 的 "NATO26" 的题面是一串如下的乱码：
     - 如果你得到了一串二进制信息但没什么头绪，可以试试按哪种长度分割时可以得到一些更相似的形式
     - **更新：**这里给出上面的汉字对应的“特殊汉字”：`⼀⼆⼈⼊⼋⼏⼒⼗⼜⼝⼟⼠⼤⼦⼩⼭⼯⼿⽂⽅⽆⽇⽉⽊⽌⽐⽑⽒⽔⽞⽟⽣⽤⽬⽯⽰⽴⽵⽼⽽⾃⾄⾊⾏⾔⾚⾜⾝⾣⾥⾦⾪⾭⾮⾯⾰⾳⾻⿀`。与 AliyunCTF 原题可能有所不同，请以这里给出的为准。
 
-## Challenge 2 流量取证
+## Challenge 2
 
 ### Task
 
