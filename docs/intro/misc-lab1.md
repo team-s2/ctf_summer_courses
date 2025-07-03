@@ -1,4 +1,4 @@
-# Misc Lab 1：编解码及 OSINT
+# Misc Lab 1：编解码及流量取证
 
 本节 Lab 由以下四部分组成：
 
