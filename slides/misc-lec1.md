@@ -533,10 +533,10 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 1. [基础] Task 1: 乱码情形探究（40 分，二选一）
     - 具体研究课上提到的六种乱码情况，探究原因
     - 乱码分析实战——完成 ZJUCTF2023 NATO26
-2. [二选一] Challenge 1: GB 系列编码实战（30 分）
+2. [全做] Challenge 1: GB 系列编码实战（30 分）
     - 自行搜索学习 GB 系列编码，了解区位码、机内码的概念
     - 简单的实践 —— 参考 AliyunCTF2024
-3. [全做]Challenge 2: 流量取证实战（30分）
+3. Challenge 2: 流量取证实战（30分）
     - **完整**完成课上演示过的，`软总线流量分析取证1` 题目，并记录过程和你对这道题目的理解
 4. Bonus Challenge: crack_zju_wlan（15分）
 5. **Maybe** Bonus: your suggestion for this Lab（**Maybe** 5分 max）
