@@ -1,49 +1,204 @@
-# Web Lab 2：注入漏洞基础
+# Web Lab 2：用户侧攻击
 
-## 前言
+yelan
 
-本次作业的四道题目全部发布在[ZJUCTF平台](https://ctf.zjusec.com/games/3/challenges)上。
-只要做出题目且步骤齐全就会给满分。做不出来也没关系，只要在作业中呈现完整的思考过程也会给分。**但是禁止抄袭**。
+## 要求
 
-作业中应该包含：
+1. Lab2 最多计 115 分
 
-- 从收集信息到利用漏洞全部的思考和操作过程，**至少要包含关键步骤，最好有截图**
-- 有代表性的注入请求以及对应SQL语句的拼接结果（没有给出源码的题目就写自己猜测的SQL语句），解释原理
-- 用到的脚本代码(如果有的话)
-- 得到的 Flag
+2. 对于需要提交 flag 的题目,报告不需要太详细,只要求关键分析步骤,正确的flag 以及提交正确截图,做出来就是满分,即使做不出来也会根据做题进度和思考过程给分.
 
-总而言之，要能让人相信这是你独立思考的结果。**请把作业整理为一个PDF文档上传到学在浙大**。
+3. 如果有代码是 AI 生成的,请注明并贴上你与 AI 的对话记录
 
-请额外注意：
+4. 题目难度并非单调递增的
 
-- **爆破对本题没有意义**，也不建议使用 Sqlmap 等自动扫描工具，因为大概率跑不出来还浪费流量，很多时候自己写一个 Python 脚本足矣。
-- **Flag不在数据库中**，格式为`AAA{XXX}`。如果找到了疑似 Flag 的字符串但提交显示错误，或是发现了其他可能是“设计之外”的错误，请及时联系 OverJerry(我)。
-- 如果遇到问题，可以私聊我。直接指路有失公平性，我更多是帮助你理解题目或是回答知识性的问题。如果有共性的问题或是题目完成率不高会再放出更多 hint.
+5. **务必杜绝抄袭,这点非常重要,本课程对抄袭 0 容忍**.
 
-## Task 1: passcode1 (30%)
+### Task 1: HTML Parser (15 分)
 
-- 完成 `passcode1`。
-    - 先给自己准备一个能舒服调试POST参数的环境，比如`Burpsuite`，不然你可能接下来几个小时都要盯着一个输入框看。
-    - 你可以在不知道passcode的情况下通过这关。
+这里有一个含有大量节点的 HTML 文档,请把它解析为一个树状结构并按照**层序遍历**的方式输出每个节点的类型及 `id` ,得到一行很长的字符串`s`.其中每个节点的类型和 `id` 之间用`:`连接(如果没有 `id` 则以 `:` 作为这个节点的结尾),不同节点之间用`,`分隔
 
-## Task 2: passcode2 (35%)
+样例输入:
 
-- 完成 `passcode2`。
-    - 从这关开始你要考虑绕过的问题了，不过，上课都教过了，不是吗？
-    - 享受公开代码的最后一关。
+```html
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+    <div id="main">
+        <h1 name="welcome">Welcome</h1>
+        <p>This is a test.</p>
+        <ul>
+            <li id="item1">Item 1</li>
+            <li id="item2">Item 2</li>
+        </ul>
+    </div>
+</html>
+```
 
-## Task 3: passcode3 (35%)
+预期输出(`s`):
 
-- 完成 `passcode3`。
-    - `passcode3`的基本代码结构和`passcode2`类似，数据库存储结构也和`passcode2`一致。
-    - 代码不公开，因为上一关是公开代码的最后一关。请各位仔细收集信息，自行分析思考。
-    - 不要被表象所迷惑。
-    - 2024.7.11 14:00 通过插入更多passcode数据修复了一个非预期
+```
+html:,head:,body:,title:,div:main,h1:,p:,ul:,li:item1,li:item2
+```
 
-## Bonus (+15%)
+然后计算`s`的 `MD5` 值,在外面加上`AAA{}` 的格式提交,题目平台的`flag`按照以下代码生成:
 
-- 完成 `passcode bonus`
-    - 本题需要你学习一些课外的绕过技巧
-    - 数据库版本是MySQL8
+```python
+import hashlib
+s = "......"
+md5_hash = hashlib.md5(s.encode()).hexdigest()
+print("AAA{" + md5_hash + "}")
+```
 
-HAVE FUN!!!
+### Task 2: Show me the secret (20 分)
+
+回顾课程第 16 页 slides 的情景,自行搭建一个服务,编写完整脚本泄露受害者页面的 flag
+
+如果你不知道从哪里开始,你可以解释下面这个情景并在此基础上编写获取 flag 的脚本
+
+```python
+from flask import Flask, render_template, request, redirect, url_for
+import os
+
+app = Flask(__name__)
+
+SECRET_VALUE = "AAA{Well_done!Here_is_20_points_for_you!D81B3EB8-ABA4}"
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/victim')
+def victim():
+    if request.remote_addr != "127.0.0.1":
+        return "You are not victim, only the victim can access this page.", 403
+    return render_template('victim.html', secret=SECRET_VALUE)
+
+@app.route('/inject', methods=['GET', 'POST'])
+def inject_css():
+    if request.method == 'POST':
+        css_content = request.form.get('css', '')
+        with open('static/custom.css', 'w') as f:
+            f.write(css_content)
+        return redirect(url_for('inject_css'))
+
+    css_content = ""
+    if os.path.exists('static/custom.css'):
+        with open('static/custom.css', 'r') as f:
+            css_content = f.read()
+
+    return render_template('inject.html', css=css_content)
+
+if __name__ == '__main__':
+    if not os.path.exists('static'):
+        os.makedirs('static')
+    if not os.path.exists('static/custom.css'):
+        with open('static/custom.css', 'w') as f:
+            f.write('/* css injection */')
+    
+    app.run(host='0.0.0.0', port=5000)
+```
+
+```html
+<!-- victim.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Victim</title>
+    <link rel="stylesheet" href="/static/custom.css">
+</head>
+<body>
+    <div>
+        <p>Welcome, Victim!</p>
+        <p>Your page is safe, no one will see the secret info.</p>
+    </div>
+    
+    <div>
+        <input type="hidden" name="secret" value="{{ secret }}">
+    </div>
+</body>
+</html>
+```
+
+```html
+<!-- inject.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        The current css of the victim's page is:
+        <pre>{{ css }}</pre>
+    </div>
+    <div>
+        <form action="/inject" method="post">
+            <label for="css">Inject CSS:</label>
+            <br>
+            <textarea id="css" name="css" rows="10" cols="30"></textarea>
+            <br>
+            <button type="submit">Inject</button>
+        </form>
+    </div>
+</body>
+</html>
+```
+
+### Task 3: node._sanitized (30 分)
+
+结合课上讲的 DOM Clobbering  知识,搜索并简要解释 CVE-2017-0928 的原理
+
+### Task 4: Gradient (30 分)
+
+在 Task2 的基础上,你仍然可以控制受害者页面的 CSS,但如果受害者页面的 flag 不以
+
+```html
+<input type="hidden" name="secret" value="AAA{secret}">
+```
+
+的简单形式出现,而是以以下形式出现:
+
+```html
+<div id="secret">
+    <span>A</span>
+    <span>A</span>
+    <span>A</span>
+    <span>{</span>
+    <span>W</span>
+    <span>e</span>
+    <span>l</span>
+    <span>l</span>
+    <span>_</span>
+    <span>d</span>
+    <span>o</span>
+    <span>n</span>
+    <span>e</span>
+    ......
+    <span>!</span>
+    <span>}</span>
+</div>
+```
+
+你该如何编写脚本获取 flag?
+
+### Task 5: Baby XSS (30 分)
+
+完成校巴题目[babyxss](https://zjusec.com/challenges/111)
+
+### Task 6: Child XSS (30 分)
+
+完成校巴题目[childxss](https://zjusec.com/challenges/112)
+
+### Task 7: 拓展 (20 分)
+
+简要回答下面两个问题,言之有理即可:
+
+- 自行搜索并学习**中间人攻击**,解释为什么我们要避免连接公共Wifi (如饭馆,咖啡厅)
+
+- 自行搜索并学习课上提到的**CSP 策略**,解释为什么 CSP 可以防止 XSS 攻击,并构造一个配置不当的 CSP 被绕过的例子(不需要给出代码实现,只需要描述)
