@@ -13,9 +13,9 @@ nav:
     - "general lab 0: 基础知识及技能": intro/lab0.md
     - "web lab 1: 计算机网络基础": intro/web-lab1.md
     - "misc lab 1: 编解码及流量取证": intro/misc-lab1.md
-    # - "rev lab 1: Binary 及 Rev 基础": intro/rev-lab1.md
-    # - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
-    # - "crypto lab 1: 数学基础和古典密码": intro/crypto-lab1.md
+    - "rev lab 1: Rev 基础": intro/rev-lab1.md
+    - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
+    - "crypto lab 1: 消息加密和数字签名": intro/crypto-lab1.md
   - 专题部分:
     - "web lab 2: 用户侧攻击": topic/web-lab2.md
     # - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
@@ -40,6 +40,7 @@ nav:
     - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
     # - "🔗 rev lec 2: 动态调试/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
     # - "🔗 rev lec 3: 异架构拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
+    - "🔗 crypto lec 1: 消息加密 / 数字签名": https://courses.zjusec.com/slides/crypto-lec1/
     # - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
   # - 附加材料:
     # - "连接校内网做题指南": extra/proxy.md
