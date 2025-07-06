@@ -15,7 +15,7 @@ nav:
     - "misc lab 1: 编解码及流量取证": intro/misc-lab1.md
     - "rev lab 1: Rev 基础": intro/rev-lab1.md
     - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
-    # - "crypto lab 1: 数学基础和古典密码": intro/crypto-lab1.md
+    - "crypto lab 1: 消息加密和数字签名": intro/crypto-lab1.md
   # - 专题部分:
     # - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
     # - "misc lab 3: 取证与区块链基础": topic/misc-lab3.md
