@@ -82,9 +82,6 @@ CSRF / CSS Injection / XSS / Dom Clobbering
     + 攻击服务器或应用本身
     + 目的是使服务故障,获取敏感信息,提升权限甚至拿到 Shell
     + 手段有 SQL 注入,文件上传等
-
-<image style="float: right; margin-right: 24px;" src="web-lec2/client-side.png" width="40%" style="margin: 0 auto;">
-
 - 用户侧(前端)
     + 攻击同样使用这个应用的**其他用户**
     + 目的是获取其他用户的敏感信息,或诱导其他用户执行恶意操作
