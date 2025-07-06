@@ -37,7 +37,7 @@ Burpsuite 的开发公司PortSwigger 提供了一个CL.TE型的HTTP请求走私�
 任务：
 
 - 简述HTTP请求走私漏洞的原理。
-- 利用Lab中Blog的Comment功能，展示如何利用HTTP请求走私构造一个恶意数据包，将下一个受害者的HTTP请求内容(部分即可)发送到帖子的评论区。**给出你构造的数据包和成功后的截图**。
+- Lab内是一个BLOG，每个post下都有评论区。请你利用HTTP请求走私构造一个恶意数据包，发送给服务器之后，接下来的任意一个请求(可能来自受害者)的内容(部分即可)会被原封不动地发送到某个post下的评论区。这样，攻击者就可以通过看评论区的内容获取受害者的HTTP请求内容了。**给出你构造的数据包和成功后的截图**。
     - 你可能需要将HTTP2转换为HTTP1.1，见[Lab页面](https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te)的Tip
     - 提示：[Lab页面](https://portswigger.net/web-security/request-smuggling/lab-basic-cl-te)有官方提供的答案和社区录制的视频，可以参考
 
