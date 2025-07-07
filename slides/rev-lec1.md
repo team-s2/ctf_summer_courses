@@ -195,7 +195,7 @@ revealOptions:
 - 汇编(assemble): 汇编语言->机器语言
 
 <!-- <img src="figures/compile1.jpg"> -->
-<img src="figures/compile2.jpg">
+<img src="rev-lec1/compile2.jpg">
 
 
 - 反汇编: 汇编语言->机器语言 （查表 准确）
@@ -235,7 +235,7 @@ gcc hello.c -o hello
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
 ## 俯瞰一下逆向的赛题
-<img src="figures/rev1.jpg">
+<img src="rev-lec1/rev1.jpg">
 
 <!--s-->
 
@@ -379,9 +379,9 @@ print(s.model())
 ## ollvm
 
 <div style="display: flex; justify-content: space-around;">
-  <img src="figures/ollvm1.jpg" height=300 width=280>
-  <img src="figures/ollvm2.jpg" height=300 width=280>
-  <img src="figures/ollvm3.jpg" height=300 width=280>
+  <img src="rev-lec1/ollvm1.jpg" height=300 width=280>
+  <img src="rev-lec1/ollvm2.jpg" height=300 width=280>
+  <img src="rev-lec1/ollvm3.jpg" height=300 width=280>
 </div>
 
 - 🤔----------ollvm---->😠💢------------->😭👊
