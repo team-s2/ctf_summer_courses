@@ -19,9 +19,9 @@ revealOptions:
 <style>
 @import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css');
 
-  html * {
+  /* html * {
     font-family: 'LXGW WenKai', sans-serif !important;
-}
+} */
     .button-container {
     display: flex;
     align-items: center;
