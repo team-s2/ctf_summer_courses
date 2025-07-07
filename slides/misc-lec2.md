@@ -5,7 +5,6 @@ verticalSeparator: <!-- v -->
 theme: simple
 highlightTheme: monokai-sublime
 css:
-    - github.css
     - custom.css
     - dark.css
 background: ./img/background.webp
