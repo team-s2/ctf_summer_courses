@@ -6,11 +6,11 @@ yelan
 
 1. Lab2 最多计 115 分
 
-2. 对于需要提交 flag 的题目,报告不需要太详细,只要求关键分析步骤,正确的flag 以及提交正确截图,做出来就是满分,即使做不出来也会根据做题进度和思考过程给分.
+2. 对于Task 1,5,6,报告不需要太详细,只要求关键分析步骤以及正确截图,做出来就是满分,即使做不出来也会根据做题进度和思考过程给分.
 
 3. 对于不需要提交 flag 的题目,不要求你的解答很深入,能运用课上讲过的知识即可
 
-4. 如果有代是 AI 生成的,请注明并贴上你与 AI 的对话记录
+4. 如果有代码是 AI 生成的,请注明并贴上你与 AI 的对话记录
 
 5. 题目难度并非单调递增的
 
@@ -189,13 +189,13 @@ if __name__ == '__main__':
 
 你该如何编写脚本获取 flag?
 
-### Task 5: Baby XSS (30 分)
+### Task 5: XSS 1 (30 分)
 
-完成校巴题目[babyxss](https://zjusec.com/challenges/111)
+通过[xss-labs](http://test.ctf8.com)前五关,每关六分.源码可在 https://github.com/do0dl3/xss-labs 找到
 
-### Task 6: Child XSS (30 分)
+### Task 6: XSS 2 (30 分)
 
-完成校巴题目[childxss](https://zjusec.com/challenges/112)
+通过[xss-labs](http://test.ctf8.com)前十关,每关六分.源码同上
 
 ### Task 7: 拓展 (20 分)
 
