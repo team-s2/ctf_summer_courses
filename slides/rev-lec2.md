@@ -78,7 +78,7 @@ revealOptions:
 <br>
 <br>
 <br>
-<center><h5 style="font-size: 55px; text-align: center;">Reverse专题一: 游戏/异架构逆向</h5></center>
+<center><h5 style="font-size: 55px; text-align: center;">Reverse专题一:游戏/异架构逆向</h5></center>
 <br>
 <br>
 <center><h1 style="font-size: 30px; text-align: center;">2025.7.9</h1></center>
@@ -109,12 +109,15 @@ revealOptions:
 <!-- .slide: data-background="rev-lec2/background.png" -->
 
 ## 准备工作
-
 一些需要安装的工具
+- Windows环境
+- IDA keypatch插件
+- 010Editor
+- Cheat Engine(CE)
+- x32/x64dbg
+- ollydbg
+- 对应架构的模拟器或调试工具
 
-- windows环境
-- CE
-- x64dbg/ollydbg
 
 <!--v-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
@@ -123,17 +126,13 @@ revealOptions:
 
 - 异架构以及不同语言的逆向——本质 各种架构介绍
 - 游戏逆向——目的  示例游戏的编写语言 游戏引擎
-- 6502汇编 NES （BeginCTF红白机）
 
-- Windows下的游戏逆向（pvz CE）
-
-- Python逆向（反编译pyc）
-
-- 古早Java游戏（诺基亚贪吃蛇）
-
-- Javascript逆向（网页小游戏+代码混淆）
-
-- Unity游戏逆向（C# dnspy）
+- NES 6502汇编 / GBA arm
+- Windows 下的游戏逆向
+- Unity 游戏逆向
+- Javascript 逆向
+- Python 逆向
+- ...
 
 
 <!--s-->
@@ -143,7 +142,7 @@ revealOptions:
 <div style="width: 100%">
 
 
-# Part.1 红白机和GBA
+# Part.1 从FC/NES到Switch
 
 </div>
 </div>
@@ -151,54 +150,44 @@ revealOptions:
 <!--v-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
 
-## 红白机（NES）和6502
+## 架构及逆向方法介绍
+- NES: 6502
+- GBA: ARM v7
+- NDS: ARM v9
+- 3DS & switch: ARM v11
+- 逆向方法
+    - 静态分析：IDA或者ghidra
+    - 动态调试：各种模拟器
 
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## 红白机和6502汇编
+- 6502有3个寄存器、栈指针、标志位(P)和程序计数器：寄存器是累加器(A)，X变址寄存器，和Y变址寄存器，每一个都是8位的，大多数指令把结果留在累加器里；
+- [6502在线执行](https://codediy.github.io/nes-zh/easy6502/index.html) 
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## 例1 Beginctf2024 红白机
+- 6502汇编
+- 试试上面的网站？
 
 <!--v-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
 
 ## GBA
-
-
-<!--s-->
-<!-- .slide: data-background="rev-lec2/background.png" -->
-
-<div class="middle center">
-<div style="width: 100%">
-
-
-# Part.2 JAVA和诺基亚
-
-</div>
-</div>
+- IDA Pro对ARM架构的支持
+- mGBA模拟器调试
+- 可以偷偷玩一下Pokemon，里面藏了个flag
 
 
 <!--v-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
-
-## Java
-
-- 编译型语言，编译得到 Java 字节码
-  - 通过解释字节码实现跨平台
-- 反编译工具
-  - JD-GUI / Jadx / Fernflower
-- Android 逆向
-  - 采用的是 Dalvik 字节码 / Smali
-  - apktool / frida / Android Studio
-- 综合性较强的题目
-  - 涉及到 Java 反射 / 字节码操作 / 本地方法
-
-<!--s-->
-<!-- .slide: data-background="rev-lec2/background.png" -->
-
-<div class="middle center">
-<div style="width: 100%">
-
-
-# Part.3 Windows游戏逆向示例-PvZ
-
-</div>
-</div>
+## 例2 Hackergame2021 GPA
+- IDA分析找到关键函数
+- keypatch改变程序控制流
+- .elf -> .gba 用010Editor对比修改关键字节
 
 
 <!--s-->
@@ -208,7 +197,42 @@ revealOptions:
 <div style="width: 100%">
 
 
-# Part.4 其他语言的逆向
+# Part.2 Windows游戏PvZ逆向
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## 工具
+- IDA
+- CE
+- x32/x64dbg
+- ollydbg
+  
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+## Cheat Engine
+- 有官方的CE教学12关
+- 支持内存扫描
+- 支持代码注入
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+## 例3 修改PvZ游戏内容
+- 修改阳光
+- 修改冷却时间
+- 阳光自动收集
+- 多种修改功能->整合->修改器或用于改版制作
+
+
+<!--s-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+
+# Part.3 C#和Unity
+
 
 </div>
 </div>
@@ -216,16 +240,122 @@ revealOptions:
 <!--v-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
 
+## C#逆向工具
+- Unity 使用Mono架构，实现 .Net Framework 跨平台执行
+- C# 编译生成MSIL，进而被执行
+- ILSpy
+- dnSpy
 
-## Python
-- Python 在 import 时会生成 .pyc 文件
-  - 可以通过 uncompyle6 反编译
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
 
+## 例4 Perfect Match X-treme
+- Assembly-CSharp.dll 是 Unity 游戏引擎编译后的核心脚本程序集，包含游戏开发者编写的 C# 代码逻辑
+- 记忆力不行怎么办...行也没用
+- 晕3d怎么办...不晕也没用
+- dnSpy分析关键函数
+- CE扫描内存偷flag
+- 修改重力(MoveBehaviour.MovementManagement)和高度判断(HeightCheck)
+- 或许其他方法？
+
+
+<!--s-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+
+# Part.4 其他逆向
+
+
+</div>
+</div>
 
 <!--v-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
 
 ## Javascript
+- 涉及混淆->反混淆
+- 动态调试
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## 例5 BeginCTF stickgame
+- 反混淆 https://obf-io.deobfuscate.io/
+- 动态调试
+- 修改分数
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## Python
+- .pyc文件是 Python将.py源代码编译后生成的字节码文件
+- 可以通过uncompyle6反编译
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## 安卓-Java
+- jadx
+- 安卓模拟器
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## Golang
+- IDAGolangHelper
+
+<!--s-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+
+# Part.5 其他
+
+</div>
+</div>
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## 总结
+- 游戏逆向为了什么？
+    - 修改作弊？ 怀旧？ 了解原理？ 
+    - 打比赛？ 上课？
+- 架构千千万，学也学不完—>查阅资料和快速学习的能力十分重要
+
+
+<!--v-->
+<!-- .slide: data-background="rev-lec2/background.png" -->
+
+## 作业(maybe)
+- 基础：
+    - Challenge1: 复现课上所讲的例1 2(顺便玩一下example2 Pockmen，里面藏了个flag噢)
+    - Challenge2: 复现课上所讲的Pvz逆向例3，可以深入挖掘一下，比如修改器新功能，也可以是改版，可以查阅网上资料并实践 
+    - Challenge3: 逆向基础复习 完成某题目
+- 挑战：
+    - Challenge4: 一道练习题 
+    - Challenge5: 尝试自己喜欢的游戏逆向/工具开发，可以描述逆向的原因，技术流程和结果等等（也可以查阅网上资料）。
+    - 例子: Minecraft mod制作/Terraria失谐门等等
+- 以最后公布在课程网站作业的为准
+- 作业要写逆向分析过程、你写的脚本形成操作报告
+
+
+<!--v-->
+<!-- .slide: data-background="rev-lec1/background.png" -->
+
+
+## 预告
+- 逆向专题2 "自动"逆向技巧 @f0rm2l1n 
+    - 引言：人工密集型的逆向过程
+    - 基础：符号执行器基础 - 以 angr 为例
+    - 实战：符号执行用于自动化逆向
+    - 反思：符号执行存在的不足
+    - 拓展：其他"自动"化技巧探讨
+- Maybe他自己的一些逆向经验见解分享
 
 <!--s-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
@@ -235,9 +365,10 @@ revealOptions:
 <div style="width: 100%">
 
 
-# 谢谢大家
+# 谢谢大家~希望大家能够喜欢上逆向！
 ---
-# questions?
+# Questions?
+Contact me? QQ 917581079
 
 </div>
 </div>
