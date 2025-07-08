@@ -1,12 +1,13 @@
 ---
-title: misc专题一 - 2024安全攻防实践
-separator: <!--s-->
-verticalSeparator: <!--v-->
+title: Share
+separator: <!-- s -->
+verticalSeparator: <!-- v -->
 theme: simple
 highlightTheme: monokai-sublime
 css:
     - custom.css
     - dark.css
+background: ./img/background.webp
 revealOptions:
     transition: 'slide'
     transitionSpeed: fast
@@ -15,9 +16,95 @@ revealOptions:
     width: 1000
 ---
 
-<!-- .slide: data-background="misc-lec2/cover.webp" -->
-<!--s-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+
+
+<style>
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css');
+
+  html * {
+    font-family: 'LXGW WenKai', sans-serif !important;
+}
+    .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    width: 100%; 
+}
+
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;  
+            text-decoration: none;
+            border: 1px solid #ddd;
+            padding: 0; 
+            border-radius: 50%;  
+            width: 85px; 
+            height: 85px; 
+            transition: transform 0.3s ease, border-color 0.3s ease;  
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .button img {
+            width: 100%;  
+            height: 100%;  
+            object-fit: cover;  
+            border-radius: 50%;  
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            border-color: rgba(0, 123, 255, 0.2);
+            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2); 
+        }
+
+        .button-container .button-text {
+            position: absolute; 
+            top: 50%;
+            left: 100%;  
+            transform: translateY(-50%); 
+            opacity: 0;  
+            visibility: hidden;  
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            white-space: nowrap; 
+            font-size: 20px;
+        }
+    </style>
+
+<!-- .slide: data-background="" -->
+
+<br>
+<br>
+<br>
+
+<center><h5 style="font-size: 50px; text-align: center;">misc 专题1：文件 / 图像隐写 / 一些其他</h5></center>
+
+<br>
+<br>
+
+
+
+
+<center><h1 style="font-size: 30px; text-align: center;">2025.7.8</h1></center>
+
+<br>
+
+ 
+
+
+
+<center><div class="button-container" >
+    <button class="button" onclick="toggleContent()" title = "Click to see more about me">
+        <img src="./misc-lec1/5517465791fa6af13f966cd28b1426a6.jpg" alt="Button Image">  
+    </button>
+    <span>吴俊铭 @Dremig / Dr3m19</span>
+</div></center>
+
+<!-- s -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -27,62 +114,45 @@ revealOptions:
 </div>
 </div>
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
-## 文件如何存储
+## 文件是如何存储的
 
-- 不同的**文件系统**，不同的组织方式
-    - MS 派：FAT、NTFS、exFAT、ReFS
-    - Apple 派：HFS、APFS
-    - Linux 派：ext\[234\]、XFS、Btrfs、ZFS...
-<img style="float: right; margin-right: 15px;" width="50%" src="misc-lec2/xxd.webp">
-- 文件是一串二进制数据
-    - 在 HDD 上是微小磁极的磁化方向
-    - 在 SSD 上是电荷的存储状态
-- “文件名”是由文件系统管理的，不是文件本身数据的一部分
-    - 文件系统会记录文件名、文件大小、创建时间、修改时间等信息
-    - 文件内容才是真正的数据
+对于不同的文件系统，文件有不同的组织方式
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
++ **MS(Microsoft)** 派：FAT、NTFS、exFAT、ReFS
++ **Apple** 派：HFS、APFS
++ **Linux** 派：ext[234]、XFS、Btrfs、ZFS...
 
-## 文件和文件类型
+文件是一串**二进制数据**
 
-<img style="float: right; margin-right: 15px;" width="40%" src="misc-lec2/png_magic.webp">
++ 在 HDD 上是微小磁极的磁化方向
++ 在 SSD 上是电荷的存储状态
 
-如何判断文件的类型？
+"文件名"由文件系统管理的，不是文件本身数据的一部分
 
-- 扩展名
-    - .jpg .webp .txt .docx ...
-    - 是文件名的一部分，可以随意修改
-    - （在一些桌面环境下）<br>决定了打开文件的默认程序
-- 内容
-    - **通过文件内容来识别文件类型**（√）
-    - file 命令：根据文件内容判断文件类型
-    - 不同文件类型有不同的<ruby>“魔数”<rp>（</rp><rt>magic number</rt><rp>）</rp></ruby>
++ 文件系统会记录文件名、文件大小、创建时间、修改时间等信息
++ 文件内容才是真正的数据
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
-## 二进制查看文件与分析
+## 文件类型
 
-- [010 Editor](https://www.sweetscape.com/010editor/)
-    - 全平台最常用的二进制编辑器，付费软件（但容易破解）
-    - 有丰富的 binary templates，支持解析多种文件格式
-- [wader/fq](https://github.com/wader/fq)
-    - Go 编写的开源二进制文件查看工具
-    - 支持类似 jq 语法的查询
-- [Hex Fiend](https://hexfiend.com/)
-    - macOS 上免费开源高效的二进制编辑器
-    - 也有多种二进制格式的解析模板，但显示没有 010 丰富
-- [ImHex](https://github.com/WerWolv/ImHex)
-    - 全平台开源二进制编辑器
-    - 类似 010 Editor，但使用麻烦一些
-    - 可以编写自定义解析模板
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<img style="float: right; margin-right: 30px;" width="50%" src="misc-lec2/misc2-magic.png">
+
+如何判断文件的类型
+
++ 拓展名
+    + .jpg .png .webp .txt .gif .docx ...
+    + 其实也是文件名的一部分，允许随意的修改
+    + 操作系统会根据文件扩展名，自动关联并调用一个预先设置好的应用程序来打开这个文件
++ 文件内容
+    + Unix系统中的**file**命令
+    + 不同文件类型有不同的<ruby>“魔数”<rp>（</rp><rt>magic number</rt><rp>）</rp></ruby>
+
+
+<!-- v -->
 
 ## 文件类型检测与元信息
 
@@ -90,7 +160,7 @@ revealOptions:
 
 | 文件类型 | 文件头 | 对应 ASCII |
 | :---: | :--- | :--- |
-| JPEG | FF D8 FF | ... |
+| JPEG | FF D8 FF |  |
 | PNG | 89 50 4E 47 0D 0A 1A 0A | .PNG.... |
 | GIF | 47 49 46 38 39 61 | GIF89a |
 | PDF | 25 50 44 46 | %PDF |
@@ -99,29 +169,27 @@ revealOptions:
 | 7zip | 37 7A BC AF 27 1C | 7z..'. |
 | WAV | 52 49 46 46 | RIFF |
 
-- 通过 file 命令进行文件类型的检测
-- 可以使用 exiftool 读取部分类型文件的元信息
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
++ 可以使用 [exiftool](https://exiftool.org/) 读取部分类型文件的元信息
+
+<!-- v -->
 
 ## 文件附加内容的识别与分离
 
-- 大部分文件类型都有一个标记文件内容结束的标志
-    - 比如 PNG 的 IEND 块、JPEG 的 EOI 标志（FF D9）
-- 所以一般在文件末尾添加其他字节时，不会影响原文件本身的用途
-    - 因此有些隐写是将数据隐藏在文件末尾达到的
-    - 或者在文件后叠加另一份文件
-    - `cat cover.jpg secret.zip > cover_stego.jpg`
-- 附加内容的识别
-    - exiftool 一般可以识别图像文件后的附加数据
-    - binwalk 可以检测叠加的文件
-- 附加文件的分离
-    - binwalk 或 foremost 识别并分离
-    - dd if=*<src\>* of=*<dst\>* bs=1 skip=*<offset\>* 手动分离
++ 大部分文件类型都有一个标记文件内容结束的标志
+    + 例如 .png 文件的 IEND 块、.jpeg 文件的 EOI 标志（FF D9）
++ 一般而言在文件末尾追加其他字节时，并不影响原文件本身的用途
+    + 一些隐写是将数据隐藏到文件末尾得到的，最简单的：Lab0 misc challenge2
+    + 也可以在文件后面再叠加一份文件
+    + cat \<file you want to cover\> \<file you want to hide\> **\>** \<new file\>
++ 附加内容的识别
+    + exiftool 一般可以识别图像文件后的附加数据
+    + binwalk 可以检测叠加的文件
++ 附件文件的分离
+    + binwalk 或 foremost 识别并分离
+    + dd if=<src> of=<dst> bs=1 skip=<offset> 手动分离
 
-<!--s-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- s -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -131,22 +199,27 @@ revealOptions:
 </div>
 </div>
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
+
+
 
 ## 文件内容基本隐写
 
-- 文件末尾添加数据
-    - exiftool 识别短数据，或者十六进制编辑器直接观察
-    - binwalk 识别叠加文件，foremost 提取
-    - 图像末尾叠加一个压缩包，就是所谓的“图种”
-        - 修改后缀名可能可以解压（部分解压软件会忽略前面的图像）
-        - 其实不如直接分离
-- 直接利用元信息
-    - exiftool 即可读取
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+
+
+
+
++ 文件末尾添加数据
+        + exiftool 识别短数据，或者十六进制编辑器直接观察
+        + binwalk 识别叠加文件，foremost 提取
+        + 图像末尾叠加一个压缩包，就是所谓的“图种”
+            - 修改后缀名可能可以解压（部分解压软件会忽略前面的图像）
+            - 其实不如直接分离
++ 直接利用元信息
+        - exiftool 即可读取 
+
+<!-- v -->
 
 ## 色彩空间、色彩模式
 
@@ -164,8 +237,8 @@ revealOptions:
 - LAB：亮度 lightness、绿红色度 A、蓝黄色度 B
 - ...
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+
+<!-- v -->
 
 ## LSB 隐写
 
@@ -186,8 +259,7 @@ revealOptions:
     - 数据：stegsolve / CyberChef Extract LSB / zsteg / PIL
 </div>
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
 ## PIL 图像处理基础
 
@@ -206,8 +278,10 @@ PIL（Python Imaging Library）是 Python 中非常常用的图像处理库
     - img.putpixel((x, y), color) 设置像素点颜色
     - np.array(img) 将图像转换为 numpy 数组
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+
+
+<!-- v -->
+
 
 ## PIL 图像处理基础（续）
 
@@ -224,19 +298,19 @@ PIL（Python Imaging Library）是 Python 中非常常用的图像处理库
     - ImageOps 用于图像整体的运算一类
     - ImageFilter 用于图像的滤波处理
 
-<!--s-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- s -->
+
 
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.3 图像格式介绍
+# Part.3 图像基本格式介绍
 
 </div>
 </div>
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
+
 
 ## 图像文件需要存储什么？
 
@@ -246,13 +320,13 @@ PIL（Python Imaging Library）是 Python 中非常常用的图像处理库
     - 对于标准 RGB 图像，每个像素需要 24 bits
     - 对于一张 1080p 图像，需要 6.22 MB，4K 则需要 24.88 MB
     - BMP 格式
-- 压力给到了图像格式的压缩算法
+- 图像格式的压缩算法？
     - PNG 无损，JPEG 有损
     - GIF 有损且只支持 256 色
     - 新兴格式如 HEIF、WebP、AVIF 等
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+
+<!-- v -->
 
 ## JPEG 文件格式
 
@@ -271,10 +345,10 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
 - FFDA（SOS）：扫描数据，包含数据的扫描方式，huffman 表的使用方式等
 - FFD9（EOI）：文件结束
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
-## JPEG 压缩原理
+
+## *JPEG 压缩原理
 
 - JPEG 的压缩原理是 DCT（离散余弦变换）+ Huffman 编码
     - 由 RGB 转换到 YCbCr，然后减少 Cb、Cr 的采样率
@@ -285,8 +359,8 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
         - 根据不同的量化表，可以调整压缩质量
     - 通过游程编码和 huffman 编码进行压缩
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
+
 
 ## PNG 文件格式
 
@@ -301,8 +375,7 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
     - 其他辅助数据块：eXIf、tEXt、zTXt、tIME、gAMA……
         - eXIf 元信息，tIME 修改时间，tEXt 文本，zTXt 压缩文本
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
 ## PNG 文件格式
 
@@ -319,21 +392,9 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
 - IEND：文件结束标志，必须位于最后，内容固定
     - PNG 标准不允许 IEND 之后有数据块
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
-## 回顾 Misc lab0
-
-<div style="text-align: center; margin-top: 5px;">
-<img src="misc-lec2/misc_challenge2.webp" width="100%" style="margin: 0 auto;">
-</div>
-
-位于 IEND 块之后的数据不会被显示，可以通过直接观察得到
-
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
-
-## PNG 压缩原理
+## *PNG 压缩原理
 
 - PNG 使用 Deflate 压缩算法
     - 是 LZ77 结合 huffman 编码的一种压缩算法
@@ -346,12 +407,11 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
 - 会进行滤波，减少数据的冗余性，提高压缩率
     - 五种滤波器：None、Sub、Up、Average、Paeth
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
 ## 参考阅读
 
-- [去年的 misc 专题一讲义](https://slides.tonycrane.cc/CTF101-2023-misc/lec2/)
+- [前年的 misc 专题一讲义](https://slides.tonycrane.cc/CTF101-2023-misc/lec2/)
 - JPEG
     - [The Unreasonable Effectiveness of JPEG: A Signal Processing Approach](https://youtu.be/0me3guauqOU)
         - Reducible 频道的视频，B 站搬运：[BV1iv4y1N7sq](https://b23.tv/BV1iv4y1N7sq)
@@ -364,34 +424,28 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
         - Reducible 频道的视频，B 站搬运：[BV1wY4y1P7o7](https://b23.tv/BV1wY4y1P7o7)
     - [PNG Specification (Third Edition)](https://www.w3.org/TR/png-3/)
 
-<!--s-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- s -->
 
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.4 隐写进阶技术
+# Part.4 图像隐写进阶
 
 </div>
 </div>
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
-## 图像大小修改
+## 图像大小隐写
 
-- PNG 图像按行进行像素数据的压缩，以及存储/读取
-- 当解码时已经达到了 IHDR 中规定的大小就会结束
-- 因此题目可能会故意修改 IHDR 中的高度数据，使之显示不全
-- 恢复的话更改高度即可，同时注意 crc 校验码，否则可能报错
-    - binascii.crc32(data)，data 为从 IHDR 开始的数据
++ PNG 图像按行进行像素数据的压缩，以及存储 / 读取
++ 当解码时已经达到了 IHDR 中规定的大小就会结束
++ 因此题目可能会故意修改 IHDR 中的高度数据，使之显示不全
++ 恢复的话更改高度即可，同时注意 crc 校验码，否则可能报错
+    + binascii.crc32(data)，data 为从 IHDR 开始的数据
+    <img src="./misc-lec2/output_half_height.png"></img>
 
-<div style="text-align: center; margin-top: 30px;">
-<img src="misc-lec2/modify_size.webp" width="100%" style="margin: 0 auto;">
-</div>
-
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
 ## 需要原图的图像隐写
 
@@ -411,8 +465,7 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
     - 没有给代码的可能就是常见的现有盲水印工具
         - [guofei9987/blind_watermark](https://github.com/guofei9987/blind_watermark)
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
 ## 更多图像文件内容隐写手段
 
@@ -428,12 +481,19 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
     - steghide、stegoveritas、SilentEye 等
     - 一般找到了类似密码一类的大概率是工具题
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- s -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.5 音频隐写
+
+</div>
+</div>
+
+<!-- v -->
 
 ## 音频文件格式简介
-
-音频类题目其实并不常出：
 
 - mp3：有损压缩
     - 具体格式不多介绍，遇到了基本上也就是声音本身的隐写
@@ -444,8 +504,8 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
 - flac：无损压缩，如果出现可能考虑转换为 wav
 - 使用 Python 的 soundfile / librosa 库进行音频处理
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
+
 
 ## 频谱隐写
 
@@ -454,14 +514,14 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
 一般使用 Adobe Audition 打开来进行进一步的分析
 
 - 频谱隐写是观察音频的频谱图，可能会有部分信息经过了调整
+    - 视图 > 显示频谱
     - 比如如下攻防世界的一道题目 Hear with your eyes
 
 <div style="text-align: center; margin-top: 20px;">
-<img src="misc-lec2/freq.webp" width="65%" style="margin: 0 auto;">
+<img src="misc-lec2/freq.png" width="50%" style="margin: 0 auto;">
 </div>
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
 ## 音频叠加
 
@@ -470,71 +530,113 @@ JPEG 使用分段的结构来进行存储，各段以 0xFF 开头，后接一个
     - 将两个音频拖入两个轨道
     - 效果 > 匹配响度，将两条音轨的响度匹配
     - 点进其中一条音轨，效果 > 反相，将波形上下颠倒
-    - 两条音轨匹配上波形之后播放/混音，就能听到差异了
+    - 两条音轨匹配上波形之后播放 / 混音，就能听到差异了
 
 <div style="text-align: center; margin-top: 30px;">
 <img src="misc-lec2/audio_diff.webp" width="80%" style="margin: 0 auto;">
 </div>
 
-<!--s-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
+
+## 其他一些有关音频隐写的题目
+
++ Hackergame 2023: [虫](https://github.com/USTC-Hackergame/hackergame2023-writeups/blob/master/official/虫/README.md): SSTV
++ ZJUCTF 2022: [Intonation!!!](https://zjusec.com/challenges/159)
++ SJTUCTF 2025: <del>忘了哪题了</del>：总之是用频谱图恢复音频
++ ...
++ 近年来，各大赛中，其实音频隐写出现的相对较少(不论是单独出题还是作为某一关)
++ <del>但是技多不压身</del>
+
+<!-- s -->
 
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.5 一些其他的 misc 类型题目
+# Part.6 一些其他的 misc 类型题目
 
 </div>
 </div>
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<!-- v -->
 
-## ZIP 伪加密
+## zip伪加密
 
-- ZIP 也使用分段的方式存储数据
-    - 本地文件记录 50 4B 03 04，可以有多个
-    - 中央目录记录 50 4B 01 02，可以有多个
-    - 中央目录结束 50 4B 05 06
-- 在中央目录记录中有一个字段记录加密方式
-    - 如果不为 0 表示有加密
-- 其他字段，如最小版本
-    - 可能修改为一个不合法的值，无法用解压软件解压
++ ZIP 也使用分段的方式存储数据
+    + 本地文件记录 50 4B 03 04，可以有多个
+    + 中央目录记录 50 4B 01 02，可以有多个
+    + 中央目录结束 50 4B 05 06
++ 在中央目录记录中有一个字段记录加密方式
+    + 如果不为 0 表示有加密
++ 其他字段，如最小版本
+    + 可能修改为一个不合法的值，无法用解压软件解压
 
-<!--v-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
 
-## 沙箱逃逸和 PPC
 
-- 沙箱：做了某些限制的隔离环境
-    - 例如 Docker，或一个沙箱程序，如 rbash
-- Python 解释器也可以作为一个沙箱
-    - 通过限制模块、限制函数、代码审计等方式
-- 沙箱逃逸就是在沙箱中执行代码，获取到沙箱外的权限
-    - Python 的 os 及 importlib 模块是常见的逃逸点
+<!-- v -->
+
+## 沙箱逃逸
+
++ 沙箱：做了某些限制的隔离环境
+    + 例如 Docker，或一个沙箱程序，如 rbash
+    + rbash逃逸演示
++ Python 解释器也可以作为一个沙箱
+    + 通过限制模块、限制函数、代码审计等方式
+    + Python 的 os 及 importlib 模块是常见的逃逸点
++ 沙箱逃逸就是在沙箱中执行代码，获取到沙箱外的权限
+
+<!-- v -->
+    
+## 编程类(PPC)
+
+不太常见
+
++ 限制代码长度 / 汇编指令，要求实现某个功能
+    + ZJUCTF 2024: Master of C++
++ [Quine](https://zhuanlan.zhihu.com/p/719614247)
+    + ZJUCTF 2022: Self SHA
+
+<!-- s -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# misc 专题一 Lab 简介
+
+</div>
+</div>
+
+<!-- v -->
+
+还在想555
+
+<!-- s -->
+
+<br>
+<br>
+<br>
+
+<center><h5 style="font-size: 55px; text-align: center;">谢谢大家~ 辛苦啦!</h5></center>
 
 <br>
 
-- PPC 题较为不常见
-    - 一般是限制代码长度/汇编指令，要求实现某个功能
-    - 如 ZJUCTF 2022: Self SHA
+<strong><center><h5 style="font-size: 40px; text-align: center;">Questions?</h5></center></strong>
 
-<!--s-->
-<!-- .slide: data-background="misc-lec2/background.webp" -->
+<br>
 
-## misc 专题一 Lab 简介
+<center>
+    <span>吴俊铭 @Dremig / Dr3m19</span>
+</center>
 
-[courses.zjusec.com/topic/misc-lab2](https://courses.zjusec.com/topic/misc-lab2/)
+<br>
 
-- 必做部分：图像隐写基础（30 分）
-- 选做部分，自由选择，最多计 85 分：
-    - Challenge A: Palette Stego（25 分）
-        - PNG 调色板隐写（EZStego）
-    - Challenge B: Spectrogram（30 分）
-    - Challenge C: RURU（30 分）
-    - Challenge D: Power Trajectory Diagram（30 分）
-    - Challenge E: pysandbox（30 分）
-    - Challenge F: PPC（30 分）
+<strong><center>
+    <span style="font-size: 25px;">What to contact with me?</span>
+</center></strong>
+<center>
+    <span style="font-size: 22px;">QQ: 1466140007</span>
+</center>
 
-<!--s-->
-<!-- .slide: data-background="misc-lec2/ending.webp" -->
+<center>
+    <span style="font-size: 22px;">mail: wjm1s@zju.edu.cn</span>
+</center>
+
