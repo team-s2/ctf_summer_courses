@@ -238,6 +238,7 @@ gcc hello.c -o hello
 <img src="rev-lec1/rev1.jpg">
 
 <!--s-->
+<!-- .slide: data-background="rev-lec1/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -468,6 +469,8 @@ print(s.model())
     - 实战：符号执行用于自动化逆向
     - 反思：符号执行存在的不足
     - 拓展：其他"自动"化技巧探讨
+
+
 <!--s-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 

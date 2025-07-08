@@ -345,7 +345,7 @@ revealOptions:
 
 
 <!--v-->
-<!-- .slide: data-background="rev-lec1/background.png" -->
+<!-- .slide: data-background="rev-lec2/background.png" -->
 
 
 ## 预告
