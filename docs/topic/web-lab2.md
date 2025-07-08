@@ -193,9 +193,13 @@ if __name__ == '__main__':
 
 通过[xss-labs](http://test.ctf8.com)前五关,每关六分.源码可在 https://github.com/do0dl3/xss-labs 找到
 
+或完成校巴题目[babyxss](https://zjusec.com/challenges/111)
+
 ### Task 6: XSS 2 (30 分)
 
 通过[xss-labs](http://test.ctf8.com)前十关,每关六分.源码同上
+
+或完成校巴题目[childxss](https://zjusec.com/challenges/112)
 
 ### Task 7: 拓展 (20 分)
 

@@ -9,6 +9,7 @@
 - [misc lec 1：简介 / 编解码 / 流量取证](https://courses.zjusec.com/slides/misc-lec1/)
 - [rev lec 1：程序编译 / 工具使用](http://slides.huaeryi.top/rev_lec1_2025/site/)
 - [crypto lec 1: 消息加密 / 数字签名](https://courses.zjusec.com/slides/crypto-lec1/)
+- [web lec 2: 用户侧攻击](https://courses.zjusec.com/slides/web-lec1/)
 <!-- - [misc lec 2：文件 / 图像隐写](https://courses.zjusec.com/slides/misc-lec2/)
 - [misc lec 3：流量取证 / 区块链基础](https://courses.zjusec.com/slides/misc-lec3/)
 - [rev lec 2：动态调试 / 异架构逆向](https://courses.zjusec.com/slides/rev-lec2/)
