@@ -81,7 +81,7 @@ revealOptions:
 <br>
 <br>
 
-<center><h5 style="font-size: 55px; text-align: center;">misc 专题1：文件 / 图像隐写 / 一些其他</h5></center>
+<center><h5 style="font-size: 50px; text-align: center;">misc 专题1：文件 / 图像隐写 / 一些其他</h5></center>
 
 <br>
 <br>
@@ -139,7 +139,7 @@ revealOptions:
 ## 文件类型
 
 
-<img style="float: right; margin-right: 30px;" width="50%" src="img/misc2-magic.png">
+<img style="float: right; margin-right: 30px;" width="50%" src="misc-lec2/misc2-magic.png">
 
 如何判断文件的类型
 
