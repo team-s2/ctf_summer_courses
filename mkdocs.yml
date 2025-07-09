@@ -18,7 +18,7 @@ nav:
     - "crypto lab 1: 消息加密和数字签名": intro/crypto-lab1.md
   - 专题部分:
     - "web lab 2: 用户侧攻击": topic/web-lab2.md
-    # - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
+    - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
     # - "misc lab 3: 取证与区块链基础": topic/misc-lab3.md
     # - "rev lab 2: 动态调试 / 异架构逆向": topic/rev-lab2.md
     # - "rev lab 3: 异架构拓展 / 游戏逆向": topic/rev-lab3.md
