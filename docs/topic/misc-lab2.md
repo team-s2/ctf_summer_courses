@@ -9,16 +9,15 @@
 - 选做部分，自由选择，最多计 85 分：
     - [Challenge A: Palette Stego](#challenge-a-palette-stego-25)（25 分）
     - [Challenge B: Spectrogram](#challenge-b-spectrogram-30)（30 分）
-    - [Challenge C: RURU](#challenge-c-ruru-30)（30 分）
-    - [Challenge D: Power Trajectory Diagram](#challenge-d-power-trajectory-diagram-30)（30 分）
-    - [Challenge E: pysandbox](#challenge-e-pysandbox-30)（30 分）
-    - [Challenge F: PPC](#challenge-f-ppc-30)（30 分）
+    - [Challenge C: Time & Power](#challenge-c-time--power-30)（30 分）
+    - [Challenge D: 沙箱逃逸](#challenge-d-沙箱逃逸-30)（30 分）
+    - [Challenge E: PPC](#challenge-e-ppc-30)（30 分）
 
 （最终的分数分配可能会根据大家的提交情况有所调整）
 
-具体实验报告需要写的内容会在下面具体题目里面描述。对于题目有任何问题都可以在群里/私戳 45gfg9 提问。
+具体实验报告需要写的内容会在下面具体题目里面描述。对于题目有任何问题都可以在群里/私戳 Dremig 提问。
 
-本次 lab 的 ddl 在发布两周以后即 7 月 23 日晚 23:59，请注意安排时间。
+本次 lab 的 ddl 在发布两周半以后即 7 月 27 日晚 23:59，请注意安排时间。
 
 本次 lab 的安排是 30 分简单的图片隐写题目。选做部分是一些在真实 CTF 比赛中完全可能出现的难度的题目，但在给了 hint 之后难度应该已经大大减小。在做题过程中遇到任何问题，都请及时联系，对于共性问题会考虑继续放出 hint。私聊提问时请务必说明你目前的进度及已经尝试的方法等。
 
@@ -52,11 +51,12 @@
 
 ## Challenge 3 (10%)
 
-- `[lab2] Easy LSB` 题目位于[比赛平台](https://ctf.zjusec.com/games/3/challenges)上
+- `[misc lec1] Easy LSB` 题目位于[比赛平台](https://ctf.zjusec.com/games/5/challenges)上
+
 
 这是一道 LSB 隐写的题目（完全是吗？），但和 lab 0 的方式有那么一点不一样，相信你一定也可以轻松解出 flag。
 
-![](misc-lab2/easy_lsb.png)
+![](misc-lab2/nanami.png)
 
 同样可以在比赛平台上获取与上图相同的附件。
 
@@ -126,23 +126,15 @@ EZStego 隐写是一个针对 GIF 或者使用调色板模式的 PNG 的一种�
 - 搜索并简单阅读 librosa 这个库的文档
 - 如果你被脚本中嵌套的矩阵处理搞糊涂了，不妨自己用另一个音频文件跑一下 `generate.py`，你可以在中途输出任何你想要了解的中间结果
 
-## Challenge C: RURU (30%)
+
+
+## Challenge C: Time & Power (30%)
+
+- `[misc lec1] Time & Power` 题目位于[比赛平台](https://ctf.zjusec.com/games/5/challenges)上
 
 ### Challenge
 
-我们在上课讲了 ZIP 伪加密的原理，即将本地文件记录和中央目录记录中的 flags 域的加密位设为 1，这样可以“欺骗”解压软件让它认为这个压缩包是加密的，而实际上内容并没有加密。
-
-RURU 是 ZJUCTF 2023 的一道题目。请完成题目，在比赛平台上提交 flag，并在实验报告中写出你的解题思路和具体过程。
-
-如果无法解出题目，也请将你的尝试写在报告中，我们会根据你的进度给部分分。
-
-## Challenge D: Power Trajectory Diagram (30%)
-
-- `[lab2] Power Trajectory Diagram` 题目位于[比赛平台](https://ctf.zjusec.com/games/3/challenges)上
-
-### Challenge
-
-这是 CISCN 2024 的一道题目。某个黑客在攻击一台物理设备时，记录了该设备的功率变化。你需要通过这些数据还原出黑客成功攻击设备时的 flag。
+这是 SJTUCTF 2025 的一道题目<del>的一部分</del>。某个黑客在攻击一台物理设备时，记录了该设备的功率变化。你需要通过这些数据还原出黑客成功攻击设备时的 flag。
 
 请完成题目，在比赛平台上提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
@@ -156,19 +148,26 @@ RURU 是 ZJUCTF 2023 的一道题目。请完成题目，在比赛平台上提�
     - 通常使用 matplotlib 库：`#!py from matplotlib import pyplot as plt`
     - 你可以通过 `plt.plot(...)` 来绘制折线图
     - 图片太多？试试用 `plt.savefig(...)` 保存图片之后一起查看
+- 这道题与CISCN 2024的一道题目`Power Trajectory Diagram`相近
 
-## Challenge E: pysandbox (30%)
+## Challenge D: 沙箱逃逸 (30%)
 
-### Challenge
+我们在课上介绍了沙箱逃逸的概念，并且演示了在自己的电脑上复现rbash逃逸的操作。本题需要你完成以下Challenge：
+
+### Task 1 (10%)
+
+请在自己的电脑上复现上课提及的rbash逃逸的相关内容，并探索自己的电脑上如何进行rbash逃逸，尽可能地总结能够逃逸的方法。
+
+### Task 2 (20%)
 
 pysandbox 是校巴上的一系列 Python 沙箱逃逸题目，共 16 道。本题需要你完成：
 
-- [pysandbox6](https://zjusec.com/challenges/69) (15%)
-- [pysandbox10](https://zjusec.com/challenges/70) (15%)
+- [pysandbox6](https://zjusec.com/challenges/69) (10%)
+- [pysandbox10](https://zjusec.com/challenges/70) (10%)
 
 请完成题目，在校巴提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
-### Hint
+### Hint for Task 2
 
 虽然题目给的 Python 环境较老（Python 2.7），但大体上的逃逸思路是通用的。你可能需要了解的东西：
 
@@ -179,19 +178,20 @@ pysandbox 是校巴上的一系列 Python 沙箱逃逸题目，共 16 道。本�
 
 可以阅读的资料：[Python 沙箱逃逸 - GZTime's Blog](https://blog.gzti.me/posts/2021/83a30666/?highlight=沙箱)
 
-## Challenge F: PPC (30%)
+## Challenge E: PPC (30%)
 
 ### Challenge
 
 良好的编程能力是一名安全工程师必备的技能之一，在真实 CTF 比赛中也可能出现 PPC 类题目。本题需要你完成以下两部分：
 
-#### maze1 (15%)
+#### polyglot (20%)
 
-- 校巴上的 [maze1](https://www.zjusec.com/challenges/99)
+- 校巴上的 [polyglot](https://zjusec.com/challenges/155)
+- 这道题的主要目的是编写一段能同时被两个编译器(C/C++与Python)执行的程序，对两种语言的代码编程能力要求相对较高
 
 请完成题目，在校巴提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
-#### Quine (15%)
+#### Quine (10%)
 
 Quine 是一个自描述程序，即输出自己的源代码。这是一个经典的编程题目。
 
