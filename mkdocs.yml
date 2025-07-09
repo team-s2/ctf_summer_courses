@@ -42,6 +42,7 @@ nav:
     - "🔗 crypto lec 1: 消息加密 / 数字签名": https://courses.zjusec.com/slides/crypto-lec1/
     - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
     # - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
+    - "🔗 pwn lec 2: rop / fsb": https://courses.zjusec.com/slides/pwn-lec2/
   # - 附加材料:
     # - "连接校内网做题指南": extra/proxy.md
 
