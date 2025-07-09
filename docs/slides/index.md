@@ -12,6 +12,7 @@
 - [rev lec 2：游戏 / 异架构逆向](https://courses.zjusec.com/slides/rev-lec2/)
 - [crypto lec 1: 消息加密 / 数字签名](https://courses.zjusec.com/slides/crypto-lec1/)
 - [web lec 2: 用户侧攻击](https://courses.zjusec.com/slides/web-lec2/)
+- [pwn lec 2: rop / fsb](https://courses.zjusec.com/slides/pwn-lec2/)
 
 <!-- - [misc lec 3：流量取证 / 区块链基础](https://courses.zjusec.com/slides/misc-lec3/)
 - [rev lec 3：异架构逆向拓展/游戏逆向](https://courses.zjusec.com/slides/rev-lec3/) -->
