@@ -101,7 +101,7 @@ revealOptions:
     <button class="button" onclick="toggleContent()" title = "Click to see more about me">
         <img src="./misc-lec1/5517465791fa6af13f966cd28b1426a6.jpg" alt="Button Image">  
     </button>
-    <span>吴俊铭 @Dremig / Dr3m19</span>
+    <span>@Dremig / Dr3m19</span>
 </div></center>
 
 <!-- s -->
