@@ -17,7 +17,7 @@ Flag格式均为`AAA{XXX}`。如果找到疑似Flag的字符串但提交显示�
 
 ## Task 1: Being and Code (30%)
 
-- 完成 `Being and Code`。
+- 完成 `Being and Code`
   - 平台上可下载源码
   - 本题用到的是轻量级数据库SQLite，语法和MySQL非常像
   - 本题不会涉及到在MySQL和SQLite下有明显差异的攻击技术
@@ -26,7 +26,7 @@ Flag格式均为`AAA{XXX}`。如果找到疑似Flag的字符串但提交显示�
 
 ## Task 2: Yes Author (35%)
 
-- 完成 `Yes Author`。
+- 完成 `Yes Author`
   - 题目只解析你上传的.docx文件
   - 有内容的.docx文件本质是一个.zip压缩包
   - Flag在/flag文件内
@@ -34,7 +34,7 @@ Flag格式均为`AAA{XXX}`。如果找到疑似Flag的字符串但提交显示�
 
 ## Task 3: Passcode+ (35%)
 
-- 完成 `Passcode+`。
+- 完成 `Passcode+`
   - 本题基于MySQL
   - 服务端有最基础的注入过滤功能
   - `passcodes`表的`passcode`列下存储了全部的passcode，有多行数据
