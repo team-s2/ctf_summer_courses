@@ -20,7 +20,7 @@ nav:
     - "web lab 2: 用户侧攻击": topic/web-lab2.md
     - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
     # - "misc lab 3: 取证与区块链基础": topic/misc-lab3.md
-    # - "rev lab 2: 动态调试 / 异架构逆向": topic/rev-lab2.md
+    - "rev lab 2: 游戏/异架构逆向": topic/rev-lab2.md
     - "rev lab 3: 符号执行": topic/rev-lab3.md
     # - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
     # - "crypto lab 3: 离散对数": topic/crypto-lab3.md
