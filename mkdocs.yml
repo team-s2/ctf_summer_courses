@@ -24,7 +24,7 @@ nav:
     # - "rev lab 3: 异架构拓展 / 游戏逆向": topic/rev-lab3.md
     # - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
     # - "crypto lab 3: 离散对数": topic/crypto-lab3.md
-    # - "web lab 3: 反序列化 / 综合应用": topic/web-lab3.md
+    - "web lab 3: 后端漏洞基础": topic/web-lab3.md
     # - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
     # - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
   # - 反馈部分:
