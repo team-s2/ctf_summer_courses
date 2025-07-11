@@ -331,7 +331,7 @@ revealOptions:
 <!--v-->
 <!-- .slide: data-background="rev-lec2/background.png" -->
 
-## 作业(maybe)
+## 作业
 - 基础：
     - 复现课上的题目例2 GPA
 
@@ -346,8 +346,6 @@ revealOptions:
 - 挑战：
     - 尝试自己喜欢的游戏逆向/工具开发，可以描述逆向的原因，技术流程和结果等等（也可以查阅网上资料）。
     - 例子: Minecraft mod制作/Terraria失谐门等等
-- 以最后公布在课程网站作业的为准
-- 作业要写逆向分析过程、你写的脚本形成操作报告
 
 
 <!--v-->
