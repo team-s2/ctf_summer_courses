@@ -1,87 +1,93 @@
-# Misc Lab 3：取证及区块链基础
+# Misc Lab 3：OSINT & AI
 
-本节 Lab 由以下两部分组成：
+本节 Lab 分为必做和 Bonus 部分：
 
-- 必做部分（各 15 分，共 45 分）：
-    - [Challenge 1: SQL Inject Analysis](#challenge-1-15)
-    - [Challenge 2: dnscap](#challenge-2-15)
-    - [Challenge 3: crack_zju_wlan](#challenge-3-15)
-- 选做部分，自由选择，最多计 70 分：
-    - [Challenge A<span class="heti-skip">: 内存取证</span>（20 分）](#challenge-a-20)
-    - [Challenge B: Ethernaut（15 分）](#challenge-b-ethernaut-15)
-    - [Challenge C: Re-entrancy（20 分）](#challenge-c-re-entrancy-20)
-    - [Challenge D: hard gambler（35 分）](#challenge-d-hard-gambler-35)
-    - [Challenge E: Safe NFT（35 分）](#challenge-e-safe-nft-35)
+- 必做部分（每题 10 分，共 30 分）
+    - [Homework 1: 图寻](#homework-1-20)（20 分）
+    - [Homework 2: insanity](#homework-2-25)（25 分）
+    - [Homework 3: 对抗攻击](#homework-3-35)（35 分）
+    - [Homework 4: 提示词注入实践](#homework-4-20)（20 分）
+- Bonus 部分，最多可以使本 lab 溢出到 115 分：
+    - [Bonus 1: 上影节](#bonus-1-20)（20 分）
+    - [Bonus 2: 小红书跟踪参数分析](#bonus-2-20)（20 分）
 
-具体实验报告需要写的内容会在下面具体题目里面描述。对于题目有任何问题都可以在群里/私戳 TonyCrane 提问。
+对于题目有任何问题都可以在群里提问或者私戳助教，本次 lab 的 ddl 在发布两周半以后即 7 月 31 日晚 23:59，请注意安排时间
 
-本次 lab 的 ddl 在发布两周以后即 7 月 25 日晚 23:59，请注意安排时间。
+## Homework 1 (20%)
 
-## Challenge 1 (15%)
+![misc_challenge1](../images/misc_challenge1.png)
 
-完成课上讲的 HTTP 流量分析例题，即 SQL 注入流量的解析，在[题目平台](https://ctf.zjusec.com/games/3/challenges)的 sqltest。
+这是 45gfg9 在韩国拍的一张照片，请回答以下两个问题：
 
-请完成题目，拿到 flag 并提交验证，在实验报告中写出你的解题思路和具体过程。
+1. 拍摄这张图片时所在位置
+2. 图片中的绿色路牌被遮挡住的右半边的内容是？
 
-## Challenge 2 (15%)
+请将你的答案以及解题思路写在实验报告中，会根据过程给分
 
-完成课上讲的 UDP (DNS) 流量分析例题，即 dnscat 协议的手动解析，在[题目平台](https://ctf.zjusec.com/games/3/challenges)的 dnscap。
+## Bonus 1 (20%)
 
-- 参考 dnscat 协议文档：[GitHub:iagox86/dnscat2](https://github.com/iagox86/dnscat2/blob/master/doc/protocol.md)
+![misc_bonus1](../images/misc_bonus1.png)
 
-请完成题目，拿到 flag 并提交验证，在实验报告中写出你的解题思路和具体过程。
+1. 请写出箭头所指海报上的所有文字
+2. 请推测下一场电影的名称
 
-## Challenge 3 (15%)
+需要写出详细的推理过程，如果推理中用到网络资料请给出网站链接，没有过程不得分，第2小问视推理的严谨程度给分
 
-完成校巴上的题目 crac_zju_wlan，链接：[zjusec.com/challenges/105](https://zjusec.com/challenges/105)。
+## Homework 2 (25%)
 
-虽然我们课上并没有详细讲解 WiFi 协议密码的破解，但其实只要一个我们课上提到的工具就可以搞定，请尝试完成这道题目。
+搜集网络用户信息也是 OSINT 的一种形式，CTF 赛题中通常会构造一个虚拟的网络身份，并留下各种信息
 
-请完成题目，提交 flag 成功，并在实验报告中写出你的解题思路和具体过程。
+请完成 Midnight Sun CTF 2024 - insanity，本题是 Hacking For Soju 团队为了纪念 Sophia "quend" d'Antoine 所出的一道 OSINT 题目
 
-## Challenge A: 内存取证 (20%)
+```text
+HFS has never made an OSINT challenge, but for this, we will make an exception. Sophia "quend" d'Antoine is legendary in the industry, community, sub-culture and in this game of CTF. Her reach and influence go back to the very first wargame and CTF communities on the internet and all the way to the high end of the industry.
 
-我们今年课上并没有讲内存取证，但说白了内存取证就是对 strings、volatility 等工具的使用，你可以自行研究，也可以参考[去年的课件](https://slides.tonycrane.cc/CTF101-2023-misc/lec3/#/2)。
+She was beloved. She is beloved.
 
-本部分提供了两道比较典型的使用 volatility 来求解的内存取证题目，同学们可以自行搭建 volatility 2.6 环境（也可以使用打包好即开即用的版本，但不要使用 volatility 3.x）。
+On her way, she always respected the lore and legend of those who came before her, and those who would follow after.
 
-你需要复现这两道题目中的任意一道：
+So for those of you who are not aware, it is time to learn some about her legend, we will keep it light because there is too much to cover.
 
-- N1CTF 2022: just find flag，[附件下载（浙大网盘）](https://pan.zju.edu.cn/share/35e51e4b080bdaf6c017440ee8)
-    - 参考 writeup：[Nu1L 官方 wp](https://github.com/Nu1LCTF/n1ctf-2022/blob/main/Misc/just_find_flag/writeup.md)、[TonyCrane 的 wp](https://note.tonycrane.cc/writeups/n1ctf2022/)
-- BMZCTF: Administrator's secret，[附件下载（浙大网盘）](https://pan.zju.edu.cn/share/eb1642b8eda74094f42e89041b)
-    - 经典老题了，随便一搜就能搜到 writeup
+Find the following:
 
-因为是复现的题目，所以需要你给出你完成题目的每一步过程或者**其他更多你自己的尝试**，包括命令、必要的截图以及**你自己的思考**，请不要复制粘贴已有 writeup，否则将视为抄袭。
+The name of her company.
+The name of the first Project Zero bug she was cited on (the colloquial name).
+Her twitter username.
+The name of the influencial CTF team she was pivotal in (not us).
+The award ceremony she ran.
+The conference she attended in 2014 and never stopped going to.
+The abbreviation of the city she lived in and loved.
+Each answer should be 1 word, lowercase and you should concatonate them in order separated by an underscore. If the answer seems like it may be 2 or more words, then pick the first word or join them into a single word.
 
-## Challenge B: Ethernaut (15%)
+For example: midnight{rip_sophia_dantoine_you_absolute_legend}
 
-[Ethernaut](https://ethernaut.openzeppelin.com/) 是一套很好的以太坊智能合约入门题目集，我们在课上也演示过了其中的几道题目，在这部分中，你需要独立完成一些其他题目来学习更多常见漏洞：
+If you are moved, or in any way want to support her memory, please consider making a donation in her name. Feel free to share with us on discord or twitter.
 
-- [Coin Flip](https://ethernaut.openzeppelin.com/level/0xA62fE5344FE62AdC1F356447B669E9E6D10abaaF)：基于区块属性的伪随机破解
-- [Delegation](https://ethernaut.openzeppelin.com/level/0x73379d8B82Fda494ee59555f333DF7D44483fD58)：delegatecall 带来的潜在风险
-- [Vault](https://ethernaut.openzeppelin.com/level/0xB7257D8Ba61BD1b3Fb7249DCd9330a023a5F3670)：获取链上公开的合约 private 状态
+RPI (sic) quend (1993 - 2024), you will be missed.
+```
 
-每一部分 5 分，你需要在报告中给出你的解题思路、具体执行的过程和最终通过关卡的截图。
+写出你的解题过程，哪怕答案不对也没有关系，只要能展现你的搜索过程即可，最终会根据解题的完整程度和严谨程度进行评分
 
-## Challenge C: Re-entrancy (20%)
+## Bonus 2 (20%)
 
-Ethernaut 上 Re-entrancy 题目的私链部署版本，你需要参考课上演示的 Token 题目的交互方法来完成本题。
+分析小红书的跟踪参数，推理出跟踪参数的加密或编码逻辑，并编写反查脚本
 
-题目部署在了[题目平台](https://ctf.zjusec.com/games/3/challenges)的 Re-entrancy，具体信息详见平台页面。
+写出详细的推理过程，视推理的严谨和准确程度给分
 
-请完成题目，拿到 flag 并提交验证，在实验报告中写出你的解题思路和具体过程。
+!!! warning "声明"
+    完成该题的过程中请尽量避免在未经允许的情况下随意查询同学、网友的账号，且不要随意将编写的解密脚本用于解密他人的分享链接
 
-## Challenge D: hard gambler (35%)
+## Homework 3 (35%)
 
-完成[校巴](https://zjusec.com)上的题目 [hard gambler](https://zjusec.com/challenges/103)。
+课上简要介绍了针对人工智能的对抗攻击方式，请根据上课所学完成部署在 [ZJUCTF](https://ctf.zjusec.com/games/5/challenges) 平台上的 `[misc lec2] ResNet H@cker`，并给出具体解题过程和脚本
 
-请完成题目，拿到 flag 并提交验证，在实验报告中写出你的解题思路和具体过程。
+## Homework 4 (20%)
 
-## Challenge E: Safe NFT (35%)
+课上简单讲述了针对大语言模型的提示词攻击，本项作业需要同学们对当前主流的大语言模型或者基于大语言模型的应用进行提示词注入的尝试
 
-完成 ZJUCTF 2022 的题目 Safe NFT，部署在了[校巴](https://zjusec.com)上，链接：[zjusec.com/challenges/169](https://zjusec.com/challenges/169)。
+- 如 ChatGPT，DeepSeek，Gemini，Kimi 等
+- 可以进行目标劫持，提示词泄露，越狱等多个形式的攻击实践
+- 不一定要成功，许多主流大语言模型的提示词注入难度已经非常大了
+- 尽量展现自己的注入思路，注入过程
 
-- hint: 可参考 [ZJUCTF 2022 复盘思路](https://slides.tonycrane.cc/ZJUCTF2022-Review/#/7)
-
-请完成题目，拿到 flag 并提交验证，在实验报告中写出你的解题思路和具体过程。
+完整展现你的实践过程，最终会根据完成的认真程度进行打分
