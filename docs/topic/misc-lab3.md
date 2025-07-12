@@ -15,7 +15,7 @@
 
 ## Homework 1 (20%)
 
-![misc_challenge1](../images/misc_challenge1.png)
+![misc_challenge1](../images/misc_challenge1.jpg)
 
 这是 45gfg9 在韩国拍的一张照片，请回答以下两个问题：
 
@@ -26,7 +26,7 @@
 
 ## Bonus 1 (20%)
 
-![misc_bonus1](../images/misc_bonus1.png)
+![misc_bonus1](../images/misc_bonus1.jpg)
 
 1. 请写出箭头所指海报上的所有文字
 2. 请推测下一场电影的名称
