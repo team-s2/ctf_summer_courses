@@ -25,7 +25,7 @@ nav:
     # - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
     # - "crypto lab 3: 离散对数": topic/crypto-lab3.md
     - "web lab 3: 后端漏洞基础": topic/web-lab3.md
-    # - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
+    - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
     # - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md

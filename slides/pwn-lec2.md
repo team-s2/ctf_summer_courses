@@ -757,9 +757,9 @@ arbitary read + write = everything
 
 2.**stackpivot** 30pts
 
-3.**校巴题Format String Bug_easy** 20pts
+3.**思考题** 20pts
 
-4.**校巴题Format String Bug** 30pts
+4.**校巴题Format String Bug_easy** 20pts
 
 5.**思考题** 非栈上的格式化字符串 15pts
 
