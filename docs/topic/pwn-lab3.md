@@ -2,5 +2,5 @@
 
 本节 Lab 由以下内容组成：
 
-1. 任意找3个house，完成分析与复现，形成报告
-2. Bonus: 完成校巴题目 [baby_tache](https://zjusec.com/challenges/78) (15 points)
+1. 完成attachment中的ACTF_2019_message与ciscn_final_3并形成报告，详细讲述漏洞与攻击原理。
+2. Bonus: 完成去年校赛题目cake_bot (30 points)
