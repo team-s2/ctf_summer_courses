@@ -50,13 +50,14 @@ So for those of you who are not aware, it is time to learn some about her legend
 
 Find the following:
 
-The name of her company.
-The name of the first Project Zero bug she was cited on (the colloquial name).
-Her twitter username.
-The name of the influencial CTF team she was pivotal in (not us).
-The award ceremony she ran.
-The conference she attended in 2014 and never stopped going to.
-The abbreviation of the city she lived in and loved.
+1. The name of her company.
+2. The name of the first Project Zero bug she was cited on (the colloquial name).
+3. Her twitter username.
+4. The name of the influencial CTF team she was pivotal in (not us).
+5. The award ceremony she ran.
+6. The conference she attended in 2014 and never stopped going to.
+7. The abbreviation of the city she lived in and loved.
+
 Each answer should be 1 word, lowercase and you should concatonate them in order separated by an underscore. If the answer seems like it may be 2 or more words, then pick the first word or join them into a single word.
 
 For example: midnight{rip_sophia_dantoine_you_absolute_legend}
@@ -66,7 +67,7 @@ If you are moved, or in any way want to support her memory, please consider maki
 RPI (sic) quend (1993 - 2024), you will be missed.
 ```
 
-写出你的解题过程，哪怕答案不对也没有关系，只要能展现你的搜索过程即可，最终会根据解题的完整程度和严谨程度进行评分
+写出你的解题过程，哪怕答案不对也没有关系，只要能展现你的搜索过程即可，最终会根据解题的完整程度和严谨程度进行评分，这里提供 flag 的  md5 结果供同学参考：`39830535d05d1c4621d3310cc3d48322`
 
 ## Bonus 2 (20%)
 
