@@ -1,25 +1,25 @@
-# Crypto Lab 2：AES, RSA & LWE
+# Crypto Lab 公钥密码学
 
 实验需要提交实验报告。每道做出来的题均需要写在实验报告中，否则无法给分。**实验报告需要写出每道题的思路并贴上攻击脚本（payload）**。对于没法完整做出的题，也可以叙述自己的思路和解题过程，会酌情给分。
 
-今年仍旧有**15分的保底分**（可能也会调整），只要提交作业，成功做出任意一题就能拿到，今年的保底分直接加到最后分数中，因此其实你**只需拿到85分就能满了**。本次虽然所有作业总分为155分，不过最多只能获得15分的bonus，加满为止，所以可以合理选取作业题目。
+本次crypto lab涉及的内容大部分是课上讲过的，甚至很多可以通过修改示例程序求解。如果对python和sagemath不够熟悉的话，建议多用搜索引擎，合理利用AI大模型，并多向助教提问
 
-本次crypto lab对python以及sage的要求会比较高，如果认为自己对python的了解还是不够的话，请务必善用搜索引擎，并积极向助教们提问（对于密码学库的问题尽量咨询密码学方向助教，不过其它python相关问题可以询问所有助教）
+本次有一道题目为校巴上的三选一，有一道题目部署在[ZJUCTF](https://ctf.zjusec.com/games/5)平台上，另外还有三道[CryptoHack](https://cryptohack.org/challenges/)上比较简单的入门题，可以在上面提交flag验证是否正确
 
-本次有两道题目部署在[ZJU::CTF](https://ctf.zjusec.com/games/3)平台，有两道为校巴上的题目，另外还有一道[CryptoHack](https://cryptohack.org/challenges/)上的题目，可以在上面提交flag验证是否正确。
+## RSA部分（70分）
+下面是校巴上的题目三选一（40分）：
+[EndlessRSA1](https://zjusec.com/challenges/82)
+[EndlessRSA2](https://zjusec.com/challenges/83)
+[RSA Adventure](https://zjusec.com/challenges/98)
+下面是CryptoHack上的入门题（均为Public Exponent下的题目）：
+[Crossed Wires](https://cryptohack.org/challenges/rsa/)（10分）
+[Everything is Still Big](https://cryptohack.org/challenges/rsa/)（10分）
+[Endless Emails](https://cryptohack.org/challenges/rsa/)（10分）
 
-**\* 声明：由于前两年抄袭现象较为严重，本次作业所有题目都会进行查重，查到就不仅仅是这次Lab得0分了😨**
+## DLP部分（30分）
 
-## AES部分
+[EZDLP](https://ctf.zjusec.com/games/5/challenges)
 
-- 完成课上例题CBC Byte Flip，题目部署在ZJUCTF平台，本题分值为20分
-- 完成课上例题Padding Oracle，部署在ZJUCTF平台上，本题分值为30分
+## Bonus（15分）
 
-## RSA部分
-
-- 完成[校巴](https://zjusec.com)上的[Republican Signature Agency](https://zjusec.com/challenges/84)这道题，学习RSA选择明/密文攻击，分值25分
-- 来道简单的Coppersmith攻击练练手，校巴上的[Crush On Proust](https://zjusec.com/challenges/137)，题目不算太难，但对数学要求较高，本题分值35分
-
-## 格密码
-
-- 来点CryptoHack，[CryptoHack - Post Quantum - Learning With Errors - Noise Cheap](https://cryptohack.org/challenges/post-quantum/#header-lwe-noise-cheap)，本题分值30分
+请列举出除课上讲的之外2-3种RSA或者DLP相关攻击并介绍其原理，最好附带exp（如ECC特定相关攻击）
