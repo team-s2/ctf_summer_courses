@@ -11,6 +11,8 @@
 - [rev lec 1：程序编译 / 工具使用](https://courses.zjusec.com/slides/rev-lec1/)
 - [rev lec 2：游戏 / 异架构逆向](https://courses.zjusec.com/slides/rev-lec2/)
 - [crypto lec 1：消息加密 / 数字签名](https://courses.zjusec.com/slides/crypto-lec1/)
+- [crypto lec 2：公钥密码学](https://courses.zjusec.com/slides/crypto-lec2/)
+- [crypto lec 3：格密码](https://courses.zjusec.com/slides/crypto-lec3/)
 - [web lec 2：用户侧攻击](https://courses.zjusec.com/slides/web-lec2/)
 - [pwn lec 2：rop / fsb](https://courses.zjusec.com/slides/pwn-lec2/)
 
