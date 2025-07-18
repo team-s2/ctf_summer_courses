@@ -1,0 +1,22 @@
+from Crypto.Util.number import *
+from Crypto.Cipher import AES
+from hashlib import md5
+from secret import flag
+
+def pad(x, length):
+    return x + (length - len(x) % length) * b'\x00'
+
+p = 960494008017250155494739990397196249930200062145145133132556398221074529657304218221253517153928380265486339083177542201148993799925721673833333778621388110957986908045712612233794551809
+x = getPrime(500)
+g = 3
+c = pow(g, x, p)
+
+aes = AES.new(key = md5(str(x).encode()).digest(), mode = AES.MODE_ECB)
+ct = aes.encrypt(pad(flag, 16))
+print(f"c = {c}")
+print(f"ct = {ct}")
+
+'''
+c = 505527904713564983625416248872210831215228354175257237841602581321675204643681129570897695080321118656513647239718859773976453054734892142640867733520305568808093022238369199760987416665
+ct = b'qBS\x84\xfc"\xee$\xb2d\xba\xeb\x00\xf7\xf4\xa4\x91\x90<N\x1a\xb0\xa5>\xdc^\xe3I\xc3\xecc\x1e'
+'''

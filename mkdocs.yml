@@ -22,8 +22,8 @@ nav:
     - "misc lab 3: OSINT & AI": topic/misc-lab3.md
     - "rev lab 2: 游戏/异架构逆向": topic/rev-lab2.md
     - "rev lab 3: 符号执行": topic/rev-lab3.md
-    # - "crypto lab 2: AES, RSA & LWE": topic/crypto-lab2.md
-    # - "crypto lab 3: 离散对数": topic/crypto-lab3.md
+    - "crypto lab 2: 公钥密码学": topic/crypto-lab2.md
+    - "crypto lab 3: 格密码": topic/crypto-lab3.md
     - "web lab 3: 后端漏洞基础": topic/web-lab3.md
     - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
     - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
