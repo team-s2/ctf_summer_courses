@@ -63,6 +63,26 @@ jobs:
           mkdir -p /tmp/2024
           mkdocs build --site-dir /tmp/2024
 
+      # 2) Build 2025-version docs
+      - name: Checkout 2025 version docs
+        uses: actions/checkout@v4
+        with:
+          ref: "2025"
+
+      - name: Install dependencies for 2025 version
+        run: |
+          pip uninstall -y mkdocs mkdocs-material \
+                          mkdocs-material-extensions mkdocs-heti-plugin
+          pip install mkdocs \
+                      mkdocs-material-extensions\
+                      mkdocs-material \
+                      mkdocs-heti-plugin
+
+      - name: Build 2025 version docs
+        run: |
+          mkdir -p /tmp/2025
+          mkdocs build --site-dir /tmp/2025
+
       # 3) Build current master (latest) docs
       - name: Checkout latest (master) version docs
         uses: actions/checkout@v4
