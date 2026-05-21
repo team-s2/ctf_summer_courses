@@ -1,50 +1,50 @@
-site_name: CTF101-Labs-2025
+site_name: CTF101-Labs-2026
 site_url: https://courses.zjusec.com/
 repo_name: ctf_summer_courses
 repo_url: https://github.com/team-s2/ctf_summer_courses/
 edit_uri: tree/master/docs
-copyright: Copyright &copy; 2024-2025 ZJU AAA
+copyright: Copyright &copy; 2024-2026 ZJU AAA
 
 nav:
   - 首页: index.md
   # - 工具部分:
     # - "相关工具的介绍和使用": intro/tools.md
-  - 导论部分:
+  # - 导论部分:
     - "general lab 0: 基础知识及技能": intro/lab0.md
-    - "web lab 1: 计算机网络基础": intro/web-lab1.md
-    - "misc lab 1: 编解码及流量取证": intro/misc-lab1.md
-    - "rev lab 1: Rev 基础": intro/rev-lab1.md
-    - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
-    - "crypto lab 1: 消息加密和数字签名": intro/crypto-lab1.md
-  - 专题部分:
-    - "web lab 2: 用户侧攻击": topic/web-lab2.md
-    - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
-    - "misc lab 3: OSINT & AI": topic/misc-lab3.md
-    - "rev lab 2: 游戏/异架构逆向": topic/rev-lab2.md
-    - "rev lab 3: 符号执行": topic/rev-lab3.md
-    - "crypto lab 2: 公钥密码学": topic/crypto-lab2.md
-    - "crypto lab 3: 格密码": topic/crypto-lab3.md
-    - "web lab 3: 后端漏洞基础": topic/web-lab3.md
-    - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
-    - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
+    # - "web lab 1: 计算机网络基础": intro/web-lab1.md
+    # - "misc lab 1: 编解码及流量取证": intro/misc-lab1.md
+    # - "rev lab 1: Rev 基础": intro/rev-lab1.md
+    # - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
+    # - "crypto lab 1: 消息加密和数字签名": intro/crypto-lab1.md
+  # - 专题部分:
+    # - "web lab 2: 用户侧攻击": topic/web-lab2.md
+    # - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
+    # - "misc lab 3: OSINT & AI": topic/misc-lab3.md
+    # - "rev lab 2: 游戏/异架构逆向": topic/rev-lab2.md
+    # - "rev lab 3: 符号执行": topic/rev-lab3.md
+    # - "crypto lab 2: 公钥密码学": topic/crypto-lab2.md
+    # - "crypto lab 3: 格密码": topic/crypto-lab3.md
+    # - "web lab 3: 后端漏洞基础": topic/web-lab3.md
+    # - "pwn lab 2: ROP / FSB": topic/pwn-lab2.md
+    # - "pwn lab 3: glibc heap exploitation": topic/pwn-lab3.md
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md
   #   - "misc lab 2/3 批改反馈": feedback/misc-lab23.md
   - 在线课件:
-    - "课件索引": slides/index.md
+    # - "课件索引": slides/index.md
     # - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
-    - "🔗 misc lec 1: 简介/编解码/流量取证": https://courses.zjusec.com/slides/misc-lec1/
-    - "🔗 misc lec 2: 文件/图像隐写": https://courses.zjusec.com/slides/misc-lec2/
+    # - "🔗 misc lec 1: 简介/编解码/流量取证": https://courses.zjusec.com/slides/misc-lec1/
+    # - "🔗 misc lec 2: 文件/图像隐写": https://courses.zjusec.com/slides/misc-lec2/
     # - "🔗 misc lec 3: 取证/区块链基础": https://courses.zjusec.com/slides/misc-lec3/
-    - "🔗 rev lec 1: 程序编译 / 工具使用": https://courses.zjusec.com/slides/rev-lec1/
-    - "🔗 rev lec 2: 游戏/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
+    # - "🔗 rev lec 1: 程序编译 / 工具使用": https://courses.zjusec.com/slides/rev-lec1/
+    # - "🔗 rev lec 2: 游戏/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
     # - "🔗 rev lec 3: 异架构拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
-    - "🔗 crypto lec 1: 消息加密 / 数字签名": https://courses.zjusec.com/slides/crypto-lec1/
-    - "🔗 crypto lec 2: 公钥密码专题": https://courses.zjusec.com/slides/crypto-lec2/
-    - "🔗 crypto lec 3: 格密码": https://courses.zjusec.com/slides/crypto-lec3/
-    - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
+    # - "🔗 crypto lec 1: 消息加密 / 数字签名": https://courses.zjusec.com/slides/crypto-lec1/
+    # - "🔗 crypto lec 2: 公钥密码专题": https://courses.zjusec.com/slides/crypto-lec2/
+    # - "🔗 crypto lec 3: 格密码": https://courses.zjusec.com/slides/crypto-lec3/
+    # - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
     # - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
-    - "🔗 pwn lec 2: rop / fsb": https://courses.zjusec.com/slides/pwn-lec2/
+    # - "🔗 pwn lec 2: rop / fsb": https://courses.zjusec.com/slides/pwn-lec2/
   # - 附加材料:
     # - "连接校内网做题指南": extra/proxy.md
 
