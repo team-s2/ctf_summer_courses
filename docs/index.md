@@ -35,7 +35,7 @@
 ## 历年归档
 
 !!! warning "历史遗迹"
-   本网站可能有一些能通过链接访问但没有公开在导航栏的 Lab 文档，这些 Lab 均为还未修改的 2025 年版本，后续会有很大更改，在实验发布前提前访问这些页面是无意义的。
+    本网站可能有一些能通过链接访问但没有公开在导航栏的 Lab 文档，这些 Lab 均为还未修改的 2025 年版本，后续会有很大更改，在实验发布前提前访问这些页面是无意义的。
 
 - [`2022`](https://github.com/team-s2/ctf_summer_courses/tree/2022)：无在线网站，内容见 [ctf_summer_courses `2022` 分支](https://github.com/team-s2/ctf_summer_courses/tree/2022)
 - [`2023`](https://github.com/team-s2/ctf_summer_courses/tree/2023)：<https://courses.zjusec.com/2023/>
