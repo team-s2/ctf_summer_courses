@@ -2,7 +2,7 @@ name: Deploy to Pages
 
 on:
   push:
-    branches: ["master", "2023", "2024"]
+    branches: ["master", "2023", "2024", "2025"]
   workflow_dispatch:
 
 permissions:
@@ -63,7 +63,7 @@ jobs:
           mkdir -p /tmp/2024
           mkdocs build --site-dir /tmp/2024
 
-      # 2) Build 2025-version docs
+      # 3) Build 2025-version docs
       - name: Checkout 2025 version docs
         uses: actions/checkout@v4
         with:
@@ -98,9 +98,10 @@ jobs:
         run: |
           mkdocs build --site-dir site
           # copy versioned outputs into the final site
-          mkdir -p site/2023 site/2024 site/slides
+          mkdir -p site/2023 site/2024 site/2025 site/slides
           mv /tmp/2023/* site/2023
           mv /tmp/2024/* site/2024
+          mv /tmp/2025/* site/2025
           # build/move slides
           slides/build build
           [ -d slides/dist ] && mv slides/dist/* site/slides || true

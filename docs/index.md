@@ -17,7 +17,7 @@
 - **邮件标题**："【2026 CTF 短学期报名】*姓名* *学号*" *专业*"
 - **邮件内容**：个人信息（姓名、学号、专业、联系方式、QQ 等），以及其他任何你想和我们传递的信息
 - **邮件附件**：PDF 格式的 [Lab 0](intro/lab0.md) 实验报告或个人简历至少一个
-- **截止时间**：**5 月 31 日 23:59**
+- **截止时间**：**6 月 11 日 23:59**
 
 如果出于时间原因无法按时完成 Lab 0，也请不要慌张，可以将未完成的报告同样提交，我们希望看到的是***主动学习的态度* :D**
 
@@ -41,5 +41,6 @@
 - [`2022`](https://github.com/team-s2/ctf_summer_courses/tree/2022)：无在线网站，内容见 [ctf_summer_courses `2022` 分支](https://github.com/team-s2/ctf_summer_courses/tree/2022)
 - [`2023`](https://github.com/team-s2/ctf_summer_courses/tree/2023)：<https://courses.zjusec.com/2023/>
 - [`2024`](https://github.com/team-s2/ctf_summer_courses/tree/2024)：<https://courses.zjusec.com/2024/>
+- [`2025`](https://github.com/team-s2/ctf_summer_courses/tree/2025)：<https://courses.zjusec.com/2025/>
 
-PS：本网站可能有一些能通过链接访问但没有公开在导航栏的 Lab 文档，这些 Lab 大部分是还未修改的 2025 年版本，后续还会有很大更改，请不要在实验发布前自行偷跑。
+PS：本网站可能有一些能通过链接访问但没有公开在导航栏的 Lab 文档，这些 Lab 均为还未修改的 2025 年版本，后续会有很大更改，请不要在实验发布前自行偷跑。
