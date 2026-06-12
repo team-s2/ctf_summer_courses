@@ -57,11 +57,16 @@ jobs:
                       mkdocs-material-extensions\
                       mkdocs-material \
                       mkdocs-heti-plugin
+          npm install -g reveal-md
 
       - name: Build 2024 version docs
         run: |
           mkdir -p /tmp/2024
           mkdocs build --site-dir /tmp/2024
+          # build/move slides
+          mkdir -p /tmp/2024/slides
+          slides/build build
+          [ -d slides/dist ] && mv slides/dist/* /tmp/2024/slides/ || true
 
       # 3) Build 2025-version docs
       - name: Checkout 2025 version docs
@@ -69,30 +74,18 @@ jobs:
         with:
           ref: "2025"
 
-      - name: Install dependencies for 2025 version
-        run: |
-          pip uninstall -y mkdocs mkdocs-material \
-                          mkdocs-material-extensions mkdocs-heti-plugin
-          pip install mkdocs \
-                      mkdocs-material-extensions\
-                      mkdocs-material \
-                      mkdocs-heti-plugin
-
       - name: Build 2025 version docs
         run: |
           mkdir -p /tmp/2025
           mkdocs build --site-dir /tmp/2025
+          # build/move slides
+          mkdir -p /tmp/2025/slides
+          slides/build build
+          [ -d slides/dist ] && mv slides/dist/* /tmp/2025/slides/ || true
 
       # 3) Build current master (latest) docs
       - name: Checkout latest (master) version docs
         uses: actions/checkout@v4
-
-      - name: Install dependencies for current version
-        run: |
-          pip uninstall -y mkdocs mkdocs-material \
-                          mkdocs-material-extensions mkdocs-heti-plugin
-          pip install mkdocs-material mkdocs-heti-plugin
-          npm install -g reveal-md
 
       - name: Build current version docs
         run: |
