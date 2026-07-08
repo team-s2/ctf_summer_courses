@@ -391,7 +391,6 @@ x86-64
 - 参见 "[lec1] sbof1"
 - 尝试触发access granted
 - 本地运行并触发bug
-- 与远程交互并获取flag
 
 <!-- v -->
 <!-- .slide: data-background="./pwn-lec2/background-pure.png" -->
@@ -399,7 +398,6 @@ x86-64
 - 参见 "[lec1] sbof2"
 - 尝试逆向并找到bug，如何劫持控制流到后门函数？
 - 本地运行并触发bug
-- 与远程交互并获取flag
 
 <!-- v -->
 <!-- .slide: data-background="./pwn-lec2/background-pure.png" -->
@@ -419,22 +417,30 @@ x86-64
 - 参见 "[lec1] sbof3"
 - 尝试逆向并找到bug，开启了程序基址随机化后如何破局？
 - 本地运行并触发bug
-- 与远程交互并获取flag
+
+<!-- v -->
+<!-- .slide: data-background="./pwn-lec2/background-pure.png" -->
+## Talk is less...sbof4
+- 参见 "[lec1] sbof4"
+- 不同架构下的stack overflow
+- AArch64,MIPS32,RISCV64架构下的函数调用和栈帧布局有什么区别？
 
 
 <!-- s -->
 <!-- .slide: data-background="./pwn-lec2/background-pure.png" -->
 ## 作业
 
-共4道练习题
+共5道练习题
 
 1.**nocrash+loginme+injectme** 20pts
 
-2.**Alpha** 20pts
+2.**sbof4** 10pts
 
-3.**sbofsc** 30pts
+3.**Alpha** 20pts
 
-4.**sbuf** 30pts
+4.**sbofsc** 20pts
+
+5.**sbuf** 30pts
 
 
 具体要求后续会发布在课程网站

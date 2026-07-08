@@ -2,51 +2,48 @@
 
 本节 Lab 由以下部分组成：
 
-- [Task 1: nocrash 赛题](#task-1-10)
-- [Task 2: login_me 赛题](#task-2-30)
-- [Task 3: inject_me 赛题](#task-3-30)
-- [Task 4: sbofsc 赛题](#task-4-30)
-- [Bonus](#bonus-15)
+- [Task 1: nocrash/login_me/inject_me/bypass_me](#task-1-20)
+- [Task 2: Alpha](#task-2-20)
+- [Task 3: sbofsc 赛题](#task-3-30)
+- [Task 4: buf 赛题](#task-4-30)
 
-## Task 1 (10%)
+## Task 1 (20%)
 
-课上作为引子的 `nocrash` 赛题，请通过其熟悉远程攻击，取得 flag
+复现，并完成课上讲解的 `nocrash` `login_me` `inject_me` `bypass_me` 赛题，取得 flag
 
-- `[lec1] pwn nocrash` 题目位于比赛平台上
-
-请在报告中附上漏洞分析以及做法，给出成功拿到 flag 的截图，并将攻击代码以附件形式上传
-
-## Task 2 (30%)
-
-复现，并完成课上讲解的 `login_me` 赛题，取得远程的 flag
-
-- `[lec1] pwn login_me` 题目位于比赛平台上
+- 题目均位于比赛平台上
 
 请在报告中附上漏洞分析以及做法，给出成功拿到 flag 的截图，并将攻击代码以附件形式上传
 
-## Task 3 (30%)
+## Task 2 (10%)
 
-课上讲解的 `inject_me` 赛题，请实现
+对比课上讲解的sbof4程序在四种架构（x86-64, AArch64, RISCV64, MIPS）下的栈帧布局，给出详细的GDB截图，标出栈上关键字段（如返回地址、局部变量、参数等），并对不同架构的函数调用ABI区别进行总结（包括参数传递、寄存器使用、栈帧结构等）。
 
-1. 按题目要求实现 5 种功能的 `delegate` 代码，完成后取得flag第一部分 (15 points)
-2. 学习 shellcode (5 points) 并通过 shellcode 攻击拿到远程的 shell，并得到另外的 flag 内容 (15 points)
-
-- `[lec1] pwn inject_me` 题目位于比赛平台上
-
-请在报告中附上漏洞分析以及做法，给出对于你使用的 shellcode 代码的分析（这个代码到底干了啥），给出成功拿到 flag 的截图，并将攻击代码以附件形式上传
-
-## Task 4 (30%)
-
-（课上稍微预告的）题目 `sbofsc` 是栈上缓冲区溢出 + shellcode 的组合题目，请完成该赛题
-
-- `[lab1] pwn sbofsc` 题目位于比赛平台上
-
-## Bonus (+15%)
-
-位于校巴的“超老” shellcode 赛题，在完成以上的基础后，做它一定是砍瓜切菜
-
-- [题目信息](https://zjusec.com/challenges/7)
-
-> 注：这个题是 32 位架构的 shellcode 哦，不要弄错了
+- 题目均位于比赛平台上
 
 请在报告中附上漏洞分析以及做法，给出成功拿到 flag 的截图，并将攻击代码以附件形式上传
+
+## Task 3 (20%)
+
+完成 `Alpha` 赛题，取得远程的 flag
+
+- `[lab 1] Alpha` 题目位于比赛平台上
+- 可以参考的工具： Alphe3, ae ... （你也可以自己实现更高效、shellcode长度更短的算法）
+
+请在报告中附上漏洞分析以及做法，给出对于你使用的 shellcode 代码的分析；给出你生成可见字符shellcode的算法（如果使用了开源工具，请分析此工具使用的算法）；给出shellcode注入后并被成功执行的一系列GDB截图以及成功拿到 flag 的截图，并将攻击代码以附件形式上传
+
+## Task 4 (20%)
+
+完成 `sbofsc` 赛题，请实现
+
+- `[lab 1] sbofsc` 题目位于比赛平台上
+
+请在报告中附上漏洞分析以及做法，给出shellcode注入后并被成功执行的一系列GDB截图以及成功拿到 flag 的截图，并将攻击代码以附件形式上传
+
+## Task 5 (30%)
+
+完成 `sbuf` 赛题，取得flag
+
+- `[lab 1] sbuf` 题目位于比赛平台上
+
+请在报告中附上详细的漏洞分析过程以及做法，给出能够证明你的输入是如何通过每一步的执行最终劫持控制流的GDB过程截图；给出成功拿到 flag 的截图，并将攻击代码以附件形式上传
