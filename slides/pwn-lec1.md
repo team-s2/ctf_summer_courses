@@ -21,7 +21,7 @@ revealOptions:
 
 # pwn basic
 
-张书怀 @z3phyr 2025.7.9
+张书怀 @z3phyr 2026.7.9
 
 </div>
 </div>
@@ -432,7 +432,7 @@ x86-64
 
 共5道练习题
 
-1.**nocrash+loginme+injectme** 20pts
+1.**nocrash+loginme+injectme+bypassme** 20pts
 
 2.**sbof4** 10pts
 
