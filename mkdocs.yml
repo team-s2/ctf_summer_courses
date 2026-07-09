@@ -14,7 +14,7 @@ nav:
     # - "web lab 1: 计算机网络基础": intro/web-lab1.md
     # - "misc lab 1: 编解码及流量取证": intro/misc-lab1.md
     # - "rev lab 1: Rev 基础": intro/rev-lab1.md
-    # - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
+    - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
     # - "crypto lab 1: 消息加密和数字签名": intro/crypto-lab1.md
   # - 专题部分:
     # - "web lab 2: 用户侧攻击": topic/web-lab2.md
@@ -30,7 +30,7 @@ nav:
   # - 反馈部分:
   #   - "misc lab 1 批改反馈": feedback/misc-lab1.md
   #   - "misc lab 2/3 批改反馈": feedback/misc-lab23.md
-  # - 在线课件:
+  - 在线课件:
     # - "课件索引": slides/index.md
     # - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
     # - "🔗 misc lec 1: 简介/编解码/流量取证": https://courses.zjusec.com/slides/misc-lec1/
@@ -44,6 +44,7 @@ nav:
     # - "🔗 crypto lec 3: 格密码": https://courses.zjusec.com/slides/crypto-lec3/
     # - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
     # - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
+     - "🔗 pwn lec 1: Pwn基础": https://courses.zjusec.com/slides/pwn-lec1/
     # - "🔗 pwn lec 2: rop / fsb": https://courses.zjusec.com/slides/pwn-lec2/
   # - 附加材料:
     # - "连接校内网做题指南": extra/proxy.md
