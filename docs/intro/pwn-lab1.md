@@ -3,9 +3,10 @@
 本节 Lab 由以下部分组成：
 
 - [Task 1: nocrash/login_me/inject_me/bypass_me](#task-1-20)
-- [Task 2: Alpha](#task-2-20)
-- [Task 3: sbofsc 赛题](#task-3-30)
-- [Task 4: buf 赛题](#task-4-30)
+- [Task 2: sbof4](#task-2-10)
+- [Task 3: Alpha](#task-2-20)
+- [Task 4: sbofsc 赛题](#task-3-20)
+- [Task 5: buf 赛题](#task-4-30)
 
 ## Task 1 (20%)
 
@@ -19,9 +20,7 @@
 
 对比课上讲解的sbof4程序在四种架构（x86-64, AArch64, RISCV64, MIPS）下的栈帧布局，给出详细的GDB截图，标出栈上关键字段（如返回地址、局部变量、参数等），并对不同架构的函数调用ABI区别进行总结（包括参数传递、寄存器使用、栈帧结构等）。
 
-- 题目均位于比赛平台上
-
-请在报告中附上漏洞分析以及做法，给出成功拿到 flag 的截图，并将攻击代码以附件形式上传
+请在报告中附上漏洞分析以及做法，给出成功执行后门函数的截图，并将攻击代码以附件形式上传
 
 ## Task 3 (20%)
 
