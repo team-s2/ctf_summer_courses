@@ -4,6 +4,8 @@ separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
 highlightTheme: github
+css:
+    - custom.css
 revealOptions:
     transition: 'slide'
     transitionSpeed: fast
@@ -378,6 +380,7 @@ ghidraRun.bat
 - TEA / XTEA / XXTEA
 - RC4
 - AES / DES
+- “魔改”
 
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
@@ -461,7 +464,7 @@ ghidraRun.bat
 
 - Homework 1：使用 g++ 以及 clang++ 编译 rev_begin.cpp，复现预处理-编译-汇编-链接流程，并使用静态调试（IDA、ghidra 或者其他）以及动态调试（gdb、x64dbg 或者其他）工具进行简单分析
 - Homework 2：逆向 linux 程序 rev_more
-- Homework 3：逆向 windows 程序 hw3
+- Homework 3：逆向 windows 程序 rev_again
 
 
 <!--s-->
