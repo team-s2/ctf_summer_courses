@@ -4,8 +4,6 @@ separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
 highlightTheme: github
-css:
-    - custom.css
 revealOptions:
     transition: 'slide'
     transitionSpeed: fast
@@ -81,13 +79,13 @@ revealOptions:
 <center><h5 style="font-size: 55px; text-align: center;">Reverse基础: 程序编译/工具使用</h5></center>
 <br>
 <br>
-<center><h1 style="font-size: 30px; text-align: center;">2025.7.4</h1></center>
+<center><h1 style="font-size: 30px; text-align: center;">2025.7.10</h1></center>
 <br>
 <center><div class="button-container" >
     <button class="button" onclick="toggleContent()" title = "Click to see more about me">
-        <img src="rev-lec1/avator.jpg" alt="Button Image">  
+        <img src="rev-lec1/avatar.jpg" alt="Button Image">  
     </button>
-    <span>黄一航 @huayi</span>
+    <span>张曹琛 @Das Schloss</span>
 </div></center>
 
 
@@ -113,17 +111,27 @@ revealOptions:
 
 一些需要安装的工具
 
-- linux环境(wsl/vmware)
-- Python环境
-    - z3-solver
-- IDA
-- GDB
+- linux / windows 环境
+- IDA / ghidra
+- gdb (pwndbg plugin)
+- x64dbg / ollydbg
 
 
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
-## 关于逆向
+## 什么是逆向
+
+- 如何生成付费软件的注册码？
+
+- 游戏外挂是怎么做出来的？
+
+- 某些日常使用的 APP 偷偷做了什么？
+
+<!--v-->
+<!-- .slide: data-background="rev-lec1/background.png" -->
+
+## 关于逆向赛题
 
 - 一杯茶、一包薯片、一个逆向做一天😭
 - 赛题加密部分涉及密码学、数学知识；学无止境
@@ -131,22 +139,22 @@ revealOptions:
 - 逆向核心逻辑十分复杂枯燥；学无止境 plus++
 
 - 与开发联系紧密 
-    - 语言 C/C++ Python Java C# Javascript go 以及各种汇编语言
-    - 平台 Linux Windows Macos 跨平台
-    - 架构 x86 ARM
+    - 语言 C/C++ Python Java C# Javascript Go Rust 以及各种汇编语言
+    - 平台 Linux Windows macOS 跨平台
+    - 架构 x86 ARM RISC-V
 
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
 ## 逆向参考资料
+
 - 参考网站
-    - 看雪论坛 https://www.kanxue.com/ 
-    - 吾爱破解 https://www.52pojie.cn/ 
+    - 看雪论坛 https://www.kanxue.com/
+    - 吾爱破解 https://www.52pojie.cn/
     - CTF Wiki https://ctf-wiki.org/
 - 练习平台
-    - ZJU校巴 https://zjusec.com/
-    - BUUCTF https://buuoj.cn/
-    - NSSCTF https://www.nssctf.cn/
+    - ZJU 校巴 https://zjusec.com/
+    - 看雪 KCTF（每年举办） https://ctf.kanxue.com/
 
 
 <!--v-->
@@ -154,23 +162,24 @@ revealOptions:
 
 ## 逆向课内容介绍
 
-- 逆向基础 程序编译执行 工具使用 约束求解等
+- 逆向基础 程序编译执行 逆向工具使用
 
-- 逆向专题1 游戏/异架构逆向
+- 逆向专题1 VM 逆向
 
-- 逆向专题2 自动逆向
+- 逆向专题2 异架构逆向
 
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
 ## 逆向基础课内容
+
 - 预处理、编译、汇编、链接
-- 静态分析工具IDA使用
+- 静态分析工具 IDA ghidra 使用
 - 动态分析工具
     - linux gdb
-    - windows x32dbg/x64dbg Ollydbg
-- 约束求解z3-solver
+    - windows x32dbg/x64dbg
 - 简单介绍
+    - 常见算法
     - 代码混淆
     - 壳
 
@@ -191,10 +200,10 @@ revealOptions:
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
 ## 编译 vs 汇编
+
 - 编译(compile): 高级语言->汇编语言
 - 汇编(assemble): 汇编语言->机器语言
 
-<!-- <img src="figures/compile1.jpg"> -->
 <img src="rev-lec1/compile2.jpg">
 
 
@@ -203,33 +212,63 @@ revealOptions:
 
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
+
 ## 编译(汇编) vs 链接
+
 - 编译(汇编): 从源代码->目标文件
 - 链接: 目标文件->可执行文件
 
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
-## 例0 使用gcc编译hello.c
+
+## 例 0-1 使用 gcc 编译 hello.c
+
 ```sh
 sudo apt install gcc
 ```
+
 - file 查看文件的类型
 - readelf 查看elf文件信息
+
 ```sh
-# 仅预处理； 不要编译、汇编或链接
-gcc -E hello.c -o hello.c.i
+# 仅预处理；不编译、汇编或链接
+gcc -E hello.c -o hello.i
 
-# 只编译； 不要汇编或链接
-gcc -S hello.c
+# 只编译；不汇编或链接
+gcc -S hello.c # -o hello.s
 
-# 编译和汇编，但不链接。
-gcc -c hello.c
+# 编译和汇编，但不链接
+gcc -c hello.c # -o hello.o
 
 # 编译、汇编和链接
 gcc hello.c -o hello
 ```
 
+<!--v-->
+<!-- .slide: data-background="rev-lec1/background.png" -->
 
+## 例 0-2 使用 clang 编译 hello.c
+
+```sh
+sudo apt install clang
+```
+
+clang 是基于 llvm 的编译器，可以获取程序的中间表示形式 LLVM IR
+
+```sh
+# 文本形式的 LLVM IR
+clang -S -emit-llvm hello.c # -o hello.ll
+
+# Bitcode 形式的 LLVM IR
+clang -C -emit-llvm hello.c # -o hello.bc
+
+# LLVM BC -> LLVM IR
+sudo apt install llvm
+llvm-dis hello.bc -o hello.ll
+
+# LLVM BC 分析工具
+llvm-bcanalyzer -dump hello.bc
+```
 
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
@@ -252,17 +291,30 @@ gcc hello.c -o hello
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
-## IDA
+## ghidra
 
-- 常用的快捷键
-    - 反编译 `F5`
-    - 查看字符串 `Shift+F12`
-    - 交叉引用 `x`
-    - 地址跳转 `g`
-  
+开源逆向工具，依赖 JAVA 环境，多平台运行
+
+linux: 
+
+```sh
+sudo apt install openjdk-21-jdk
+./ghidraRun
+```
+
+windows:
+
+```sh
+ghidraRun.bat
+```
+
+具有反编译，字符串搜索等功能
+
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
-## GDB
+
+## gdb
+
 - 原版的gdb使用非常折磨
 - 推荐gef或pwndbg等插件
 - 运行 r
@@ -270,6 +322,7 @@ gcc hello.c -o hello
 - 继续运行 c
 - 步进(进入函数) s/si
 - 步过(跳过函数) n/ni
+- 查看内存和数据 tele / print / x
 - 和 pwntools 的集成
     - gdb.debug(...)
 
@@ -277,44 +330,34 @@ gcc hello.c -o hello
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
-## 例1 lab0 crackme
-- 再次审视一下这个程序的结构 
+## x64dbg
 
+- 常用的快捷键
+    - 下断点 `F2`
+    - 步进 `F7`
+    - 步入 `F8`
+    - 继续运行 `F9`
+- 插件安装（比如：反-反调试）
+    - 官方插件 ScyllaHide
+    - Ollydbg 中有 StrongOD 等相似插件
+  
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
-## 例2 简单的异或
-- [校巴Reverse1](https://zjusec.com/challenges/26)
-```
-a ^ b ^ b == a
+## IDA
 
-```
+- 常用的快捷键
+    - 反编译 `F5`
+    - 查看字符串 `Shift+F12`
+    - 交叉引用 `x`
+    - 地址跳转 `g`
+- 动态调试
+  
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
 ## 休息一下吧
 
-<!--v-->
-<!-- .slide: data-background="rev-lec1/background.png" -->
-
-## 例3 base64
-- HUBUCTF2022 新生赛 simple_RE
-- base64解密
-
-```py
-import base64
-import string
-
-c = "RjS2WUGwWS80U2W1yfB="
-
-s1 = "ZYXABCDEFGHIJKLMNOPQRSTUVWzyxabcdefghijklmnopqrstuvw0123456789+/"
-s2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-
-print(base64.b64decode(c.translate(str.maketrans(s1,s2))))
-```
-
-
-
 <!--s-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
@@ -322,7 +365,7 @@ print(base64.b64decode(c.translate(str.maketrans(s1,s2))))
 <div style="width: 100%">
 
 
-# Part.3 约束求解和z3-solver
+# Part.3 常见算法，代码混淆和壳
 
 </div>
 </div>
@@ -330,46 +373,18 @@ print(base64.b64decode(c.translate(str.maketrans(s1,s2))))
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
-## z3-solver
+## 常见算法
 
-- z3是一个微软研究院开源的theorem prover(定理证明器)，支持位向量、布尔、数组、浮点数、字符串以及其他数据类型。
+- TEA / XTEA / XXTEA
+- RC4
+- AES / DES
 
-```shell
-$ pip3 install z3-solver
-```
-
-- z3求解线性约束方程
-
-```py
-from z3 import *
-x,y,z=Ints('x y z')
-s=Solver()
-s.add(2*x+3*y+z==100)
-s.add(x-y+2*z==-10)
-s.add(x+2*y-z==212)
-print(s.check())
-print(s.model())
-```
-
-
-
-<!--s-->
-<!-- .slide: data-background="rev-lec1/background.png" -->
-
-
-<div class="middle center">
-<div style="width: 100%">
-
-
-# Part.4 代码混淆和壳
-
-</div>
-</div>
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
 ## 代码混淆
-- 混淆->用于增加理解和反编译难度
+
+- 混淆 -> 用于增加理解和反编译难度
 - 花指令（junk code）是一种专门用来迷惑反编译器的指令片段，这些指令片段不会影响程序的原有功能，但会使得反汇编器的结果出现偏差，从而使破解者分析失败。如利用jmp 、call、ret 指令改变执行流
 - 自修改代码（Self-Modified Code）是一类特殊的代码技术，即在运行时修改自身代码，从而使得程序实际行为与反汇编结果不符。
 - 控制流平坦化 ollvm
@@ -390,11 +405,23 @@ print(s.model())
 <!--v-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
+## Masterpiece
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="rev-lec1/masterpiece.png" height=500 width=500>
+</div>
+
+
+<!--v-->
+<!-- .slide: data-background="rev-lec1/background.png" -->
+
 ## 壳
-- 压缩壳: Upx、PECompat
+
+- 压缩壳: upx、PECompat 等
 - 加密壳: VMProtect
-- 自动化工具脱壳
-- 手动脱壳 用动态调试工具如ollydbg
+- 查壳软件（如 DIE, PEiD）
+- 自动化工具脱壳（如 upx, PEiD plugin）
+- 手动脱壳 用动态调试工具（ESP 定律）
 
 <!--s-->
 <!-- .slide: data-background="rev-lec1/background.png" -->
@@ -403,7 +430,7 @@ print(s.model())
 <div style="width: 100%">
 
 
-# Part.5 其他
+# Part.4 其他
 
 </div>
 </div>
@@ -413,19 +440,18 @@ print(s.model())
 <!-- .slide: data-background="rev-lec1/background.png" -->
 
 ## 展望
-- 对于陌生的概念，勤查资料，利用好搜素引擎和AI大模型
 
-- 了解一下idapython脚本
+- LLM 时代，知识获取难度大幅降低，勤查资料，多问问题
 
-- 了解下加壳和脱壳技术
+- ida python 脚本
 
-- 了解常见混淆技术
+- 加壳和脱壳技术
 
-- 了解更多编程语言、架构和平台的逆向 可以从游戏出发（逆向专题1的前瞻）
+- 混淆以及解混淆技术
 
-- 尝试练习一下约束求解工具z3-solver （逆向专题2的前瞻）
+- 更多编程语言、架构和平台的逆向
 
-
+- LLM agent
 
 
 <!--v-->
@@ -433,42 +459,9 @@ print(s.model())
 
 ## 作业 reverse lab1
 
-- 基础：
-    - Challenge 1: 复现hello.c的编译执行流程 撰写操作报告
-    - Challenge 2: 熟悉IDA和GDB的操作 撰写操作报告
-    - Challenge 3: 复现课上的题目例2例3 并在报告中描述思路和流程
-
-- 挑战：
-    - Challenge 4: 完成circuit(用z3-solver) 
-    - Challenge 5: 完成[校巴reverse3](https://zjusec.com/challenges/24) (来试试C# 用ILSpy和线性代数)
-
-
-<!--v-->
-<!-- .slide: data-background="rev-lec1/background.png" -->
-
-## 预告
-
-- 逆向专题1 游戏/异架构逆向 @huayi
-    - 异架构以及不同语言的逆向->本质 各种架构介绍
-    - 游戏逆向->目的 对示例游戏的编写语言、运行平台进行分析
-    - 6502汇编 NES （BeginCTF红白机）
-    - Javascript逆向（JS游戏+代码混淆）
-    - Windows下的游戏逆向（pvz CE）
-    - Python逆向（反编译pyc）
-    - 早期Java游戏
-    - Unity游戏逆向（C# dnspy）
-
-<!--v-->
-<!-- .slide: data-background="rev-lec1/background.png" -->
-
-
-## 预告
-- 逆向专题2 "自动"逆向技巧 @f0rm2l1n 
-    - 引言：人工密集型的逆向过程
-    - 基础：符号执行器基础 - 以 angr 为例
-    - 实战：符号执行用于自动化逆向
-    - 反思：符号执行存在的不足
-    - 拓展：其他"自动"化技巧探讨
+- Homework 1：使用 g++ 以及 clang++ 编译 rev_begin.cpp，复现预处理-编译-汇编-链接流程，并使用静态调试（IDA、ghidra 或者其他）以及动态调试（gdb、x64dbg 或者其他）工具进行简单分析
+- Homework 2：逆向 linux 程序 rev_more
+- Homework 3：逆向 windows 程序 hw3
 
 
 <!--s-->
