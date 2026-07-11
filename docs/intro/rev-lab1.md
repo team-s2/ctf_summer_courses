@@ -2,6 +2,10 @@
 
 本节 Lab 包含 3 道题目，总分为 115 分，多出的 15 分作为本节 Lab 的 bonus
 
+- [Task 1：rev_begin](#task-1rev_begin-57)
+- [Task 2：rev_more](#task-2rev_more-31)
+- [Task 3：rev_again](#task-3rev_again-27)
+
 ## Task 1：rev_begin (57%)
 
 ### Compilation (24%)
@@ -40,7 +44,7 @@
 - 编写代码，连接题目远程环境并解出 flag (5%)
 - 推荐使用 LLM 辅助解题，但需要以截图等方式给出自己与 LLM 的交互过程，且需要在自己理解的基础上编写报告
 
-## Task 3: rev_again (27%)
+## Task 3：rev_again (27%)
 
 本次作业提供了一份 windows gui 可执行文件，请尝试通过逆向解出此题，没有解出也请尽量详细说明自己的尝试过程，会根据过程给予一定分数
 
