@@ -262,7 +262,7 @@ clang 是基于 llvm 的编译器，可以获取程序的中间表示形式 LLVM
 clang -S -emit-llvm hello.c # -o hello.ll
 
 # Bitcode 形式的 LLVM IR
-clang -C -emit-llvm hello.c # -o hello.bc
+clang -c -emit-llvm hello.c # -o hello.bc
 
 # LLVM BC -> LLVM IR
 sudo apt install llvm
