@@ -77,35 +77,40 @@ revealOptions:
 <br>
 <br>
 <br>
-<center><h5 style="font-size: 55px; text-align: center;">crypto 基础：消息加密 / 数字签名</h5></center>
+<center><h5 style="font-size: 55px; text-align: center;">crypto 基础：消息加密</h5></center>
 <br>
 <br>
-<center><h1 style="font-size: 30px; text-align: center;">2025.7.6</h1></center>
+<center><h1 style="font-size: 30px; text-align: center;">2026.7.12</h1></center>
 <br>
 <center><div class="button-container" >
     <button class="button" onclick="toggleContent()" title = "Click to see more about me">
         <img src="crypto-lec1/avator.jpg" alt="Button Image">  
     </button>
-    <span>曹语 @WuYan / 晤言</span>
+    <span>曹语   @WuYan（晤言） · 23级图灵</span>
 </div></center>
 
 <!-- s -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
 
 ## 在正式学习 crypto 之前
-我对 crypto 的印象？
+
+- 匿名留言板 http://wuy4n.com:9999/
+- 你们对 crypto 的印象？
+
 <div class="fragment" style="margin-top: 40px">
 
+我对 crypto 的印象？
 - 简洁、纯粹与优雅 (will be introduced later)
 - 工具
     - basic: `python` + (`pwntools`)
     - advanced: `sage` + (`sympy` + `gmpy2` + `pycryptodome`)
+    - AI?
 
 </div>
 <div class="fragment" style="margin-top: 40px">
 
-- 讨厌->热爱 
-    - 逐步深入理解的过程
+- 讨厌->热爱 (逐步深入理解的过程)
+    - 意义驱动型人格
     - 从根源上明白它(算法) 为什么可以这样存在/存在的意义
 
 </div>
@@ -131,7 +136,7 @@ revealOptions:
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.1 消息加密
+# Part.1 古典密码
 
 </div>
 </div>
@@ -156,7 +161,7 @@ shuffle(t)
 c = ''.join(t)
 ```
 
-- shuffle 的可预测性？（插个眼）
+- shuffle 的可预测性？（python 随机数预测）
 
 </div>
 
@@ -220,7 +225,19 @@ c = ''.join(t)
 - 可攻击性
     - 频率分析 (需要足够长的文本)
     - https://www.quipqiup.com/
-    - Lab0 Challenge 1
+</div>
+
+<!-- v -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
+
+## 跳舞的小人
+
+<img src="crypto-lec1/chal1.png" alt="Dremig is a big turtle" height=400 class="center">
+
+<div class="fragment" style="margin-top: 30px">
+
+- 典型的单表替换 + 图像处理（or 人工标注？）
+
 </div>
 
 <!-- v -->
@@ -251,7 +268,7 @@ c = ''.join(t)
 <div class="fragment" style="margin-top: 30px">
 
 - 仅仅只有26个字母？
-    - 校巴: vigenere
+    - 校巴: vigenere (变种)
 
 <!-- v -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
@@ -280,7 +297,7 @@ assert __import__('re').fullmatch(br'flag\{[!-z]{11}\}',flag) and [is_prime(int(
 - 翻译成 python
 ```python
 flag = int(('flag{'+'?'*11+'}').encode().hex(),16)
-for _ in range(7^7):
+for _ in range(7**7):
     yourinput = int(input('🌌 '))
     is_prime(flag ^ yourinput)
 ```
@@ -299,8 +316,8 @@ is_prime(flag + yourinput)
 ```
 <div class="fragment" style="margin-top: 30px">
 
-- 对某个小质数 p , 可知 (flag + yourinput) mod p != 0 , 即 flag mod p != -yourinput mod p
-- 通过多次输入不同的 yourinput , 可以得到 flag mod p 的值
+- (flag + yourinput)为质数，说明对于任意某个小质数 p , 可知 (flag + yourinput) mod p != 0 , 即 flag mod p != -yourinput mod p
+- 取某个特定小质数 p , 通过多次输入不同的 yourinput , 筛选多个 flag mod p != -yourinput mod p，可以得到 flag mod p 的值
 - 取多对质数 p , 可以通过中国剩余定理得到 flag 的值
 
 </div>
@@ -321,31 +338,80 @@ is_prime(flag + yourinput)
 
 <!-- v -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
+## 冰山一角
+- 京麒 CTF 2026 - onelinecrypto （多项式+格密码）
+```python
+R.<x>=PolynomialRing(GF(3329));h=R.random_element(224);input(flatten([list(choice((-1,1))*h%p) for p,_ in factor(x**256+1)]))==str(h) and print("flag{*}")
+```
+- ZJUCTF 2025 - Fall in love （三行诗+随机数预测）
+```python
+[poem := input("$ "), love := __import__("random").Random(int(poem, 16)), hate := __import__("random").Random(__import__("os").urandom(666)), heart := lambda x: x.randint(1, 1314)]
+assert poem.startswith(b"I love three things: the sun, the moon and you.".hex()) and poem[len(poem) // 2 :].startswith(b"The sun is for the day, the moon is for the night".hex()) and poem.endswith(b"and you forever.".hex())
+print(__import__("i_love_u").flag if all([heart(love) > heart(hate) for _ in range(520)]) else "Hatred blinds us…")
+```
+
+<!-- s -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.2 现代密码
+
+</div>
+</div>
+
+<!-- v -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
 ## 回到我们的主线
 - 现代密码学需要解决古典密码的局限性
 - 可能在不认识的人之间安全地传输信息
     - 需要公认的密码学加/解密算法
 - 克尔克霍夫定律 ： 安全性应该依赖于密钥的秘密，而不是算法的秘密
-- 对称加密（Symmetric Encryption）
-    - 使用相同的密钥进行加密和解密
-    - 例如：AES、DES、RC4
 - 非对称加密（Asymmetric Encryption）
     - 使用一对密钥（公钥和私钥）进行加密和解密
     - 例如：RSA、ECC
-- 哈希函数（Hash Function）
-    - 将任意长度的输入转换为固定长度的输出，且不可逆
-    - 例如：SHA-256、MD5
+- 对称加密（Symmetric Encryption）
+    - 使用相同的密钥进行加密和解密
+    - 例如：AES、DES、RC4
 
 <!-- v -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
-## Some 数学基础
-- 费马小定理 
-    - 如果 p 是素数，a 是整数且 a 不被 p 整除，则有 a^(p-1) ≡ 1 (mod p)
-    - https://zhuanlan.zhihu.com/p/352730090
-- 欧拉定理
-    - 如果 a 和 n 互质，则有 a^φ(n) ≡ 1 (mod n)
-    - φ(n) 是欧拉函数，表示小于 n 且与 n 互质的正整数的个数
-    - https://www.cnblogs.com/1024th/p/11349355.html
+## 对称加密
+- 使用相同的密钥进行加密和解密
+- 分组密码
+    - 将明文分成固定大小的块进行加密
+    - 例如：AES、DES
+    - 明文块 + 密钥 → [加密算法（复杂数学变换）] → 密文块
+    - 密文块 + 密钥 → [解密算法（复杂数学变换）] → 明文块
+- 流密码
+    - 例如：RC4、ChaCha20
+    - 密钥 → [密钥流生成器] → 密钥流  
+    - 明文 ⊕ 密钥流 → 密文
+
+<!-- v -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
+## 流密码一般的攻击方式
+- 密钥 → [密钥流生成器] → 密钥流 
+- 密钥重用？
+    - 明文1 ⊕ 密钥流 → 密文1
+    - 明文2 ⊕ 密钥流 → 密文2
+    - 明文1 ⊕ 明文2 = 密文1 ⊕ 密文2
+- 基于语义分析的攻击（古典密码的频率分析）
+    - TPCTF 2025 Encrypted Chat
+
+<p style="text-align: left; font-size: 30px; margin-top: 30px;">明文 m1 : "A quick brown fox jumps over the lazy dog."</p>
+<p style="text-align: left; font-size: 30px; margin-top: 30px;">明文 m2 : "Hello, my friends from Chana. I'm Alan Walker."</p>
+
+<!-- v -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
+## 非对称加密
+- 不同的密钥
+    - 使用一对密钥（公钥和私钥）进行加密和解密
+    - 公钥 (public key) ：用于加密消息，公开给所有人
+    - 私钥 (private key) ：用于解密消息，只有接收者知道
+- bytes(message) -> int(message) -> int(ciphertext) -> bytes(ciphertext)
+    - 通过引入数学方法来创造更多的可能性
 
 <!-- v -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
@@ -361,6 +427,52 @@ is_prime(flag + yourinput)
 - 解密：m ≡ c^d (mod n)
 - 正确性：
     - m ≡ (m^e)^d (mod n) ≡ m^(e*d) (mod n) ≡ m^(1 + k*φ(n)) (mod n) ≡ m (mod n)
+
+<!-- v -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
+## Some 数学基础
+- 费马小定理 
+    - 如果 p 是素数，a 是整数且 a 不被 p 整除，则有 a^(p-1) ≡ 1 (mod p)
+    - https://zhuanlan.zhihu.com/p/352730090
+- 欧拉定理
+    - 如果 a 和 n 互质，则有 a^φ(n) ≡ 1 (mod n)
+    - φ(n) 是欧拉函数，表示小于 n 且与 n 互质的正整数的个数
+    - https://www.cnblogs.com/1024th/p/11349355.html
+
+<!-- v -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
+
+## 小总结
+- 现代密码学的核心思想
+    - 安全性依赖于密钥的秘密，而不是算法的秘密
+    - 使用数学方法确保加密和解密的正确性
+- 密码学的纯粹性质逐渐显现...
+    - 关注的是算法的缺陷
+
+<div class="fragment" style="margin-top: 30px">
+
+- Why Crypto?
+    - 一切想要通过数学方法隐藏消息的行为都可以称为 crypto 
+    - 数据传输 / 篡改 / 以及拥有者证明
+    - 需要有一种办法证明消息是我发的/我知道的
+
+</div>
+
+<!-- v -->
+<!-- .slide: data-background="crypto-lec1/background.webp" -->
+
+## 数字签名
+- 证明某个消息是由特定的发送者发送的
+- 发送者使用自己的私钥对消息进行签名
+- 接收者使用发送者的公钥验证签名的真实性
+- 著名的数字签名算法
+    - RSA 签名
+    - DSA（数字签名算法）
+    - ECDSA（椭圆曲线数字签名算法）
+- RSA 签名验证
+    - 发送者签名：s ≡ m^d (mod n)
+    - 接收者验证：m' ≡ s^e (mod n)
+    - 如果 m' = m，则签名有效
 
 <!-- v -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
@@ -387,147 +499,47 @@ is_prime(flag + yourinput)
 
 <!-- v -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
-## 对称加密
-- 使用相同的密钥进行加密和解密
-- 分组密码
-    - 将明文分成固定大小的块进行加密
-    - 例如：AES、DES
-    - 明文块 + 密钥 → [加密算法（复杂数学变换）] → 密文块
-- 流密码
-    - 例如：RC4、ChaCha20
-    - 密钥 → [密钥流生成器] → 密钥流  
-    - 明文 ⊕ 密钥流 → 密文
-- 一些可能的加密要求
-
-<!-- v -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
-## 流密码一般的攻击方式
-- 密钥 → [密钥流生成器] → 密钥流 
-- 密钥重用？
-    - 明文1 ⊕ 密钥流 → 密文1
-    - 明文2 ⊕ 密钥流 → 密文2
-    - 明文1 ⊕ 明文2 = 密文1 ⊕ 密文2
-- 基于语义分析的攻击
-    - TPCTF 2025 Encrypted Chat
-
-<p style="text-align: left; font-size: 30px; margin-top: 30px;">明文 m1 : "A quick brown fox jumps over the lazy dog."</p>
-<p style="text-align: left; font-size: 30px; margin-top: 30px;">明文 m2 : "Hello, my friends from Chana. I'm Alan Walker."</p>
-
-
-<!-- v -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
-## 哈希函数
-- 将任意长度的输入转换为固定长度的输出，且不可逆
-- 明文块 + 哈希值 → [哈希函数（复杂数学变换）] → 新哈希值
-- 常见的哈希函数
-    - SHA-256：输出 256 位（32 字节）
-    - SHA-1：输出 160 位（20 字节）
-    - MD5：输出 128 位（16 字节）
-- 安全性要求
-    - 抗碰撞性：难以找到两个不同的输入产生相同的哈希值
-    - 抗预映射性：难以从哈希值反推出原始输入
-- 哈希碰撞攻击
-- 哈希扩展攻击
-
-<!-- v -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
-
-## 小总结
-- 现代密码学的核心思想
-    - 安全性依赖于密钥的秘密，而不是算法的秘密
-    - 使用数学方法确保加密和解密的正确性
-- 密码学的纯粹性质逐渐显现...
-    - 关注的是算法的缺陷
-
-<!-- s -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# Part.2 数字签名
-
-</div>
-</div>
-
-<!-- v -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
 
 ## *零知者证明
 - 证明某个陈述的真实性，而不泄露任何其他信息
+- Schnorr 协议
+    - 设有一个大素数 p 和一个生成元 g
+    - 证明者 Prover 拥有一个秘密 x，使得 y = g^x (mod p)
+    - 证明者想要向验证者 Verifier 证明自己知道 x，而不泄露 x 的值
+        1. Prover 选择一个随机数 r，计算 t = g^r (mod p)，并将 t 发送给 Verifier
+        2. Verifier 选择一个随机挑战 c，并将 c 发送给 Prover
+        3. Prover 计算 s = r + c*x (mod p-1)，并将 s 发送给 Verifier
+        4. Verifier 验证 t * y^c ≡ g^s (mod p)
 - Hash(m) = H
-    - 证明者 Prover 想要证明 m 的哈希值是 H
-- SJTU CTF 2025 ezHalo2
-
-<!-- v -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
-
-## 数字签名
-- 证明某个消息是由特定的发送者发送的
-- 发送者使用自己的私钥对消息进行签名
-- 接收者使用发送者的公钥验证签名的真实性
-- 著名的数字签名算法
-    - RSA 签名
-    - DSA（数字签名算法）
-    - ECDSA（椭圆曲线数字签名算法）
-
-<!-- v -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
-
-## DSA 签名
-- DSA 签名过程
-    - https://www.cnblogs.com/Decisive/p/14607738.html
-
-<div class="fragment" style="margin-top: 30px">
-
-- 校巴 Democratic Signature Agency
-    - 需要了解随机数重用/关联的攻击方式
+    - 证明者 Prover 想要证明 m 的哈希值是 H (SJTU CTF 2025 ezHalo2)
 - 优雅
-
-</div>
 
 <!-- s -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
 
-<div class="middle center">
-<div style="width: 100%">
-
-# Others
-
-</div>
-</div>
-
-<!-- v -->
-<!-- .slide: data-background="crypto-lec1/background.webp" -->
-
-## *随机数预测
-- 让"偶然"变得均匀可靠
-- 猜数字小游戏
-
-    ```python
-    import random
-    while True:
-        secret_number = random.getrandbits(7) + 1  # 生成1到128之间的随机数
-        attempts = 0
-        while attempts < 10:
-            guess = int(input("猜一个1到128之间的数字: "))
-            attempts += 1
-            if guess < secret_number: ...
-            elif guess > secret_number: ...
-            else: ...
-    ```
-    - D3CTF 2025 d3guess
-- shuffle 的可预测性?
+## Others
+- 随机数预测
+- 哈希函数（哈希扩展攻击）
+- 讲讲当下 AI 对密码学的冲击
+    - 越来越多的密码学（数论知识）被放进预训练数据中
+    - （简单/纯粹/优雅）的优点利好 agent 更好更快的解决密码难题
+    - aliyun CTF 线下沙龙 （学术/企业）
 
 <!-- v -->
 <!-- .slide: data-background="crypto-lec1/background.webp" -->
-## 线性同余生成器 (LCG)
-- C语言随机数生成 rand
-- 公式
-    - X_{n+1} = (a * X_n + c) mod m
-    - a, c, m 是常数，X_n 是当前的随机数
-- 破解
-    - https://zer0yu.github.io/2018/11/02/Cracking-LCG/
+
+## Takeaway
+- 基础
+    - 跳舞的小人 10pt (要有从解析图片到单表替换密文再到明文的链路)
+    - 维吉尼亚密码 40 pt 
+- 拓展
+    - RSA 50 pt
+- Bonus 15pt
+    - 驾驭 AI 大师： 用 DeepSeek **单prompt** 完成跳舞的小人从解析图片到单表替换密文。
+    - 自行设计算法： 要有一定的安全性（分析潜在的攻击可能）
+    - 取证大王： 有能力找到去年的文档并完成去年的拓展部分任意一题
+    - 课程评价 （0-3pt）
+
 
 <!-- s -->
 
