@@ -1,13 +1,14 @@
 ---
-title: Share
+title: Misc Basic
 separator: <!-- s -->
 verticalSeparator: <!-- v -->
 theme: simple
 highlightTheme: monokai-sublime
 css:
-    - custom.css
+    - misc-lec1/custom.css
     - dark.css
-background: ./misc-lec1/background.webp
+scripts:
+    - slide-effects.js
 revealOptions:
     transition: 'slide'
     transitionSpeed: fast
@@ -16,124 +17,122 @@ revealOptions:
     width: 1000
 ---
 
-
-
 <style>
 @import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css');
 
-  html * {
-    font-family: 'LXGW WenKai', sans-serif !important;
+html * {
+  font-family: 'LXGW WenKai', sans-serif !important;
 }
-    .button-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-    width: 100%; 
-}
-
-
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;  
-            text-decoration: none;
-            border: 1px solid #ddd;
-            padding: 0; 
-            border-radius: 50%;  
-            width: 85px; 
-            height: 85px; 
-            transition: transform 0.3s ease, border-color 0.3s ease;  
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .button img {
-            width: 100%;  
-            height: 100%;  
-            object-fit: cover;  
-            border-radius: 50%;  
-        }
-
-        .button:hover {
-            transform: scale(1.1);
-            border-color: rgba(0, 123, 255, 0.2);
-            box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2); 
-        }
-
-        .button-container .button-text {
-            position: absolute; 
-            top: 50%;
-            left: 100%;  
-            transform: translateY(-50%); 
-            opacity: 0;  
-            visibility: hidden;  
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            white-space: nowrap; 
-            font-size: 20px;
-        }
-    </style>
-
-<!-- .slide: data-background="" -->
+</style>
 
 <br>
 <br>
 <br>
-
-<center><h5 style="font-size: 55px; text-align: center;">misc 基础：简介 / 编解码 / 流量取证</h5></center>
-
-<br>
 <br>
 
-
-
-
-<center><h1 style="font-size: 30px; text-align: center;">2025.7.3</h1></center>
+<center><h5 style="font-size: 55px; text-align: center;">Misc Basic: 编解码与流量取证</h5></center>
 
 <br>
 
- 
+<div style="display: flex; align-items: center; justify-content: center; gap: 18px;">
+  <img
+    src="misc-lec1/avatar.png"
+    alt="Dremig avatar"
+    style="width: 82px; height: 82px; border-radius: 50%; object-fit: cover; border: 4px solid #f5f5f5; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);"
+  >
+  <h1 style="font-size: 30px; text-align: center; margin: 0;">Dremig / 吴俊铭</h1>
+</div>
+
+<br>
 
 
+<!-- s -->
 
-<center><div class="button-container" >
-    <button class="button" onclick="toggleContent()" title = "Click to see more about me">
-        <img src="./misc-lec1/5517465791fa6af13f966cd28b1426a6.jpg" alt="Button Image">  
-    </button>
-    <span>@Dremig / Dr3m19</span>
-</div></center>
+## About me
+
+<div class="fragment" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 36px; margin-top: 16px; padding-right: 64px;">
+  <ul style="flex: 1 1 auto; margin-top: 10px; font-size: 30px; line-height: 1.55;">
+    <li>吴俊铭 / <a href="https://github.com/Dremig" target="_blank">Dremig</a></li>
+    <li><del>How to read my ID: /ˈdreɪmɪg/</del></li>
+    <li>Computer Science @Turing</li>
+    <li>CTFer@<a href="https://ctftime.org/team/194222">AAA</a>
+      <ul>
+        <li>Web & <del>Misc</del>Forensics & AI</li>
+      </ul>
+    </li>
+    <li>wujunming.dr3m19 @ByteDance</li>
+    <li><del>Member@<a href="https://ctftime.org/team/406719">結束バンド</a></del></li>
+    <li>contact with me by:</li>
+    <ul>
+      <li>email: dr3m19@icloud.com</li>
+      <li>QQ: 1466140007</li>
+    </ul>
+    <li>...</li>
+  </ul>
+
+  <div style="flex: 0 0 330px; padding: 18px 20px 22px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 14px 34px rgba(15, 23, 42, 0.13); color: #20242c;">
+    <img
+      src="misc-lec1/avatar.png"
+      alt="Dremig avatar"
+      style="display: block; width: 236px; height: 236px; margin: 0 auto 22px; border-radius: 50%; object-fit: cover; border: 4px solid #e5e7eb;"
+    >
+    <p style="margin: 0 0 2px; font-size: 33px; line-height: 1.15; font-weight: 700;">Junming Wu</p>
+    <p style="margin: 0 0 24px; font-size: 25px; line-height: 1.2; color: #5b6472;">Dremig · he/him</p>
+    <p style="margin: 0; font-size: 21px; line-height: 1.45;">AI &amp; Sec at ZJU | Curr <strong>@bytedance</strong> | CTFer <strong>@team-s2</strong></p>
+  </div>
+</div>
+
 
 <!-- s -->
 
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.1 什么是 misc？
+# Part.1 What is misc？
 
 </div>
 </div>
 
 <!-- v -->
 
-## 先来看看我的聊天记录里面查查misc有什么
-
-<div style="display: flex; justify-content: space-around;">
-  <img src="./misc-lec1/84efa2e7b8f5c9a260edc45a21deb55b.jpg" alt="wuyan is a big turtle" height=550 width=260>
-  <img src="./misc-lec1/e9b0e63eb3de922ce09cdcb48a4e022e.jpg" alt="wuyan is a big turtle" height=550 width=260>
-  <img src="./misc-lec1/1bc0ef205543876af1cb76c4a5af76e3.jpg" alt="wuyan is a big turtle" height=350 width=260>
+<div class="chaos-board">
+  <div class="fragment chaos-main" style="display: flex; align-items: flex-start; justify-content: space-between; gap: 42px; padding-right: 64px;">
+    <div style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 42px; font-size: 30px; white-space: nowrap;">
+      <p style="margin: 0; line-height: 1.35;">别人：渗透、SRC、CVE、堆风水、密码学</p>
+      <p style="margin: 0; line-height: 1.35;">我：猜谜</p>
+      <p style="margin: 0; line-height: 1.35;">就很...你们懂吧</p>
+    </div>
+    <img
+      src="misc-lec1/misc-guessing.webp"
+      alt="嘉豪 meme"
+      style="display: block; width: 370px; height: 345px; margin: 0; object-fit: cover; object-position: center center; border-radius: 8px; box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);"
+    >
+  </div>
+  <img
+    class="fragment chaos-sticker"
+    data-sfx="slap"
+    src="misc-lec1/web-misc-chat-edited.png"
+    alt="web misc chat"
+    style="--x: 225px; --y: 230px; --w: 500px; --r: -2.5deg; --z: 6;"
+  >
+  <img
+    class="fragment chaos-sticker"
+    data-sfx="slap"
+    src="misc-lec1/misc-out-chat.png"
+    alt="misc out chat"
+    style="--x: 52px; --y: 130px; --w: 470px; --r: 7deg; --z: 7;"
+  >
+  <div class="fragment chaos-triptych" data-sfx="slap" style="--x: 300px; --y: 105px; --r: -3deg; --z: 8; --strip-w: 185px;">
+    <img class="chaos-strip" src="misc-lec1/misc-rant-chat-1.jpg" alt="misc rant chat part 1" style="--dy: 10px; --rr: -2deg;">
+    <img class="chaos-strip" src="misc-lec1/misc-rant-chat-2.jpg" alt="misc rant chat part 2" style="--dy: -8px; --rr: 1.5deg;">
+    <img class="chaos-strip" src="misc-lec1/misc-rant-chat-3.jpg" alt="misc rant chat part 3" style="--dy: 14px; --rr: -1deg;">
+  </div>
 </div>
 
-
-
 <!-- v -->
-
-## 所以，到底什么是misc？
 
 - Miscellaneous 杂的，多种多样的
 - <img src="https://img.shields.io/badge/-MISC-informational?style=flat-square" style="margin: 0; height: 35px; vertical-align: sub;"/> = <img src="https://img.shields.io/badge/-ALL-red?style=flat-square" style="margin: 0; height: 35px; vertical-align: sub;"/> - <img src="https://img.shields.io/badge/-PWN-4d3f3f?style=flat-square" style="margin: 0; height: 35px; vertical-align: sub;"> - <img src="https://img.shields.io/badge/-WEB-blueviolet?style=flat-square" style="margin: 0; height: 35px; vertical-align: sub;"> - <img src="https://img.shields.io/badge/-CRYPTO-orange?style=flat-square" style="margin: 0; height: 35px; vertical-align: sub;"> -  <img src="https://img.shields.io/badge/-REVERSE-inactive?style=flat-square" style="margin: 0; height: 35px; vertical-align: sub;">
-
-
 
 <div class="fragment" style="margin-top: 40px">
 
@@ -147,26 +146,29 @@ revealOptions:
 <div class="fragment" style="margin-top: 35px">
 
 - <span style="display: flex; justify-content: space-between;"><span><ruby>隐写<rp>（</rp><rt>Steganography</rt><rp>）</rp></ruby>、<ruby>取证<rp>（</rp><rt>forensics</rt><rp>）</rp></ruby>、<ruby>OSINT 信息搜集<rp>（</rp><rt>Open Source Intelligence</rt><rp>）</rp></ruby>、<ruby>PPC 编程类<rp>（</rp><rt>Professionally Program Coder</rt><rp>）</rp></ruby></span><span>——&hairsp;&hairsp;传统 misc 题&emsp;</span></span>
-- <span style="display: flex; justify-content: space-between;"><span>游戏类题目（大概也算 PPC）、工具运用类题目</span><span></span></span>
-- <span style="display: flex; justify-content: space-between;"><span>编解码、古典密码</span><span>——&hairsp;&hairsp;不那么 crypto 的 crypto&emsp;</span></span>
-- <span style="display: flex; justify-content: space-between;"><span>网络解谜、网站代码审计</span><span>——&hairsp;&hairsp;不那么 web 的 web&emsp;</span></span>
-- <span style="display: flex; justify-content: space-between;"><span>代码审计、沙箱逃逸</span><span>——&hairsp;&hairsp;不那么 binary 的 binary&emsp;</span></span>
-- <span style="display: flex; justify-content: space-between;"><span>Blockchain、IoT、AI</span><span>——&hairsp;&hairsp;新兴类别题目&emsp;</span></span>
+- <span style="display: flex; justify-content: space-between;"><span>工具运用类题目</span><span></span></span>
+- <span style="display: flex; justify-content: space-between;"><span>编解码、古典密码、Crypto Tricks...</span><span>——&hairsp;&hairsp;不那么 crypto 的 crypto&emsp;</span></span>
+- <span style="display: flex; justify-content: space-between;"><span>网络解谜、Web端代码审计、供应链安全...</span><span>——&hairsp;&hairsp;不那么 web 的 web&emsp;</span></span>
+- <span style="display: flex; justify-content: space-between;"><span>沙箱逃逸、恶意软件分析...</span><span>——&hairsp;&hairsp;不那么 binary 的 binary&emsp;</span></span>
+- <span style="display: flex; justify-content: space-between;"><span>游戏类、协议逆向、客户端安全...</span><span>——&hairsp;&hairsp;不那么 reverse 的 reverse&emsp;</span></span>
+- <span style="display: flex; justify-content: space-between;"><span>Blockchain、IoT、AI...</span><span>——&hairsp;&hairsp;也可以算作是一个单独的领域的题目&emsp;</span></span>
 
 </div>
 
 <!-- v -->
 
-## 来看一些好玩的misc题吧！
+## 一些misc题目的示例
 
 - <a href="https://github.com/USTC-Hackergame/hackergame2023-writeups/blob/master/official/奶奶的睡前%20flag%20故事/README.md"><span style="display: flex; justify-content: space-between;"><span>hackergame2023: 奶奶的睡前 flag 故事</span><span>——&hairsp;&hairsp;图片隐写、信息搜集&emsp;</span></span></a>
-- <span style="display: flex; justify-content: space-between;"><span>DEF CON CTF Qual 2025: 🐱💻🌐</span><span>——&hairsp;&hairsp;信息搜集、代码混淆&emsp;</span></span></a>
-- <span style="display: flex; justify-content: space-between;"><span>ACTF2025: QQQRcode(managed by <strong>結束バンド</strong>)</span><span>——&hairsp;&hairsp;编解码、编程类&emsp;</span></span></a>
-- <a href="https://ctf.zjusec.com/games/4/challenges"><span style="display: flex; justify-content: space-between;"><span>ZJUCTF2024: Minec(re)tf</span><span>——&hairsp;&hairsp;游戏<del>、逆向工程</del>&emsp;</span></span></a>
-- <span style="display: flex; justify-content: space-between;"><span>OpenHarmonyCTF Quals 2025: 智械：双重牢笼</span><span>——&hairsp;&hairsp;AI</del>&emsp;</span></span></a>
-- <span style="display: flex; justify-content: space-between;"><span>SCTF2023: Genshin Impact</span><span>——&hairsp;&hairsp;流量取证、编解码、信息搜集&emsp;</span></span>
-- <a href="https://ctf.zjusec.com/games/5/challenges"><span style="display: flex; justify-content: space-between;"><span>0CTF: numbers</span><span>——&hairsp;&hairsp;信息搜集、工具使用&emsp;</span></span></a>
-- ...
+- <a href="http://ctf.zjusec.net/games/7/challenges#354-Infected-Wires"><span style="display: flex; justify-content: space-between;"><span>BlackHat mea CTF 2025 Final: Infected Wires</span><span>——&hairsp;&hairsp;信息搜集、流量取证&emsp;</span></span></a>
+- <a href="https://ctf.zjusec.net/games/6/challenges#288-%E5%88%AB%E7%AC%91%EF%BC%8C%E4%BD%A0%E6%9D%A5%E4%BD%A0%E4%B9%9F%E8%BF%87%E4%B8%8D%E4%BA%86%E7%AC%AC%E4%BA%8C%E5%85%B3"><span style="display: flex; justify-content: space-between;"><span>ZJUCTF 2025: 别笑，你来你也过不了第二关</span><span>——&hairsp;&hairsp;PPC、pysandbox沙箱逃逸&emsp;</span></span></a>
+- <a href="https://ctf.zjusec.net/games/6/challenges#309-JGS"><span style="display: flex; justify-content: space-between;"><span>ZJUCTF 2025: JGS</span><span>——&hairsp;&hairsp;PPC、游戏类&emsp;</span></span></a>
+- <a href="https://ctf.zjusec.net/games/6/challenges#278-ZJUWLAN-Insecure"><span style="display: flex; justify-content: space-between;"><span>ZJUCTF 2025: ZJUWLAN-Insecure</span><span>——&hairsp;&hairsp;not so reverse&emsp;</span></span></a>
+- <a href="https://ctf.zjusec.net/games/7/challenges#359-%5BLec-1%5D-Warp-Finance"><span style="display: flex; justify-content: space-between;"><span>XCTF 2025 Final: Warp Finance </span><span>——&hairsp;&hairsp;智能合约审计&emsp;</span></span></a>
+- <a href="https://ctf.zjusec.net/games/7/challenges#360-%5BLec-1%5D-perpetuals"><span style="display: flex; justify-content: space-between;"><span>强网杯 2025 Final: perpetuals</span><span>——&hairsp;&hairsp;公链安全、sonlana 0/1day&emsp;</span></span></a>
+- <span style="display: flex; justify-content: space-between;"><span>Aliyun CTF 2026 Quals: Private PD</span><span>——&hairsp;&hairsp;信息搜集/嗅探、not so web&emsp;</span></span></a>
+- <span style="display: flex; justify-content: space-between;"><span>Aliyun CTF 2026 Final: baby agent</span><span>——&hairsp;&hairsp;agent安全、信息搜集&emsp;</span></span></a>
+
 
 <!-- v -->
 
@@ -174,63 +176,41 @@ revealOptions:
 
 透过前面的那些例子你或许也可以看出来……？
 
-- ~~需要提前了解很多东西？~~ 需要勇于尝试学习新东西！
-    - “貌似人人都是 misc 手”
+- ~~需要提前了解很多东西~~ 需要勇于尝试学习新东西
     - 很多时候题目对于选手来说都是全新领域，需要快速入门/快速上手新工具
-- 需要活跃的思维（脑洞），以及跟出题人对上脑电波的运气
-    - “貌似人人都不是 misc 手”
+- 需要活跃的思维（说是脑洞也不为过），以及跟出题人对上脑电波的运气
+    - 当然对上电波这件事情本身也对于技术栈的广度有一定要求
 - 需要一定的编程能力
     - 至少熟练掌握 `Python` 或其他一门语言
       - 为什么推荐使用 `Python`：简洁、优雅而不失功能性
     - 防止用代码实现成为放宽思路的绊脚石
-- 需要多做题多积累经验，尝试出出题站在出题人的角度
-    - misc 朋友日常中经常：“诶，这个好像可以出成题目”
+
+<div class="fragment" data-sfx="slap" style="position: absolute; inset: 0; z-index: 7; pointer-events: none;">
+  <img
+    class="chaos-sticker"
+    src="misc-lec1/code-vs-eyes.png"
+    alt="code vs eyes chat"
+    style="--x: 330px; --y: 250px; --w: 540px; --r: -3deg; --z: 7;"
+  >
+</div>
+
+- 需要多做题多积累经验，尝试站在出题人的角度，自己出一些题
+    - misc 题往往是在一些奇思妙想的尝试中孕育而生的
       - ~~当时`QQQRcode`是我们寝室夜谈时随便乱聊天聊出来的~~
 
+
 <!-- s -->
-
-
 
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.2 Lab0 Review~
+# Part.2 Lab0题目review
 
 </div>
 </div>
-
-<!-- v -->
-
-## Challenge 1
-
-这里有一串被编码过的神秘的字符串，请找出有意义的原字符串（格式为 AAA{...}）
-
-```text
-;cR!f<`MjL9eg<R<bl5:;D9go<,6#?<CUXo<)lXK;cPZ";D9h.=);&:<bu;I9l*Er<A8VO<GYQ"<blqZ<%p0t<bbf5<GY,q;cH@l9kl@B:f0A=
-```
-Hint:
-+ 你可能会需要<a href="https://lab.tonycrane.cc/CyberChef/"><span><span class="heti-spacing"></span>CyberChef</span></a>（<del>而且这里有一个功能可以秒杀这个题目</del>）
-+ 你可能需要了解一些关于<strong><span>Base<span class="heti-spacing"></span></span>系列</strong>编码的特征
 
 
 <!-- v -->
-
-## Challenge 2
-
-下面这张图是 AAA 的 logo。真的……只是一个 logo 吗？其实这张图片中隐藏了一个 flag（格式 AAA{...}），请你找出来。
-
-<div style="display: flex; justify-content: space-around;">
-
-<img src="./misc-lec1/misc_challenge2.png" alt="wuyan is a big turtle" height=175 width=300>
-
-
-</div>
-
-Hint：
-+ flag 被分为了两个部分
-+ 如果你找不到第一部分，~~仔细观察图片~~，这使用了一种最基础的图片隐写技术 LSB 隐写，请自行搜索学习如何破解
-+ 如果你找不到第二部分，请仔细查看文件内容
-
 
 
 <!-- s -->
@@ -271,9 +251,9 @@ Hint：
 
 常见的字符编码：
 
-- ASCII：一共 128 个项，即每个字符可以用一个 7 位的 01 串表示（或一字节）
+- <a href="https://www.asciim.cn/">ASCII</a>：一共 128 个项，即每个字符可以用一个 7 位的 01 串表示（或一字节）
     - 00-1F：控制字符；20-7E：可见字符；7F：控制字符（DEL）
-- Latin-1（ISO-8859-1）：扩展了 ASCII，一共 256 个项
+- <a href="https://www.ecjson.com/article/152.html">Latin-1（ISO-8859-1）</a>：扩展了 ASCII，一共 256 个项
     - 80-9F：控制字符；A0-FF：可见字符
     - 特点：任何字节流都可以用其解码
 - 利用 Unicode 字符集的一系列编码
@@ -285,9 +265,7 @@ Hint：
 
 ## Unicode 字符集与 UTF 编码
 
-参见：https://note.tonycrane.cc/cs/unicode/
-
-- 以平面划分，17 个平面，每个平面 65536 个码位（2 字节）
+- 以平面划分，17 个平面，每个平面 $2^{16}$=65536 个码位（2 字节）
     - 通过码位可以表示为 U+0000 ~ U+10FFFF
     - 可容纳 111w+ 个字符，现有 14w+ 个字符（超过一半为 CJK 字符）
 - UCS（Universal Character Set）：
@@ -299,44 +277,36 @@ Hint：
         - **1110**xxxx **10**xxxxxx **10**xxxxxx
         - **11110**xxx **10**xxxxxx **10**xxxxxx **10**xxxxxx
     - UTF-16：变长编码（2/4），不兼容 ASCII
-
-<!-- v -->
-
-## 乱码的原因
-
-<img style="float: right; margin-right: 40px; margin-top: 0px; margin-bottom: -10px;" width="35%" src="./misc-lec1/chars.webp">
-
-几个字符集不兼容的部分互相编解码，常见的：
-
-- 用 GBK 解码 UTF-8 编码的文本
-- 用 UTF-8 解码 GBK 编码的文本
-- 用 latin-1 解码 UTF-8 编码的文本
-- 用 latin-1 解码 GBK 编码的文本
-- 先用 GBK 解码 UTF-8 编码的文本，再用 UTF-8 解码前面的结果
-- 先用 UTF-8 解码 GBK 编码的文本，再用 GBK 解码前面的结果
-
-这里我们请同学们自行研究，lab 中会用到（后续详细发布），几种推荐的方式：
-
-- CyberChef，通过 Input 和 Output 窗口的字符集设置
-    - 需要注意，CyberChef 的 UTF-8 不会将错误解码替换为 �（非预期）
-- vscode 右下角的编码方案（重新打开/用编码保存）
-- 必要的时候可以使用 python 来进行编解码/进制转换等
-
+- [翔哥的笔记](https://note.tonycrane.cc/cs/unicode/)
 
 <!-- v -->
 
 ## 摩尔斯电码
 
-前面说到的字符编码：01 串 <=> 字符；接下来看另一种：字符 <=> 字符
+<div class="morse-stage">
+  <div class="fragment morse-image-exit" data-fragment-index="0">
+    <img
+      src="misc-lec1/delta-force-morse.jpg"
+      alt="《三角洲行动》中的摩尔斯密码破解界面"
+    >
+  </div>
 
-- 摩尔斯电码（Morse Code）：利用点划（“滴”的时间长短）来表示字符
-    - 点 ·：1 单位；划 -：3 单位
-    - 点划之间间隔：1 单位；字符之间间隔：3 单位；单词之间间隔：7 单位
-- 字符集：A-Z、0-9、标点符号（.:,;?='/!-_"()$&@+）、~~一些电码专用表示~~
-- 表示中文：电码表（一个汉字对应四个数字），数字使用短码发送
-
-<div style="text-align: center; margin-top: 5px;">
-<img src="./misc-lec1/morse.webp" width="55%" style="margin: 0 auto;">
+  <div class="fragment morse-copy-enter" data-fragment-index="0">
+    <p>前面说到的字符编码：01 串 &lt;=&gt; 字符；接下来看另一种：字符 &lt;=&gt; 字符</p>
+    <ul>
+      <li>摩尔斯电码（Morse Code）：利用点划（“滴”的时间长短）来表示字符
+        <ul>
+          <li>点 ·：1 单位；划 -：3 单位</li>
+          <li>点划之间间隔：1 单位；字符之间间隔：3 单位；单词之间间隔：7 单位</li>
+        </ul>
+      </li>
+      <li>字符集：A-Z、0-9、标点符号（.:,;?='/!-_&quot;()$&amp;@+）、<del>一些电码专用表示</del></li>
+      <li>表示中文：电码表（一个汉字对应四个数字），数字使用短码发送</li>
+    </ul>
+    <div class="morse-chart">
+      <img src="misc-lec1/morse.webp" alt="摩尔斯电码表">
+    </div>
+  </div>
 </div>
 
 <!-- v -->
@@ -378,6 +348,45 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 
 <!-- v -->
 
+## ASCII85：一组字符如何还原？
+
+字符表是连续的 `!` 到 `u`，所以一个字符就是一个 85 进制数位：
+
+```text
+digit(c) = ord(c) - ord('!')    # ! -> 0，" -> 1，…，u -> 84
+```
+
+每 5 个字符还原成一个 32 bit 大端整数，再写成 4 个字节：
+
+```text
+value = (((((d0) * 85 + d1) * 85 + d2) * 85 + d3) * 85 + d4)
+bytes = value.to_bytes(4, "big")
+```
+
+例：`>"Vd^` → `[29, 1, 53, 67, 61]` → `0x5a4a5543` → `ZJUC`
+
+<!-- v -->
+
+## 把规则写成解码脚本
+
+```python
+def decode_ascii85(payload: str) -> bytes:
+    out = bytearray()
+    for i in range(0, len(payload), 5):
+        value = 0
+        for c in payload[i:i + 5]:
+            value = value * 85 + ord(c) - ord('!')
+        out += value.to_bytes(4, 'big')
+    return bytes(out)
+```
+
+对 `transmission.log` 中的 `payload` 调用它，即可得到 flag。
+
+> 这里刻意只处理完整的 5 字符分组；真实 ASCII85 还要处理尾块、`z` 和 `<~ ~>`。
+
+
+<!-- v -->
+
 ## More?
 
 - 其他常用编码
@@ -385,14 +394,15 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
     - QR Code 二维码：[note.tonycrane.cc/ctf/misc/qrcode](https://note.tonycrane.cc/ctf/misc/qrcode/)
     - Bar Code 条形码
 - 一些其他好玩的类编码
-    - 北约音标字母 [Wikipedia](https://zh.wikipedia.org/zh/%E5%8C%97%E7%BA%A6%E9%9F%B3%E6%A0%87%E5%AD%97%E6%AF%8D) 
+    - 北约音标字母 [Wikipedia](https://zh.wikipedia.org/zh/%E5%8C%97%E7%BA%A6%E9%9F%B3%E6%A0%87%E5%AD%97%E6%AF%8D)
     - 地点三词编码 What3Words：https://what3words.com/ 常用于osint
-    - <del>让我们永远怀念：[与熊论道](https://tieba.baidu.com/p/9600757754)——&hairsp;&hairsp;佛曰熊说编码加密&emsp;</del>
+    - <del>[与熊论道](https://tieba.baidu.com/p/9600757754)——&hairsp;&hairsp;佛曰熊说编码加密&emsp;</del>
 - 常用的工具
     - CyberChef：https://gchq.github.io/CyberChef/
     - Base 系列爆破：https://github.com/mufeedvh/basecrack/
     - DenCode：https://dencode.com/
     - Ciphey：https://github.com/Ciphey/Ciphey
+
 
 
 <!-- s -->
@@ -410,7 +420,7 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 
 ## 流量取证基础
 
-- 网络流量（-> 回顾**就在昨天的** web 基础）
+- 网络流量（-> 回顾**就在前天的** web 基础）
     - 应用层（HTTP/FTP/...）-> 表示层 -> 会话层（SSL/TLS/...）
     - -> 传输层（TCP/UDP）-> 网络层（IP/ICMP/...）
     - -> 数据链路层 -> 物理层
@@ -456,13 +466,13 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 - 过滤协议：直接输入 tcp/udp/http 等
 - 过滤 ip：ip.addr == xx.xx.xx.xx 或 ip.src ip.dst
 - 过滤端口：tcp.port == 80 或 tcp.srcport tcp.dstport
-- 包长度过滤：frame.len ip.len tcp.len ……
+- 包长度过滤：frame.len ip.len tcp.len ...
 - http 过滤
     - http.request.method == GET
     - http.request.uri == "/index.php"
     - http contains "flag"（相当于搜索功能）
 - 直观感受一下
-    - 本次 lab 中的题目：OpenHarmony CTF 2025 软总线流量分析取证1
+    - <a href="https://ctf.zjusec.net/games/7/challenges#358-%5BLec-1%5D-Baby-Wireshark">Welcome CTF 2025 - Baby Wireshark</a>
 
 <!-- v -->
 
@@ -476,7 +486,7 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
     - 跟踪流，跟踪 TCP 解析 TCP，跟踪 HTTP 可以自动解压 gzip 等
     - 分析请求头、响应头、请求体、响应体等
 - 具体题目示例
-    - 本次 lab 中的题目：SQL 盲注流量分析
+    - <a href="https://ctf.zjusec.net/games/7/challenges#364-%5BLec-1%5D-Baby-Exfil">UofTCTF 2026 – Baby Exfil</a>
 
 
 
@@ -487,8 +497,7 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 - UDP 协议是无连接的，不需要像 TCP 一样三次握手
 - 和 TCP/HTTP 一样直接追踪分析就可以
 - 常见的基于 UDP 的协议：DNS
-- 具体题目示例
-    - 本次 lab 中的题目：dnscap
+- 仅演示：picoCTF 2021 - Wireshark twoo twoo two twoo...
 
 
 <!-- v -->
@@ -525,39 +534,70 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 
 <!-- v -->
 
-- Task 1 二选一，多做无 bonus
-- Challenge 1&2 需全部完成 
+
 - 选做 Bonus，视完成程度加至多15分 Bonus 分数
 - 该 Lab 的总分不会超过115分
 
-1. [基础] Task 1: 乱码情形探究（40 分，二选一）
-    - 具体研究课上提到的六种乱码情况，探究原因
-    - 乱码分析实战——完成 ZJUCTF2023 NATO26
-2. [全做] Challenge 1: GB 系列编码实战（30 分）
-    - 自行搜索学习 GB 系列编码，了解区位码、机内码的概念
-    - 简单的实践 —— 参考 AliyunCTF2024
-3. Challenge 2: 流量取证实战（30分）
-    - **完整**完成课上演示过的，`软总线流量分析取证1` 题目，并记录过程和你对这道题目的理解
-4. Bonus Challenge: crack_zju_wlan（15分）
-5. **Maybe** Bonus: your suggestion for this Lab（**Maybe** 5分 max）
+- 编解码部分（40分）
+
+    - Calculator — 20 分
+    - Transcoded — 20 分
+- 流量取证部分（60 分）
+
+    - Slow Login — 20 分：SQL 注入相关流量取证
+    - Live and Let Die — 20 分：综合流量取证
+    - 怪しい名前解決 — 20 分：DNS 相关取证
+
 
 <!-- v -->
 
 
-## 一些建议
+- Bonus Challenge（最多获得15分）：Beat Dremig
+
+    - 在本课程的所有作业截止提交的ddl之前，找到一道能难倒我的**misc**题
+    - 这道题来源不限，可以是网络上的题目、魔改版的网络上的题目、或者你自己出的题目
+    - 当然大部分题目难不倒我（至少难不倒我的 AI ），因此你也可以附带提交一个搜索报告（AI生成的也行），我会通过多个角度来打分（包括这道题我解出与否、花费的时间、你搜索所使用的trick与effort等）
+    - 这道题必须可提交，或者你需要提交完整的解题步骤来证明这道题可解
+    - 拒绝过于脑洞或者繁琐的题目😫
+    - 如果你自己能够解出这道题但我不行的话，希望你能和我或者Lotus**聊聊**
+    - 我可能使用的AI工具：
+
+        - CodeX with GPT-5.6-sol max
+        - or TraeX with opus-4.8
+        - or grok-build with grok-4.5
+
+
+
+<!-- s -->
+
+## 一些学习的建议
 
 + 对于不懂的地方，采用以下策略来搞懂：
-    - 优先级最高的：查阅网上资料，并与我所讲的内容进行结合
-    - 一些不那么直观的问题：询问大模型 —— DeepSeek r1 、 grok3 ... 
+    - 优先查阅网上资料，并尝试与我所讲的内容进行拟合
+    - 一些不那么直观的问题：询问大模型 —— GPT、Gemini、Claude、Grok 等
     - 循环重复以上过程，直到陷入瓶颈、困境
     - 大胆向我提问，不过拒绝聊天式的问问题，参考[提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md)
-      - 想要聊天我很愿意，但是低效地问问题只会浪费你我的时间
-    - [Maybe]我也解决不了的问题，向我推荐的其他人提问
+    - 我也解决不了的问题，向我推荐的其他人提问
 + 对于"记录过程"(其实就是所谓的"写writeup")，我们推荐：
+    + **是人写的**（这其实是要求）
     + 记录核心代码(如果有注释那最好，没有其实也没关系，但最好有对代码的解释)，if any
     + 记录关键步骤，比如哪条流量中找到了关键信息，同时记录二者，if any
-    + 记录结果，以及提交 flag 成功的截图，if success
+    + 记录结果，以及提交 flag 成功的截图，if succeed
     + 在以上都尽量全面的前提下，尽量精简到让人一眼就看得到关键步骤
+
+
+<!-- v -->
+
+## 对 AI 的看法
+
++ AI 真的很强很强，能够将一个人的生产力提升至少 `5` 倍
++ 个人最常用的模型系列：GPT、Claude、GLM、Deepseek
++ 不管是任何系列，其sota模型都**完完全全**足够cover这节课，乃至这门课的任何内容（有时不那么sota的也足够，比如GPT 5.4、opus 4.6）
+
+    + 所以用它做不出来，有可能是使用的方法存在一些问题
++ 一个选手要学会驾驭 AI，在结合 AI 完成这道题后，你必须也弄懂这道题
+
+    + 不论是在网安，还是任何计算机领域，都应该是这样的
 
 
 <!-- s -->
@@ -566,7 +606,7 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 <br>
 <br>
 
-<center><h5 style="font-size: 55px; text-align: center;">谢谢大家~ 辛苦啦!</h5></center>
+<center><h5 style="font-size: 55px; text-align: center;">Thank you for listening.</h5></center>
 
 <br>
 
@@ -575,7 +615,7 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 <br>
 
 <center>
-    <span>吴俊铭 @Dremig / Dr3m19</span>
+    <span>吴俊铭 @Dremig</span>
 </center>
 
 <br>
@@ -588,8 +628,5 @@ Base-n 系列的本质：字节流 -> 整数 -> n 进制 -> 系数查表
 </center>
 
 <center>
-    <span style="font-size: 22px;">mail: wjm1s@zju.edu.cn</span>
+    <span style="font-size: 22px;">mail: dr3m19@icloud.com</span>
 </center>
-
-
-

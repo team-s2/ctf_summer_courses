@@ -5,5 +5,6 @@
 
 ## 课件列表
 
+- [misc lec 1：编解码与流量取证](https://courses.zjusec.com/slides/misc-lec1/)
 - [rev lec 1：程序编译 / 工具使用](https://courses.zjusec.com/slides/rev-lec1/)
 - [pwn lec 1：pwn basic](https://courses.zjusec.com/slides/pwn-lec1/)

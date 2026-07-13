@@ -5,7 +5,7 @@ shopt -s nullglob
 
 cd "$(dirname "$0")"
 
-REVEALMD_FLAGS="--scripts https://cdn.tonycrane.cc/heti/heti.js,heti_worker.js --template template.html"
+REVEALMD_FLAGS="--scripts https://cdn.tonycrane.cc/heti/heti.js,heti_worker.js,slide-effects.js --template template.html"
 DIST_DIR=${DIST_DIR:-dist}
 
 help() {
