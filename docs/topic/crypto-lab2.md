@@ -1,25 +1,28 @@
-# Crypto Lab 2：公钥密码学
+# Crypto Lab 2：非对称加密与后量子密码
 
-实验需要提交实验报告。每道做出来的题均需要写在实验报告中，否则无法给分。**实验报告需要写出每道题的思路并贴上攻击脚本（payload）**。对于没法完整做出的题，也可以叙述自己的思路和解题过程，会酌情给分。
+!!! warning
 
-本次crypto lab涉及的内容大部分是课上讲过的，甚至很多可以通过修改示例程序求解。如果对python和sagemath不够熟悉的话，建议多用搜索引擎，合理利用AI大模型，并多向助教提问
+    校巴修缮中，部分题目可能暂时无法找到。
 
-本次有一道题目为校巴上的三选一，有一道题目部署在[ZJUCTF](https://ctf.zjusec.com/games/5)平台上，另外还有三道[CryptoHack](https://cryptohack.org/challenges/)上比较简单的入门题，可以在上面提交flag验证是否正确
+本节 Lab 分为必做题目和选做题目。
 
-## RSA部分（70分）
-下面是校巴上的题目三选一（40分）：  
-[EndlessRSA1](https://zjusec.com/challenges/82)  
-[EndlessRSA2](https://zjusec.com/challenges/83)  
-[RSA Adventure](https://zjusec.com/challenges/98)  
-下面是CryptoHack上的入门题（均为Public Exponent下的题目）：  
-[Crossed Wires](https://cryptohack.org/challenges/rsa/)（10分）  
-[Everything is Still Big](https://cryptohack.org/challenges/rsa/)（10分）  
-[Endless Emails](https://cryptohack.org/challenges/rsa/)（10分）
+- 如有疑问，请优先考虑合理使用 AI Agent 向其求教；若无果，可向助教寻求帮助；
+- 报告需要体现人类参与工作的痕迹，若含人量为零则将酌情扣分；
+  - 譬如，若通篇均充斥着「这道题的关键核心不是……而是……——这比……更……」等明显语言风格非人类的 AIGC，没有任何自然人类语言的踪迹，则可能会酌情扣分，请至少使用 `humanizer-academic-zh` 等 skill 与其他模型稍加润色。
 
-## DLP部分（30分）
+祝玩得开心！:P
 
-[EZDLP](https://ctf.zjusec.com/games/5/challenges)
+## 必做题目 (70 pts)
 
-## Bonus（15分）
+- [RSA Adventure](https://zjusec.com/challenges/98) (25 pts)
+- [EZDLP](https://ctf.zjusec.com/games/5/challenges) (15 pts)
+- [EZHNP](https://ctf.zjusec.com/games/5/challenges) (15 pts)
+- [EZCopper](https://ctf.zjusec.com/games/5/challenges) (15 pts)
 
-请列举出除课上讲的之外2-3种RSA或者DLP相关攻击并介绍其原理，最好附带exp（如ECC特定相关攻击）
+## 选做题目 (最高 45 pts)
+
+- [Republican](https://ctf.zjusec.com/games/5/challenges) (15 pts)
+- [Democratic](https://ctf.zjusec.com/games/5/challenges) (15 pts)
+- [DSARevenge](https://ctf.zjusec.com/games/5/challenges) (15 pts)
+- [PRNGStudy Level 4](https://ctf.zjusec.com/games/5/challenges) (15 pts)
+- 告诉教授本节课的助教，你对这一节课程的感受、意见或建议 (请畅所欲言，视真诚程度 5 ~ 15 pts)
