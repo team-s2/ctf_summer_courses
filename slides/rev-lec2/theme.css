@@ -1,0 +1,320 @@
+/* 暖阳余烬 - rev-lec2 专属主题（完全独立，不依赖仓库共享的 custom.css）
+ * 变量集中在 :root，改这里即可联动全部组件。
+ */
+
+/* ---------- 从仓库 custom.css 摘取的基础布局类（本讲实际用到的部分） ---------- */
+.reveal .slides {
+  border: 1.5px #ddd solid;
+  border-radius: 7px;
+  text-align: left;
+  font-weight: 300;
+}
+.reveal section:not(.stack) {
+  padding: 20px 25px;
+  box-sizing: border-box;
+}
+.reveal p, .reveal li, .reveal center {
+  font-size: 26px;
+}
+.reveal table {
+  font-size: 26px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-weight: 700;
+}
+.reveal h1 { font-size: 50px; }
+.reveal h2 { font-size: 48px; }
+.reveal h3 { font-size: 1.15em; }
+.reveal h4 { font-size: 1.05em; }
+.reveal .middle h1 { text-align: center; }
+.reveal ul {
+  margin: 0 0 0 1.5em;
+}
+.reveal li {
+  margin-top: 10px;
+}
+.reveal .center {
+  text-align: center;
+}
+.reveal .middle {
+  height: 660px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+section .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:root {
+  /* 封面渐变（暗橙红 -> 酒红 -> 墨紫） */
+  --cover-stop-1: #a83a1e;
+  --cover-stop-2: #7a2e3a;
+  --cover-stop-3: #3d3563;
+  --cover-text: #fdf6ef;
+  --cover-kicker-bg: rgba(255, 255, 255, 0.14);
+  --cover-kicker-text: #ffd9b0;
+  --cover-dot: #ff9d5c;
+
+  /* 正文页（暖橙木质） */
+  --bg: #fdfbf7;
+  --bg-panel: #ffffff;
+  --ink: #2a2320;
+  --ink-soft: #4a3e35;
+  --ink-faint: #97887c;
+  --accent: #d9531e;
+  --accent-soft: #fbe8d8;
+  --accent-2: #2a5c52;
+  --accent-2-soft: #e7efec;
+  --line: #ecdfd2;
+  --shadow: 0 8px 30px rgba(42, 35, 32, 0.10), 0 2px 8px rgba(42, 35, 32, 0.06);
+}
+
+/* ---------- 覆盖仓库默认底色/标题样式 ---------- */
+.reveal {
+  background: var(--bg);
+}
+.reveal .slides section {
+  background: var(--bg);
+  color: var(--ink);
+}
+.reveal h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  color: var(--ink);
+  font-weight: 800;
+}
+.reveal h1, .reveal h3, .reveal h4 {
+  color: var(--ink);
+}
+.reveal p, .reveal li {
+  color: var(--ink-soft);
+}
+.reveal ::selection {
+  background: var(--accent-soft);
+}
+
+/* ---------- 封面 ---------- */
+.reveal .slides section.cover-slide {
+  background: linear-gradient(120deg, var(--cover-stop-1) 0%, var(--cover-stop-2) 45%, var(--cover-stop-3) 100%) !important;
+  height: 100%;
+  width: 100%;
+  top: 0 !important;
+  left: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+.cover-slide h1, .cover-slide h2, .cover-slide p, .cover-slide li {
+  color: var(--cover-text) !important;
+}
+.cover-slide .kicker {
+  background: var(--cover-kicker-bg);
+  color: var(--cover-kicker-text);
+}
+.cover-slide .meta-corner {
+  position: absolute;
+  right: 60px;
+  bottom: 48px;
+  text-align: right;
+}
+.cover-slide .meta-corner p {
+  font-size: 0.5em;
+  line-height: 1.7;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ---------- Kicker 药丸标签 ---------- */
+.kicker {
+  display: inline-block;
+  font-size: 0.5em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 6px 18px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ---------- 缺口标签方框 notch-box ---------- */
+.notch-box {
+  position: relative;
+  background: var(--bg-panel);
+  border: 1.5px solid var(--box-color, var(--accent));
+  border-radius: 2px;
+  padding: 22px 24px;
+  text-align: left;
+}
+.notch-box .tab {
+  position: absolute;
+  top: -15px;
+  left: 18px;
+  background: var(--bg);
+  padding: 0 10px;
+  font-size: 0.7em;
+  font-weight: 700;
+  color: var(--box-color, var(--accent));
+  white-space: nowrap;
+}
+.notch-box p, .notch-box li {
+  font-size: 0.62em;
+  color: var(--ink-soft);
+}
+.notch-box ul {
+  margin: 4px 0 0 0;
+  padding-left: 1.1em;
+}
+
+/* ---------- 二元对照条 split ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 24px;
+}
+.split .band-a { --box-color: var(--accent); }
+.split .band-b { --box-color: var(--accent-2); }
+.split .arrow {
+  align-self: center;
+  font-size: 1.4em;
+  color: var(--ink-faint);
+}
+
+/* ---------- split 内代码块：淡染底色（Demo B） ---------- */
+.split .notch-box pre {
+  margin: 0;
+  font-family: "SF Mono", Menlo, monospace;
+  font-size: 0.46em;
+  line-height: 1.6;
+  color: var(--ink);
+  padding: 10px 16px;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.split .band-a pre { background: var(--accent-soft); }
+.split .band-b pre { background: var(--accent-2-soft); }
+.split .notch-box pre .cm { color: var(--ink-faint); }
+
+/* ---------- 卡片网格 cards ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 26px 16px;
+  margin-top: 24px;
+}
+.cards .notch-box { --box-color: var(--accent); padding: 16px 18px; }
+.cards .notch-box .tab { font-size: 0.55em; top: -13px; }
+.cards .notch-box li {
+  font-size: 0.5em;
+  color: var(--ink-faint);
+  line-height: 1.5;
+}
+
+/* ---------- 双栏图文 ---------- */
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 20px;
+}
+.cols.wide-right { grid-template-columns: 0.85fr 1.15fr; }
+.cols.wide-left { grid-template-columns: 1.15fr 0.85fr; }
+.cols .notch-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 6px;
+}
+.cols .notch-box li {
+  font-size: 0.6em;
+  line-height: 1.7;
+  padding-left: 18px;
+  position: relative;
+  margin: 8px 0;
+}
+.cols .notch-box li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--box-color, var(--accent));
+}
+.img-placeholder {
+  aspect-ratio: 16/10;
+  border-radius: 4px;
+  border: 1.5px dashed var(--line);
+  background: repeating-linear-gradient(45deg, #f4efe8 0, #f4efe8 10px, #ece4d8 10px, #ece4d8 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  font-size: 0.5em;
+  font-family: "SF Mono", Menlo, monospace;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ---------- 深色代码/流程嵌入框 ---------- */
+.embed-dark {
+  margin-top: 16px;
+  border-radius: 10px;
+  background: #1c1b1f;
+  border: 1px solid #33302c;
+  padding: 18px 22px;
+  color: #d8cfc6;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+.embed-dark p, .embed-dark li, .embed-dark code {
+  color: #d8cfc6;
+  font-size: 0.55em;
+}
+.embed-dark .accent-a { color: #f3a077; }
+.embed-dark .accent-b { color: #6fae9f; }
+
+/* ---------- 图片统一质感 ---------- */
+.reveal section img {
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.reveal section img.no-frame {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+/* ---------- mermaid 容器：限制流程图整体尺寸 ---------- */
+.mermaid-container {
+  max-height: 480px;
+  overflow: hidden;
+}
+.mermaid-container .mermaid svg {
+  max-height: 480px;
+  width: auto !important;
+  max-width: 100%;
+}
+
+/* ---------- caption 图注 ---------- */
+.caption {
+  font-size: 0.42em;
+  color: var(--ink-faint);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ---------- 收尾页 ---------- */
+.closing-slide h2 { color: var(--ink); }

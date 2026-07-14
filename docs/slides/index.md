@@ -7,4 +7,5 @@
 
 - [misc lec 1：编解码与流量取证](https://courses.zjusec.com/slides/misc-lec1/)
 - [rev lec 1：程序编译 / 工具使用](https://courses.zjusec.com/slides/rev-lec1/)
+- [rev lec 2：VM 逆向：造一台机器，拆一台机器](https://courses.zjusec.com/slides/rev-lec2/)
 - [pwn lec 1：pwn basic](https://courses.zjusec.com/slides/pwn-lec1/)
