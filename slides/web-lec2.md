@@ -372,7 +372,7 @@ Content-Security-Policy: script-src
 
 ## Example
 
-<img src="web-lab2/xss-e-1.png" />
+<img src="web-lec2/xss-e-1.png" />
 
 <!--s-->
 
