@@ -1,29 +1,45 @@
-# Pwn Lab 2：ROP / FSB
+# Pwn Lab 2：ROP
 
-本节 Lab 由以下部分组成：
+本节 Lab 分为必做题目和选做题目。
 
-- [Task 1: 平台赛题 easyrop](#task-1-20)
-- [Task 2: 平台赛题 stackpivot](#task-2-30)
-- [Task 3: 思考题 ret2plt revenge](#task-3-20)
-- [Task 4: 校巴赛题 Format String Bug_easy](#task-4-30)
-- [Bonus: 非栈上格式化字符串 / fsb_heap](#bonus-15)
+- 如有疑问优先考虑合理提问 AI，若无果，欢迎向助教寻求帮助
+- 如果提问人数比较多会考虑放出hint
+- 报告需要体现人类参与工作的痕迹，若明显由 AI 完成则将酌情扣分
+- 完成后需要提交报告和 exp 代码
 
-> Note: 如果你最终没能获取到题目 flag，也请在报告中附上你的 exp 以及你所获取到的地址泄露等对漏洞利用有帮助的信息，评分时会酌情给分
+> Note: 如果你最终没能获取到题目 flag，也请附上你的 exp 以及你所获取到的地址泄露等对漏洞利用有帮助的信息，评分时会酌情给分
 
-## Task 1 (20%)
+> 没有思路时多看看每题报告的提交要求
 
-题目名：`[lab2]easyrop`
+## 必做部分 (80 pts)
+
+### 例题复现 (30 pts)
+
+复现，并完成课上讲解的三道例题
+
+[[lab 2] passkey](https://ctf.zjusec.net/games/7/challenges#378)  
+[[lab 2] ret2plt](https://ctf.zjusec.net/games/7/challenges#379)  
+[[lab 2] rop1](https://ctf.zjusec.net/games/7/challenges#380)
 
 提交的报告中**至少**需要包含以下内容：
 
-- canary,程序基地址和libc基地址泄露的思路
+- 信息泄露的思路(如有)
 - 构造rop链的思路
-- 成功拿到 flag 的截图，以及在本次攻击中你所泄露出的内容
-- 完整的 exp 代码
+- 成功拿到 flag 的截图
 
-## Task 2 (30%)
+### easyrop (25 pts)
 
-题目名：`[lab2]stackpivot`
+[[lab 2] easyrop](https://ctf.zjusec.net/games/7/challenges#381)
+
+提交的报告中**至少**需要包含以下内容：
+
+- canary，pie基地址和libc基地址泄露的思路
+- 构造rop链的思路
+- 成功拿到 flag 的截图
+
+### stackpivot (25 pts)
+
+[[lab 2] stackpivot](https://ctf.zjusec.net/games/7/challenges#382)
 
 利用课上讲到的栈迁移技巧完成本题
 
@@ -32,34 +48,32 @@
 - 构造栈迁移的思路
 - 构造攻击rop链的思路
 - 成功拿到 flag 的截图
-- 完整的 exp 代码
 
-## Task 3 (20%)
+## 选做部分 (至多 35 pts)
 
-如果要使用ret2libc的技巧来解决课上的ret2plt一题，应该怎么做？请给出你的思路
+### back to future (20 pts)
+
+[[lab 2] ret2plt](https://ctf.zjusec.net/games/7/challenges#379) 
+
+使用ret2libc的技巧完成课上的ret2plt一题
 
 提交的报告中**至少**需要包含以下内容：
 
 - 完整的思路，包括泄露libc基地址，构造rop链，劫持控制流
-- 攻击可以只通过一次rop完成吗？如果不能，如何在只有一次溢出的情况下多次进行rop？
+- 成功拿到 flag 的截图
+- 你只用一次rop就完成了攻击吗？如果不是，请说明你是如何达成多次rop的
 
-## Task 4 (30%)
+### orw (20 pts)
 
-题目名：[Format String Bug_easy](https://zjusec.com/challenges/3)
+[[lab 2] rop1](https://ctf.zjusec.net/games/7/challenges#380)
 
-> 本题使用的是32位环境，32位下函数参数全部通过栈传递，和课上讲到的略有不同。32位下地址为4字节。
-
-<u>本题要求手动构造格式化字符串的payload，如果使用pwntools的fmtstr_payload函数只能得到15分</u>
+使用orw的技巧完成课上的rop1一题，直接system("/bin/sh")不得分
 
 提交的报告中**至少**需要包含以下内容：
 
-- 完整的利用思路，包括如何构造格式化字符串，如何劫持控制流
+- 完整的利用思路
 - 成功拿到 flag 的截图
-- 完整的 exp 代码
 
-## Bonus (+15%)
+### feedback (5~15 pts)
 
-在以下两个任务中任选一个完成
-
-1. 对于格式化字符串不在栈上的情况，应该如何进行利用(任意地址读写)，请给出思路
-2. 完成校巴赛题[fsb_heap](https://zjusec.com/challenges/77)，给出思路，成功拿到 flag 的截图及exp代码
+谈谈你对本节课的感受、意见或建议（请畅所欲言，视真诚程度 5 ~ 15 pts）
