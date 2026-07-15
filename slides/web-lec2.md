@@ -32,10 +32,6 @@ revealOptions:
 
 <img class="course-background-source" src="web-lec2/crypto-lec2-background.webp" alt="" aria-hidden="true">
 
-Note:
-- 开场先强调：本课讨论的是浏览器安全模型，不是“背 payload”。
-- 所有攻击演示仅在本地靶场或明确授权环境进行。
-
 <!--s-->
 
 <div class="middle center">
@@ -371,6 +367,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 Content-Security-Policy: script-src 
 'sha512-f2i2/bYsn6GoYnvHSQg+/lVe4oAg9thXMp1J49eCWOK47jeiUbwiW8FcFP2IkcLlixnyKyDsu+UJaA7t/L+qhw=='
 ```
+
+<!--v-->
+
+## Example
+
+<img src="web-lab2/xss-e-1.png" />
 
 <!--s-->
 
