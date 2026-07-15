@@ -5,8 +5,8 @@ verticalSeparator: <!--v-->
 theme: simple
 highlightTheme: monokai-sublime
 css:
-  - css/custom.css
-  - css/dark.css
+  - custom.css
+  - dark.css
 revealOptions:
   transition: slide
   transitionSpeed: fast
