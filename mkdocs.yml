@@ -17,7 +17,7 @@ nav:
     - "pwn lab 1: Pwn 基础": intro/pwn-lab1.md
     - "crypto lab 1: 消息加密": intro/crypto-lab1.md
   - 专题部分:
-    # - "web lab 2: 用户侧攻击": topic/web-lab2.md
+    - "web lab 2: 用户侧攻击": topic/web-lab2.md
     # - "misc lab 2: 隐写与其他 misc": topic/misc-lab2.md
     # - "misc lab 3: OSINT & AI": topic/misc-lab3.md
     # - "rev lab 2: 游戏/异架构逆向": topic/rev-lab2.md
@@ -42,7 +42,7 @@ nav:
     - "🔗 crypto lec 1: 消息加密 / 数字签名": https://courses.zjusec.com/slides/crypto-lec1/
     - "🔗 crypto lec 2: 公钥密码专题": https://courses.zjusec.com/slides/crypto-lec2-v1.pdf
     # - "🔗 crypto lec 3: 格密码": https://courses.zjusec.com/slides/crypto-lec3/
-    # - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
+    - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
     # - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
     - "🔗 pwn lec 1: Pwn基础": https://courses.zjusec.com/slides/pwn-lec1/
     # - "🔗 pwn lec 2: rop / fsb": https://courses.zjusec.com/slides/pwn-lec2/
