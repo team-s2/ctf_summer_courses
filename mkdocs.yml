@@ -38,7 +38,7 @@ nav:
     # - "🔗 misc lec 3: 取证/区块链基础": https://courses.zjusec.com/slides/misc-lec3/
     - "🔗 rev lec 1: 程序编译 / 工具使用": https://courses.zjusec.com/slides/rev-lec1/
     # - "🔗 rev lec 2: 游戏/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
-    # - "🔗 rev lec 3: 异架构拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
+    - "🔗 rev lec 3: 异架构 / 游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
     - "🔗 crypto lec 1: 消息加密 / 数字签名": https://courses.zjusec.com/slides/crypto-lec1/
     - "🔗 crypto lec 2: 非对称加密与后量子密码": https://courses.zjusec.com/slides/crypto-lec2-v1.pdf
     # - "🔗 crypto lec 3: 格密码": https://courses.zjusec.com/slides/crypto-lec3/

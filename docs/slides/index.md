@@ -8,6 +8,7 @@
 - [misc lec 1：编解码与流量取证](https://courses.zjusec.com/slides/misc-lec1/)
 - [rev lec 1：程序编译 / 工具使用](https://courses.zjusec.com/slides/rev-lec1/)
 - [rev lec 2：VM 逆向：造一台机器，拆一台机器](https://courses.zjusec.com/slides/rev-lec2/)
+- [rev lec 3：异架构 / 游戏逆向](https://courses.zjusec.com/slides/rev-lec3/)
 - [pwn lec 1：pwn basic](https://courses.zjusec.com/slides/pwn-lec1/)
 - [pwn lec 2：rop](https://courses.zjusec.com/slides/pwn-lec2/)
 - [crypto lec 2：非对称加密与后量子密码](https://courses.zjusec.com/slides/crypto-lec2-v1.pdf)
