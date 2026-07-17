@@ -24,7 +24,7 @@ nav:
     # - "rev lab 3: 符号执行": topic/rev-lab3.md
     - "crypto lab 2: 非对称加密与后量子密码": topic/crypto-lab2.md
     # - "crypto lab 3: 格密码": topic/crypto-lab3.md
-    # - "web lab 3: 后端漏洞基础": topic/web-lab3.md
+    - "web lab 3: 后端漏洞基础": topic/web-lab3.md
     - "pwn lab 2: ROP": topic/pwn-lab2.md
     - "pwn lab 3: Kernel ROP": topic/pwn-lab3.md
   # - 反馈部分:
