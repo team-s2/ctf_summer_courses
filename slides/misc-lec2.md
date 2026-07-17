@@ -5,8 +5,8 @@ verticalSeparator: <!--v-->
 theme: simple
 highlightTheme: monokai-sublime
 css:
-  - css/custom.css
-  - css/dark.css
+  - misc-lec2/custom.css
+  - misc-lec2/dark.css
 revealOptions:
   transition: slide
   transitionSpeed: fast
@@ -26,11 +26,11 @@ revealOptions:
 </div>
 
 <div style="margin-top: -250px; margin-right: 20px; display: flex; justify-content: flex-end; align-items: center;">
-<img style="float: right; border-radius: 50%;" width="8%" src="assets/avatar.webp" alt="@5dbwat4">
+<img style="float: right; border-radius: 50%;" width="8%" src="misc-lec2/avatar.webp" alt="@5dbwat4">
 <h3>@5dbwat4</h3>
 </div>
 
-<img class="course-background-source" src="assets/crypto-lec2-background.webp" alt="" aria-hidden="true">
+<img class="course-background-source" src="misc-lec2/crypto-lec2-background.webp" alt="" aria-hidden="true">
 
 <!--s-->
 
