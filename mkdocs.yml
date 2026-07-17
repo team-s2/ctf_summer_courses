@@ -22,7 +22,7 @@ nav:
     # - "misc lab 3: OSINT & AI": topic/misc-lab3.md
     # - "rev lab 2: 游戏/异架构逆向": topic/rev-lab2.md
     # - "rev lab 3: 符号执行": topic/rev-lab3.md
-    - "crypto lab 2: 公钥密码学": topic/crypto-lab2.md
+    - "crypto lab 2: 非对称加密与后量子密码": topic/crypto-lab2.md
     # - "crypto lab 3: 格密码": topic/crypto-lab3.md
     # - "web lab 3: 后端漏洞基础": topic/web-lab3.md
     - "pwn lab 2: ROP": topic/pwn-lab2.md
@@ -40,7 +40,7 @@ nav:
     # - "🔗 rev lec 2: 游戏/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
     # - "🔗 rev lec 3: 异架构拓展/游戏逆向": https://courses.zjusec.com/slides/rev-lec3/
     - "🔗 crypto lec 1: 消息加密 / 数字签名": https://courses.zjusec.com/slides/crypto-lec1/
-    - "🔗 crypto lec 2: 公钥密码专题": https://courses.zjusec.com/slides/crypto-lec2-v1.pdf
+    - "🔗 crypto lec 2: 非对称加密与后量子密码": https://courses.zjusec.com/slides/crypto-lec2-v1.pdf
     # - "🔗 crypto lec 3: 格密码": https://courses.zjusec.com/slides/crypto-lec3/
     - "🔗 web lec 2: 用户侧攻击": https://courses.zjusec.com/slides/web-lec2/
     # - "🔗 crypto lec 3: 离散对数": https://ljcppp.github.io/mySlides/crypto_2024/site/
