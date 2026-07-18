@@ -19,7 +19,7 @@ nav:
   - 专题部分:
     - "web lab 2: 用户侧攻击": topic/web-lab2.md
     - "misc lab 2: AI Security": topic/misc-lab2.md
-    # - "misc lab 3: OSINT & AI": topic/misc-lab3.md
+    - "misc lab 3: 文件 / 图像 / OSINT": topic/misc-lab3.md
     # - "rev lab 2: 游戏/异架构逆向": topic/rev-lab2.md
     - "rev lab 3: 异架构 / 游戏逆向": topic/rev-lab3.md
     - "crypto lab 2: 非对称加密与后量子密码": topic/crypto-lab2.md
@@ -35,7 +35,7 @@ nav:
     # - "🔗 lec 0: 课程导论": https://courses.zjusec.com/slides/lec0/
     - "🔗 misc lec 1: 简介/编解码/流量取证": https://courses.zjusec.com/slides/misc-lec1/
     - "🔗 misc lec 2: AI Security": https://courses.zjusec.com/slides/misc-lec2/
-    # - "🔗 misc lec 3: 取证/区块链基础": https://courses.zjusec.com/slides/misc-lec3/
+    - "🔗 misc lec 3: 文件 / 隐写 / OSINT": https://courses.zjusec.com/slides/misc-lec3/
     - "🔗 rev lec 1: 程序编译 / 工具使用": https://courses.zjusec.com/slides/rev-lec1/
     # - "🔗 rev lec 2: 游戏/异架构逆向": https://courses.zjusec.com/slides/rev-lec2/
     - "🔗 rev lec 3: 异架构 / 游戏逆向": https://courses.zjusec.com/slides/rev-lec3/

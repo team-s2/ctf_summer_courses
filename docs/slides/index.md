@@ -6,6 +6,8 @@
 ## 课件列表
 
 - [misc lec 1：编解码与流量取证](https://courses.zjusec.com/slides/misc-lec1/)
+- [misc lec 2：AI Security](https://courses.zjusec.com/slides/misc-lec2/)
+- [misc lec 3：文件 / 隐写 / OSINT](https://courses.zjusec.com/slides/misc-lec3/)
 - [rev lec 1：程序编译 / 工具使用](https://courses.zjusec.com/slides/rev-lec1/)
 - [rev lec 2：VM 逆向：造一台机器，拆一台机器](https://courses.zjusec.com/slides/rev-lec2/)
 - [rev lec 3：异架构 / 游戏逆向](https://courses.zjusec.com/slides/rev-lec3/)
