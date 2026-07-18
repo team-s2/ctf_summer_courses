@@ -4,7 +4,7 @@
 
 - [Task 1：Windows 平台游戏修改](#task-1windows)
 - [Task 2：wasm 逆向](#task-2wasm)
-- [Task 3：其他游戏逆向](#task-350)
+- [Task 3：其他游戏逆向](#task-3-50)
 
 ## Task 1：Windows 平台游戏修改
 
