@@ -1,94 +1,117 @@
-# Misc Lab 3：OSINT & AI
+# Misc Lab 3：文件 / 图像 / OSINT
 
-本节 Lab 分为必做和 Bonus 部分：
+## 必做部分 50%
 
-- 必做部分（每题 10 分，共 30 分）
-    - [Homework 1: 图寻](#homework-1-20)（20 分）
-    - [Homework 2: insanity](#homework-2-25)（25 分）
-    - [Homework 3: 对抗攻击](#homework-3-35)（35 分）
-    - [Homework 4: 提示词注入实践](#homework-4-20)（20 分）
-- Bonus 部分，最多可以使本 lab 溢出到 115 分：
-    - [Bonus 1: 上影节](#bonus-1-20)（20 分）
-    - [Bonus 2: 小红书跟踪参数分析](#bonus-2-20)（20 分）
+### Challenge 1: songmingti 10%
 
-对于题目有任何问题都可以在群里提问或者私戳助教，本次 lab 的 ddl 在发布两周半以后即 7 月 31 日晚 23:59，请注意安排时间
+真正的CTF选手，就算我什么都不说，也能找出flag来。
 
-## Homework 1 (20%)
+![songmingti](misc-lab3/songmingti.jpg)
 
-![misc_challenge1](../images/misc_challenge1.jpg)
+> 感觉后面还有东西呢
 
-这是 45gfg9 在韩国拍的一张照片，请回答以下两个问题：
+### Challenge 2: Little "Sister" Bitch 15%
 
-1. 拍摄这张图片时所在位置
-2. 图片中的绿色路牌被遮挡住的右半边的内容是？
+t+pazolite - Little "Sister" Bitch
 
-请将你的答案以及解题思路写在实验报告中，会根据过程给分
+![challenge](misc-lab3/challenge.png)
 
-## Bonus 1 (20%)
+> 首字母很重要啊！
+>
+> 虽然确实也是用那个原理隐写进去的，但是实现上稍微不太一样，不过也能用那个工具做就是了
+>
+> 如果对于得到的东西没啥头绪，可以再翻翻 [去年的课件](https://courses.zjusec.com/2025/slides/misc-lec2/)
 
-![misc_bonus1](../images/misc_bonus1.jpg)
+### Challenge 3: 似乎是什么景区 25%
 
-1. 请写出箭头所指海报上的所有文字
-2. 请推测下一场电影的名称
+![_jingqu](misc-lab3/jingqu.jpg)
 
-需要写出详细的推理过程，如果推理中用到网络资料请给出网站链接，没有过程不得分，第2小问视推理的严谨程度给分
+H2g 旅游时拍摄的一张照片。似乎是什么景区……吗？
 
-## Homework 2 (25%)
+请找出：
 
-搜集网络用户信息也是 OSINT 的一种形式，CTF 赛题中通常会构造一个虚拟的网络身份，并留下各种信息
+1. 照片远端有一家挂着蓝色照片的店铺（在图中用蓝色箭头标出）。它的店名是什么？
+2. 照片近端有一座拱桥，桥头有一个棕色牌子（在图中用红圈标出）。牌子上面写了什么文字？
 
-请完成 Midnight Sun CTF 2024 - insanity，本题是 Hacking For Soju 团队为了纪念 Sophia "quend" d'Antoine 所出的一道 OSINT 题目
+你可以在题目环境中提交形如 `flag{第一题答案_第二题答案}` 的答案以进行验证。
 
-```text
-HFS has never made an OSINT challenge, but for this, we will make an exception. Sophia "quend" d'Antoine is legendary in the industry, community, sub-culture and in this game of CTF. Her reach and influence go back to the very first wargame and CTF communities on the internet and all the way to the high end of the industry.
+请在报告中给出**答案**以及**详细的推理过程**。
 
-She was beloved. She is beloved.
+> 首先尝试把拍摄地点找出来吧
 
-On her way, she always respected the lore and legend of those who came before her, and those who would follow after.
+## 选做部分 最高65%
 
-So for those of you who are not aware, it is time to learn some about her legend, we will keep it light because there is too much to cover.
+很遗憾，某种意义上教考分离也是 misc 不得不品的一环。下面题目的知识点并没有在课上详细讲解，但是会提供足够的引导。请你尝试自学进行解答。
 
-Find the following:
+**你可以选择任意多的题目进行尝试。对于没有成功得到最终答案的题目，我们也会根据你的进度以及展现的努力成果给出部分分数。**
 
-1. The name of her company.
-2. The name of the first Project Zero bug she was cited on (the colloquial name).
-3. Her twitter username.
-4. The name of the influencial CTF team she was pivotal in (not us).
-5. The award ceremony she ran.
-6. The conference she attended in 2014 and never stopped going to.
-7. The abbreviation of the city she lived in and loved.
+### Challenge A: Palette Stego 30%
 
-Each answer should be 1 word, lowercase and you should concatonate them in order separated by an underscore. If the answer seems like it may be 2 or more words, then pick the first word or join them into a single word.
+> 我们课上讲了 PNG 格式有四个标准 chunk：IHDR、PLTE、IDAT、IEND，并且详细讲了其中三个，只有 **PLTE** 没有具体介绍。
+>
+> 实际上这个块的用途是，PNG 有一种颜色模式是调色板模式，这种情况下会使用 PLTE 块存储调色板，具体格式请大家自行了解，然后在 IDAT 中将记录的像素值从原来的每个像素三个字节 RGB 改为一个字节调色板索引。更详细的内容请大家自行搜索相关文章、博客了解。（如果懒得搜的话我这里提供一个标准：[Portable Network Graphics (PNG) Specification (Third Edition)](https://www.w3.org/TR/png-3/)）
+>
+> **EZStego** 隐写是一个针对 GIF 或者使用调色板模式的 PNG 的一种隐写方式。类似 JPEG，它利用人眼对于亮度更敏感的特性，将调色板的颜色按照亮度排序，这样相邻的两个颜色在使用时交换索引视觉差别也不大，用这个方式就可以进行隐写。你可以搜索 “EZStego 隐写” 关键词了解更详细的隐写方法（注意不是 zsteg，那是一个命令行工具）。
 
-For example: midnight{rip_sophia_dantoine_you_absolute_legend}
+下图就是题目，它使用 EZStego 隐写隐藏了 flag：
 
-If you are moved, or in any way want to support her memory, please consider making a donation in her name. Feel free to share with us on discord or twitter.
+![palette](misc-lab3/palette.png)
 
-RPI (sic) quend (1993 - 2024), you will be missed.
-```
+请学习 PLTE chunk 的格式、EZStego 隐写的原理和具体步骤。你需要：
 
-写出你的解题过程，哪怕答案不对也没有关系，只要能展现你的搜索过程即可，最终会根据解题的完整程度和严谨程度进行评分，这里提供 flag 的  md5 结果供同学参考：`39830535d05d1c4621d3310cc3d48322`
+- 完成题目，在比赛平台提交 flag，并在实验报告中写出你的解题思路和具体过程 (10%)
+- 给出你的解题代码 (15%)
 
-## Bonus 2 (20%)
+也就是说，你需要自己编写代码来解出这道题目。使用隐写工具解题只能得到 10% 分数。
 
-分析小红书的跟踪参数，推理出跟踪参数的加密或编码逻辑，并编写反查脚本
+### Challenge B: Time & Power 30%
 
-写出详细的推理过程，视推理的严谨和准确程度给分
+这是 SJTUCTF 2025 的一道题目~~的一部分~~。某个黑客在攻击一台物理设备时，记录了该设备的功率变化。你需要通过这些数据还原出黑客成功攻击设备时的 flag。
 
-!!! warning "声明"
-    完成该题的过程中请尽量避免在未经允许的情况下随意查询同学、网友的账号，且不要随意将编写的解密脚本用于解密他人的分享链接
+请完成题目，在比赛平台上提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
-## Homework 3 (35%)
+> 你可能需要：
+>
+> - 了解本题的背景：**[侧信道攻击](https://zh.wikipedia.org/zh-hans/%E6%97%81%E8%B7%AF%E6%94%BB%E5%87%BB) / [能量分析](https://zh.wikipedia.org/wiki/%E8%83%BD%E9%87%8F%E5%88%86%E6%9E%90)**
+> - 学习用 Python 进行数据的可视化
+>   - 通常使用 **matplotlib** 库：`from matplotlib import pyplot as plt`
+>   - 你可以通过 `plt.plot(...)` 来绘制折线图
+>   - 图片太多？试试用 `plt.savefig(...)` 保存图片之后一起查看
+> - 这道题与 CISCN 2024 的一道题目`Power Trajectory Diagram`相近
+>
 
-课上简要介绍了针对人工智能的对抗攻击方式，请根据上课所学完成部署在 [ZJUCTF](https://ctf.zjusec.com/games/5/challenges) 平台上的 `[misc lec2] ResNet H@cker`，并给出具体解题过程和脚本
+### Challenge C: RURU 30%
 
-## Homework 4 (20%)
+我们在上课提到了 ZIP 伪加密的原理，即将本地文件记录和中央目录记录中的 flags 域的加密位设为 1，这样可以“欺骗”解压软件让它认为这个压缩包是加密的，而实际上内容并没有加密。
 
-课上简单讲述了针对大语言模型的提示词攻击，本项作业需要同学们对当前主流的大语言模型或者基于大语言模型的应用进行提示词注入的尝试
+RURU 是 ZJUCTF 2023 的一道题目。请完成题目，在比赛平台上提交 flag，并在实验报告中写出你的解题思路和具体过程。
 
-- 如 ChatGPT，DeepSeek，Gemini，Kimi 等
-- 可以进行目标劫持，提示词泄露，越狱等多个形式的攻击实践
-- 不一定要成功，许多主流大语言模型的提示词注入难度已经非常大了
-- 尽量展现自己的注入思路，注入过程
+> 你需要了解 **zip 伪加密** / **密码爆破**的相关知识。
+>
 
-完整展现你的实践过程，最终会根据完成的认真程度进行打分
+### Challenge D: Someone's Salty 30%
+
+有人似乎对 GreyCTF Quals 的一道题非常不满，还向参赛者发起了挑战：
+
+![someone's salty](misc-lab3/someones_salty.png)
+
+请沿着他留下的公开信息找到被藏起来的 flag，并在报告中记录完整的调查过程。你的报告至少需要说明：
+
+- 你搜索了哪些关键词或用户名？
+- 你如何确认找到的账号与截图中的人有关？
+- 你如何从一个平台转向下一个平台？
+- flag 最终出现在哪个原始页面？
+
+本题的 flag 格式为 `grey{...}`，调查途中可能会遇到其他形似 flag 的字符串，请注意区分。
+
+> 一些提示：
+>
+> - 人们常常会在不同网站复用同一个用户名。
+>
+> - 有些社交网络并不只运行在一个网站上，而是由许多使用不同域名的实例相互连接。完整账号通常同时包含用户名和实例域名，例如  `@用户名@实例域名`
+
+### Challenge E: Feedback 5%
+
+对本次课程有什么意见或建议？欢迎来反馈一下呀 ~
+
+> 请畅所欲言，AIGC 除外
