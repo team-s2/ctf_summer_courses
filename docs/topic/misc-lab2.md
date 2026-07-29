@@ -25,6 +25,7 @@ https://play.lakera.ai/agent-breaker
 Agent Breaker有10个场景，每个场景有5个Level。
 
 - 解出每个场景的Level 1和Level 2即可获得70分，无法全部解出时按照6分/Level 1，1分/Level 2扣分；
+    - 如果同时选做了Gandalf，则本项最高40分；
 - 选择6个场景，解出每个场景的Level 3即可获得30分，无法全部解出时按照4分/题得分；
 - 解出更多Level 3可以获得4分/题
 - 解出各个场景的Level 4可以获得6分/题；
