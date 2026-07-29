@@ -24,10 +24,12 @@ https://play.lakera.ai/agent-breaker
 
 Agent Breaker有10个场景，每个场景有5个Level。
 
-- 解出每个场景的Level 1和Level 2即可获得40分；
-- 选择6个场景，解出每个场景的Level 3即可获得30分；
-- 解出每个场景的Level 4可以获得6分/题；
-- 解出每个场景的Level 5可以获得10分/题。
+- 解出每个场景的Level 1和Level 2即可获得70分，无法全部解出时按照6分/Level 1，1分/Level 2扣分；
+- 选择6个场景，解出每个场景的Level 3即可获得30分，无法全部解出时按照4分/题得分；
+- 解出更多Level 3可以获得4分/题
+- 解出各个场景的Level 4可以获得6分/题；
+- 解出各个场景的Level 5可以获得10分/题。
+- "You are randomly assigned to an LLM. Difficulty may vary across leagues."，实在不行可以尝试刷新账号看看能不能换到蠢一点的LLM ~~虽然我实测下来区别不大~~
 
 本题上限110分。
 
