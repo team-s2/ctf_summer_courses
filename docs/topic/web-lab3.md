@@ -33,7 +33,7 @@ Flag格式均为`flag{XXX}`。如果找到疑似Flag的字符串但提交显示�
 - 完成 `Passcode++`
   - 本题基于MySQL(严格来说是MariaDB，在做题层面和课上讲的MySQL没有任何区别)
   - 服务端有最基础的注入过滤功能
-  - passcode存储在当前数据库的唯一表的唯一列中，有多条passcode，每条都可使用
+  - passcode存储在当前数据库的唯一表的某一列中，有多条passcode，每条都可使用
   - Flag**不在**数据库中，输入正确的passcode后自动获得
   - 可能需要自动化脚本
 
